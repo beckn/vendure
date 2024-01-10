@@ -1,1 +1,1 @@
-export * from './src/plugin';
+export * from './src/beckn-vendure-plugin';
