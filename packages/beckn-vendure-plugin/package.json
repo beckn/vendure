@@ -1,0 +1,28 @@
+{
+  "name": "@beckn/beckn-vendure-plugin",
+  "version": "1.0.0",
+  "description": "Plugin that allows a Vendure store/marketplace to get onto Beckn network",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "watch": "tsc -p ./tsconfig.build.json --watch",
+    "build": "rimraf lib && tsc -p ./tsconfig.build.json",
+    "lint": "eslint --fix .",
+    "test": "vitest --config ./vitest.config.ts --run"
+  },
+  "homepage": "https://becknprotocol.io/",
+  "author": "Beckn team",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@vendure/common": "^2.1.5",
+    "@vendure/core": "^2.1.5",
+    "rimraf": "^3.0.2",
+    "typescript": "4.9.5"
+  }
+}
