@@ -1,11 +1,13 @@
 /* eslint-disable no-console */
 import { Injectable } from '@nestjs/common';
-import { RequestContext } from '@vendure/core';
+import { EventBus, RequestContext } from '@vendure/core';
+
+import { BecknRequestEvent } from './beckn-request.event';
 
 @Injectable()
 export class WebhookService {
+    constructor(private eventBus: EventBus) {}
     handleRequest(ctx: RequestContext) {
-        console.log('Received Message');
-        console.log(JSON.stringify(ctx.req?.body));
+        this.eventBus.publish(new BecknRequestEvent(ctx));
     }
 }
