@@ -8,3 +8,5 @@ export interface BecknVendurePluginOptions {
     transformationsFolder?: string;
     domainMapFilename?: string;
 }
+
+export type Environment = { [key: string]: string };

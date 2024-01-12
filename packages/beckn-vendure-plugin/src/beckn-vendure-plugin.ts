@@ -7,12 +7,13 @@ import path from 'path';
 import { BecknRequestEvent } from './beckn-request.event';
 import { BECKN_VENDURE_PLUGIN_OPTIONS } from './constants';
 import { GenericHandlerService } from './generic-handler.service';
+import { TransformerModule } from './transformer/transformer.module';
 import { BecknVendurePluginOptions } from './types';
 import { WebhookController } from './webhook.controller';
 import { WebhookService } from './webhook.service';
 
 @VendurePlugin({
-    imports: [PluginCommonModule],
+    imports: [PluginCommonModule, TransformerModule],
     controllers: [WebhookController],
     providers: [
         WebhookService,
