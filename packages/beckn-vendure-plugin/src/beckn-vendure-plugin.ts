@@ -42,8 +42,11 @@ export class BecknVendurePlugin implements OnModuleInit {
     static set_default_options(options: BecknVendurePluginOptions) {
         if (!options.transformationsFolder)
             options.transformationsFolder = path.join(__dirname, '..', '..', 'transformations');
-        if (!options.domainMapFilename)
-            options.domainMapFilename = path.join(options.transformationsFolder, 'domain-map.json');
+        if (!options.domainTransformationsConfigFile)
+            options.domainTransformationsConfigFile = path.join(
+                options.transformationsFolder,
+                'domain-map.json',
+            );
         return options;
     }
 }

@@ -3,7 +3,7 @@ export interface BecknRequest {
     body: any;
 }
 
-export interface BecknRespose {
+export interface BecknResponse {
     headers: { [key: string]: string };
     body: any;
 }
@@ -16,7 +16,24 @@ export interface GraphQLRequest {
 export interface Context {
     env?: { [key: string]: string };
     beckn_request?: BecknRequest;
-    graph_ql_request?: GraphQLRequest;
+    graphql_request?: GraphQLRequest;
     gql_response?: any;
-    beckn_response?: BecknRespose;
+    beckn_response?: BecknResponse;
 }
+
+export interface TransformTaskDef {
+    type: SupportedTransformTasks;
+    args?: { [key: string]: string };
+    condition?: string;
+}
+
+export interface TransformTask {
+    taskDef: TransformTaskDef;
+    preCheck(context: any): Promise<boolean>;
+    run(context: any): Promise<void>;
+}
+
+export type SupportedTransformTasks =
+    | 'create-graphql-query'
+    | 'send-graphql-request'
+    | 'create-beckn-response';

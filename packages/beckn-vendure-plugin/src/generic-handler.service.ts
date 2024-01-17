@@ -8,7 +8,7 @@ import { lastValueFrom, map } from 'rxjs';
 import { axiosErrorHandler } from './common';
 import { BECKN_VENDURE_PLUGIN_OPTIONS, loggerCtx } from './constants';
 import { TransformerService } from './transformer/transformer.service';
-import { BecknRespose } from './transformer/types';
+import { BecknRequest, BecknResponse } from './transformer/types';
 import { BecknVendurePluginOptions, Environment } from './types';
 
 @Injectable()
@@ -19,24 +19,22 @@ export class GenericHandlerService {
     ) {}
 
     async handleEvent(ctx: RequestContext) {
-        if (!ctx.req?.body || !ctx.req.headers) throw Error('Request Context is empty');
-
-        const env: Environment = this._get_environment(ctx);
-        const beckn_request = {
-            headers: this._get_simplified_string_headers(ctx.req.headers),
-            body: ctx.req.body,
-        };
-
-        const beckn_response = await this.transformer.transform(env, beckn_request);
-        if (!beckn_response) throw Error('Could not generate Beckn Response packet');
-
-        const beckn_response_ack = await this._send_response_to_beckn(env, beckn_response);
-        if (!beckn_response_ack) throw Error('Could not send response back to Beckn network');
+        try {
+            const env: Environment = this._get_environment(ctx);
+            const beckn_request = this._get_beckn_request(ctx);
+            const beckn_response = await this.transformer.transform(env, beckn_request);
+            await this._send_response_to_beckn(env, beckn_response);
+        } catch (err: any) {
+            Logger.error(err.message, loggerCtx);
+        }
     }
 
-    async _send_response_to_beckn(env: { [key: string]: string }, beckn_response: BecknRespose) {
+    async _send_response_to_beckn(env: { [key: string]: string }, beckn_response: BecknResponse) {
         // console.log(JSON.stringify(beckn_response, null, 2));
-        const bpp_ps_url = `${this.options.bpp_protocol_server_base_url}/${env.response_endpoint}`;
+        const bpp_ps_url = `${this.options.bpp_protocol_server_base_url}/${
+            beckn_response.body?.context?.action as string
+        }`;
+        // console.log(bpp_ps_url);
         try {
             const httpService = new HttpService();
             const response = await lastValueFrom(
@@ -48,7 +46,7 @@ export class GenericHandlerService {
             );
             return response;
         } catch (err: any) {
-            Logger.info(axiosErrorHandler(err).message, loggerCtx);
+            throw Error(axiosErrorHandler(err).message);
         }
     }
 
@@ -62,15 +60,23 @@ export class GenericHandlerService {
     }
 
     _get_environment(ctx: RequestContext): Environment {
-        if (!ctx.req || !ctx.req.body || !ctx.req.headers) return {};
+        if (!ctx.req || !ctx.req.body || !ctx.req.headers) throw Error('Request Context is empty');
         return {
             host_url: `${ctx.req.protocol || ''}://${ctx.req.headers.host || ''}`,
             bpp_id: this.options.bpp_id,
             bpp_uri: this.options.bpp_uri,
             country: this.options.bpp_country,
             city: this.options.bpp_city,
-            request_endpoint: ctx.req.body.context.action as string,
-            response_endpoint: `on_${ctx.req.body.context.action as string}`,
+            transformationsFolder: this.options.transformationsFolder as string,
+            domainTransformationsConfigFile: this.options.domainTransformationsConfigFile as string,
+        };
+    }
+
+    _get_beckn_request(ctx: RequestContext): BecknRequest {
+        if (!ctx.req || !ctx.req.body || !ctx.req.headers) throw Error('Request Context is empty');
+        return {
+            headers: this._get_simplified_string_headers(ctx.req?.headers),
+            body: ctx.req?.body,
         };
     }
 }

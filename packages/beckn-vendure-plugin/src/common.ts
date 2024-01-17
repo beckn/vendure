@@ -19,3 +19,7 @@ export const axiosErrorHandler = (error: any) => {
         return { message: error.message };
     }
 };
+
+export const assertUnreachable = (x: never, message: string) => {
+    throw new Error(message);
+};

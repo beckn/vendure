@@ -1,8 +1,14 @@
 {
-    "search": {
-        "name": "Search Transformations"
-    },
-    "on_search": {
-        "name": "On Search Transformations"
-    }
+    "search": [
+        {
+            "type": "create-graphql-query"
+        },
+        {
+            "type": "send-graphql-request"
+        },
+        {
+            "type": "create-beckn-response"
+        }
+    ],
+    "on_search": []
 }

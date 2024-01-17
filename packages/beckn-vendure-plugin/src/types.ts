@@ -6,7 +6,7 @@ export interface BecknVendurePluginOptions {
     bpp_city: string;
 
     transformationsFolder?: string;
-    domainMapFilename?: string;
+    domainTransformationsConfigFile?: string;
 }
 
 export type Environment = { [key: string]: string };
