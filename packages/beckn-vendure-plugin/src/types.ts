@@ -9,4 +9,12 @@ export interface BecknVendurePluginOptions {
     domainTransformationsConfigFile?: string;
 }
 
-export type Environment = { [key: string]: string };
+export type Environment = {
+    host_url: string;
+    bpp_id: string;
+    bpp_uri: string;
+    bpp_country: string;
+    bpp_city: string;
+    transformationsFolder: string;
+    domainTransformationsConfigFile: string;
+};

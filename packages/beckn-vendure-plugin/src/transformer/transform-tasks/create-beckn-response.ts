@@ -1,63 +1,50 @@
-import assert from 'assert';
+/* eslint-disable no-console */
+import path from 'path';
 
-import { TransformTask, TransformTaskDef } from '../types';
+import { transformWithJSONata } from '../common/transform-with-jsonata';
+import { TransformTask, TransformTaskDef, TransformerContext } from '../types';
 
 export class CreateBecknResponse implements TransformTask {
     constructor(public taskDef: TransformTaskDef) {}
     private inputKey: string;
     private outputKey: string;
-    async preCheck(context: any): Promise<boolean> {
-        this.inputKey = this.taskDef.args?.input || 'graphql_response';
-        this.outputKey = this.taskDef.args?.output || 'beckn_response';
+    private jsonataFilename: string;
+    private jsonataHeaderFilename: string;
+
+    preCheck(context: TransformerContext): boolean {
+        if (!this.taskDef.args || !context.requestEnv)
+            throw Error('CreateBecknResponse needs to be configured');
+        if (!context.requestEnv.domainSupportFilesFolder)
+            throw Error('Domain support files folder needs to be configured');
+
+        if (!this.taskDef.args.jsonataFilename)
+            throw Error('CreateBecknResponse requires a jsonataFilename config parameter');
+
+        this.jsonataFilename = path.join(
+            context.requestEnv.domainSupportFilesFolder,
+            this.taskDef.args.jsonataFilename,
+        );
+        if (this.taskDef.args.jsonataHeaderFilename) {
+            this.jsonataHeaderFilename = path.join(
+                context.requestEnv.domainSupportFilesFolder,
+                this.taskDef.args.jsonataFilename,
+            );
+        }
+        this.inputKey = this.taskDef.args?.input || 'graphqlResponse';
+        this.outputKey = this.taskDef.args?.output || 'becknResponse';
         return true;
     }
-    async run(context: any): Promise<void> {
-        // TODO: Will be replaced by Transformations
-        const resp_items = [];
-        const items = context[this.inputKey].data.search.items;
-        for (const item of items) {
-            const resp_item = {
-                id: item.productVariantId,
-                descriptor: {
-                    name: item.productVariantName,
-                },
-                matched: true,
-                price: {
-                    listed_value: (item.price.value / 100).toFixed(2).toString(),
-                    currency: item.currencyCode,
-                    value: (item.price.value / 100).toFixed(2).toString(),
-                },
-            };
-            resp_items.push(resp_item);
-        }
-        const headers = {
+
+    async run(context: TransformerContext): Promise<void> {
+        const body = await transformWithJSONata(context, this.jsonataFilename);
+        let headers = {};
+        if (this.jsonataHeaderFilename)
+            headers = await transformWithJSONata(context, this.jsonataHeaderFilename);
+
+        headers = {
             'content-type': 'application/json',
+            ...headers,
         };
-        const body = {
-            context: context.beckn_request?.body?.context,
-            message: {
-                catalog: {
-                    descriptor: {
-                        name: 'Vendure Shop Catalog',
-                    },
-                    providers: [
-                        {
-                            id: 'Vendure_Default_Shop_Token',
-                            descriptor: {
-                                name: 'Default Vendure Shop',
-                            },
-                            items: resp_items,
-                        },
-                    ],
-                },
-            },
-        };
-        body.context.action = 'on_' + (body.context.action as string);
-        body.context.bpp_id = context.env?.bpp_id;
-        body.context.bpp_uri = context.env?.bpp_uri;
-        body.context.country = context.env?.bpp_country;
-        body.context.city = context.env?.bpp_city;
-        body.message.catalog.providers[0].items = resp_items;
         context[this.outputKey] = {
             headers,
             body,

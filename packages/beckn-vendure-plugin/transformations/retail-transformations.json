@@ -1,13 +1,20 @@
 {
     "search": [
         {
-            "type": "create-graphql-query"
+            "type": "create-graphql-query",
+            "args": {
+                "graphqlFilename": "search.graphql",
+                "jsonataFilename": "search-beckn-req.jsonata"
+            }
         },
         {
             "type": "send-graphql-request"
         },
         {
-            "type": "create-beckn-response"
+            "type": "create-beckn-response",
+            "args": {
+                "jsonataFilename": "search-beckn-response.jsonata"
+            }
         }
     ],
     "on_search": []

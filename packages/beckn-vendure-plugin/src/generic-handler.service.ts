@@ -26,6 +26,7 @@ export class GenericHandlerService {
             await this._send_response_to_beckn(env, beckn_response);
         } catch (err: any) {
             Logger.error(err.message, loggerCtx);
+            console.log(err.stack);
         }
     }
 
@@ -34,7 +35,6 @@ export class GenericHandlerService {
         const bpp_ps_url = `${this.options.bpp_protocol_server_base_url}/${
             beckn_response.body?.context?.action as string
         }`;
-        // console.log(bpp_ps_url);
         try {
             const httpService = new HttpService();
             const response = await lastValueFrom(
@@ -53,7 +53,7 @@ export class GenericHandlerService {
     _get_simplified_string_headers(headers: IncomingHttpHeaders) {
         return Object.entries(headers)
             .map(([k, v]) => [k.toString(), v ? v.toString() : ''])
-            .reduce((acc: any, [k, v]) => {
+            .reduce((acc: { [key: string]: string }, [k, v]) => {
                 acc[k] = v;
                 return acc;
             }, {});
@@ -65,8 +65,8 @@ export class GenericHandlerService {
             host_url: `${ctx.req.protocol || ''}://${ctx.req.headers.host || ''}`,
             bpp_id: this.options.bpp_id,
             bpp_uri: this.options.bpp_uri,
-            country: this.options.bpp_country,
-            city: this.options.bpp_city,
+            bpp_country: this.options.bpp_country,
+            bpp_city: this.options.bpp_city,
             transformationsFolder: this.options.transformationsFolder as string,
             domainTransformationsConfigFile: this.options.domainTransformationsConfigFile as string,
         };

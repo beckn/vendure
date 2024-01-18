@@ -1,13 +1,12 @@
+/* eslint-disable no-console */
 import { ErrorResult } from '@vendure/core';
 
 export const axiosErrorHandler = (error: any) => {
     const { errors, response } = error;
     if (response) {
-        const { message } = response.data;
-        const status = response.status;
         return {
-            message,
-            status,
+            message: JSON.stringify(response.data),
+            status: response.status,
         };
     } else if (errors) {
         return {

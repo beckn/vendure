@@ -1,6 +1,15 @@
+import { Environment } from '../types';
+
 export interface BecknRequest {
     headers: { [key: string]: string };
-    body: any;
+    body: {
+        message: any;
+        context: {
+            domain: string;
+            action: string;
+            [key: string]: any;
+        };
+    };
 }
 
 export interface BecknResponse {
@@ -13,12 +22,19 @@ export interface GraphQLRequest {
     query: string;
 }
 
-export interface Context {
-    env?: { [key: string]: string };
-    beckn_request?: BecknRequest;
-    graphql_request?: GraphQLRequest;
-    gql_response?: any;
-    beckn_response?: BecknResponse;
+export interface RequestEnvironment {
+    domain: string;
+    action: string;
+    domainConfigFile: string;
+    domainSupportFilesFolder: string;
+}
+
+export interface TransformerContext {
+    env: Environment;
+    becknRequest: BecknRequest;
+    requestEnv?: RequestEnvironment;
+    tasksDefList?: TransformTaskDef[];
+    [key: string]: any;
 }
 
 export interface TransformTaskDef {
@@ -29,8 +45,15 @@ export interface TransformTaskDef {
 
 export interface TransformTask {
     taskDef: TransformTaskDef;
-    preCheck(context: any): Promise<boolean>;
-    run(context: any): Promise<void>;
+    preCheck(context: TransformerContext): boolean;
+    run(context: TransformerContext): Promise<void>;
+}
+
+export interface DomainMap {
+    [key: string]: {
+        mapFile: string;
+        supportFilesFolder: string;
+    };
 }
 
 export type SupportedTransformTasks =

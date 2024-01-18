@@ -1,0 +1,8 @@
+(   
+    $message := becknRequest.body.message;
+    {
+    "input":{
+        "term": $message.intent.item.descriptor.name
+    }
+}
+)
