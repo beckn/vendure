@@ -29,9 +29,13 @@ export class BecknVendurePlugin implements OnModuleInit {
 
     constructor(private eventBus: EventBus, private genericHandlerService: GenericHandlerService) {}
     onModuleInit() {
-        this.eventBus.ofType(BecknRequestEvent).subscribe((event: BecknRequestEvent) => {
-            this.genericHandlerService.handleEvent(event.ctx);
-        });
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
+        this.eventBus.ofType(BecknRequestEvent).subscribe(
+            // eslint-disable-next-line @typescript-eslint/no-misused-promises
+            async (event: BecknRequestEvent) => {
+                await this.genericHandlerService.handleEvent(event.ctx);
+            },
+        );
     }
 
     static init(options: BecknVendurePluginOptions) {

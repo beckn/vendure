@@ -39,6 +39,7 @@ export interface TransformerContext {
 
 export interface TransformTaskDef {
     type: SupportedTransformTasks;
+    name?: string;
     args?: { [key: string]: string };
     condition?: string;
 }
@@ -56,7 +57,4 @@ export interface DomainMap {
     };
 }
 
-export type SupportedTransformTasks =
-    | 'create-graphql-query'
-    | 'send-graphql-request'
-    | 'create-beckn-response';
+export type SupportedTransformTasks = 'transform-and-add' | 'send-graphql-request';

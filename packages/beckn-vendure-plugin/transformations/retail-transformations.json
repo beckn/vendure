@@ -1,21 +1,28 @@
 {
     "search": [
         {
-            "type": "create-graphql-query",
+            "type": "transform-and-add",
+            "name": "extract-search-params",
+            "args": {
+                "jsonataFilename": "search-from-beckn-request.jsonata",
+                "outputKey": "graphqlVariables"
+            }
+        },
+        {
+            "type": "send-graphql-request",
             "args": {
                 "graphqlFilename": "search.graphql",
-                "jsonataFilename": "search-beckn-req.jsonata"
+                "variablesKey": "graphqlVariables",
+                "outputKey": "graphqlResponse"
             }
         },
         {
-            "type": "send-graphql-request"
-        },
-        {
-            "type": "create-beckn-response",
+            "type": "transform-and-add",
+            "name": "create-beckn-response",
             "args": {
-                "jsonataFilename": "search-beckn-response.jsonata"
+                "jsonataFilename": "search-to-beckn-response.jsonata",
+                "outputKey": "becknResponse.body"
             }
         }
-    ],
-    "on_search": []
+    ]
 }

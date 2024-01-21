@@ -6,9 +6,8 @@ import path from 'path';
 import { assertUnreachable } from '../common';
 import { Environment } from '../types';
 
-import { CreateBecknResponse } from './transform-tasks/create-beckn-response';
-import { CreateGraphQLQuery } from './transform-tasks/create-graphql-query';
 import { SendGraphQLRequest } from './transform-tasks/send-graphql-request';
+import { TransformAndAdd } from './transform-tasks/transform-and-add';
 import {
     BecknRequest,
     DomainMap,
@@ -24,7 +23,9 @@ export class TransformTasksRunner {
         context.requestEnv = await this._get_request_env(context);
         context.tasksDefList = await this.get_task_def_list(context);
         for (const transformTaskDef of context.tasksDefList) {
+            // console.log('Before-', `${transformTaskDef.name || transformTaskDef.type}`, Object.keys(context));
             await this._run_transform_task(transformTaskDef, context);
+            // console.log('After-', Object.keys(context));
         }
     }
 
@@ -37,12 +38,10 @@ export class TransformTasksRunner {
 
     create_task(transformTaskDef: TransformTaskDef) {
         switch (transformTaskDef.type) {
-            case 'create-graphql-query':
-                return new CreateGraphQLQuery(transformTaskDef);
+            case 'transform-and-add':
+                return new TransformAndAdd(transformTaskDef);
             case 'send-graphql-request':
                 return new SendGraphQLRequest(transformTaskDef);
-            case 'create-beckn-response':
-                return new CreateBecknResponse(transformTaskDef);
             default:
                 const message = `Non existant task type "${
                     transformTaskDef.type as string
@@ -57,7 +56,6 @@ export class TransformTasksRunner {
         const domain: string = context.becknRequest.body.context.domain;
         const action: string = context.becknRequest.body.context.action;
 
-        console.log(`Reading file ${context.env.domainTransformationsConfigFile}`);
         const domainMap: DomainMap = await readJSON(context.env.domainTransformationsConfigFile);
         const domainConfigFile: string = path.join(transformationsFolder, domainMap[domain].mapFile);
         const domainSupportFilesFolder: string = path.join(
