@@ -1,0 +1,9 @@
+{
+    "host_url": "http://localhost:3000",
+    "bpp_id": "vbabu.lr.bpp.1",
+    "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
+    "bpp_country": "IND",
+    "bpp_city": "std:080",
+    "transformationsFolder": "transformations",
+    "domainTransformationsConfigFile": "transformations/domain-map.json"
+}

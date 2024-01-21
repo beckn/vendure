@@ -57,6 +57,7 @@ export class TransformTasksRunner {
         const domain: string = context.becknRequest.body.context.domain;
         const action: string = context.becknRequest.body.context.action;
 
+        console.log(`Reading file ${context.env.domainTransformationsConfigFile}`);
         const domainMap: DomainMap = await readJSON(context.env.domainTransformationsConfigFile);
         const domainConfigFile: string = path.join(transformationsFolder, domainMap[domain].mapFile);
         const domainSupportFilesFolder: string = path.join(
