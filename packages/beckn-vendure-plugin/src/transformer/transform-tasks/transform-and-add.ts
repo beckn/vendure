@@ -27,6 +27,7 @@ export class TransformAndAdd implements TransformTask {
 
     async run(context: TransformerContext): Promise<void> {
         const result = await transformWithJSONata(context, this.jsonataFilename);
+        // console.log(this.outputKey, result);
         assignValue(context, this.outputKey, result);
     }
 }

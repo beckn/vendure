@@ -7,6 +7,7 @@ import { assertUnreachable } from '../common';
 import { Environment } from '../types';
 
 import { SendGraphQLRequest } from './transform-tasks/send-graphql-request';
+import { SendMultipleGraphQLRequests } from './transform-tasks/send-multiple-graphql-requests';
 import { TransformAndAdd } from './transform-tasks/transform-and-add';
 import {
     BecknRequest,
@@ -23,9 +24,17 @@ export class TransformTasksRunner {
         context.requestEnv = await this._get_request_env(context);
         context.tasksDefList = await this.get_task_def_list(context);
         for (const transformTaskDef of context.tasksDefList) {
-            // console.log('Before-', `${transformTaskDef.name || transformTaskDef.type}`, Object.keys(context));
+            console.log('Before-', `${transformTaskDef.name || transformTaskDef.type}`, Object.keys(context));
+            if (transformTaskDef.condition) {
+                // eslint-disable-next-line no-eval
+                if (!!eval(transformTaskDef.condition) === false) {
+                    console.log('Skipping step');
+                    continue;
+                }
+            }
             await this._run_transform_task(transformTaskDef, context);
-            // console.log('After-', Object.keys(context));
+            console.log('After-', `${transformTaskDef.name || transformTaskDef.type}`, Object.keys(context));
+            console.log(JSON.stringify(context, null, 2));
         }
     }
 
@@ -42,6 +51,8 @@ export class TransformTasksRunner {
                 return new TransformAndAdd(transformTaskDef);
             case 'send-graphql-request':
                 return new SendGraphQLRequest(transformTaskDef);
+            case 'send-multiple-graphql-requests':
+                return new SendMultipleGraphQLRequests(transformTaskDef);
             default:
                 const message = `Non existant task type "${
                     transformTaskDef.type as string

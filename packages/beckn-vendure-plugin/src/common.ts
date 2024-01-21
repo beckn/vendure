@@ -24,3 +24,12 @@ export const axiosErrorHandler = (error: any) => {
 export const assertUnreachable = (x: never, message: string) => {
     throw new Error(message);
 };
+
+export function get_simplified_string_headers(headers: any) {
+    return Object.entries(headers)
+        .map(([k, v]) => [k.toString(), v ? v.toString() : ''])
+        .reduce((acc: { [key: string]: string }, [k, v]) => {
+            acc[k] = v;
+            return acc;
+        }, {});
+}

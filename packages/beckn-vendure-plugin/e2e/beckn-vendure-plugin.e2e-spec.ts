@@ -6,9 +6,9 @@ import { afterAll, beforeAll, describe, it, expect } from 'vitest';
 
 import { BecknVendurePlugin } from '../src/beckn-vendure-plugin';
 import { TransformerService } from '../src/transformer/transformer.service';
+import { Environment } from '../src/types';
 
 import { initialData } from './fixtures/e2e-initial-data';
-import { Environment } from '../src/types';
 import { ReqResTestConfig, readBecknRequestJSON, readBecknResponseJSON, readFixtureJSON } from './test-utils';
 
 const sqliteDataDir = path.join(__dirname, '__data__');
@@ -64,6 +64,7 @@ describe('beckn-vendure-plugin', () => {
                 const domain = 'local-retail';
                 const testConfigs: ReqResTestConfig[] = [
                     { queryName: 'search', reqJSONFile: 'search.json', resJSONFile: 'on-search.json' },
+                    // { queryName: 'select', reqJSONFile: 'select.json', resJSONFile: 'on-select.json' },
                 ];
 
                 for (const tc of testConfigs) {

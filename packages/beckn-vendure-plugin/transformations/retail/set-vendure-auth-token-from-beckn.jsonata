@@ -1,0 +1,6 @@
+(
+    $message := becknRequest.body.message;    
+    {
+    "Authorization": "Bearer " & $message.order.id
+    }
+)

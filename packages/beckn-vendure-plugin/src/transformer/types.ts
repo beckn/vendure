@@ -57,4 +57,7 @@ export interface DomainMap {
     };
 }
 
-export type SupportedTransformTasks = 'transform-and-add' | 'send-graphql-request';
+export type SupportedTransformTasks =
+    | 'transform-and-add'
+    | 'send-graphql-request'
+    | 'send-multiple-graphql-requests';

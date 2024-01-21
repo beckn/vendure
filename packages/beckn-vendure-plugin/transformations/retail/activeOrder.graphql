@@ -1,0 +1,97 @@
+query ActiveOrder {
+    activeOrder {
+        id
+        createdAt
+        updatedAt
+        type
+        orderPlacedAt
+        code
+        state
+        active
+        couponCodes
+        totalQuantity
+        subTotal
+        subTotalWithTax
+        currencyCode
+        shipping
+        shippingWithTax
+        total
+        totalWithTax
+        customFields
+        customer {
+            id
+            createdAt
+            updatedAt
+            title
+            firstName
+            lastName
+            phoneNumber
+            emailAddress
+            customFields
+        }
+        shippingAddress {
+            fullName
+            company
+            streetLine1
+            streetLine2
+            city
+            province
+            postalCode
+            country
+            countryCode
+            phoneNumber
+            customFields
+        }
+        billingAddress {
+            fullName
+            company
+            streetLine1
+            streetLine2
+            city
+            province
+            postalCode
+            country
+            countryCode
+            phoneNumber
+            customFields
+        }
+        lines {
+            id
+            createdAt
+            updatedAt
+            unitPrice
+            unitPriceWithTax
+            unitPriceChangeSinceAdded
+            unitPriceWithTaxChangeSinceAdded
+            discountedUnitPrice
+            discountedUnitPriceWithTax
+            proratedUnitPrice
+            proratedUnitPriceWithTax
+            quantity
+            orderPlacedQuantity
+            taxRate
+            linePrice
+            linePriceWithTax
+            discountedLinePrice
+            discountedLinePriceWithTax
+            proratedLinePrice
+            proratedLinePriceWithTax
+            lineTax
+            customFields
+            productVariant {
+                id
+                productId
+                createdAt
+                updatedAt
+                languageCode
+                sku
+                name
+                price
+                currencyCode
+                priceWithTax
+                stockLevel
+                customFields
+            }
+        }
+    }
+}

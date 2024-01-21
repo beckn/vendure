@@ -1,0 +1,25 @@
+mutation AddItemToOrder($productVariantId: ID!, $quantity: Int!) {
+    addItemToOrder(productVariantId: $productVariantId, quantity: $quantity) {
+        ... on Order {
+            id
+        }
+        ... on OrderModificationError {
+            errorCode
+            message
+        }
+        ... on OrderLimitError {
+            errorCode
+            message
+            maxItems
+        }
+        ... on NegativeQuantityError {
+            errorCode
+            message
+        }
+        ... on InsufficientStockError {
+            errorCode
+            message
+            quantityAvailable
+        }
+    }
+}

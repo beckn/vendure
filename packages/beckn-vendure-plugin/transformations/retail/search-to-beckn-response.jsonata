@@ -1,7 +1,7 @@
 (
     $context := becknRequest.body.context;
     $env := env;
-    $data := graphqlResponse.data.search;
+    $data := graphqlResponse.body.data.search;
     {
         "context":$context ~> |$|{
             "action": 'on_' & $context.action,

@@ -1,0 +1,11 @@
+mutation RemoveAllOrderLines {
+    removeAllOrderLines {
+        ... on OrderModificationError {
+            errorCode
+            message
+        }
+        ... on Order {
+            id
+        }
+    }
+}

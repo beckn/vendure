@@ -19,3 +19,14 @@ export function assignValue(obj: any, key: string, value: any) {
     }
     tObj[keys[length - 1]] = value;
 }
+
+export function getValue(obj: any, key: string) {
+    const keys = key.split('.');
+    const length = keys.length;
+    let tObj = obj;
+    for (let i = 0; i < length - 1; i++) {
+        tObj = tObj[keys[i]];
+        if (tObj === undefined) return undefined;
+    }
+    return tObj[keys[length - 1]];
+}

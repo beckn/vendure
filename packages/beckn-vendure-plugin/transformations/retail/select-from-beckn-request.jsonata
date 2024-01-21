@@ -1,0 +1,18 @@
+(
+    $message := becknRequest.body.message;
+    $items := $message.order.items;
+    {
+        "orderId": $message.order.id,
+        "totalItems":$count($items),
+        "firstItem": $items[0] {
+            "productVariantId": $.id,
+            "quantity": $.quantity.count            
+        },
+        "restItems": [$filter($items, function ($v, $i) {
+            $i != 0
+            }).{
+            "productVariantId": $.id,
+            "quantity": $.quantity.count
+        }]
+    }
+)
