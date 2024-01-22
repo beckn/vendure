@@ -40,7 +40,7 @@ export class GenericHandlerService {
             const response = await lastValueFrom(
                 httpService
                     .post(bpp_ps_url, JSON.stringify(beckn_response.body), {
-                        headers: beckn_response.headers,
+                        headers: { 'Content-Type': 'application/json' },
                     })
                     .pipe(map(resp => resp.data)),
             );
