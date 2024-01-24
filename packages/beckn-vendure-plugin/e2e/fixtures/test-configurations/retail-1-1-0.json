@@ -1,0 +1,14 @@
+[
+    {
+        "queryName": "search",
+        "reqJSONFile": "search.json",
+        "resJSONFile": "on-search.json",
+        "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "select",
+        "reqJSONFile": "select.json",
+        "resJSONFile": "on-select.json",
+        "exclude": ["body.context.timestamp"]
+    }
+]

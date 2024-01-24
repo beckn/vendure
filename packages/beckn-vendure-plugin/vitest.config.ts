@@ -8,6 +8,9 @@ export default defineConfig({
         typecheck: {
             tsconfig: path.join(__dirname, 'tsconfig.e2e.json'),
         },
+        chaiConfig: {
+            truncateThreshold: 10000,
+        },
     },
     plugins: [
         // SWC required to support decorators used in test plugins

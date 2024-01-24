@@ -1,0 +1,67 @@
+(
+    $formatMoney := function($value){
+        $string($formatNumber($value/100,"#0.00"))
+    };
+    $formatPrice := function($price,$currencyCode){
+        {
+            "currency":$currencyCode,
+            "value":$formatMoney($price)
+        }
+    };
+    $context := becknRequest.body.context;
+    $env := env;
+    $order := currentOrderResponse.body.data.activeOrder;
+    $items := $order.lines;
+    {
+        "headers":{
+            "Content-Type": "application/json"
+        },
+        "body":{    
+            "context":$context ~> |$|{
+                "action": 'on_' & $context.action,
+                "bpp_id": $env.bpp_id,
+                "bpp_uri": $env.bpp_uri,
+                "timestamp": $now()
+                }|,
+            "message": {
+                "order": {
+                    "provider":{
+                        "id": "Vendure_Default_Shop_Token",
+                        "descriptor": {
+                            "name": "Default Vendure Shop"
+                        }
+                    },
+                    "items": $items.{
+                        "id":$.productVariant.id,
+                        "descriptor":{
+                            "name":$.productVariant.name
+                        },
+                        "price":(
+                            $price := $.productVariant.price;
+                            $price := $string($formatNumber($price/100,"#0.00"));
+                            {
+                            "listed_value": $price,
+                            "currency": $.productVariant.currencyCode,
+                            "value": $price
+                        }),
+                        "quantity":$.quantity
+                    },
+                    "quote":{
+                        "price":$formatPrice($order.totalWithTax,$order.currencyCode),
+                        "breakup":[
+                            {
+                                "title":"base-price",
+                                "price": $formatPrice($order.subTotal,$order.currencyCode)
+                            },
+                            {
+                                "title":"taxes",
+                                "price": $formatPrice($order.totalWithTax-$order.total,$order.currencyCode)
+                            }
+                        ]
+                    },
+                    "type":"DEFAULT"
+                }
+            }
+        }
+    }
+)

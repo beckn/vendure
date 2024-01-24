@@ -2,7 +2,6 @@
     $message := becknRequest.body.message;
     $items := $message.order.items;
     {
-        "orderId": $message.order.id,
         "totalItems":$count($items),
         "firstItem": $items[0] {
             "productVariantId": $.id,

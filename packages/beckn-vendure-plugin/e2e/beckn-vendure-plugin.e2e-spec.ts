@@ -9,7 +9,14 @@ import { TransformerService } from '../src/transformer/transformer.service';
 import { Environment } from '../src/types';
 
 import { initialData } from './fixtures/e2e-initial-data';
-import { ReqResTestConfig, readBecknRequestJSON, readBecknResponseJSON, readFixtureJSON } from './test-utils';
+import {
+    ReqResTestConfig,
+    readBecknRequestJSON,
+    readBecknResponseJSON,
+    readFixtureJSON,
+    readTestConfiguration,
+    strictEqualWithExclude,
+} from './test-utils';
 
 const sqliteDataDir = path.join(__dirname, '__data__');
 
@@ -37,22 +44,6 @@ describe('beckn-vendure-plugin', () => {
         await server.destroy();
     });
 
-    // it('sample product query returns the expected result', async () => {
-    //     await adminClient.asSuperAdmin(); // log in as the SuperAdmin user
-    //     const query = gql`
-    //         query Product($id: ID!) {
-    //             product(id: $id) {
-    //                 name
-    //             }
-    //         }
-    //     `;
-    //     const result = await adminClient.query(query, { id: 1 });
-
-    //     expect(result.product).toEqual({
-    //         name: 'Laptop',
-    //     });
-    // });
-
     describe('Transformer Service', () => {
         describe('transform method', () => {
             let env: Environment;
@@ -60,22 +51,19 @@ describe('beckn-vendure-plugin', () => {
                 env = await readFixtureJSON('transform-env.json');
             });
 
-            describe('for local-retail', () => {
-                const domain = 'local-retail';
-                const testConfigs: ReqResTestConfig[] = [
-                    { queryName: 'search', reqJSONFile: 'search.json', resJSONFile: 'on-search.json' },
-                    // { queryName: 'select', reqJSONFile: 'select.json', resJSONFile: 'on-select.json' },
-                ];
+            describe('for retail:1.1.0', async () => {
+                const domain = 'retail-1-1-0';
+                const testConfigs: ReqResTestConfig[] = await readTestConfiguration(domain);
 
+                let index = 0;
                 for (const tc of testConfigs) {
+                    index += 1;
+                    // if (index !== testConfigs.length) continue; // DEV ENV - RUN ONLY LAST TEST- TO BE REMOVED AFTER DEV
                     it(`works for ${tc.queryName} query`, async () => {
-                        const beckn_request = {
-                            headers: await readFixtureJSON('beckn-request-header.json'),
-                            body: await readBecknRequestJSON(domain, tc.reqJSONFile),
-                        };
+                        const beckn_request = await readBecknRequestJSON(domain, tc.reqJSONFile);
                         const response = await transformerService.transform(env, beckn_request);
-                        const expectedResponseBody = await readBecknResponseJSON(domain, tc.resJSONFile);
-                        expect(response.body).toStrictEqual(expectedResponseBody);
+                        const expectedResponse = await readBecknResponseJSON(domain, tc.resJSONFile);
+                        strictEqualWithExclude(response, expectedResponse, tc.exclude);
                     });
                 }
             });

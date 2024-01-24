@@ -1,0 +1,9 @@
+mutation AddBecknTransaction($becknTransactionId: String!, $vendureAuthToken: String!) {
+    addBecknTransaction(becknTransactionId: $becknTransactionId, vendureAuthToken: $vendureAuthToken) {
+        id
+        createdAt
+        updatedAt
+        becknTransactionId
+        vendureAuthToken
+    }
+}

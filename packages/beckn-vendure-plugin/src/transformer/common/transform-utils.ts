@@ -1,3 +1,7 @@
+import path from 'path';
+
+import { FALSE, TRUE } from '../constants';
+
 export function checkArgsForKeys(
     taskName: string,
     args: { [key: string]: string } | undefined,
@@ -29,4 +33,18 @@ export function getValue(obj: any, key: string) {
         if (tObj === undefined) return undefined;
     }
     return tObj[keys[length - 1]];
+}
+
+export function getFullGraphqlFilename(transformationsFolder: string, graphqlFilename: string) {
+    return path.join(transformationsFolder, 'graphql', graphqlFilename);
+}
+
+export function getFullJSONataFilename(
+    transformationsFolder: string,
+    domainSupportFolder: string,
+    jsonataFilename: string,
+    common: string = FALSE,
+) {
+    if (common === TRUE) return path.join(transformationsFolder, 'common', jsonataFilename);
+    return path.join(domainSupportFolder, jsonataFilename);
 }

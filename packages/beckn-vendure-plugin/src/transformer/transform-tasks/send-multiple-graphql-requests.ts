@@ -5,7 +5,7 @@ import path from 'path';
 import { lastValueFrom, map } from 'rxjs';
 
 import { axiosErrorHandler, get_simplified_string_headers } from '../../common';
-import { assignValue, checkArgsForKeys, getValue } from '../common/transform-utils';
+import { assignValue, checkArgsForKeys, getFullGraphqlFilename, getValue } from '../common/transform-utils';
 import { TransformTask, TransformTaskDef, TransformerContext } from '../types';
 
 export class SendMultipleGraphQLRequests implements TransformTask {
@@ -22,8 +22,8 @@ export class SendMultipleGraphQLRequests implements TransformTask {
 
         if (!context.requestEnv?.domainSupportFilesFolder)
             throw Error('Domain support files folder needs to be configured');
-        this.graphqlFilename = path.join(
-            context.requestEnv.domainSupportFilesFolder,
+        this.graphqlFilename = getFullGraphqlFilename(
+            context.env.transformationsFolder,
             this.taskDef.args.graphqlFilename,
         );
 

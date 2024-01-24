@@ -1,0 +1,130 @@
+{
+    "search": [
+        {
+            "name": "extract-search-params",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "search-beckn-request.jsonata",
+                "outputKey": "graphqlVariables"
+            }
+        },
+        {
+            "name": "send-search-graphql-request",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "search.graphql",
+                "variablesKey": "graphqlVariables",
+                "outputKey": "graphqlResponse"
+            }
+        },
+        {
+            "name": "generate-beckn-response",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "on-search-beckn-response.jsonata",
+                "outputKey": "becknResponse"
+            }
+        }
+    ],
+    "select": [
+        {
+            "name": "extract-transaction-id",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "extract-transaction-id-from-beckn.jsonata",
+                "outputKey": "becknTransactionId",
+                "common": "true"
+            }
+        },
+        {
+            "name": "get-existing-order",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getBecknTransaction.graphql",
+                "variablesKey": "becknTransactionId",
+                "outputKey": "getBecknTransactionOutput"
+            }
+        },
+        {
+            "name": "extract-select-params",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "select-beckn-request.jsonata",
+                "outputKey": "cartDetails"
+            }
+        },
+        {
+            "name": "add-first-item-to-order",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "addItemToOrder.graphql",
+                "variablesKey": "cartDetails.firstItem",
+                "outputKey": "responseWithVendureAuthToken"
+            }
+        },
+        {
+            "name": "extract-vendure-auth-token",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "extract-vendure-auth-token.jsonata",
+                "outputKey": "vendureAuthToken",
+                "common": "true"
+            }
+        },
+        {
+            "name": "set-vendure-auth-token-in-graphql-header",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "set-vendure-auth-token-from-graphql.jsonata",
+                "outputKey": "graphqlHeaders",
+                "common": "true"
+            }
+        },
+        {
+            "name": "add-remaining-items-to-order",
+            "type": "send-multiple-graphql-requests",
+            "args": {
+                "graphqlFilename": "addItemToOrder.graphql",
+                "variablesKey": "cartDetails.restItems",
+                "headersKey": "graphqlHeaders",
+                "outputKey": "addRestItemsToOrderResponse"
+            },
+            "condition": "context.cartDetails.totalItems > 1"
+        },
+        {
+            "name": "get-current-order",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "activeOrder.graphql",
+                "headersKey": "graphqlHeaders",
+                "outputKey": "currentOrderResponse"
+            }
+        },
+        {
+            "name": "form-beckn-transaction-variables",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "form-beckn-transaction-variables.jsonata",
+                "common": "true",
+                "outputKey": "addBecknTransactionVariables"
+            }
+        },
+        {
+            "name": "add-beckn-transaction",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "addBecknTransaction.graphql",
+                "variablesKey": "addBecknTransactionVariables",
+                "outputKey": "addBecknTransactionOutput"
+            }
+        },
+        {
+            "name": "generate-beckn-response",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "on-select-beckn-response.jsonata",
+                "outputKey": "becknResponse"
+            }
+        }
+    ]
+}

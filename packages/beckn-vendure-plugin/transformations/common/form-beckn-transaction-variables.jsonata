@@ -1,0 +1,7 @@
+(
+    $context := becknRequest.body.context;
+    {
+        "becknTransactionId":$context.transaction_id,
+        "vendureAuthToken":vendureAuthToken
+    }
+)

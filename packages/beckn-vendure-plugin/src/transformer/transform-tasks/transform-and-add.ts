@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import path from 'path';
 
-import { assignValue, checkArgsForKeys } from '../common/transform-utils';
+import { assignValue, checkArgsForKeys, getFullJSONataFilename } from '../common/transform-utils';
 import { transformWithJSONata } from '../common/transform-with-jsonata';
 import { TransformTask, TransformTaskDef, TransformerContext } from '../types';
 
@@ -17,9 +17,11 @@ export class TransformAndAdd implements TransformTask {
             throw Error('Domain support files folder needs to be configured');
         checkArgsForKeys('TransformAndAdd', this.taskDef.args, ['jsonataFilename', 'outputKey']);
 
-        this.jsonataFilename = path.join(
+        this.jsonataFilename = getFullJSONataFilename(
+            context.env.transformationsFolder,
             context.requestEnv.domainSupportFilesFolder,
             this.taskDef.args.jsonataFilename,
+            this.taskDef.args.common,
         );
         this.outputKey = this.taskDef.args.outputKey;
         return true;

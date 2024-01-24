@@ -1,0 +1,9 @@
+query GetBecknTransaction($becknTransactionId: String!) {
+    getBecknTransaction(becknTransactionId: $becknTransactionId) {
+        id
+        createdAt
+        updatedAt
+        becknTransactionId
+        vendureAuthToken
+    }
+}

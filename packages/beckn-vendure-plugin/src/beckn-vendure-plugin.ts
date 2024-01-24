@@ -4,9 +4,13 @@ import { PluginCommonModule, VendurePlugin } from '@vendure/core';
 import { EventBus } from '@vendure/core';
 import path from 'path';
 
+import { shopApiExtensions } from './api/api-extensions';
+import { BecknTransactionResolver } from './api/beckn-transaction.resolver';
 import { BecknRequestEvent } from './beckn-request.event';
 import { BECKN_VENDURE_PLUGIN_OPTIONS } from './constants';
+import { BecknTransaction } from './entities/beckn-transaction.entity';
 import { GenericHandlerService } from './generic-handler.service';
+import { BecknTransactionService } from './services/beckn-transaction-service';
 import { TransformerModule } from './transformer/transformer.module';
 import { BecknVendurePluginOptions } from './types';
 import { WebhookController } from './webhook.controller';
@@ -14,8 +18,14 @@ import { WebhookService } from './webhook.service';
 
 @VendurePlugin({
     imports: [PluginCommonModule, TransformerModule],
+    entities: [BecknTransaction],
     controllers: [WebhookController],
+    shopApiExtensions: {
+        schema: shopApiExtensions,
+        resolvers: [BecknTransactionResolver],
+    },
     providers: [
+        BecknTransactionService,
         WebhookService,
         GenericHandlerService,
         {
@@ -23,6 +33,7 @@ import { WebhookService } from './webhook.service';
             useFactory: () => BecknVendurePlugin.options,
         },
     ],
+    compatibility: '^2.0.0',
 })
 export class BecknVendurePlugin implements OnModuleInit {
     static options: BecknVendurePluginOptions;
