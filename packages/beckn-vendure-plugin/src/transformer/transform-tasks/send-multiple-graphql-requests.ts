@@ -14,6 +14,7 @@ export class SendMultipleGraphQLRequests implements TransformTask {
     private variablesKey: string;
     private headersKey: string;
     private outputKey: string;
+    private authTokenKey: string;
 
     preCheck(context: TransformerContext): boolean {
         if (!this.taskDef.args || !context.env) throw Error('SendGraphQL requires configuration');
@@ -30,6 +31,7 @@ export class SendMultipleGraphQLRequests implements TransformTask {
         this.variablesKey = this.taskDef.args.variablesKey;
         this.headersKey = this.taskDef.args.headersKey;
         this.outputKey = this.taskDef.args.outputKey;
+        this.authTokenKey = this.taskDef.args.authTokenKey;
         return true;
     }
 
@@ -40,7 +42,11 @@ export class SendMultipleGraphQLRequests implements TransformTask {
         let variableSets = [];
         if (this.variablesKey) variableSets = getValue(context, this.variablesKey);
         // console.log(variableSets);
-        let headers = { 'content-type': 'application/json' };
+        let headers: { [key: string]: string } = { 'content-type': 'application/json' };
+        if (this.authTokenKey) {
+            const vendureAuthToken = (getValue(context, this.authTokenKey) as string) || '';
+            if (vendureAuthToken) headers = { ...headers, authorization: `Bearer ${vendureAuthToken}` };
+        }
         if (this.headersKey) headers = { ...headers, ...getValue(context, this.headersKey) };
 
         const env = context.env;

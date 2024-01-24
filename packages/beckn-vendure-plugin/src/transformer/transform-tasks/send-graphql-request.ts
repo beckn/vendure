@@ -16,6 +16,8 @@ export class SendGraphQLRequest implements TransformTask {
     private variablesKey: string;
     private headersKey: string;
     private outputKey: string;
+    private outputDataPath: string;
+    private authTokenKey: string;
 
     preCheck(context: TransformerContext): boolean {
         if (!this.taskDef.args || !context.env) throw Error('SendGraphQL requires configuration');
@@ -32,6 +34,8 @@ export class SendGraphQLRequest implements TransformTask {
         this.variablesKey = this.taskDef.args.variablesKey;
         this.headersKey = this.taskDef.args.headersKey;
         this.outputKey = this.taskDef.args.outputKey;
+        this.outputDataPath = this.taskDef.args.outputDataPath;
+        this.authTokenKey = this.taskDef.args.authTokenKey;
         return true;
     }
 
@@ -41,7 +45,11 @@ export class SendGraphQLRequest implements TransformTask {
         let variables;
         if (this.variablesKey) variables = getValue(context, this.variablesKey);
         // console.log(variables);
-        let headers = { 'content-type': 'application/json' };
+        let headers: { [key: string]: string } = { 'content-type': 'application/json' };
+        if (this.authTokenKey) {
+            const vendureAuthToken = (getValue(context, this.authTokenKey) as string) || '';
+            if (vendureAuthToken) headers = { ...headers, authorization: `Bearer ${vendureAuthToken}` };
+        }
         if (this.headersKey) headers = { ...headers, ...getValue(context, this.headersKey) };
 
         const env = context.env;
@@ -70,7 +78,11 @@ export class SendGraphQLRequest implements TransformTask {
                 throw Error(JSON.stringify(response.body.errors));
             }
             // console.log(JSON.stringify(response));
-            assignValue(context, this.outputKey, response);
+            if (this.outputDataPath) {
+                assignValue(context, this.outputKey, getValue(response, this.outputDataPath));
+            } else {
+                assignValue(context, this.outputKey, response);
+            }
         } catch (err: any) {
             throw Error(axiosErrorHandler(err).message);
         }

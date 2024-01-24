@@ -37,13 +37,33 @@
             }
         },
         {
-            "name": "get-existing-order",
+            "name": "get-existing-beckn-transaction",
             "type": "send-graphql-request",
             "args": {
                 "graphqlFilename": "getBecknTransaction.graphql",
                 "variablesKey": "becknTransactionId",
-                "outputKey": "getBecknTransactionOutput"
+                "outputDataPath": "body.data.getBecknTransaction.vendureAuthToken",
+                "outputKey": "vendureAuthToken"
             }
+        },
+        {
+            "name": "set-existing-auth-token",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "check-if-vendure-auth-token-exists.jsonata",
+                "outputKey": "usingExistingVendureAuthToken",
+                "common": "true"
+            }
+        },
+        {
+            "name": "erase-existing-cart",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "removeAllOrderLines.graphql",
+                "authTokenKey": "vendureAuthToken",
+                "outputKey": "removedOrderId"
+            },
+            "condition": "context.usingExistingVendureAuthToken"
         },
         {
             "name": "extract-select-params",
@@ -59,6 +79,7 @@
             "args": {
                 "graphqlFilename": "addItemToOrder.graphql",
                 "variablesKey": "cartDetails.firstItem",
+                "authTokenKey": "vendureAuthToken",
                 "outputKey": "responseWithVendureAuthToken"
             }
         },
@@ -66,19 +87,11 @@
             "name": "extract-vendure-auth-token",
             "type": "transform-and-add",
             "args": {
-                "jsonataFilename": "extract-vendure-auth-token.jsonata",
+                "jsonataFilename": "extract-vendure-auth-token-from-graphql-response.jsonata",
                 "outputKey": "vendureAuthToken",
                 "common": "true"
-            }
-        },
-        {
-            "name": "set-vendure-auth-token-in-graphql-header",
-            "type": "transform-and-add",
-            "args": {
-                "jsonataFilename": "set-vendure-auth-token-from-graphql.jsonata",
-                "outputKey": "graphqlHeaders",
-                "common": "true"
-            }
+            },
+            "condition": "!context.usingExistingVendureAuthToken"
         },
         {
             "name": "add-remaining-items-to-order",
@@ -86,19 +99,10 @@
             "args": {
                 "graphqlFilename": "addItemToOrder.graphql",
                 "variablesKey": "cartDetails.restItems",
-                "headersKey": "graphqlHeaders",
+                "authTokenKey": "vendureAuthToken",
                 "outputKey": "addRestItemsToOrderResponse"
             },
             "condition": "context.cartDetails.totalItems > 1"
-        },
-        {
-            "name": "get-current-order",
-            "type": "send-graphql-request",
-            "args": {
-                "graphqlFilename": "activeOrder.graphql",
-                "headersKey": "graphqlHeaders",
-                "outputKey": "currentOrderResponse"
-            }
         },
         {
             "name": "form-beckn-transaction-variables",
@@ -107,7 +111,8 @@
                 "jsonataFilename": "form-beckn-transaction-variables.jsonata",
                 "common": "true",
                 "outputKey": "addBecknTransactionVariables"
-            }
+            },
+            "condition": "!context.usingExistingVendureAuthToken"
         },
         {
             "name": "add-beckn-transaction",
@@ -116,6 +121,16 @@
                 "graphqlFilename": "addBecknTransaction.graphql",
                 "variablesKey": "addBecknTransactionVariables",
                 "outputKey": "addBecknTransactionOutput"
+            },
+            "condition": "!context.usingExistingVendureAuthToken"
+        },
+        {
+            "name": "get-current-order",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "activeOrder.graphql",
+                "authTokenKey": "vendureAuthToken",
+                "outputKey": "currentOrderResponse"
             }
         },
         {

@@ -18,7 +18,7 @@ export function assignValue(obj: any, key: string, value: any) {
     const length = keys.length;
     let tObj = obj;
     for (let i = 0; i < length - 1; i++) {
-        tObj[keys[i]] = {};
+        tObj[keys[i]] = tObj[keys[i]] || {};
         tObj = tObj[keys[i]];
     }
     tObj[keys[length - 1]] = value;
@@ -30,7 +30,7 @@ export function getValue(obj: any, key: string) {
     let tObj = obj;
     for (let i = 0; i < length - 1; i++) {
         tObj = tObj[keys[i]];
-        if (tObj === undefined) return undefined;
+        if (tObj === undefined || tObj === null) return undefined;
     }
     return tObj[keys[length - 1]];
 }
