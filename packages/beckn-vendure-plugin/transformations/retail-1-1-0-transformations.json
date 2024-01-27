@@ -128,9 +128,18 @@
             "name": "get-current-order",
             "type": "send-graphql-request",
             "args": {
-                "graphqlFilename": "activeOrder.graphql",
+                "graphqlFilename": "activeOrderOnSelect.graphql",
                 "authTokenKey": "vendureAuthToken",
                 "outputKey": "currentOrderResponse"
+            }
+        },
+        {
+            "name": "get-eligible-shipping-methods",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "eligibleShippingMethods.graphql",
+                "authTokenKey": "vendureAuthToken",
+                "outputKey": "eligibleShippingMethods"
             }
         },
         {

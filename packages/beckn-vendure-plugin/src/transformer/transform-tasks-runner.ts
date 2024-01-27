@@ -37,7 +37,7 @@ export class TransformTasksRunner {
             // console.log('After-', `${transformTaskDef.name || transformTaskDef.type}`, Object.keys(context));
             // console.log(JSON.stringify(context, null, 2));
         }
-        console.log(JSON.stringify(context, null, 2));
+        // console.log(JSON.stringify(context, null, 2));
         // console.log('Done with all tasks');
     }
 

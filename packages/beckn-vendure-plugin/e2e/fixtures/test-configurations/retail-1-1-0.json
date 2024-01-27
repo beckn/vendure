@@ -9,6 +9,6 @@
         "queryName": "select",
         "reqJSONFile": "select.json",
         "resJSONFile": "on-select.json",
-        "exclude": ["body.context.timestamp"]
+        "exclude": ["body.context.timestamp", "body.message.order.id"]
     }
 ]

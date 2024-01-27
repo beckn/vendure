@@ -12,6 +12,7 @@
     $env := env;
     $order := currentOrderResponse.body.data.activeOrder;
     $items := $order.lines;
+    $shippingMethods := eligibleShippingMethods.body.data.eligibleShippingMethods;
     {
         "headers":{
             "Content-Type": "application/json"
@@ -25,11 +26,16 @@
                 }|,
             "message": {
                 "order": {
+                    "id": vendureAuthToken,
                     "provider":{
                         "id": "Vendure_Default_Shop_Token",
                         "descriptor": {
                             "name": "Default Vendure Shop"
                         }
+                    },
+                    "fulfillments": $shippingMethods.{
+                        "id":$.id,
+                        "type":$.code
                     },
                     "items": $items.{
                         "id":$.productVariant.id,
@@ -37,11 +43,10 @@
                             "name":$.productVariant.name
                         },
                         "price":(
-                            $price := $.productVariant.price;
-                            $price := $string($formatNumber($price/100,"#0.00"));
+                            $price := $formatMoney($.unitPrice);
                             {
                             "listed_value": $price,
-                            "currency": $.productVariant.currencyCode,
+                            "currency": $order.currencyCode,
                             "value": $price
                         }),
                         "quantity":$.quantity

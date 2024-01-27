@@ -1,0 +1,19 @@
+query ActiveOrder {
+    activeOrder {
+        subTotal
+        currencyCode
+        total
+        totalWithTax
+        lines {
+            unitPrice
+            unitPriceWithTax
+            quantity
+            linePrice
+            linePriceWithTax
+            productVariant {
+                id
+                name
+            }
+        }
+    }
+}
