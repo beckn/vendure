@@ -49,7 +49,11 @@
                             "currency": $order.currencyCode,
                             "value": $price
                         }),
-                        "quantity":$.quantity
+                        "quantity":{
+                            "selected":{
+                                "count": $.quantity
+                            }
+                        }
                     },
                     "quote":{
                         "price":$formatPrice($order.totalWithTax,$order.currencyCode),

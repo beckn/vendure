@@ -47,7 +47,11 @@
                             "currency": "USD",
                             "value": "19.95"
                         },
-                        "quantity": 2
+                        "quantity": {
+                            "selected": {
+                                "count": 2
+                            }
+                        }
                     },
                     {
                         "id": "70",
@@ -59,7 +63,11 @@
                             "currency": "USD",
                             "value": "6.99"
                         },
-                        "quantity": 1
+                        "quantity": {
+                            "selected": {
+                                "count": 1
+                            }
+                        }
                     }
                 ],
                 "quote": {
