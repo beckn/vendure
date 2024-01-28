@@ -1,0 +1,158 @@
+{
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "body": {
+        "context": {
+            "domain": "retail:1.1.0",
+            "location": {
+                "country": {
+                    "code": "IND"
+                },
+                "city": {
+                    "code": "std:080"
+                }
+            },
+            "action": "on_init",
+            "version": "1.1.0",
+            "bap_id": "ps-bap-network.becknprotocol.io",
+            "bap_uri": "https://ps-bap-network.becknprotocol.io/",
+            "bpp_id": "vbabu.lr.bpp.1",
+            "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
+            "transaction_id": "8100d125-76a7-4588-88be-81b97657cd26",
+            "message_id": "06f49c01-65b7-4754-8b37-ab4e33689000",
+            "timestamp": "2024-01-26T09:45:40.407Z"
+        },
+        "message": {
+            "order": {
+                "provider": {
+                    "id": "Vendure_Default_Shop_Token",
+                    "descriptor": {
+                        "name": "Default Vendure Shop"
+                    }
+                },
+                "items": [
+                    {
+                        "id": "69",
+                        "descriptor": {
+                            "name": "Hanging Plant"
+                        },
+                        "price": {
+                            "listed_value": "19.95",
+                            "currency": "USD",
+                            "value": "19.95"
+                        },
+                        "quantity": {
+                            "selected": {
+                                "count": 2
+                            }
+                        }
+                    },
+                    {
+                        "id": "70",
+                        "descriptor": {
+                            "name": "Aloe Vera"
+                        },
+                        "price": {
+                            "listed_value": "6.99",
+                            "currency": "USD",
+                            "value": "6.99"
+                        },
+                        "quantity": {
+                            "selected": {
+                                "count": 1
+                            }
+                        }
+                    }
+                ],
+                "fulfillments": [
+                    {
+                        "type": "standard-shipping",
+                        "stops": [
+                            {
+                                "location": {
+                                    "gps": "13.2008459,77.708736",
+                                    "address": "123, Terminal 1, Kempegowda Int'l Airport Rd, A - Block, Gangamuthanahalli, Karnataka 560300, India",
+                                    "city": {
+                                        "name": "Gangamuthanahalli"
+                                    },
+                                    "state": {
+                                        "name": "Karnataka"
+                                    },
+                                    "country": {
+                                        "code": "IND"
+                                    },
+                                    "area_code": "560300"
+                                },
+                                "contact": {
+                                    "phone": "919122343355",
+                                    "email": "nc.rehman@gmail.com"
+                                }
+                            }
+                        ],
+                        "customer": {
+                            "person": {
+                                "name": "Motiur Rehman"
+                            },
+                            "contact": {
+                                "phone": "919122343344"
+                            }
+                        }
+                    }
+                ],
+                "quote": {
+                    "price": {
+                        "currency": "USD",
+                        "value": "61.27"
+                    },
+                    "breakup": [
+                        {
+                            "title": "base-price",
+                            "price": {
+                                "currency": "USD",
+                                "value": "46.89"
+                            }
+                        },
+                        {
+                            "title": "shipping",
+                            "price": {
+                                "currency": "USD",
+                                "value": "5.00"
+                            }
+                        },
+                        {
+                            "title": "taxes",
+                            "price": {
+                                "currency": "USD",
+                                "value": "9.38"
+                            }
+                        }
+                    ]
+                },
+                "billing": {
+                    "name": "Motiur Rehman",
+                    "phone": "9191223433",
+                    "email": "nc.rehman@gmail.com",
+                    "address": "123, Terminal 1, Kempegowda Int'l Airport Rd, A - Block, Gangamuthanahalli, Karnataka 560300, India",
+                    "city": {
+                        "name": "Gangamuthanahalli"
+                    },
+                    "state": {
+                        "name": "Karnataka"
+                    }
+                },
+                "payments": [
+                    {
+                        "id": "1",
+                        "status": "NOT-PAID",
+                        "type": "PRE-FULFILLMENT",
+                        "params": {
+                            "amount": "61.27",
+                            "currency": "USD"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -61,7 +61,8 @@
             "args": {
                 "graphqlFilename": "removeAllOrderLines.graphql",
                 "authTokenKey": "vendureAuthToken",
-                "outputKey": "removedOrderId"
+                "outputKey": "removeAllOrderLinesResult",
+                "outputDataPath": "body.data"
             },
             "condition": "context.usingExistingVendureAuthToken"
         },
@@ -139,7 +140,8 @@
             "args": {
                 "graphqlFilename": "eligibleShippingMethods.graphql",
                 "authTokenKey": "vendureAuthToken",
-                "outputKey": "eligibleShippingMethods"
+                "outputKey": "eligibleShippingMethods",
+                "outputDataPath": "body.data.eligibleShippingMethods"
             }
         },
         {
@@ -147,6 +149,197 @@
             "type": "transform-and-add",
             "args": {
                 "jsonataFilename": "on-select-beckn-response.jsonata",
+                "outputKey": "becknResponse"
+            }
+        }
+    ],
+    "init": [
+        {
+            "name": "extract-transaction-id",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "extract-transaction-id-from-beckn.jsonata",
+                "outputKey": "becknTransactionId",
+                "common": "true"
+            }
+        },
+        {
+            "name": "get-existing-beckn-transaction",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getBecknTransaction.graphql",
+                "variablesKey": "becknTransactionId",
+                "outputDataPath": "body.data.getBecknTransaction.vendureAuthToken",
+                "outputKey": "vendureAuthToken"
+            }
+        },
+        {
+            "name": "set-existing-auth-token",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "check-if-vendure-auth-token-exists.jsonata",
+                "outputKey": "usingExistingVendureAuthToken",
+                "common": "true"
+            }
+        },
+        {
+            "name": "erase-existing-cart",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "removeAllOrderLines.graphql",
+                "authTokenKey": "vendureAuthToken",
+                "outputKey": "removeAllOrderLinesResult",
+                "outputDataPath": "body.data"
+            },
+            "condition": "context.usingExistingVendureAuthToken"
+        },
+        {
+            "name": "extract-init-params",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "init-beckn-request.jsonata",
+                "outputKey": "cartDetails"
+            }
+        },
+        {
+            "name": "add-first-item-to-order",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "addItemToOrder.graphql",
+                "variablesKey": "cartDetails.firstItem",
+                "authTokenKey": "vendureAuthToken",
+                "outputKey": "responseWithVendureAuthToken"
+            }
+        },
+        {
+            "name": "extract-vendure-auth-token",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "extract-vendure-auth-token-from-graphql-response.jsonata",
+                "outputKey": "vendureAuthToken",
+                "common": "true"
+            },
+            "condition": "!context.usingExistingVendureAuthToken"
+        },
+        {
+            "name": "add-remaining-items-to-order",
+            "type": "send-multiple-graphql-requests",
+            "args": {
+                "graphqlFilename": "addItemToOrder.graphql",
+                "variablesKey": "cartDetails.restItems",
+                "authTokenKey": "vendureAuthToken",
+                "outputKey": "addRestItemsToOrderResponse"
+            },
+            "condition": "context.cartDetails.totalItems > 1"
+        },
+        {
+            "name": "form-beckn-transaction-variables",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "form-beckn-transaction-variables.jsonata",
+                "common": "true",
+                "outputKey": "addBecknTransactionVariables"
+            },
+            "condition": "!context.usingExistingVendureAuthToken"
+        },
+        {
+            "name": "add-beckn-transaction",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "addBecknTransaction.graphql",
+                "variablesKey": "addBecknTransactionVariables",
+                "outputKey": "addBecknTransactionOutput"
+            },
+            "condition": "!context.usingExistingVendureAuthToken"
+        },
+        {
+            "name": "get-eligible-shipping-methods",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "eligibleShippingMethods.graphql",
+                "authTokenKey": "vendureAuthToken",
+                "outputKey": "eligibleShippingMethods",
+                "outputDataPath": "body.data.eligibleShippingMethods"
+            }
+        },
+        {
+            "name": "get-shipping-method-id",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "shipping-method-code-to-id.jsonata",
+                "common": "true",
+                "outputKey": "setOrderShippingMethodInput"
+            }
+        },
+        {
+            "name": "set-order-shipping-method",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "setOrderShippingMethod.graphql",
+                "authTokenKey": "vendureAuthToken",
+                "variablesKey": "setOrderShippingMethodInput",
+                "outputKey": "setOrderShippingMethodResult",
+                "outputDataPath": "body.data"
+            }
+        },
+        {
+            "name": "set-customer-for-order",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "setCustomerForOrder.graphql",
+                "authTokenKey": "vendureAuthToken",
+                "variablesKey": "cartDetails.setCustomerForOrderInput",
+                "outputKey": "setCustomerForOrderResult",
+                "outputDataPath": "body.data"
+            }
+        },
+        {
+            "name": "set-order-shipping-address",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "setOrderShippingAddress.graphql",
+                "authTokenKey": "vendureAuthToken",
+                "variablesKey": "cartDetails.setOrderShippingAddressInput",
+                "outputKey": "setOrderShippingAddressResult",
+                "outputDataPath": "body.data"
+            }
+        },
+        {
+            "name": "set-order-billing-address",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "setOrderBillingAddress.graphql",
+                "authTokenKey": "vendureAuthToken",
+                "variablesKey": "cartDetails.setOrderBillingAddressInput",
+                "outputKey": "setOrderBillingAddressResult",
+                "outputDataPath": "body.data"
+            }
+        },
+        {
+            "name": "get-eligible-payment-methods",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "eligiblePaymentMethods.graphql",
+                "authTokenKey": "vendureAuthToken",
+                "outputKey": "eligiblePaymentMethods",
+                "outputDataPath": "body.data.eligiblePaymentMethods"
+            }
+        },
+        {
+            "name": "get-current-order",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "activeOrderOnInit.graphql",
+                "authTokenKey": "vendureAuthToken",
+                "outputKey": "currentOrderResponse",
+                "outputDataPath": "body.data"
+            }
+        },
+        {
+            "name": "generate-beckn-response",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "on-init-beckn-response.jsonata",
                 "outputKey": "becknResponse"
             }
         }

@@ -5,13 +5,13 @@
         "totalItems":$count($items),
         "firstItem": $items[0] {
             "productVariantId": $.id,
-            "quantity": $.quantity.count            
+            "quantity": $.quantity.selected.count            
         },
         "restItems": [$filter($items, function ($v, $i) {
             $i != 0
             }).{
             "productVariantId": $.id,
-            "quantity": $.quantity.count
+            "quantity": $.quantity.selected.count
         }]
     }
 )

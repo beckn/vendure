@@ -1,0 +1,11 @@
+mutation SetOrderBillingAddress($billingAddress: CreateAddressInput!) {
+    setOrderBillingAddress(input: $billingAddress) {
+        ... on Order {
+            id
+        }
+        ... on NoActiveOrderError {
+            errorCode
+            message
+        }
+    }
+}

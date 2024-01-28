@@ -1,0 +1,6 @@
+(   
+    $shippingMethodType := $$.cartDetails.shippingMethodType;
+    {
+        "shippingMethodId":eligibleShippingMethods[][code=$shippingMethodType].id
+    };
+)

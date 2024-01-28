@@ -10,5 +10,11 @@
         "reqJSONFile": "select.json",
         "resJSONFile": "on-select.json",
         "exclude": ["body.context.timestamp", "body.message.order.id"]
+    },
+    {
+        "queryName": "init",
+        "reqJSONFile": "init.json",
+        "resJSONFile": "on-init.json",
+        "exclude": ["body.context.timestamp", "body.message.order.id"]
     }
 ]

@@ -1,0 +1,24 @@
+mutation SetCustomerForOrder($customerDetails: CreateCustomerInput!) {
+    setCustomerForOrder(input: $customerDetails) {
+        ... on Order {
+            id
+        }
+        ... on AlreadyLoggedInError {
+            errorCode
+            message
+        }
+        ... on EmailAddressConflictError {
+            errorCode
+            message
+        }
+        ... on NoActiveOrderError {
+            errorCode
+            message
+        }
+        ... on GuestCheckoutError {
+            errorCode
+            message
+            errorDetail
+        }
+    }
+}

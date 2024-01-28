@@ -1,0 +1,63 @@
+(
+    $firstName := function($fullName){
+        $split($fullName," ")[0]
+    };
+    $lastName := function($fullName){(
+        $parts := $split($fullName," ");
+        $remainingParts := $filter($parts, function ($v, $i) {
+            $i != 0
+            });
+        $lastName := $join($remainingParts," ");
+        $lastName ? $lastName : "N/A";
+    )};
+    $message := becknRequest.body.message;
+    $order := $message.order;
+    $items := $message.order.items;
+    $billing := $order.billing;
+    $stop := $order.fulfillments[0].stops[0];
+    $shippingAddress := $stop.location;
+    {
+        "totalItems":$count($items),
+        "firstItem": $items[0] {
+            "productVariantId": $.id,
+            "quantity": $.quantity.selected.count            
+        },
+        "restItems": [$filter($items, function ($v, $i) {
+            $i != 0
+            }).{
+            "productVariantId": $.id,
+            "quantity": $.quantity.selected.count
+        }],
+        "shippingMethodType": $order.fulfillments[].type,
+        "setOrderShippingAddressInput":{
+            "shippingAddress": $shippingAddress.{
+                "fullName": $stop.contact.name,
+                "streetLine1":address,
+                "city":city.name,
+                "province":state.name,
+                "countryCode":$substring(country.code,0,2),
+                "postalCode":area_code,
+                "phoneNumber":$stop.contact.phone
+            }
+        },
+        "setOrderBillingAddressInput":{
+            "billingAddress": $billing.{
+                "fullName": name,
+                "streetLine1": address,
+                "city": city.name,
+                "province": state.name,
+                "postalCode": area_code,
+                "countryCode": $substring($shippingAddress.country.code,0,2),
+                "phoneNumber": phone
+            }
+        },
+        "setCustomerForOrderInput": {
+            "customerDetails": $billing.{
+                "firstName": $firstName(name),
+                "lastName": $lastName(name),
+                "phoneNumber": phone,
+                "emailAddress": email
+            }
+        }
+    }
+)

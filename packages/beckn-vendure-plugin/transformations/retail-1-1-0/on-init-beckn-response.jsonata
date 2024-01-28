@@ -9,10 +9,14 @@
         }
     };
     $context := becknRequest.body.context;
+    $message := becknRequest.body.message;
+    $inputOrder := $message.order;
     $env := env;
-    $order := currentOrderResponse.body.data.activeOrder;
+    $order := currentOrderResponse.activeOrder;
     $items := $order.lines;
     $shippingMethods := eligibleShippingMethods;
+    $customer := $order.customer;
+    $billing := $order.billingAddress;
     {
         "headers":{
             "Content-Type": "application/json"
@@ -33,10 +37,6 @@
                             "name": "Default Vendure Shop"
                         }
                     },
-                    "fulfillments": $shippingMethods.{
-                        "id":$.id,
-                        "type":$.code
-                    },
                     "items": $items.{
                         "id":$.productVariant.id,
                         "descriptor":{
@@ -55,6 +55,7 @@
                             }
                         }
                     },
+                    "fulfillments": $inputOrder.fulfillments,
                     "quote":{
                         "price":$formatPrice($order.totalWithTax,$order.currencyCode),
                         "breakup":[
@@ -63,12 +64,36 @@
                                 "price": $formatPrice($order.subTotal,$order.currencyCode)
                             },
                             {
+                                "title": "shipping",
+                                "price": $formatPrice($order.shipping,$order.currencyCode)
+                            },
+                            {
                                 "title":"taxes",
                                 "price": $formatPrice($order.totalWithTax-$order.total,$order.currencyCode)
                             }
                         ]
                     },
-                    "type":"DEFAULT"
+                    "billing":{
+                        "name":$billing.fullName,
+                        "phone": $billing.phoneNumber,
+                        "email": $customer.emailAddress,
+                        "address": $billing.streetLine1,
+                        "city": {
+                            "name":$billing.city
+                        },
+                        "state":{
+                            "name":$billing.province
+                        }
+                    },
+                    "payments": eligiblePaymentMethods[].{
+                        "id":id,
+                        "status": "NOT-PAID",
+                        "type": "PRE-FULFILLMENT",
+                        "params": {
+                            "amount": $formatMoney($order.totalWithTax),
+                            "currency": $order.currencyCode
+                        }
+                    }
                 }
             }
         }

@@ -1,0 +1,19 @@
+mutation SetOrderShippingMethod($shippingMethodId: [ID!]!) {
+    setOrderShippingMethod(shippingMethodId: $shippingMethodId) {
+        ... on Order {
+            id
+        }
+        ... on OrderModificationError {
+            errorCode
+            message
+        }
+        ... on IneligibleShippingMethodError {
+            errorCode
+            message
+        }
+        ... on NoActiveOrderError {
+            errorCode
+            message
+        }
+    }
+}
