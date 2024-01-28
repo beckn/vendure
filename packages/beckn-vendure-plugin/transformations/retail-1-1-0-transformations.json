@@ -155,13 +155,35 @@
     ],
     "init": [
         {
+            "name": "extract-order-id",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "extract-order-id-from-beckn.jsonata",
+                "outputKey": "existingOrderId",
+                "common": "true"
+            },
+            "condition": "context.becknRequest.body?.message?.order?.id"
+        },
+        {
+            "name": "get-existing-beckn-transaction-from-orderId",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getBecknTransactionFromOrderId.graphql",
+                "variablesKey": "existingOrderId",
+                "outputDataPath": "body.data.getBecknTransactionFromOrderId.vendureAuthToken",
+                "outputKey": "vendureAuthToken"
+            },
+            "condition": "context.becknRequest.body?.message?.order?.id"
+        },
+        {
             "name": "extract-transaction-id",
             "type": "transform-and-add",
             "args": {
                 "jsonataFilename": "extract-transaction-id-from-beckn.jsonata",
                 "outputKey": "becknTransactionId",
                 "common": "true"
-            }
+            },
+            "condition": "!context.vendureAuthToken"
         },
         {
             "name": "get-existing-beckn-transaction",
@@ -171,7 +193,8 @@
                 "variablesKey": "becknTransactionId",
                 "outputDataPath": "body.data.getBecknTransaction.vendureAuthToken",
                 "outputKey": "vendureAuthToken"
-            }
+            },
+            "condition": "!context.vendureAuthToken"
         },
         {
             "name": "set-existing-auth-token",

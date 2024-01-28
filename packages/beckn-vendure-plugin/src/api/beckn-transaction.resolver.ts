@@ -16,6 +16,15 @@ export class BecknTransactionResolver {
         return this.becknTransactionService.getBecknTransaction(ctx, becknTransactionId);
     }
 
+    @Query()
+    @Allow(Permission.Public)
+    async getBecknTransactionFromOrderId(
+        @Ctx() ctx: RequestContext,
+        @Args() { orderId }: { orderId: string },
+    ) {
+        return this.becknTransactionService.getBecknTransactionFromOrderId(ctx, orderId);
+    }
+
     @Mutation()
     @Transaction()
     @Allow(Permission.Public)

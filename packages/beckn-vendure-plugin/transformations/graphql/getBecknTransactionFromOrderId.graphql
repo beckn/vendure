@@ -1,0 +1,9 @@
+query GetBecknTransactionFromOrderId($orderId: String!) {
+    getBecknTransactionFromOrderId(orderId: $orderId) {
+        id
+        createdAt
+        updatedAt
+        becknTransactionId
+        vendureAuthToken
+    }
+}

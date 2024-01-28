@@ -12,6 +12,15 @@ export class BecknTransactionService {
         });
     }
 
+    async getBecknTransactionFromOrderId(
+        ctx: RequestContext,
+        orderId: string,
+    ): Promise<BecknTransaction | null> {
+        return await this.connection.getRepository(ctx, BecknTransaction).findOneBy({
+            vendureAuthToken: orderId,
+        });
+    }
+
     async setBecknTransaction(
         ctx: RequestContext,
         becknId: string,
