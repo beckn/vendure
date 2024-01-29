@@ -13,15 +13,15 @@
                     "code": "std:080"
                 }
             },
-            "action": "init",
+            "action": "confirm",
             "version": "1.1.0",
             "bap_id": "ps-bap-network.becknprotocol.io",
-            "bap_uri": "https://ps-bap-network.becknprotocol.io/",
+            "bap_uri": "https://ps-bap-network.becknprotocol.io",
             "bpp_id": "vbabu.lr.bpp.1",
             "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
-            "transaction_id": "8100d125-76a7-4588-88be-81b97657cd39",
-            "message_id": "06f49c01-65b7-4754-8b37-ab4e33689000",
-            "timestamp": "2024-01-26T09:45:40.407Z"
+            "message_id": "6d098f3a-4873-4b2e-935e-e4d6be92eb01",
+            "transaction_id": "8100d125-76a7-4588-88be-81b97657cd38",
+            "timestamp": "2024-01-26T10:14:10.280Z"
         },
         "message": {
             "order": {
@@ -93,7 +93,23 @@
                     "state": {
                         "name": "Karnataka"
                     }
-                }
+                },
+                "payments": [
+                    {
+                        "id": "1",
+                        "status": "PAID",
+                        "type": "PRE-FULFILLMENT",
+                        "params": {
+                            "amount": "61.27",
+                            "currency": "USD",
+                            "transaction_id": "198237465"
+                        },
+                        "time": {
+                            "label": "Transaction timestamp",
+                            "timestamp": "2024-01-26T10:14:10.280Z"
+                        }
+                    }
+                ]
             }
         }
     }

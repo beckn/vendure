@@ -1,0 +1,16 @@
+mutation TransitionOrderToState {
+    transitionOrderToState(state: "ArrangingPayment") {
+        ... on Order {
+            id
+            state
+            active
+        }
+        ... on OrderStateTransitionError {
+            errorCode
+            message
+            transitionError
+            fromState
+            toState
+        }
+    }
+}

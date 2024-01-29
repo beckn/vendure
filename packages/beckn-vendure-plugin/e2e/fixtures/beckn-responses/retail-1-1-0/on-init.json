@@ -19,13 +19,13 @@
             "bap_uri": "https://ps-bap-network.becknprotocol.io/",
             "bpp_id": "vbabu.lr.bpp.1",
             "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
-            "transaction_id": "8100d125-76a7-4588-88be-81b97657cd26",
+            "transaction_id": "8100d125-76a7-4588-88be-81b97657cd39",
             "message_id": "06f49c01-65b7-4754-8b37-ab4e33689000",
             "timestamp": "2024-01-26T09:45:40.407Z"
         },
         "message": {
             "order": {
-                "id": "760e3f53b2c992e0e16c67cd3b1b0b8dca9f8ce8623774ce8ac34532bc4373d0",
+                "id": "68cce5585a3ce33e690173914625dabfd11fbe2a6ee7f29b4e9b327f875a4f07",
                 "provider": {
                     "id": "Vendure_Default_Shop_Token",
                     "descriptor": {

@@ -1,0 +1,20 @@
+mutation SetOrderCustomFields($updateOrderInput: UpdateOrderInput!) {
+    setOrderCustomFields(input: $updateOrderInput) {
+        ... on Order {
+            id
+            state
+            active
+            customFields {
+                paymentCode
+                paymentTransactionId
+                paymentAmount
+                paymentCurrencyCode
+                paymentTime
+            }
+        }
+        ... on NoActiveOrderError {
+            errorCode
+            message
+        }
+    }
+}

@@ -1,0 +1,19 @@
+(
+    $getPaymentCode := function($eligiblePaymentMethods,$requestedPaymentId){
+        $eligiblePaymentMethods[id=$requestedPaymentId].code
+    };
+    $payment := becknRequest.body.message.order.payments[0];
+    $eligiblePaymentMethods := eligiblePaymentMethods;
+    $paymentCode := $getPaymentCode($eligiblePaymentMethods,$payment.id);
+    $paymentCode ? ({
+            "updateOrderInput":{
+                "customFields":{
+                    "paymentCode": $paymentCode,
+                    "paymentTransactionId": $payment.params.transaction_id,
+                    "paymentAmount": $payment.params.amount,
+                    "paymentCurrencyCode": $payment.params.currency,
+                    "paymentTime": $payment.time.timestamp
+                }
+            }
+        } ) : null
+)

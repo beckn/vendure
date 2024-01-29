@@ -16,5 +16,11 @@
         "reqJSONFile": "init.json",
         "resJSONFile": "on-init.json",
         "exclude": ["body.context.timestamp", "body.message.order.id"]
+    },
+    {
+        "queryName": "confirm",
+        "reqJSONFile": "confirm.json",
+        "resJSONFile": "on-confirm.json",
+        "exclude": ["body.context.timestamp", "body.message.order.id"]
     }
 ]

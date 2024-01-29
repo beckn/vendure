@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { OnModuleInit } from '@nestjs/common';
-import { PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { LanguageCode, PluginCommonModule, VendurePlugin } from '@vendure/core';
 import { EventBus } from '@vendure/core';
 import path from 'path';
 
@@ -33,6 +33,29 @@ import { WebhookService } from './webhook.service';
             useFactory: () => BecknVendurePlugin.options,
         },
     ],
+    configuration: config => {
+        config.customFields.Order.push({
+            type: 'string',
+            name: 'paymentCode',
+        });
+        config.customFields.Order.push({
+            type: 'string',
+            name: 'paymentTransactionId',
+        });
+        config.customFields.Order.push({
+            type: 'string',
+            name: 'paymentAmount',
+        });
+        config.customFields.Order.push({
+            type: 'string',
+            name: 'paymentCurrencyCode',
+        });
+        config.customFields.Order.push({
+            type: 'datetime',
+            name: 'paymentTime',
+        });
+        return config;
+    },
     compatibility: '^2.0.0',
 })
 export class BecknVendurePlugin implements OnModuleInit {

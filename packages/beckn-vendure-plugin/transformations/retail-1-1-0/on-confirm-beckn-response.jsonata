@@ -1,0 +1,108 @@
+(
+    $formatMoney := function($value){
+        $string($formatNumber($value/100,"#0.00"))
+    };
+    $formatPrice := function($price,$currencyCode){
+        {
+            "currency":$currencyCode,
+            "value":$formatMoney($price)
+        }
+    };
+    $context := becknRequest.body.context;
+    $message := becknRequest.body.message;
+    $inputOrder := $message.order;
+    $env := env;
+    $order := currentOrderResponse.activeOrder;
+    $items := $order.lines;
+    $shippingMethods := eligibleShippingMethods;
+    $customer := $order.customer;
+    $billing := $order.billingAddress;
+    $inputPayment:= $inputOrder.payments[0];
+    $paymentDetails:= $order.customFields;
+    {
+        "headers":{
+            "Content-Type": "application/json"
+        },
+        "body":{    
+            "context":$context ~> |$|{
+                "action": 'on_' & $context.action,
+                "bpp_id": $env.bpp_id,
+                "bpp_uri": $env.bpp_uri,
+                "timestamp": $now()
+                }|,
+            "message": {
+                "order": {
+                    "id": vendureAuthToken,
+                    "provider":{
+                        "id": "Vendure_Default_Shop_Token",
+                        "descriptor": {
+                            "name": "Default Vendure Shop"
+                        }
+                    },
+                    "items": $items.{
+                        "id":$.productVariant.id,
+                        "descriptor":{
+                            "name":$.productVariant.name
+                        },
+                        "price":(
+                            $price := $formatMoney($.unitPrice);
+                            {
+                            "listed_value": $price,
+                            "currency": $order.currencyCode,
+                            "value": $price
+                        }),
+                        "quantity":{
+                            "selected":{
+                                "count": $.quantity
+                            }
+                        }
+                    },
+                    "fulfillments": $inputOrder.fulfillments,
+                    "quote":{
+                        "price":$formatPrice($order.totalWithTax,$order.currencyCode),
+                        "breakup":[
+                            {
+                                "title":"base-price",
+                                "price": $formatPrice($order.subTotal,$order.currencyCode)
+                            },
+                            {
+                                "title": "shipping",
+                                "price": $formatPrice($order.shipping,$order.currencyCode)
+                            },
+                            {
+                                "title":"taxes",
+                                "price": $formatPrice($order.totalWithTax-$order.total,$order.currencyCode)
+                            }
+                        ]
+                    },
+                    "billing":{
+                        "name":$billing.fullName,
+                        "phone": $billing.phoneNumber,
+                        "email": $customer.emailAddress,
+                        "address": $billing.streetLine1,
+                        "city": {
+                            "name":$billing.city
+                        },
+                        "state":{
+                            "name":$billing.province
+                        }
+                    },
+                    "payments": eligiblePaymentMethods[].{
+                        "id":id,
+                        "status": $inputPayment.status,
+                        "type": "PRE-FULFILLMENT",
+                        "params": {
+                            "amount": $paymentDetails.paymentAmount,
+                            "currency": $paymentDetails.paymentCurrencyCode,
+                            "transaction_id": $paymentDetails.paymentTransactionId
+                        },
+                        "time":{
+                            "label": "Transaction timestamp",
+                            "timestamp": $paymentDetails.paymentTime
+                        }
+                    }
+                }
+            }
+        }
+    }
+)

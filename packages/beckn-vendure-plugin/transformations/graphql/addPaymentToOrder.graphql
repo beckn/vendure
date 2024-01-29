@@ -1,0 +1,39 @@
+mutation AddPaymentToOrder {
+    addPaymentToOrder(input: { method: "standard-payment", metadata: "nonce:null" }) {
+        ... on Order {
+            id
+            state
+            active
+        }
+        ... on OrderPaymentStateError {
+            errorCode
+            message
+        }
+        ... on IneligiblePaymentMethodError {
+            errorCode
+            message
+            eligibilityCheckerMessage
+        }
+        ... on PaymentFailedError {
+            errorCode
+            message
+            paymentErrorMessage
+        }
+        ... on PaymentDeclinedError {
+            errorCode
+            message
+            paymentErrorMessage
+        }
+        ... on OrderStateTransitionError {
+            errorCode
+            message
+            transitionError
+            fromState
+            toState
+        }
+        ... on NoActiveOrderError {
+            errorCode
+            message
+        }
+    }
+}
