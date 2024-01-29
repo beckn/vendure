@@ -607,6 +607,17 @@
             }
         },
         {
+            "name": "transition-order-to-arranging-payment",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "transitionOrderToArrangingPayment.graphql",
+                "authTokenKey": "vendureAuthToken",
+                "outputKey": "arrangingPaymentOutput",
+                "outputDataPath": "body.data.transitionOrderToState"
+            },
+            "condition": "context.orderInitialState.state !== 'ArrangingPayment' "
+        },
+        {
             "name": "get-current-order",
             "type": "send-graphql-request",
             "args": {
