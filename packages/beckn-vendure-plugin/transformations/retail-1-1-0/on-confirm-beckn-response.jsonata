@@ -39,7 +39,7 @@
                             "name": "Default Vendure Shop"
                         }
                     },
-                    "items": $items.{
+                    "items": $items[].{
                         "id":$.productVariant.id,
                         "descriptor":{
                             "name":$.productVariant.name

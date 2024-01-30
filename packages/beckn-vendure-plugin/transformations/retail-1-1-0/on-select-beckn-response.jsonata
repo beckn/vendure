@@ -33,11 +33,11 @@
                             "name": "Default Vendure Shop"
                         }
                     },
-                    "fulfillments": $shippingMethods.{
+                    "fulfillments": $shippingMethods[].{
                         "id":$.id,
                         "type":$.code
                     },
-                    "items": $items.{
+                    "items": $items[].{
                         "id":$.productVariant.id,
                         "descriptor":{
                             "name":$.productVariant.name

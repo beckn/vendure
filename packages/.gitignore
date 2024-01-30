@@ -1,1 +1,2 @@
-update_beckn_vendure_plugin.sh
+update_from_dev.sh
+update_from_src.sh
