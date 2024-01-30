@@ -1,3 +1,5 @@
 preview/output
 yarn-error.log
 lib
+node_modules
+e2e/__data__
