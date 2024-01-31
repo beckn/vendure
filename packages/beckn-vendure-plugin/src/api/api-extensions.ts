@@ -11,7 +11,7 @@ export const shopApiExtensions = gql`
 
     extend type Query {
         getBecknTransaction(becknTransactionId: String!): BecknTransaction
-        getBecknTransactionFromOrderId(orderId: String!): BecknTransaction
+        getBecknTransactionFromVendureAuthToken(vendureAuthToken: String!): BecknTransaction
     }
 
     extend type Mutation {

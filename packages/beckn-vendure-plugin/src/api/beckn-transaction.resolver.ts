@@ -18,11 +18,11 @@ export class BecknTransactionResolver {
 
     @Query()
     @Allow(Permission.Public)
-    async getBecknTransactionFromOrderId(
+    async getBecknTransactionFromVendureAuthToken(
         @Ctx() ctx: RequestContext,
-        @Args() { orderId }: { orderId: string },
+        @Args() { vendureAuthToken }: { vendureAuthToken: string },
     ) {
-        return this.becknTransactionService.getBecknTransactionFromOrderId(ctx, orderId);
+        return this.becknTransactionService.getBecknTransactionFromVendureAuthToken(ctx, vendureAuthToken);
     }
 
     @Mutation()

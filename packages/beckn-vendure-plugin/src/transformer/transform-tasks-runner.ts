@@ -24,7 +24,7 @@ export class TransformTasksRunner {
         context.requestEnv = await this._get_request_env(context);
         context.tasksDefList = await this.get_task_def_list(context);
         for (const transformTaskDef of context.tasksDefList) {
-            // console.log(`Task - ${transformTaskDef.name || ''}`);
+            console.log(`Task - ${transformTaskDef.name || ''}`);
             // console.log('Before-', `${transformTaskDef.name || transformTaskDef.type}`, Object.keys(context));
             if (transformTaskDef.condition) {
                 // eslint-disable-next-line no-eval

@@ -12,12 +12,12 @@ export class BecknTransactionService {
         });
     }
 
-    async getBecknTransactionFromOrderId(
+    async getBecknTransactionFromVendureAuthToken(
         ctx: RequestContext,
-        orderId: string,
+        vendureAuthToken: string,
     ): Promise<BecknTransaction | null> {
         return await this.connection.getRepository(ctx, BecknTransaction).findOneBy({
-            vendureAuthToken: orderId,
+            vendureAuthToken: vendureAuthToken,
         });
     }
 

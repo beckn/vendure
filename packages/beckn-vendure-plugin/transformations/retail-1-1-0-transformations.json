@@ -165,12 +165,12 @@
             "condition": "context.becknRequest.body?.message?.order?.id"
         },
         {
-            "name": "get-existing-beckn-transaction-from-orderId",
+            "name": "get-existing-beckn-transaction-from-vendure-auth-token",
             "type": "send-graphql-request",
             "args": {
-                "graphqlFilename": "getBecknTransactionFromOrderId.graphql",
+                "graphqlFilename": "getBecknTransactionFromVendureAuthToken.graphql",
                 "variablesKey": "existingOrderId",
-                "outputDataPath": "body.data.getBecknTransactionFromOrderId.vendureAuthToken",
+                "outputDataPath": "body.data.getBecknTransactionFromVendureAuthToken.vendureAuthToken",
                 "outputKey": "vendureAuthToken"
             },
             "condition": "context.becknRequest.body?.message?.order?.id"
@@ -379,12 +379,12 @@
             "condition": "context.becknRequest.body?.message?.order?.id"
         },
         {
-            "name": "get-existing-beckn-transaction-from-orderId",
+            "name": "get-existing-beckn-transaction-from-vendure-auth-token",
             "type": "send-graphql-request",
             "args": {
-                "graphqlFilename": "getBecknTransactionFromOrderId.graphql",
+                "graphqlFilename": "getBecknTransactionFromVendureAuthToken.graphql",
                 "variablesKey": "existingOrderId",
-                "outputDataPath": "body.data.getBecknTransactionFromOrderId.vendureAuthToken",
+                "outputDataPath": "body.data.getBecknTransactionFromVendureAuthToken.vendureAuthToken",
                 "outputKey": "vendureAuthToken"
             },
             "condition": "context.becknRequest.body?.message?.order?.id"
@@ -615,7 +615,7 @@
                 "outputKey": "arrangingPaymentOutput",
                 "outputDataPath": "body.data.transitionOrderToState"
             },
-            "condition": "context.orderInitialState.state !== 'ArrangingPayment' "
+            "condition": "!context.orderInitialState || context.orderInitialState.state !== 'ArrangingPayment' "
         },
         {
             "name": "get-current-order",
