@@ -1,5 +1,5 @@
 import { DeepPartial, VendureEntity } from '@vendure/core';
-import { Entity, Column, OneToOne } from 'typeorm';
+import { Entity, Column, Index } from 'typeorm';
 
 @Entity()
 export class BecknTransaction extends VendureEntity {
@@ -7,9 +7,14 @@ export class BecknTransaction extends VendureEntity {
         super(input);
     }
 
+    @Index()
     @Column()
     becknTransactionId: string;
 
+    @Index()
     @Column()
     vendureAuthToken: string;
+
+    @Column({ nullable: true })
+    vendureOrderId: string;
 }

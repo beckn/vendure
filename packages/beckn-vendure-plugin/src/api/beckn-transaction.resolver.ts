@@ -35,4 +35,19 @@ export class BecknTransactionResolver {
     ) {
         return this.becknTransactionService.setBecknTransaction(ctx, becknTransactionId, vendureAuthToken);
     }
+
+    @Mutation()
+    @Transaction()
+    @Allow(Permission.Public)
+    async addVendureOrderIdToBecknTransaction(
+        @Ctx() ctx: RequestContext,
+        @Args()
+        { vendureAuthToken, vendureOrderId }: { vendureAuthToken: string; vendureOrderId: string },
+    ) {
+        return this.becknTransactionService.addVendureOrderIdToBecknTransaction(
+            ctx,
+            vendureAuthToken,
+            vendureOrderId,
+        );
+    }
 }

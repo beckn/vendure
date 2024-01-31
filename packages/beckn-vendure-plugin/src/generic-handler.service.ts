@@ -23,7 +23,7 @@ export class GenericHandlerService {
             const env: Environment = this._get_environment(ctx);
             const beckn_request = this._get_beckn_request(ctx);
             const beckn_response = await this.transformer.transform(env, beckn_request);
-            await this._send_response_to_beckn(env, beckn_response);
+            if (beckn_response) await this._send_response_to_beckn(env, beckn_response);
         } catch (err: any) {
             Logger.error(err.message, loggerCtx);
             console.log(err.stack);

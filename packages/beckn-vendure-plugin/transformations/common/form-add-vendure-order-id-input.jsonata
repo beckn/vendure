@@ -1,0 +1,4 @@
+{
+    "vendureAuthToken": vendureAuthToken,
+    "vendureOrderId": currentOrderResponse.activeOrder.id
+}

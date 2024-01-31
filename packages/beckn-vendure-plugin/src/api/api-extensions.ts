@@ -7,6 +7,7 @@ export const shopApiExtensions = gql`
         updatedAt: DateTime!
         becknTransactionId: String!
         vendureAuthToken: String!
+        vendureOrderId: String
     }
 
     extend type Query {
@@ -16,5 +17,9 @@ export const shopApiExtensions = gql`
 
     extend type Mutation {
         addBecknTransaction(becknTransactionId: String!, vendureAuthToken: String!): BecknTransaction!
+        addVendureOrderIdToBecknTransaction(
+            vendureAuthToken: String!
+            vendureOrderId: String!
+        ): BecknTransaction!
     }
 `;

@@ -23,7 +23,8 @@
             "args": {
                 "jsonataFilename": "on-search-beckn-response.jsonata",
                 "outputKey": "becknResponse"
-            }
+            },
+            "condition": "context.graphqlResponse?.body?.data?.search?.totalItems !== 0"
         }
     ],
     "select": [
@@ -625,6 +626,25 @@
                 "authTokenKey": "vendureAuthToken",
                 "outputKey": "currentOrderResponse",
                 "outputDataPath": "body.data"
+            }
+        },
+        {
+            "name": "form-add-vendure-order-id-input",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "form-add-vendure-order-id-input.jsonata",
+                "outputKey": "addVendureOrderIdInput",
+                "common": "true"
+            }
+        },
+        {
+            "name": "add-vendure-orderId-to-beckn-transaction",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "addVendureOrderIdToBecknTransaction.graphql",
+                "variablesKey": "addVendureOrderIdInput",
+                "outputKey": "addVendureOrderIdResponse",
+                "outputDataPath": "body.data.addVendureOrderIdToBecknTransaction"
             }
         },
         {

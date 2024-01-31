@@ -34,4 +34,17 @@ export class BecknTransactionService {
         becknTransaction.vendureAuthToken = vendureAuthToken;
         return await this.connection.getRepository(ctx, BecknTransaction).save(becknTransaction);
     }
+
+    async addVendureOrderIdToBecknTransaction(
+        ctx: RequestContext,
+        vendureAuthToken: string,
+        vendureOrderId: string,
+    ): Promise<BecknTransaction> {
+        let becknTransaction = await this.connection.getRepository(ctx, BecknTransaction).findOneBy({
+            vendureAuthToken: vendureAuthToken,
+        });
+        if (!becknTransaction) throw Error('Cannot add VendureOrderId to non-existant BecknTransaction');
+        becknTransaction.vendureOrderId = vendureOrderId;
+        return await this.connection.getRepository(ctx, BecknTransaction).save(becknTransaction);
+    }
 }

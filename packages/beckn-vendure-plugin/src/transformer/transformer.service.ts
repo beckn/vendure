@@ -15,10 +15,9 @@ import { BecknRequest, BecknResponse, TransformerContext } from './types';
 export class TransformerService {
     constructor(private transformTasksRunner: TransformTasksRunner) {}
 
-    async transform(env: Environment, becknRequest: BecknRequest): Promise<BecknResponse> {
+    async transform(env: Environment, becknRequest: BecknRequest): Promise<BecknResponse | undefined> {
         const context: TransformerContext = { env, becknRequest };
         await this.transformTasksRunner.run(context);
-        if (!context.becknResponse) throw Error('Could not generate Beckn Response packet');
-        return context.becknResponse as BecknResponse;
+        return context.becknResponse;
     }
 }

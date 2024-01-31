@@ -24,28 +24,23 @@ export class TransformTasksRunner {
         context.requestEnv = await this._get_request_env(context);
         context.tasksDefList = await this.get_task_def_list(context);
         for (const transformTaskDef of context.tasksDefList) {
-            console.log(`Task - ${transformTaskDef.name || ''}`);
-            // console.log('Before-', `${transformTaskDef.name || transformTaskDef.type}`, Object.keys(context));
+            // console.log(`Task - ${transformTaskDef.name || ''}`);
             if (transformTaskDef.condition) {
                 // eslint-disable-next-line no-eval
                 if (!!eval(transformTaskDef.condition) === false) {
-                    console.log('Skipping step');
+                    // console.log('Skipping step');
                     continue;
                 }
             }
             await this._run_transform_task(transformTaskDef, context);
-            // console.log('After-', `${transformTaskDef.name || transformTaskDef.type}`, Object.keys(context));
-            // console.log(JSON.stringify(context, null, 2));
         }
         // console.log(JSON.stringify(context, null, 2));
-        // console.log('Done with all tasks');
     }
 
     async _run_transform_task(transformTaskDef: TransformTaskDef, context: TransformerContext) {
         const transformTask: TransformTask = this.create_task(transformTaskDef);
         transformTask.preCheck(context);
         await transformTask.run(context);
-        // console.log(context.graphqlResponse);
     }
 
     create_task(transformTaskDef: TransformTaskDef) {
