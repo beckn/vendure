@@ -1,0 +1,6 @@
+mutation CancelBecknOrder($becknOrderId: String!, $reason: String!, $cancelShipping: Boolean) {
+    cancelBecknOrder(becknOrderId: $becknOrderId, reason: $reason, cancelShipping: $cancelShipping) {
+        id
+        state
+    }
+}

@@ -1,0 +1,4 @@
+{
+    "becknOrderId": becknRequest.body.message.order_id,
+    "reason": becknRequest.body.message.descriptor.short_desc
+}

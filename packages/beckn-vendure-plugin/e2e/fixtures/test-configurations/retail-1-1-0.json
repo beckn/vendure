@@ -28,5 +28,11 @@
         "reqJSONFile": "status.json",
         "resJSONFile": "on-status.json",
         "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
+    },
+    {
+        "queryName": "cancel",
+        "reqJSONFile": "cancel.json",
+        "resJSONFile": "on-cancel.json",
+        "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
     }
 ]

@@ -448,7 +448,7 @@
                 "outputKey": "removeAllOrderLinesResult",
                 "outputDataPath": "body.data"
             },
-            "condition": "context.orderCanBeModified"
+            "condition": "context.orderCanBeModified && context.usingExistingVendureAuthToken"
         },
         {
             "name": "extract-confirm-params",
@@ -680,6 +680,53 @@
             "type": "transform-and-add",
             "args": {
                 "jsonataFilename": "on-status-beckn-response.jsonata",
+                "outputKey": "becknResponse"
+            }
+        }
+    ],
+    "cancel": [
+        {
+            "name": "extract-status-params-to-get-initial-order",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "status-beckn-request.jsonata",
+                "outputKey": "getBecknOrderInput"
+            }
+        },
+        {
+            "name": "get-beckn-order",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getBecknOrder.graphql",
+                "variablesKey": "getBecknOrderInput",
+                "outputKey": "becknOrder",
+                "outputDataPath": "body.data.getBecknOrder"
+            }
+        },
+        {
+            "name": "extract-cancel-params",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "cancel-beckn-request.jsonata",
+                "outputKey": "cancelBecknOrderInput"
+            }
+        },
+        {
+            "name": "cancel-beckn-order",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "cancelBecknOrder.graphql",
+                "variablesKey": "cancelBecknOrderInput",
+                "outputKey": "cancelBecknOrderResult",
+                "outputDataPath": "body.data.cancelBecknOrder"
+            },
+            "condition": "context.becknOrder.state !== 'Cancelled'"
+        },
+        {
+            "name": "generate-beckn-response",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "on-cancel-beckn-response.jsonata",
                 "outputKey": "becknResponse"
             }
         }

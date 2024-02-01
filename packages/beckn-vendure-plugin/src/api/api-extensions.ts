@@ -22,5 +22,6 @@ export const shopApiExtensions = gql`
             vendureAuthToken: String!
             vendureOrderId: String!
         ): BecknTransaction!
+        cancelBecknOrder(becknOrderId: String!, reason: String!, cancelShipping: Boolean): Order
     }
 `;

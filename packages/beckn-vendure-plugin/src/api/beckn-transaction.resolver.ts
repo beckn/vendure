@@ -9,9 +9,11 @@ import {
     RelationPaths,
     Order,
     OrderService,
+    ErrorResultUnion,
 } from '@vendure/core';
 
 import { BecknTransactionService } from '../services/beckn-transaction-service';
+import { CancelOrderInput, CancelOrderResult } from '@vendure/common/lib/generated-types';
 
 @Resolver()
 export class BecknTransactionResolver {
@@ -79,5 +81,33 @@ export class BecknTransactionResolver {
             vendureAuthToken,
             vendureOrderId,
         );
+    }
+
+    @Transaction()
+    @Mutation()
+    async cancelBecknOrder(
+        @Ctx() ctx: RequestContext,
+        @Args()
+        {
+            becknOrderId,
+            reason,
+            cancelShipping = true,
+        }: { becknOrderId: string; reason: string; cancelShipping: boolean },
+    ): Promise<ErrorResultUnion<CancelOrderResult, Order>> {
+        const becknTransaction = await this.becknTransactionService.getBecknTransactionFromVendureAuthToken(
+            ctx,
+            becknOrderId,
+        );
+        if (!becknTransaction || !becknTransaction.vendureOrderId)
+            throw new Error('No order id for the given becknOrderId. How did this happen?');
+
+        const cancelOrderInput: CancelOrderInput = {
+            orderId: becknTransaction.vendureOrderId,
+            reason: reason,
+            cancelShipping: cancelShipping,
+        };
+        const retVal = await this.orderService.cancelOrder(ctx, cancelOrderInput);
+        console.log(retVal);
+        return retVal;
     }
 }
