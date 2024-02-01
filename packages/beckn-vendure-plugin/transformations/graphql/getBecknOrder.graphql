@@ -1,0 +1,72 @@
+query GetBecknOrder($becknOrderId: String!) {
+    getBecknOrder(becknOrderId: $becknOrderId) {
+        id
+        state
+        active
+        subTotal
+        currencyCode
+        shipping
+        shippingWithTax
+        total
+        totalWithTax
+        customer {
+            id
+            title
+            firstName
+            lastName
+            phoneNumber
+            emailAddress
+        }
+        shippingAddress {
+            fullName
+            company
+            streetLine1
+            streetLine2
+            city
+            province
+            postalCode
+            country
+            countryCode
+            phoneNumber
+        }
+        billingAddress {
+            fullName
+            company
+            streetLine1
+            streetLine2
+            city
+            province
+            postalCode
+            country
+            countryCode
+            phoneNumber
+        }
+        lines {
+            id
+            unitPrice
+            unitPriceWithTax
+            quantity
+            linePrice
+            linePriceWithTax
+            productVariant {
+                id
+                name
+            }
+        }
+        customFields {
+            paymentCode
+            paymentTransactionId
+            paymentAmount
+            paymentCurrencyCode
+            paymentTime
+        }
+        shippingLines {
+            id
+            shippingMethod {
+                code
+                name
+                description
+            }
+        }
+    }
+}

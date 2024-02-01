@@ -1,11 +1,24 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
-import { Ctx, RequestContext, Allow, Permission, Transaction } from '@vendure/core';
+import {
+    Ctx,
+    RequestContext,
+    Allow,
+    Permission,
+    Transaction,
+    Relations,
+    RelationPaths,
+    Order,
+    OrderService,
+} from '@vendure/core';
 
 import { BecknTransactionService } from '../services/beckn-transaction-service';
 
 @Resolver()
 export class BecknTransactionResolver {
-    constructor(private becknTransactionService: BecknTransactionService) {}
+    constructor(
+        private becknTransactionService: BecknTransactionService,
+        private orderService: OrderService,
+    ) {}
 
     @Query()
     @Allow(Permission.Public)
@@ -23,6 +36,23 @@ export class BecknTransactionResolver {
         @Args() { vendureAuthToken }: { vendureAuthToken: string },
     ) {
         return this.becknTransactionService.getBecknTransactionFromVendureAuthToken(ctx, vendureAuthToken);
+    }
+
+    @Query()
+    @Allow(Permission.Public)
+    async getBecknOrder(
+        @Ctx() ctx: RequestContext,
+        @Args() { becknOrderId }: { becknOrderId: string },
+        @Relations(Order) relations: RelationPaths<Order>,
+    ): Promise<Order | undefined> {
+        const becknTransaction = await this.becknTransactionService.getBecknTransactionFromVendureAuthToken(
+            ctx,
+            becknOrderId,
+        );
+        if (!becknTransaction || !becknTransaction.vendureOrderId)
+            throw new Error('No order id for the given becknOrderId. How did this happen?');
+        const order = await this.orderService.findOne(ctx, becknTransaction.vendureOrderId, relations);
+        if (order) return order;
     }
 
     @Mutation()

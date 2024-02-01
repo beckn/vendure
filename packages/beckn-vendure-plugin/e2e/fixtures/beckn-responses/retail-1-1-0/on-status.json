@@ -1,0 +1,168 @@
+{
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "body": {
+        "context": {
+            "domain": "retail:1.1.0",
+            "location": {
+                "country": {
+                    "code": "IND"
+                },
+                "city": {
+                    "code": "std:080"
+                }
+            },
+            "action": "on_status",
+            "version": "1.1.0",
+            "bap_id": "ps-bap-network.becknprotocol.io",
+            "bap_uri": "https://ps-bap-network.becknprotocol.io",
+            "bpp_id": "vbabu.lr.bpp.1",
+            "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
+            "message_id": "b8c1e69c-fbbc-439b-a5de-2adcc74fa1eb",
+            "transaction_id": "8100d125-76a7-4588-88be-81b97657cd40",
+            "timestamp": "2024-01-31T10:14:10.295Z",
+            "ttl": "PT10M"
+        },
+        "message": {
+            "order": {
+                "id": "2928059dd803ff2fca9bbe61f29bbd4e5d43123bc1206d1c37ee5f2f8051dd91",
+                "provider": {
+                    "id": "Vendure_Default_Shop_Token",
+                    "descriptor": {
+                        "name": "Default Vendure Shop"
+                    }
+                },
+                "items": [
+                    {
+                        "id": "69",
+                        "descriptor": {
+                            "name": "Hanging Plant"
+                        },
+                        "price": {
+                            "listed_value": "19.95",
+                            "currency": "USD",
+                            "value": "19.95"
+                        },
+                        "quantity": {
+                            "selected": {
+                                "count": 2
+                            }
+                        }
+                    },
+                    {
+                        "id": "70",
+                        "descriptor": {
+                            "name": "Aloe Vera"
+                        },
+                        "price": {
+                            "listed_value": "6.99",
+                            "currency": "USD",
+                            "value": "6.99"
+                        },
+                        "quantity": {
+                            "selected": {
+                                "count": 1
+                            }
+                        }
+                    }
+                ],
+                "fulfillments": [
+                    {
+                        "type": "standard-shipping",
+                        "stops": [
+                            {
+                                "location": {
+                                    "address": "123, Terminal 1, Kempegowda Int'l Airport Rd, A - Block, Gangamuthanahalli, Karnataka 560300, India ",
+                                    "city": {
+                                        "name": "Gangamuthanahalli"
+                                    },
+                                    "state": {
+                                        "name": "Karnataka"
+                                    },
+                                    "country": {
+                                        "code": "IN"
+                                    },
+                                    "area_code": "560300"
+                                },
+                                "contact": {
+                                    "phone": "919122343355",
+                                    "email": "nc.rehman@gmail.com"
+                                }
+                            }
+                        ],
+                        "customer": {
+                            "person": {
+                                "name": "Motiur Rehman"
+                            },
+                            "contact": {
+                                "phone": "9191223433"
+                            }
+                        },
+                        "state": {
+                            "descriptor": {
+                                "code": "ArrangingPayment"
+                            },
+                            "updated_at": "2023-05-26T05:23:04.443Z"
+                        }
+                    }
+                ],
+                "quote": {
+                    "price": {
+                        "currency": "USD",
+                        "value": "61.27"
+                    },
+                    "breakup": [
+                        {
+                            "title": "base-price",
+                            "price": {
+                                "currency": "USD",
+                                "value": "46.89"
+                            }
+                        },
+                        {
+                            "title": "shipping",
+                            "price": {
+                                "currency": "USD",
+                                "value": "5.00"
+                            }
+                        },
+                        {
+                            "title": "taxes",
+                            "price": {
+                                "currency": "USD",
+                                "value": "9.38"
+                            }
+                        }
+                    ]
+                },
+                "billing": {
+                    "name": "Motiur Rehman",
+                    "phone": "9191223433",
+                    "email": "nc.rehman@gmail.com",
+                    "address": "123, Terminal 1, Kempegowda Int'l Airport Rd, A - Block, Gangamuthanahalli, Karnataka 560300, India",
+                    "city": {
+                        "name": "Gangamuthanahalli"
+                    },
+                    "state": {
+                        "name": "Karnataka"
+                    }
+                },
+                "payments": [
+                    {
+                        "type": "PRE-FULFILLMENT",
+                        "params": {
+                            "amount": "61.27",
+                            "currency": "USD",
+                            "transaction_id": "198237465"
+                        },
+                        "time": {
+                            "label": "Transaction timestamp",
+                            "timestamp": "2024-01-26T10:14:10.280Z"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
