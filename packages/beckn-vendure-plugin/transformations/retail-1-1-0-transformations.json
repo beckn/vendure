@@ -686,7 +686,7 @@
     ],
     "cancel": [
         {
-            "name": "extract-status-params-to-get-initial-order",
+            "name": "extract-cancel-params-to-get-initial-order",
             "type": "transform-and-add",
             "args": {
                 "jsonataFilename": "status-beckn-request.jsonata",
@@ -727,6 +727,34 @@
             "type": "transform-and-add",
             "args": {
                 "jsonataFilename": "on-cancel-beckn-response.jsonata",
+                "outputKey": "becknResponse"
+            }
+        }
+    ],
+    "track": [
+        {
+            "name": "extract-track-params-to-get-initial-order",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "status-beckn-request.jsonata",
+                "outputKey": "getBecknOrderInput"
+            }
+        },
+        {
+            "name": "get-beckn-order",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getBecknOrder.graphql",
+                "variablesKey": "getBecknOrderInput",
+                "outputKey": "becknOrder",
+                "outputDataPath": "body.data.getBecknOrder"
+            }
+        },
+        {
+            "name": "generate-beckn-response",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "on-track-beckn-response.jsonata",
                 "outputKey": "becknResponse"
             }
         }

@@ -1,0 +1,25 @@
+(
+    $context := becknRequest.body.context;
+    $env := env;
+    $order := becknOrder;
+    $fulfillment := $order.fulfillments[-1];
+    {
+        "headers":{
+            "Content-Type": "application/json"
+        },
+        "body":{    
+            "context":$context ~> |$|{
+                "action": 'on_' & $context.action,
+                "bpp_id": $env.bpp_id,
+                "bpp_uri": $env.bpp_uri,
+                "timestamp": $now()
+                }|,
+            "message": {
+                "tracking": $fulfillment.{
+                    "url": $.trackingCode,
+                    "status": $.state = "Cancelled" ? "inactive" : "active"
+                }
+            }
+        }
+    }
+)

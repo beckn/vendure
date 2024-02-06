@@ -19,13 +19,13 @@
             "bap_uri": "https://ps-bap-network.becknprotocol.io",
             "bpp_id": "vbabu.lr.bpp.1",
             "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
-            "message_id": "b8c1e69c-fbbc-439b-a5de-2adcc74fa1eb",
-            "transaction_id": "8100d125-76a7-4588-88be-81b97657cd40",
+            "message_id": "b8c1e69c-fbbc-439b-a5de-2adcc74f1110",
+            "transaction_id": "8100d125-76a7-4588-88be-81b976572110",
             "timestamp": "2024-01-31T10:14:10.295Z",
             "ttl": "PT10M"
         },
         "message": {
-            "order_id": "77f871aa06be401789eb298b20d110b680042fa437034ace9c415c1b4c4d8737"
+            "order_id": "5c338c9f695b97b1b5aa352858f9bc74116dd508c494419d67a91cc81b5216e7"
         }
     }
 }

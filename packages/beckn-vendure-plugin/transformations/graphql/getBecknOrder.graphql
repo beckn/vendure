@@ -68,5 +68,13 @@ query GetBecknOrder($becknOrderId: String!) {
                 description
             }
         }
+        fulfillments {
+            id
+            createdAt
+            updatedAt
+            state
+            method
+            trackingCode
+        }
     }
 }

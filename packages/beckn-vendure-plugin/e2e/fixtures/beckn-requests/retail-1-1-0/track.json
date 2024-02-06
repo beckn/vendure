@@ -13,23 +13,19 @@
                     "code": "std:080"
                 }
             },
-            "action": "cancel",
+            "action": "track",
             "version": "1.1.0",
             "bap_id": "ps-bap-network.becknprotocol.io",
             "bap_uri": "https://ps-bap-network.becknprotocol.io",
             "bpp_id": "vbabu.lr.bpp.1",
             "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
-            "message_id": "b8c1e69c-fbbc-439b-a5de-2adcc74f1111",
-            "transaction_id": "8100d125-76a7-4588-88be-81b976572111",
+            "message_id": "b8c1e69c-fbbc-439b-a5de-2adcc74f1112",
+            "transaction_id": "8100d125-76a7-4588-88be-81b976572112",
             "timestamp": "2024-01-31T10:14:10.295Z",
             "ttl": "PT10M"
         },
         "message": {
-            "order_id": "292345911568c0f8e0b6d0521af16eb7675a9b1be3dd7dd71980c659958a70a1",
-            "cancellation_reason_id": "4",
-            "descriptor": {
-                "short_desc": "Order delayed"
-            }
+            "order_id": "a2b032071baf9e83f2a4ca7813dd3cfceeddde5226fe65a4152f6e56e169d598"
         }
     }
 }
