@@ -1,11 +1,30 @@
 {
     "search": [
         {
-            "name": "extract-search-params",
+            "name": "get-categories",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getCategories.graphql",
+                "outputDataPath": "body.data.facets",
+                "outputKey": "categories"
+            },
+            "condition": "!! context.becknRequest.body.message.intent?.category?.descriptor?.code"
+        },
+        {
+            "name": "get-facet-value-ids",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "get-facet-values-from-search.jsonata",
+                "outputKey": "facetValueIds",
+                "common": "true"
+            }
+        },
+        {
+            "name": "construct-search-request",
             "type": "transform-and-add",
             "args": {
                 "jsonataFilename": "search-beckn-request.jsonata",
-                "outputKey": "graphqlVariables"
+                "outputKey": "searchInput"
             }
         },
         {
@@ -13,7 +32,7 @@
             "type": "send-graphql-request",
             "args": {
                 "graphqlFilename": "search.graphql",
-                "variablesKey": "graphqlVariables",
+                "variablesKey": "searchInput",
                 "outputKey": "graphqlResponse"
             }
         },

@@ -39,8 +39,8 @@ export function deleteKey(obj: any, key: string) {
     const length = keys.length;
     let tObj = obj;
     for (let i = 0; i < length - 1; i++) {
-        tObj = tObj[keys[i]];
         if (tObj === undefined) return;
+        tObj = tObj[keys[i]];
     }
     delete tObj[keys[length - 1]];
 }

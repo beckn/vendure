@@ -62,8 +62,12 @@ describe('beckn-vendure-plugin', () => {
                     it(`works for ${tc.queryName} query`, async () => {
                         const beckn_request = await readBecknRequestJSON(domain, tc.reqJSONFile);
                         const response = await transformerService.transform(env, beckn_request);
-                        const expectedResponse = await readBecknResponseJSON(domain, tc.resJSONFile);
-                        strictEqualWithExclude(response, expectedResponse, tc.exclude);
+                        if (!tc.resJSONFile) {
+                            expect(response).toBe(undefined);
+                        } else {
+                            const expectedResponse = await readBecknResponseJSON(domain, tc.resJSONFile);
+                            strictEqualWithExclude(response, expectedResponse, tc.exclude);
+                        }
                     });
                 }
             });

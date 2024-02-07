@@ -2,7 +2,9 @@
     $message := becknRequest.body.message;
     {
     "input":{
-        "term": $message.intent.item.descriptor.name
+        "term": $message.intent.item.descriptor.name,
+        "facetValueIds": facetValueIds
+        
     }
 }
 )

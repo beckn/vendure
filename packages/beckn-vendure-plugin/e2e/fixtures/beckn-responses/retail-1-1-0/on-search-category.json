@@ -1,0 +1,154 @@
+{
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "body": {
+        "context": {
+            "domain": "retail:1.1.0",
+            "location": {
+                "country": {
+                    "code": "IND"
+                },
+                "city": {
+                    "code": "std:080"
+                }
+            },
+            "action": "on_search",
+            "version": "1.1.0",
+            "bap_id": "ps-bap-network.becknprotocol.io",
+            "bap_uri": "https://ps-bap-network.becknprotocol.io/",
+            "transaction_id": "8100d125-76a7-4588-88be-81b976571101",
+            "message_id": "6104c0a3-d1d1-4ded-aaa4-76e4caf72101",
+            "timestamp": "2023-11-06T09:41:09.673Z",
+            "bpp_id": "vbabu.lr.bpp.1",
+            "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
+            "bpp_country": "IND",
+            "bpp_city": "std:080"
+        },
+        "message": {
+            "catalog": {
+                "descriptor": {
+                    "name": "Vendure Shop Catalog"
+                },
+                "providers": [
+                    {
+                        "id": "Vendure_Default_Shop_Token",
+                        "descriptor": {
+                            "name": "Default Vendure Shop"
+                        },
+                        "items": [
+                            {
+                                "price": {
+                                    "listed_value": "15.50",
+                                    "currency": "USD",
+                                    "value": "15.50"
+                                },
+                                "id": "67",
+                                "descriptor": {
+                                    "name": "Spiky Cactus"
+                                },
+                                "matched": true
+                            },
+                            {
+                                "price": {
+                                    "listed_value": "6.75",
+                                    "currency": "USD",
+                                    "value": "6.75"
+                                },
+                                "id": "68",
+                                "descriptor": {
+                                    "name": "Tulip Pot"
+                                },
+                                "matched": true
+                            },
+                            {
+                                "price": {
+                                    "listed_value": "19.95",
+                                    "currency": "USD",
+                                    "value": "19.95"
+                                },
+                                "id": "69",
+                                "descriptor": {
+                                    "name": "Hanging Plant"
+                                },
+                                "matched": true
+                            },
+                            {
+                                "price": {
+                                    "listed_value": "6.99",
+                                    "currency": "USD",
+                                    "value": "6.99"
+                                },
+                                "id": "70",
+                                "descriptor": {
+                                    "name": "Aloe Vera"
+                                },
+                                "matched": true
+                            },
+                            {
+                                "price": {
+                                    "listed_value": "8.95",
+                                    "currency": "USD",
+                                    "value": "8.95"
+                                },
+                                "id": "71",
+                                "descriptor": {
+                                    "name": "Fern Blechnum Gibbum"
+                                },
+                                "matched": true
+                            },
+                            {
+                                "price": {
+                                    "listed_value": "32.50",
+                                    "currency": "USD",
+                                    "value": "32.50"
+                                },
+                                "id": "72",
+                                "descriptor": {
+                                    "name": "Assorted Indoor Succulents"
+                                },
+                                "matched": true
+                            },
+                            {
+                                "price": {
+                                    "listed_value": "65.00",
+                                    "currency": "USD",
+                                    "value": "65.00"
+                                },
+                                "id": "73",
+                                "descriptor": {
+                                    "name": "Orchid"
+                                },
+                                "matched": true
+                            },
+                            {
+                                "price": {
+                                    "listed_value": "19.99",
+                                    "currency": "USD",
+                                    "value": "19.99"
+                                },
+                                "id": "74",
+                                "descriptor": {
+                                    "name": "Bonsai Tree"
+                                },
+                                "matched": true
+                            },
+                            {
+                                "price": {
+                                    "listed_value": "4.99",
+                                    "currency": "USD",
+                                    "value": "4.99"
+                                },
+                                "id": "76",
+                                "descriptor": {
+                                    "name": "Hand Trowel"
+                                },
+                                "matched": true
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

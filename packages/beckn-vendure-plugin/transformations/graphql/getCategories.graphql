@@ -1,0 +1,14 @@
+query Facets {
+    facets(options: { filter: { name: { eq: "category" } } }) {
+        totalItems
+        items {
+            id
+            values {
+                id
+                facetId
+                name
+                code
+            }
+        }
+    }
+}

@@ -1,8 +1,25 @@
 [
     {
-        "queryName": "search",
-        "reqJSONFile": "search.json",
-        "resJSONFile": "on-search.json",
+        "queryName": "search-item",
+        "reqJSONFile": "search-item.json",
+        "resJSONFile": "on-search-item.json",
+        "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "search-category",
+        "reqJSONFile": "search-category.json",
+        "resJSONFile": "on-search-category.json",
+        "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "search-item-category-without-results",
+        "reqJSONFile": "search-item-category-non.json",
+        "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "search-item-category-with-results",
+        "reqJSONFile": "search-item-category-exists.json",
+        "resJSONFile": "on-search-item-category-exists.json",
         "exclude": ["body.context.timestamp"]
     },
     {
