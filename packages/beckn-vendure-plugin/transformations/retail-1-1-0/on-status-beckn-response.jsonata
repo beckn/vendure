@@ -41,7 +41,10 @@
                         "id":$.productVariant.id,
                         "descriptor":{
                             "name":$.productVariant.name,
-                            "long_desc":$.productVariant.product.description
+                            "long_desc":$.productVariant.product.description,
+                            "images": ($.productVariant.assets ? $.productVariant.assets : $.productVariant.product.assets)[].{
+                                "url": source
+                            }
                         },
                         "price":(
                             $price := $formatMoney($.unitPrice);

@@ -53,6 +53,12 @@ query GetBecknOrder($becknOrderId: String!) {
                 name
                 product {
                     description
+                    assets {
+                        source
+                    }
+                }
+                assets {
+                    source
                 }
             }
         }

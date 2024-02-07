@@ -4,6 +4,12 @@ query ($input: SearchInput!) {
         items {
             productVariantId
             productVariantName
+            productAsset {
+                preview
+            }
+            productVariantAsset {
+                preview
+            }
             price {
                 ... on SinglePrice {
                     value

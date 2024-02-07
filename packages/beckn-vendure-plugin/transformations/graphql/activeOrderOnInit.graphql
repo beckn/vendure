@@ -53,6 +53,12 @@ query ActiveOrder {
                 name
                 product {
                     description
+                    assets {
+                        source
+                    }
+                }
+                assets {
+                    source
                 }
             }
         }

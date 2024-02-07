@@ -46,7 +46,12 @@
                                 "id": "67",
                                 "descriptor": {
                                     "name": "Spiky Cactus",
-                                    "long_desc": "A spiky yet elegant house cactus - perfect for the home or office. Origin and habitat: Probably native only to the Andes of Peru"
+                                    "long_desc": "A spiky yet elegant house cactus - perfect for the home or office. Origin and habitat: Probably native only to the Andes of Peru",
+                                    "images": [
+                                        {
+                                            "url": "http://localhost:3000/assets/preview/78/charles-deluvio-695736-unsplash__preview.jpg"
+                                        }
+                                    ]
                                 },
                                 "matched": true
                             },
@@ -59,7 +64,12 @@
                                 "id": "68",
                                 "descriptor": {
                                     "name": "Tulip Pot",
-                                    "long_desc": "Bright crimson red species tulip with black centers, the poppy-like flowers will open up in full sun. Ideal for rock gardens, pots and border edging."
+                                    "long_desc": "Bright crimson red species tulip with black centers, the poppy-like flowers will open up in full sun. Ideal for rock gardens, pots and border edging.",
+                                    "images": [
+                                        {
+                                            "url": "http://localhost:3000/assets/preview/14/natalia-y-345738-unsplash__preview.jpg"
+                                        }
+                                    ]
                                 },
                                 "matched": true
                             },
@@ -72,7 +82,12 @@
                                 "id": "69",
                                 "descriptor": {
                                     "name": "Hanging Plant",
-                                    "long_desc": "Can be found in tropical and sub-tropical America where it grows on the branches of trees, but also on telephone wires and electricity cables and poles that sometimes topple with the weight of these plants. This plant loves a moist and warm air."
+                                    "long_desc": "Can be found in tropical and sub-tropical America where it grows on the branches of trees, but also on telephone wires and electricity cables and poles that sometimes topple with the weight of these plants. This plant loves a moist and warm air.",
+                                    "images": [
+                                        {
+                                            "url": "http://localhost:3000/assets/preview/5b/alex-rodriguez-santibanez-200278-unsplash__preview.jpg"
+                                        }
+                                    ]
                                 },
                                 "matched": true
                             },
@@ -85,7 +100,12 @@
                                 "id": "70",
                                 "descriptor": {
                                     "name": "Aloe Vera",
-                                    "long_desc": "Decorative Aloe vera makes a lovely house plant. A really trendy plant, Aloe vera is just so easy to care for. Aloe vera sap has been renowned for its remarkable medicinal and cosmetic properties for many centuries and has been used to treat grazes, insect bites and sunburn - it really works."
+                                    "long_desc": "Decorative Aloe vera makes a lovely house plant. A really trendy plant, Aloe vera is just so easy to care for. Aloe vera sap has been renowned for its remarkable medicinal and cosmetic properties for many centuries and has been used to treat grazes, insect bites and sunburn - it really works.",
+                                    "images": [
+                                        {
+                                            "url": "http://localhost:3000/assets/preview/29/silvia-agrasar-227575-unsplash__preview.jpg"
+                                        }
+                                    ]
                                 },
                                 "matched": true
                             },
@@ -98,7 +118,12 @@
                                 "id": "71",
                                 "descriptor": {
                                     "name": "Fern Blechnum Gibbum",
-                                    "long_desc": "Create a tropical feel in your home with this lush green tree fern, it has decorative leaves and will develop a short slender trunk in time."
+                                    "long_desc": "Create a tropical feel in your home with this lush green tree fern, it has decorative leaves and will develop a short slender trunk in time.",
+                                    "images": [
+                                        {
+                                            "url": "http://localhost:3000/assets/preview/6d/caleb-george-536388-unsplash__preview.jpg"
+                                        }
+                                    ]
                                 },
                                 "matched": true
                             },
@@ -111,7 +136,12 @@
                                 "id": "72",
                                 "descriptor": {
                                     "name": "Assorted Indoor Succulents",
-                                    "long_desc": "These assorted succulents come in a variety of different shapes and colours - each with their own unique personality. Succulents grow best in plenty of light: a sunny windowsill would be the ideal spot for them to thrive!"
+                                    "long_desc": "These assorted succulents come in a variety of different shapes and colours - each with their own unique personality. Succulents grow best in plenty of light: a sunny windowsill would be the ideal spot for them to thrive!",
+                                    "images": [
+                                        {
+                                            "url": "http://localhost:3000/assets/preview/81/annie-spratt-78044-unsplash__preview.jpg"
+                                        }
+                                    ]
                                 },
                                 "matched": true
                             },
@@ -124,7 +154,12 @@
                                 "id": "73",
                                 "descriptor": {
                                     "name": "Orchid",
-                                    "long_desc": "Gloriously elegant. It can go along with any interior as it is a neutral color and the most popular Phalaenopsis overall. 2 to 3 foot stems host large white flowers that can last for over 2 months."
+                                    "long_desc": "Gloriously elegant. It can go along with any interior as it is a neutral color and the most popular Phalaenopsis overall. 2 to 3 foot stems host large white flowers that can last for over 2 months.",
+                                    "images": [
+                                        {
+                                            "url": "http://localhost:3000/assets/preview/88/zoltan-kovacs-642412-unsplash__preview.jpg"
+                                        }
+                                    ]
                                 },
                                 "matched": true
                             },
@@ -137,7 +172,12 @@
                                 "id": "74",
                                 "descriptor": {
                                     "name": "Bonsai Tree",
-                                    "long_desc": "Excellent semi-evergreen bonsai. Indoors or out but needs some winter protection. All trees sent will leave the nursery in excellent condition and will be of equal quality or better than the photograph shown."
+                                    "long_desc": "Excellent semi-evergreen bonsai. Indoors or out but needs some winter protection. All trees sent will leave the nursery in excellent condition and will be of equal quality or better than the photograph shown.",
+                                    "images": [
+                                        {
+                                            "url": "http://localhost:3000/assets/preview/f3/mark-tegethoff-667351-unsplash__preview.jpg"
+                                        }
+                                    ]
                                 },
                                 "matched": true
                             },
@@ -150,7 +190,12 @@
                                 "id": "76",
                                 "descriptor": {
                                     "name": "Hand Trowel",
-                                    "long_desc": "Hand trowel for garden cultivating hammer finish epoxy-coated head for improved resistance to rust, scratches, humidity and alkalines in the soil."
+                                    "long_desc": "Hand trowel for garden cultivating hammer finish epoxy-coated head for improved resistance to rust, scratches, humidity and alkalines in the soil.",
+                                    "images": [
+                                        {
+                                            "url": "http://localhost:3000/assets/preview/7d/neslihan-gunaydin-3493-unsplash__preview.jpg"
+                                        }
+                                    ]
                                 },
                                 "matched": true
                             }

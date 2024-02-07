@@ -31,7 +31,12 @@
                                     "id" : productVariantId,
                                     "descriptor": {
                                         "name": productVariantName,
-                                        "long_desc": description
+                                        "long_desc": description,
+                                        "images": [
+                                            {
+                                                "url": productVariantAsset.preview ? productVariantAsset.preview : productAsset.preview
+                                            }
+                                        ]
                                     },
                                     "matched": true,
                                     "price":(
@@ -42,7 +47,7 @@
                                         "currency": currencyCode,
                                         "value": $price
                                     })
-                                }, ["productVariantId","productVariantName","currencyCode","description"] |
+                                }, ["productVariantId","productVariantName","currencyCode","description","productAsset","productVariantAsset"] |
                             ]
                         }
                     ]
