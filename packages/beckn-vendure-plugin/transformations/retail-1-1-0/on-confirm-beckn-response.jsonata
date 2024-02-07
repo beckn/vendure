@@ -42,7 +42,8 @@
                     "items": $items[].{
                         "id":$.productVariant.id,
                         "descriptor":{
-                            "name":$.productVariant.name
+                            "name":$.productVariant.name,
+                            "long_desc":$.productVariant.product.description
                         },
                         "price":(
                             $price := $formatMoney($.unitPrice);

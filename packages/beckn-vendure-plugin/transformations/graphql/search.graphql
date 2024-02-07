@@ -13,6 +13,7 @@ query ($input: SearchInput!) {
                     max
                 }
             }
+            description
             currencyCode
         }
     }

@@ -30,7 +30,8 @@
                                 $data.items ~> |$| {
                                     "id" : productVariantId,
                                     "descriptor": {
-                                        "name": productVariantName
+                                        "name": productVariantName,
+                                        "long_desc": description
                                     },
                                     "matched": true,
                                     "price":(
@@ -41,7 +42,7 @@
                                         "currency": currencyCode,
                                         "value": $price
                                     })
-                                }, ["productVariantId","productVariantName","currencyCode"] |
+                                }, ["productVariantId","productVariantName","currencyCode","description"] |
                             ]
                         }
                     ]

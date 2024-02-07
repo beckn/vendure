@@ -45,7 +45,8 @@
                                 },
                                 "id": "67",
                                 "descriptor": {
-                                    "name": "Spiky Cactus"
+                                    "name": "Spiky Cactus",
+                                    "long_desc": "A spiky yet elegant house cactus - perfect for the home or office. Origin and habitat: Probably native only to the Andes of Peru"
                                 },
                                 "matched": true
                             },
@@ -57,7 +58,8 @@
                                 },
                                 "id": "68",
                                 "descriptor": {
-                                    "name": "Tulip Pot"
+                                    "name": "Tulip Pot",
+                                    "long_desc": "Bright crimson red species tulip with black centers, the poppy-like flowers will open up in full sun. Ideal for rock gardens, pots and border edging."
                                 },
                                 "matched": true
                             },
@@ -69,7 +71,8 @@
                                 },
                                 "id": "69",
                                 "descriptor": {
-                                    "name": "Hanging Plant"
+                                    "name": "Hanging Plant",
+                                    "long_desc": "Can be found in tropical and sub-tropical America where it grows on the branches of trees, but also on telephone wires and electricity cables and poles that sometimes topple with the weight of these plants. This plant loves a moist and warm air."
                                 },
                                 "matched": true
                             },
@@ -81,7 +84,8 @@
                                 },
                                 "id": "70",
                                 "descriptor": {
-                                    "name": "Aloe Vera"
+                                    "name": "Aloe Vera",
+                                    "long_desc": "Decorative Aloe vera makes a lovely house plant. A really trendy plant, Aloe vera is just so easy to care for. Aloe vera sap has been renowned for its remarkable medicinal and cosmetic properties for many centuries and has been used to treat grazes, insect bites and sunburn - it really works."
                                 },
                                 "matched": true
                             },
@@ -93,7 +97,8 @@
                                 },
                                 "id": "71",
                                 "descriptor": {
-                                    "name": "Fern Blechnum Gibbum"
+                                    "name": "Fern Blechnum Gibbum",
+                                    "long_desc": "Create a tropical feel in your home with this lush green tree fern, it has decorative leaves and will develop a short slender trunk in time."
                                 },
                                 "matched": true
                             },
@@ -105,7 +110,8 @@
                                 },
                                 "id": "72",
                                 "descriptor": {
-                                    "name": "Assorted Indoor Succulents"
+                                    "name": "Assorted Indoor Succulents",
+                                    "long_desc": "These assorted succulents come in a variety of different shapes and colours - each with their own unique personality. Succulents grow best in plenty of light: a sunny windowsill would be the ideal spot for them to thrive!"
                                 },
                                 "matched": true
                             },
@@ -117,7 +123,8 @@
                                 },
                                 "id": "73",
                                 "descriptor": {
-                                    "name": "Orchid"
+                                    "name": "Orchid",
+                                    "long_desc": "Gloriously elegant. It can go along with any interior as it is a neutral color and the most popular Phalaenopsis overall. 2 to 3 foot stems host large white flowers that can last for over 2 months."
                                 },
                                 "matched": true
                             },
@@ -129,7 +136,8 @@
                                 },
                                 "id": "74",
                                 "descriptor": {
-                                    "name": "Bonsai Tree"
+                                    "name": "Bonsai Tree",
+                                    "long_desc": "Excellent semi-evergreen bonsai. Indoors or out but needs some winter protection. All trees sent will leave the nursery in excellent condition and will be of equal quality or better than the photograph shown."
                                 },
                                 "matched": true
                             },
@@ -141,7 +149,8 @@
                                 },
                                 "id": "76",
                                 "descriptor": {
-                                    "name": "Hand Trowel"
+                                    "name": "Hand Trowel",
+                                    "long_desc": "Hand trowel for garden cultivating hammer finish epoxy-coated head for improved resistance to rust, scratches, humidity and alkalines in the soil."
                                 },
                                 "matched": true
                             }

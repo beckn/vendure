@@ -51,6 +51,9 @@ query GetBecknOrder($becknOrderId: String!) {
             productVariant {
                 id
                 name
+                product {
+                    description
+                }
             }
         }
         customFields {

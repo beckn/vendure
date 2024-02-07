@@ -35,7 +35,8 @@
                     {
                         "id": "69",
                         "descriptor": {
-                            "name": "Hanging Plant"
+                            "name": "Hanging Plant",
+                            "long_desc": "Can be found in tropical and sub-tropical America where it grows on the branches of trees, but also on telephone wires and electricity cables and poles that sometimes topple with the weight of these plants. This plant loves a moist and warm air."
                         },
                         "price": {
                             "listed_value": "19.95",
@@ -51,7 +52,8 @@
                     {
                         "id": "70",
                         "descriptor": {
-                            "name": "Aloe Vera"
+                            "name": "Aloe Vera",
+                            "long_desc": "Decorative Aloe vera makes a lovely house plant. A really trendy plant, Aloe vera is just so easy to care for. Aloe vera sap has been renowned for its remarkable medicinal and cosmetic properties for many centuries and has been used to treat grazes, insect bites and sunburn - it really works."
                         },
                         "price": {
                             "listed_value": "6.99",

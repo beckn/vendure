@@ -51,6 +51,9 @@ query ActiveOrder {
             productVariant {
                 id
                 name
+                product {
+                    description
+                }
             }
         }
         customFields {
