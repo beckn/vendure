@@ -1,6 +1,15 @@
 {
     "search": [
         {
+            "name": "get-all-categories",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getCategories.graphql",
+                "outputDataPath": "body.data.facets.items.0.values",
+                "outputKey": "allCategoryValues"
+            }
+        },
+        {
             "name": "get-categories",
             "type": "send-graphql-request",
             "args": {

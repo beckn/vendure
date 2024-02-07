@@ -6,20 +6,14 @@
         "exclude": ["body.context.timestamp"]
     },
     {
-        "queryName": "search-category",
-        "reqJSONFile": "search-category.json",
-        "resJSONFile": "on-search-category.json",
-        "exclude": ["body.context.timestamp"]
-    },
-    {
         "queryName": "search-item-category-without-results",
         "reqJSONFile": "search-item-category-non.json",
         "exclude": ["body.context.timestamp"]
     },
     {
-        "queryName": "search-item-category-with-results",
-        "reqJSONFile": "search-item-category-exists.json",
-        "resJSONFile": "on-search-item-category-exists.json",
+        "queryName": "search-category",
+        "reqJSONFile": "search-category.json",
+        "resJSONFile": "on-search-category.json",
         "exclude": ["body.context.timestamp"]
     },
     {
@@ -57,5 +51,11 @@
         "reqJSONFile": "init.json",
         "resJSONFile": "on-init.json",
         "exclude": ["body.context.timestamp", "body.message.order.id"]
+    },
+    {
+        "queryName": "search-item-category-with-results",
+        "reqJSONFile": "search-item-category-exists.json",
+        "resJSONFile": "on-search-item-category-exists.json",
+        "exclude": ["body.context.timestamp"]
     }
 ]

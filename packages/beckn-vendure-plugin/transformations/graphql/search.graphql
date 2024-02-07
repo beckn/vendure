@@ -21,6 +21,7 @@ query ($input: SearchInput!) {
             }
             description
             currencyCode
+            facetValueIds
         }
     }
 }

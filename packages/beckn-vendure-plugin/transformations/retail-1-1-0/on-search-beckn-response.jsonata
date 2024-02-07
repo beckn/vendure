@@ -2,6 +2,9 @@
     $context := becknRequest.body.context;
     $env := env;
     $data := graphqlResponse.body.data.search;
+    $items := $data.items;
+    $allCategoryIds := allCategoryValues.id;
+    $usedFacetIds := $distinct($items.facetValueIds);
     {
         "headers":{
             "Content-Type": "application/json"
@@ -26,29 +29,35 @@
                             "descriptor": {
                                 "name": "Default Vendure Shop"
                             },
-                            "items":[
-                                $data.items ~> |$| {
-                                    "id" : productVariantId,
-                                    "descriptor": {
-                                        "name": productVariantName,
-                                        "long_desc": description,
-                                        "images": [
-                                            {
-                                                "url": productVariantAsset.preview ? productVariantAsset.preview : productAsset.preview
-                                            }
-                                        ]
-                                    },
-                                    "matched": true,
-                                    "price":(
-                                        $price := $.price.value ? $.price.value : ($.price.min+$.price.max)/2;
-                                        $price := $string($formatNumber($price/100,"#0.00"));
+                            "categories": allCategoryValues[id in $usedFacetIds][].{
+                                "id": id,
+                                "descriptor": {
+                                    "code": code,
+                                    "name": name
+                                }
+                            },
+                            "items": $items[].{
+                                "price":(
+                                    $price := $.price.value ? $.price.value : ($.price.min+$.price.max)/2;
+                                    $price := $string($formatNumber($price/100,"#0.00"));
+                                    {
+                                    "listed_value": $price,
+                                    "currency": currencyCode,
+                                    "value": $price
+                                }),
+                                "id" : productVariantId,
+                                "category_ids": facetValueIds[][$ in $allCategoryIds],
+                                "descriptor": {
+                                    "name": productVariantName,
+                                    "long_desc": description,
+                                    "images": [
                                         {
-                                        "listed_value": $price,
-                                        "currency": currencyCode,
-                                        "value": $price
-                                    })
-                                }, ["productVariantId","productVariantName","currencyCode","description","productAsset","productVariantAsset"] |
-                            ]
+                                            "url": productVariantAsset.preview ? productVariantAsset.preview : productAsset.preview
+                                        }
+                                    ]
+                                },
+                                "matched": true
+                            }
                         }
                     ]
                 }
