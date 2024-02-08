@@ -58,7 +58,7 @@ describe('beckn-vendure-plugin', () => {
                 let index = 0;
                 for (const tc of testConfigs) {
                     index += 1;
-                    // if (index !== testConfigs.length) continue; // DEV ENV - RUN ONLY LAST TEST- TO BE REMOVED AFTER DEV
+                    // if (index !== testConfigs.length) continue; // Comment this to run all tests. Else runs only last
                     it(`works for ${tc.queryName} query`, async () => {
                         const beckn_request = await readBecknRequestJSON(domain, tc.reqJSONFile);
                         const response = await transformerService.transform(env, beckn_request);

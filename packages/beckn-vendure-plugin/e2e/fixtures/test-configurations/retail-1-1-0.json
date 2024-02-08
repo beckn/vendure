@@ -11,15 +11,21 @@
         "exclude": ["body.context.timestamp"]
     },
     {
-        "queryName": "search-category",
-        "reqJSONFile": "search-category.json",
-        "resJSONFile": "on-search-category.json",
+        "queryName": "search-item-category-with-results",
+        "reqJSONFile": "search-item-category-exists.json",
+        "resJSONFile": "on-search-item-category-exists.json",
         "exclude": ["body.context.timestamp"]
     },
     {
         "queryName": "select",
         "reqJSONFile": "select.json",
         "resJSONFile": "on-select.json",
+        "exclude": ["body.context.timestamp", "body.message.order.id"]
+    },
+    {
+        "queryName": "init",
+        "reqJSONFile": "init.json",
+        "resJSONFile": "on-init.json",
         "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {
@@ -47,15 +53,9 @@
         "exclude": ["body.context.timestamp"]
     },
     {
-        "queryName": "init",
-        "reqJSONFile": "init.json",
-        "resJSONFile": "on-init.json",
-        "exclude": ["body.context.timestamp", "body.message.order.id"]
-    },
-    {
-        "queryName": "search-item-category-with-results",
-        "reqJSONFile": "search-item-category-exists.json",
-        "resJSONFile": "on-search-item-category-exists.json",
+        "queryName": "search-category",
+        "reqJSONFile": "search-category.json",
+        "resJSONFile": "on-search-category.json",
         "exclude": ["body.context.timestamp"]
     }
 ]

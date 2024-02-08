@@ -5,8 +5,8 @@
             "type": "send-graphql-request",
             "args": {
                 "graphqlFilename": "getCategories.graphql",
-                "outputDataPath": "body.data.facets.items.0.values",
-                "outputKey": "allCategoryValues"
+                "outputDataPath": "body.data.facets.items",
+                "outputKey": "allCategories"
             }
         },
         {

@@ -38,7 +38,9 @@
                         },
                         "categories": [
                             { "id": "30", "descriptor": { "code": "home-garden", "name": "Home & Garden" } },
-                            { "id": "31", "descriptor": { "code": "plants", "name": "Plants" } }
+                            { "id": "31", "descriptor": { "code": "plants", "name": "Plants" } },
+                            { "id": "47", "descriptor": { "code": "plants", "name": "Plants" } },
+                            { "id": "52", "descriptor": { "code": "plants", "name": "plants" } }
                         ],
                         "items": [
                             {
@@ -207,6 +209,44 @@
                                     "images": [
                                         {
                                             "url": "http://localhost:3000/assets/preview/7d/neslihan-gunaydin-3493-unsplash__preview.jpg"
+                                        }
+                                    ]
+                                },
+                                "matched": true
+                            },
+                            {
+                                "price": {
+                                    "listed_value": "5.00",
+                                    "currency": "USD",
+                                    "value": "5.00"
+                                },
+                                "id": "90",
+                                "category_ids": ["52"],
+                                "descriptor": {
+                                    "name": "Chepsangor Coffee Saplings",
+                                    "long_desc": "<p>Native Coffee Saplings from the hills of Cepsangor in Nandi country (10 Nos)</p>",
+                                    "images": [
+                                        {
+                                            "url": "http://localhost:3000/assets/preview/e5/coffee-sapling__preview.jpeg"
+                                        }
+                                    ]
+                                },
+                                "matched": true
+                            },
+                            {
+                                "price": {
+                                    "listed_value": "5.00",
+                                    "currency": "USD",
+                                    "value": "5.00"
+                                },
+                                "id": "92",
+                                "category_ids": ["47"],
+                                "descriptor": {
+                                    "name": "Arabica Seedlings",
+                                    "long_desc": "<p>Arabica seedlings (10 nos) from the Meru county</p>",
+                                    "images": [
+                                        {
+                                            "url": "http://localhost:3000/assets/preview/d2/meru_seedlings__preview.jpeg"
                                         }
                                     ]
                                 },
