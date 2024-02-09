@@ -1,6 +1,15 @@
 {
     "search": [
         {
+            "name": "get-provider-id",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "extract-provider-id-from-request.jsonata",
+                "outputKey": "providerHeader",
+                "common": "true"
+            }
+        },
+        {
             "name": "get-all-categories",
             "type": "send-graphql-request",
             "args": {
@@ -42,7 +51,8 @@
             "args": {
                 "graphqlFilename": "search.graphql",
                 "variablesKey": "searchInput",
-                "outputKey": "searchResponse"
+                "outputKey": "searchResponse",
+                "headersKey": "providerHeader"
             }
         },
         {

@@ -17,7 +17,7 @@
             "version": "1.1.0",
             "bap_id": "ps-bap-network.becknprotocol.io",
             "bap_uri": "https://ps-bap-network.becknprotocol.io/",
-            "transaction_id": "8100d125-76a7-4588-88be-81b976571105",
+            "transaction_id": "8100d125-76a7-4588-88be-81b976571106",
             "message_id": "6104c0a3-d1d1-4ded-aaa4-76e4caf72101",
             "timestamp": "2023-11-06T09:41:09.673Z",
             "bpp_id": "vbabu.lr.bpp.1",
@@ -32,29 +32,29 @@
                 },
                 "providers": [
                     {
-                        "id": "2p0aliran34hu8i6cr7y",
+                        "id": "nandi-coffee",
                         "descriptor": {
-                            "name": "Default Seller"
+                            "name": "Nandi Coffee"
                         },
                         "categories": [
-                            { "id": "30", "descriptor": { "code": "home-garden", "name": "Home & Garden" } },
-                            { "id": "31", "descriptor": { "code": "plants", "name": "Plants" } }
+                            { "id": "51", "descriptor": { "code": "grocery", "name": "grocery" } },
+                            { "id": "52", "descriptor": { "code": "plants", "name": "plants" } }
                         ],
                         "items": [
                             {
                                 "price": {
-                                    "listed_value": "19.95",
+                                    "listed_value": "10.00",
                                     "currency": "USD",
-                                    "value": "19.95"
+                                    "value": "10.00"
                                 },
-                                "id": "69",
-                                "category_ids": ["30", "31"],
+                                "id": "89",
+                                "category_ids": ["51"],
                                 "descriptor": {
-                                    "name": "Hanging Plant",
-                                    "long_desc": "Can be found in tropical and sub-tropical America where it grows on the branches of trees, but also on telephone wires and electricity cables and poles that sometimes topple with the weight of these plants. This plant loves a moist and warm air.",
+                                    "name": "Kabunyeria",
+                                    "long_desc": "<p>1 Pound Green unroasted fruity flavoured coffee from the Nandi county of Kenya</p>",
                                     "images": [
                                         {
-                                            "url": "http://localhost:3000/assets/preview/5b/alex-rodriguez-santibanez-200278-unsplash__preview.jpg"
+                                            "url": "http://localhost:3000/assets/preview/9d/coffee__preview.jpeg"
                                         }
                                     ]
                                 },
@@ -62,18 +62,18 @@
                             },
                             {
                                 "price": {
-                                    "listed_value": "6.99",
+                                    "listed_value": "5.00",
                                     "currency": "USD",
-                                    "value": "6.99"
+                                    "value": "5.00"
                                 },
-                                "id": "70",
-                                "category_ids": ["30", "31"],
+                                "id": "90",
+                                "category_ids": ["52"],
                                 "descriptor": {
-                                    "name": "Aloe Vera",
-                                    "long_desc": "Decorative Aloe vera makes a lovely house plant. A really trendy plant, Aloe vera is just so easy to care for. Aloe vera sap has been renowned for its remarkable medicinal and cosmetic properties for many centuries and has been used to treat grazes, insect bites and sunburn - it really works.",
+                                    "name": "Chepsangor Coffee Saplings",
+                                    "long_desc": "<p>Native Coffee Saplings from the hills of Cepsangor in Nandi country (10 Nos)</p>",
                                     "images": [
                                         {
-                                            "url": "http://localhost:3000/assets/preview/29/silvia-agrasar-227575-unsplash__preview.jpg"
+                                            "url": "http://localhost:3000/assets/preview/e5/coffee-sapling__preview.jpeg"
                                         }
                                     ]
                                 },
