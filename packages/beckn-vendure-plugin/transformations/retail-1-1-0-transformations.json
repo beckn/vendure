@@ -42,8 +42,38 @@
             "args": {
                 "graphqlFilename": "search.graphql",
                 "variablesKey": "searchInput",
-                "outputKey": "graphqlResponse"
+                "outputKey": "searchResponse"
             }
+        },
+        {
+            "name": "extract-product-variant-ids",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "product-variant-ids-from-search-result.jsonata",
+                "outputKey": "productVariantIds",
+                "common": "true"
+            }
+        },
+        {
+            "name": "get-sellers-of-product-variants",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getSellersOfProductVariants.graphql",
+                "variablesKey": "productVariantIds",
+                "outputKey": "productVariantSellers",
+                "outputDataPath": "body.data.getSellersOfProductVariants.items"
+            },
+            "condition": "context.productVariantIds.productVariantIds.length > 0"
+        },
+        {
+            "name": "get-product-variant-grouped-by-seller",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "group-variants-by-sellers.jsonata",
+                "outputKey": "providersWithItems",
+                "common": "true"
+            },
+            "condition": "context.productVariantIds.productVariantIds.length > 0"
         },
         {
             "name": "generate-beckn-response",
@@ -52,7 +82,7 @@
                 "jsonataFilename": "on-search-beckn-response.jsonata",
                 "outputKey": "becknResponse"
             },
-            "condition": "context.graphqlResponse?.body?.data?.search?.totalItems !== 0"
+            "condition": "context.productVariantIds.productVariantIds.length > 0"
         }
     ],
     "select": [

@@ -24,7 +24,7 @@ export class TransformTasksRunner {
         context.requestEnv = await this._get_request_env(context);
         context.tasksDefList = await this.get_task_def_list(context);
         for (const transformTaskDef of context.tasksDefList) {
-            console.log(`Task - ${transformTaskDef.name || ''}`);
+            // console.log(`Task - ${transformTaskDef.name || ''}`);
             if (transformTaskDef.condition) {
                 // eslint-disable-next-line no-eval
                 if (!!eval(transformTaskDef.condition) === false) {
@@ -34,7 +34,7 @@ export class TransformTasksRunner {
             }
             await this._run_transform_task(transformTaskDef, context);
         }
-        console.log(JSON.stringify(context, null, 2));
+        // console.log(JSON.stringify(context, null, 2));
     }
 
     async _run_transform_task(transformTaskDef: TransformTaskDef, context: TransformerContext) {

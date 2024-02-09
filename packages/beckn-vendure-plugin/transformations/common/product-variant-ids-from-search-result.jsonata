@@ -1,0 +1,3 @@
+{
+    "productVariantIds": searchResponse.body.data.search.items[].productVariantId ? searchResponse.body.data.search.items[].productVariantId : []
+}

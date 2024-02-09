@@ -10,10 +10,25 @@ export const shopApiExtensions = gql`
         vendureOrderId: String
     }
 
+    type ProductVariantWithChannelAndSeller implements Node {
+        channels: [Channel]
+        id: ID!
+        name: String
+    }
+
+    type ProductVariantWithChannelAndSellerList implements PaginatedList {
+        items: [ProductVariantWithChannelAndSeller!]!
+        totalItems: Int!
+    }
+
     extend type Query {
         getBecknTransaction(becknTransactionId: String!): BecknTransaction
         getBecknTransactionFromVendureAuthToken(vendureAuthToken: String!): BecknTransaction
         getBecknOrder(becknOrderId: String!): Order
+        getSellersOfProductVariants(
+            options: ProductVariantListOptions
+            productId: ID
+        ): ProductVariantWithChannelAndSellerList!
     }
 
     extend type Mutation {

@@ -1,11 +1,7 @@
 (
     $context := becknRequest.body.context;
     $env := env;
-    $data := graphqlResponse.body.data.search;
-    $items := $data.items;
-    $allCategoryIds := allCategories.values.id;
-    $usedFacetIds := $distinct($items.facetValueIds);
-    $allCategoryValues := allCategories.values;
+    $data := searchResponse.body.data.search;
     {
         "headers":{
             "Content-Type": "application/json"
@@ -24,11 +20,16 @@
                     "descriptor": {
                         "name": "Vendure Shop Catalog"
                     },
-                    "providers": [
+                    "providers": providersWithItems[].(
+                        $provider := $;
+                        $items := $data.items[$.productVariantId in $provider.productVariantIds];
+                        $allCategoryIds := $$.allCategories.values.id;
+                        $usedFacetIds := $distinct($items.facetValueIds);
+                        $allCategoryValues := $$.allCategories.values;
                         {
-                            "id": "Vendure_Default_Shop_Token",
+                            "id": $provider.id,
                             "descriptor": {
-                                "name": "Default Vendure Shop"
+                                "name": $provider.name
                             },
                             "categories": $allCategoryValues[id in $usedFacetIds][].{
                                 "id": id,
@@ -60,7 +61,7 @@
                                 "matched": true
                             }
                         }
-                    ]
+                    )
                 }
             }
         }

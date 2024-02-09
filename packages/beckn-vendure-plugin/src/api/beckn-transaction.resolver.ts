@@ -10,6 +10,7 @@ import {
     Order,
     OrderService,
     ErrorResultUnion,
+    ProductVariantService,
 } from '@vendure/core';
 
 import { BecknTransactionService } from '../services/beckn-transaction-service';
@@ -20,6 +21,7 @@ export class BecknTransactionResolver {
     constructor(
         private becknTransactionService: BecknTransactionService,
         private orderService: OrderService,
+        private productVariantService: ProductVariantService,
     ) {}
 
     @Query()

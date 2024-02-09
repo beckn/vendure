@@ -1,0 +1,20 @@
+query GetSellersOfProductVariants($productVariantIds: [String!]) {
+    getSellersOfProductVariants(options: { filter: { id: { in: $productVariantIds } } }) {
+        items {
+            channels {
+                code
+                token
+                id
+                seller {
+                    id
+                    createdAt
+                    updatedAt
+                    name
+                    customFields
+                }
+            }
+            id
+            name
+        }
+    }
+}

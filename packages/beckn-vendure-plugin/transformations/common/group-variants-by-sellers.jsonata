@@ -1,0 +1,26 @@
+(
+    $productVariantSellers := productVariantSellers;
+    $productVariantsWithSeller := $productVariantSellers[].(
+        $defaultChannelCode := "__default_channel__";
+        $uniqueChannel := $.channels[code != $defaultChannelCode];
+        $uniqueChannel := $uniqueChannel ? $uniqueChannel : $.channels[code = $defaultChannelCode];
+        $seller := $uniqueChannel.seller;
+        {
+            "id" :id,
+            "name": name,
+            "seller": {
+                "id": $uniqueChannel.token,
+                "name": $seller.name
+            }
+        }
+    );
+    $uniqueSellerIds := $distinct($productVariantsWithSeller[].seller.id);
+    $productVariantsGroupedBySeller := $uniqueSellerIds[].(
+        $sellerId := $;
+        {
+            "id": $sellerId,
+            "name": $productVariantsWithSeller[seller.id=$sellerId][0].seller.name,
+            "productVariantIds": $productVariantsWithSeller[seller.id=$sellerId][].id
+        }
+    )
+)
