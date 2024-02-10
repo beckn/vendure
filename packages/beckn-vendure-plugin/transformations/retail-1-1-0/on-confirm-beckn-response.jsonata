@@ -93,6 +93,7 @@
                     },
                     "payments": eligiblePaymentMethods[].{
                         "id":id,
+                        "name":name,
                         "status": $inputPayment.status,
                         "type": "PRE-FULFILLMENT",
                         "params": {

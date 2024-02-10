@@ -156,6 +156,7 @@
                 "payments": [
                     {
                         "id": "1",
+                        "name": "Standard Payment",
                         "status": "PAID",
                         "type": "PRE-FULFILLMENT",
                         "params": {

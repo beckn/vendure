@@ -91,6 +91,7 @@
                     },
                     "payments": eligiblePaymentMethods[].{
                         "id":id,
+                        "name":name,
                         "status": "NOT-PAID",
                         "type": "PRE-FULFILLMENT",
                         "params": {
