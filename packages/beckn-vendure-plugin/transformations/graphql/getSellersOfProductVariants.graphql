@@ -15,6 +15,17 @@ query GetSellersOfProductVariants($productVariantIds: [String!]) {
             }
             id
             name
+            options {
+                translations {
+                    name
+                }
+                group {
+                    name
+                    code
+                }
+                name
+                code
+            }
         }
     }
 }

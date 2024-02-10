@@ -6,7 +6,7 @@ import path from 'path';
 
 import { shopApiExtensions } from './api/api-extensions';
 import { BecknTransactionResolver } from './api/beckn-transaction.resolver';
-import { ProductVariantSellerResolver } from './api/product-variant-seller.resolver';
+import { ProductVariantResolver } from './api/product-variant.resolver';
 import { BecknRequestEvent } from './beckn-request.event';
 import { BECKN_VENDURE_PLUGIN_OPTIONS } from './constants';
 import { BecknTransaction } from './entities/beckn-transaction.entity';
@@ -23,7 +23,7 @@ import { WebhookService } from './webhook.service';
     controllers: [WebhookController],
     shopApiExtensions: {
         schema: shopApiExtensions,
-        resolvers: [BecknTransactionResolver, ProductVariantSellerResolver],
+        resolvers: [BecknTransactionResolver, ProductVariantResolver],
     },
     providers: [
         BecknTransactionService,

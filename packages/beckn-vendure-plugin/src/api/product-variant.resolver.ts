@@ -3,6 +3,7 @@ import { QueryProductVariantsArgs } from '@vendure/common/lib/generated-types';
 import {
     Allow,
     Ctx,
+    EntityHydrator,
     PaginatedList,
     Permission,
     ProductVariant,
@@ -14,8 +15,11 @@ import {
 } from '@vendure/core';
 
 @Resolver()
-export class ProductVariantSellerResolver {
-    constructor(private productVariantService: ProductVariantService) {}
+export class ProductVariantResolver {
+    constructor(
+        private productVariantService: ProductVariantService,
+        private entityHydrator: EntityHydrator,
+    ) {}
 
     @Query()
     @Allow(Permission.Public)
@@ -24,6 +28,12 @@ export class ProductVariantSellerResolver {
         @Args() args: QueryProductVariantsArgs,
         @Relations({ entity: ProductVariant, omit: ['assets'] }) relations: RelationPaths<ProductVariant>,
     ): Promise<PaginatedList<Translated<ProductVariant>>> {
-        return this.productVariantService.findAll(ctx, args.options || undefined);
+        const productVariants = await this.productVariantService.findAll(ctx, args.options || undefined);
+        for (const pv of productVariants.items) {
+            await this.entityHydrator.hydrate(ctx, pv, {
+                relations: ['options', 'options.group'],
+            });
+        }
+        return productVariants;
     }
 }

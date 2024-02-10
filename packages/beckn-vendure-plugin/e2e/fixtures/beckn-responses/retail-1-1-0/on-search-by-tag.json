@@ -50,14 +50,22 @@
                                 "category_ids": ["51"],
                                 "descriptor": {
                                     "name": "Kabunyeria",
-                                    "long_desc": "<p>1 Pound Green unroasted fruity flavoured coffee from the Nandi county of Kenya</p>",
+                                    "long_desc": "<p>Green unroasted fruity flavoured coffee from the Nandi county of Kenya</p>",
                                     "images": [
                                         {
                                             "url": "http://localhost:3000/assets/preview/9d/coffee__preview.jpeg"
                                         }
                                     ]
                                 },
-                                "matched": true
+                                "matched": true,
+                                "quantity": {
+                                    "unitized": {
+                                        "measure": {
+                                            "value": "1",
+                                            "unit": "lbs"
+                                        }
+                                    }
+                                }
                             }
                         ]
                     }

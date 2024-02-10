@@ -51,14 +51,22 @@
                                 "category_ids": ["51"],
                                 "descriptor": {
                                     "name": "Kabunyeria",
-                                    "long_desc": "<p>1 Pound Green unroasted fruity flavoured coffee from the Nandi county of Kenya</p>",
+                                    "long_desc": "<p>Green unroasted fruity flavoured coffee from the Nandi county of Kenya</p>",
                                     "images": [
                                         {
                                             "url": "http://localhost:3000/assets/preview/9d/coffee__preview.jpeg"
                                         }
                                     ]
                                 },
-                                "matched": true
+                                "matched": true,
+                                "quantity": {
+                                    "unitized": {
+                                        "measure": {
+                                            "value": "1",
+                                            "unit": "lbs"
+                                        }
+                                    }
+                                }
                             },
                             {
                                 "price": {
@@ -70,14 +78,22 @@
                                 "category_ids": ["52"],
                                 "descriptor": {
                                     "name": "Chepsangor Coffee Saplings",
-                                    "long_desc": "<p>Native Coffee Saplings from the hills of Cepsangor in Nandi country (10 Nos)</p>",
+                                    "long_desc": "<p>Native Coffee Saplings from the hills of Cepsangor in Nandi country</p>",
                                     "images": [
                                         {
                                             "url": "http://localhost:3000/assets/preview/e5/coffee-sapling__preview.jpeg"
                                         }
                                     ]
                                 },
-                                "matched": true
+                                "matched": true,
+                                "quantity": {
+                                    "unitized": {
+                                        "measure": {
+                                            "value": "10",
+                                            "unit": "nos"
+                                        }
+                                    }
+                                }
                             }
                         ]
                     }

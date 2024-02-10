@@ -231,14 +231,22 @@
                                 "category_ids": ["52"],
                                 "descriptor": {
                                     "name": "Chepsangor Coffee Saplings",
-                                    "long_desc": "<p>Native Coffee Saplings from the hills of Cepsangor in Nandi country (10 Nos)</p>",
+                                    "long_desc": "<p>Native Coffee Saplings from the hills of Cepsangor in Nandi country</p>",
                                     "images": [
                                         {
                                             "url": "http://localhost:3000/assets/preview/e5/coffee-sapling__preview.jpeg"
                                         }
                                     ]
                                 },
-                                "matched": true
+                                "matched": true,
+                                "quantity": {
+                                    "unitized": {
+                                        "measure": {
+                                            "value": "10",
+                                            "unit": "nos"
+                                        }
+                                    }
+                                }
                             }
                         ]
                     },
@@ -259,14 +267,22 @@
                                 "category_ids": ["47"],
                                 "descriptor": {
                                     "name": "Arabica Seedlings",
-                                    "long_desc": "<p>Arabica seedlings (10 nos) from the Meru county</p>",
+                                    "long_desc": "<p>Arabica seedlings from the Meru county</p>",
                                     "images": [
                                         {
                                             "url": "http://localhost:3000/assets/preview/d2/meru_seedlings__preview.jpeg"
                                         }
                                     ]
                                 },
-                                "matched": true
+                                "matched": true,
+                                "quantity": {
+                                    "unitized": {
+                                        "measure": {
+                                            "value": "10",
+                                            "unit": "nos"
+                                        }
+                                    }
+                                }
                             }
                         ]
                     }

@@ -12,6 +12,7 @@ export const shopApiExtensions = gql`
 
     type ProductVariantWithChannelAndSeller implements Node {
         channels: [Channel]
+        options: [ProductOption]
         id: ID!
         name: String
     }
