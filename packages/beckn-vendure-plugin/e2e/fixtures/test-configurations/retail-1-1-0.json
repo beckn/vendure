@@ -41,16 +41,16 @@
         "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {
+        "queryName": "init",
+        "reqJSONFile": "init.json",
+        "resJSONFile": "on-init.json",
+        "exclude": ["body.context.timestamp", "body.message.order.id"]
+    },
+    {
         "queryName": "confirm",
         "reqJSONFile": "confirm.json",
         "resJSONFile": "on-confirm.json",
         "exclude": ["body.context.timestamp", "body.message.order.id"]
-    },
-    {
-        "queryName": "status",
-        "reqJSONFile": "status.json",
-        "resJSONFile": "on-status.json",
-        "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
     },
     {
         "queryName": "cancel",
@@ -65,9 +65,9 @@
         "exclude": ["body.context.timestamp"]
     },
     {
-        "queryName": "init",
-        "reqJSONFile": "init.json",
-        "resJSONFile": "on-init.json",
-        "exclude": ["body.context.timestamp", "body.message.order.id"]
+        "queryName": "status",
+        "reqJSONFile": "status.json",
+        "resJSONFile": "on-status.json",
+        "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
     }
 ]

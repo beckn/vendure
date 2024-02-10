@@ -70,6 +70,7 @@
                 "fulfillments": [
                     {
                         "type": "standard-shipping",
+                        "name": "Standard Shipping",
                         "stops": [
                             {
                                 "location": {

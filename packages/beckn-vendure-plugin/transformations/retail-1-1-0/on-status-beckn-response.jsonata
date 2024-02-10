@@ -61,6 +61,7 @@
                     },
                     "fulfillments": $order.shippingLines[].{
                         "type": $.shippingMethod.code,
+                        "name": $.shippingMethod.name,
                         "stops":[
                             {
                                 "location":{
