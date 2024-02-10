@@ -1,0 +1,14 @@
+query Facets($facets: [String!]) {
+    facets(options: { filter: { name: { in: $facets } } }) {
+        totalItems
+        items {
+            id
+            values {
+                id
+                facetId
+                name
+                code
+            }
+        }
+    }
+}

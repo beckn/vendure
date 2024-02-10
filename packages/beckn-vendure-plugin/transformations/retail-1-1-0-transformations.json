@@ -19,21 +19,31 @@
             }
         },
         {
-            "name": "get-categories",
-            "type": "send-graphql-request",
-            "args": {
-                "graphqlFilename": "getCategories.graphql",
-                "outputDataPath": "body.data.facets",
-                "outputKey": "categories"
-            },
-            "condition": "!! context.becknRequest.body.message.intent?.category?.descriptor?.code"
-        },
-        {
-            "name": "get-facet-value-ids",
+            "name": "get-tag-and-category-filter",
             "type": "transform-and-add",
             "args": {
-                "jsonataFilename": "get-facet-values-from-search.jsonata",
-                "outputKey": "facetValueIds",
+                "jsonataFilename": "extract-tag-filter-from-request.jsonata",
+                "outputKey": "tagsAndCatFilter",
+                "common": "true"
+            }
+        },
+        {
+            "name": "get-facets",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getFacets.graphql",
+                "variablesKey": "tagsAndCatFilter.summary",
+                "outputDataPath": "body.data.facets",
+                "outputKey": "facetsAndValues"
+            },
+            "condition": "!! context.tagsAndCatFilter?.summary?.facets?.length > 0"
+        },
+        {
+            "name": "construct-facet-values-filter",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "construct-facet-values-filter.jsonata",
+                "outputKey": "facetValuesFilter",
                 "common": "true"
             }
         },

@@ -23,9 +23,9 @@
                     "providers": providersWithItems[].(
                         $provider := $;
                         $items := $data.items[$.productVariantId in $provider.productVariantIds];
-                        $allCategoryIds := $$.allCategories.values.id;
-                        $usedFacetIds := $distinct($items.facetValueIds);
                         $allCategoryValues := $$.allCategories.values;
+                        $allCategoryIds := $allCategoryValues.id;
+                        $usedFacetIds := $distinct($items.facetValueIds);
                         {
                             "id": $provider.id,
                             "descriptor": {

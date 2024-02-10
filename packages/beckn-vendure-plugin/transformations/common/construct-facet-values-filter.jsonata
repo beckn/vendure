@@ -1,0 +1,15 @@
+(
+    $tagsAndCatFilter := tagsAndCatFilter.details;
+    $facetsAndValues := facetsAndValues;
+    $facetNames := $keys($tagsAndCatFilter);
+    $facetFilterValues := $facetNames[].[(
+        $facetName := $;
+        $facetValueNames := $lookup($tagsAndCatFilter,$facetName);
+        $facetValueIds := $facetsAndValues.items.values[name in $facetValueNames].id;
+        )
+    ];
+    $facetFilterValues[].(
+        $noOfValues:= $count($);
+        $noOfValues = 1 ? {"and": $} : {"or": $}
+        )
+)

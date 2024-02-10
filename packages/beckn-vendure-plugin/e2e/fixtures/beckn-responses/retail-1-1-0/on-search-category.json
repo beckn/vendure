@@ -219,7 +219,7 @@
                         "descriptor": {
                             "name": "Nandi Coffee"
                         },
-                        "categories": [{ "id": "52", "descriptor": { "code": "plants", "name": "plants" } }],
+                        "categories": [{ "id": "52", "descriptor": { "code": "plants", "name": "Plants" } }],
                         "items": [
                             {
                                 "price": {

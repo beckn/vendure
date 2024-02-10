@@ -6,15 +6,15 @@
         "exclude": ["body.context.timestamp"]
     },
     {
-        "queryName": "search-category",
-        "reqJSONFile": "search-category.json",
-        "resJSONFile": "on-search-category.json",
-        "exclude": ["body.context.timestamp"]
-    },
-    {
         "queryName": "search-provider",
         "reqJSONFile": "search-provider.json",
         "resJSONFile": "on-search-provider.json",
+        "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "search-by-tag",
+        "reqJSONFile": "search-by-tag.json",
+        "resJSONFile": "on-search-by-tag.json",
         "exclude": ["body.context.timestamp"]
     },
     {
@@ -62,6 +62,12 @@
         "queryName": "track",
         "reqJSONFile": "track.json",
         "resJSONFile": "on-track.json",
+        "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "search-category",
+        "reqJSONFile": "search-category.json",
+        "resJSONFile": "on-search-category.json",
         "exclude": ["body.context.timestamp"]
     }
 ]

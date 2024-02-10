@@ -3,7 +3,7 @@
     {
     "input":{
         "term": $message.intent.item.descriptor.name,
-        "facetValueIds": facetValueIds
+        "facetValueFilters": facetValuesFilter
         
     }
 }

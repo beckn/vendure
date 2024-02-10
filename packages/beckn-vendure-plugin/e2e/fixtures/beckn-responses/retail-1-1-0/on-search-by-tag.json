@@ -17,7 +17,7 @@
             "version": "1.1.0",
             "bap_id": "ps-bap-network.becknprotocol.io",
             "bap_uri": "https://ps-bap-network.becknprotocol.io/",
-            "transaction_id": "8100d125-76a7-4588-88be-81b976571106",
+            "transaction_id": "8100d125-76a7-4588-88be-81b976571107",
             "message_id": "6104c0a3-d1d1-4ded-aaa4-76e4caf72101",
             "timestamp": "2023-11-06T09:41:09.673Z",
             "bpp_id": "vbabu.lr.bpp.1",
@@ -37,8 +37,7 @@
                             "name": "Nandi Coffee"
                         },
                         "categories": [
-                            { "id": "51", "descriptor": { "code": "grocery", "name": "Grocery" } },
-                            { "id": "52", "descriptor": { "code": "plants", "name": "Plants" } }
+                            { "id": "51", "descriptor": { "code": "grocery", "name": "Grocery" } }
                         ],
                         "items": [
                             {
@@ -55,25 +54,6 @@
                                     "images": [
                                         {
                                             "url": "http://localhost:3000/assets/preview/9d/coffee__preview.jpeg"
-                                        }
-                                    ]
-                                },
-                                "matched": true
-                            },
-                            {
-                                "price": {
-                                    "listed_value": "5.00",
-                                    "currency": "USD",
-                                    "value": "5.00"
-                                },
-                                "id": "90",
-                                "category_ids": ["52"],
-                                "descriptor": {
-                                    "name": "Chepsangor Coffee Saplings",
-                                    "long_desc": "<p>Native Coffee Saplings from the hills of Cepsangor in Nandi country (10 Nos)</p>",
-                                    "images": [
-                                        {
-                                            "url": "http://localhost:3000/assets/preview/e5/coffee-sapling__preview.jpeg"
                                         }
                                     ]
                                 },

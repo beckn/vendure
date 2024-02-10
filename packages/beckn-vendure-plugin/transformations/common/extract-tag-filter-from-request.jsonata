@@ -1,0 +1,14 @@
+(
+    $intent := becknRequest.body.message.intent;
+    $taggroups := $intent.tags;
+    $facets := $taggroups{
+        descriptor.code : list[].value
+    };
+    $details := $intent.category ? $merge([{"category": [$intent.category.descriptor.code]},$facets]) : $facets;
+    {
+        "summary": {
+            "facets":$keys($details)
+        },
+        "details" :$details
+    }
+)
