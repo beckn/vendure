@@ -15,6 +15,7 @@ export const shopApiExtensions = gql`
         options: [ProductOption]
         id: ID!
         name: String
+        product: Product
     }
 
     type ProductVariantWithChannelAndSellerList implements PaginatedList {
@@ -26,7 +27,7 @@ export const shopApiExtensions = gql`
         getBecknTransaction(becknTransactionId: String!): BecknTransaction
         getBecknTransactionFromVendureAuthToken(vendureAuthToken: String!): BecknTransaction
         getBecknOrder(becknOrderId: String!): Order
-        getSellersOfProductVariants(
+        getProductVariantDetails(
             options: ProductVariantListOptions
             productId: ID
         ): ProductVariantWithChannelAndSellerList!

@@ -61,7 +61,9 @@
                                         ]
                                     },
                                     "matched": true
+                                    
                                 };
+                                $retRating := {"rating": $string($$.productVariantSellers[id=$currProdVarId].product.customFields.reviewRating)};
                                 $retQuantity := {
                                     "quantity":{
                                             "unitized": {
@@ -72,7 +74,8 @@
                                             }
                                         }
                                 };
-                                $$.productVariantSellers[id=$currProdVarId].options ? $merge([$retItem,$retQuantity]) : $retItem   
+                                $retTotal := $retRating.rating != "null" ? $merge([$retItem,$retRating]) : $retItem;
+                                $$.productVariantSellers[id=$currProdVarId].options ? $merge([$retTotal,$retQuantity]) : $retTotal   
 
                             )
                         }

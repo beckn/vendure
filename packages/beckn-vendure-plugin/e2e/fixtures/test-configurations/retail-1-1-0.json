@@ -6,12 +6,6 @@
         "exclude": ["body.context.timestamp"]
     },
     {
-        "queryName": "search-provider",
-        "reqJSONFile": "search-provider.json",
-        "resJSONFile": "on-search-provider.json",
-        "exclude": ["body.context.timestamp"]
-    },
-    {
         "queryName": "search-by-tag",
         "reqJSONFile": "search-by-tag.json",
         "resJSONFile": "on-search-by-tag.json",
@@ -69,5 +63,17 @@
         "reqJSONFile": "status.json",
         "resJSONFile": "on-status.json",
         "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
+    },
+    {
+        "queryName": "rating",
+        "reqJSONFile": "rating.json",
+        "resJSONFile": "on-rating.json",
+        "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "search-provider",
+        "reqJSONFile": "search-provider.json",
+        "resJSONFile": "on-search-provider.json",
+        "exclude": ["body.context.timestamp"]
     }
 ]

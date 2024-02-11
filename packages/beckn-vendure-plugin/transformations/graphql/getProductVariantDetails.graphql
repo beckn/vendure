@@ -1,5 +1,5 @@
-query GetSellersOfProductVariants($productVariantIds: [String!]) {
-    getSellersOfProductVariants(options: { filter: { id: { in: $productVariantIds } } }) {
+query GetProductVariantDetails($productVariantIds: [String!]) {
+    getProductVariantDetails(options: { filter: { id: { in: $productVariantIds } } }) {
         items {
             channels {
                 code
@@ -25,6 +25,13 @@ query GetSellersOfProductVariants($productVariantIds: [String!]) {
                 }
                 name
                 code
+            }
+            product {
+                id
+                customFields {
+                    reviewRating
+                    reviewCount
+                }
             }
         }
     }

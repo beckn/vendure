@@ -1,0 +1,10 @@
+{
+    "productReviewInput":{
+        "summary": "Customer Review",
+        "body": "Customer Review",
+        "productId": productDetails.id,
+        "authorName": "Customer",
+        "rating": $number(ratingRequestInfo.rating_value)
+    }
+
+}

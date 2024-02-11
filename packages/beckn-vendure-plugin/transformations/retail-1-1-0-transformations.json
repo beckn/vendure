@@ -78,10 +78,10 @@
             "name": "get-sellers-of-product-variants",
             "type": "send-graphql-request",
             "args": {
-                "graphqlFilename": "getSellersOfProductVariants.graphql",
+                "graphqlFilename": "getProductVariantDetails.graphql",
                 "variablesKey": "productVariantIds",
                 "outputKey": "productVariantSellers",
-                "outputDataPath": "body.data.getSellersOfProductVariants.items"
+                "outputDataPath": "body.data.getProductVariantDetails.items"
             },
             "condition": "context.productVariantIds.productVariantIds.length > 0"
         },
@@ -833,6 +833,56 @@
             "type": "transform-and-add",
             "args": {
                 "jsonataFilename": "on-track-beckn-response.jsonata",
+                "outputKey": "becknResponse"
+            }
+        }
+    ],
+    "rating": [
+        {
+            "name": "extract-rating-request-info",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "rating-beckn-request.jsonata",
+                "outputKey": "ratingRequestInfo"
+            }
+        },
+        {
+            "name": "get-product-from-product-variant",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getProductVariantDetails.graphql",
+                "variablesKey": "ratingRequestInfo.target_query_input",
+                "outputKey": "productDetails",
+                "outputDataPath": "body.data.getProductVariantDetails.items.0.product"
+            },
+            "condition": "context.ratingRequestInfo.rating_target === 'Product'"
+        },
+        {
+            "name": "construct-product-review-input",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "construct-product-review-input.jsonata",
+                "outputKey": "productReviewInput",
+                "common": "true"
+            },
+            "condition": "context.ratingRequestInfo.rating_target === 'Product'"
+        },
+        {
+            "name": "submit-product-review",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "submitProductReview.graphql",
+                "variablesKey": "productReviewInput",
+                "outputKey": "submitProductReviewResponse",
+                "outputDataPath": "body.data.submitProductReview"
+            },
+            "condition": "context.ratingRequestInfo.rating_target === 'Product'"
+        },
+        {
+            "name": "generate-beckn-response",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "on-rating-beckn-response.jsonata",
                 "outputKey": "becknResponse"
             }
         }

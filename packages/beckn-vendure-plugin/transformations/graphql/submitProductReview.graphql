@@ -1,0 +1,17 @@
+mutation SubmitProductReview($productReviewInput: SubmitProductReviewInput!) {
+    submitProductReview(input: $productReviewInput) {
+        id
+        createdAt
+        updatedAt
+        summary
+        body
+        rating
+        authorName
+        authorLocation
+        upvotes
+        downvotes
+        state
+        response
+        responseCreatedAt
+    }
+}

@@ -1,0 +1,11 @@
+(
+    $rating := becknRequest.body.message.rating;
+    ($rating.rating_category = "Item") ? 
+    {
+        "rating_target": "Product",
+        "target_query_input": {
+            "productVariantIds": [$rating.id]
+        },
+        "rating_value": $rating.value
+    } : {}
+)

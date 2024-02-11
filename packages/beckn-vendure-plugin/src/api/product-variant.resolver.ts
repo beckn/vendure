@@ -23,7 +23,7 @@ export class ProductVariantResolver {
 
     @Query()
     @Allow(Permission.Public)
-    async getSellersOfProductVariants(
+    async getProductVariantDetails(
         @Ctx() ctx: RequestContext,
         @Args() args: QueryProductVariantsArgs,
         @Relations({ entity: ProductVariant, omit: ['assets'] }) relations: RelationPaths<ProductVariant>,
@@ -31,7 +31,7 @@ export class ProductVariantResolver {
         const productVariants = await this.productVariantService.findAll(ctx, args.options || undefined);
         for (const pv of productVariants.items) {
             await this.entityHydrator.hydrate(ctx, pv, {
-                relations: ['options', 'options.group'],
+                relations: ['options', 'options.group', 'product'],
             });
         }
         return productVariants;

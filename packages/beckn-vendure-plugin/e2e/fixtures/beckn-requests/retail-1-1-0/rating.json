@@ -1,0 +1,35 @@
+{
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "body": {
+        "context": {
+            "domain": "retail:1.1.0",
+            "location": {
+                "country": {
+                    "code": "IND"
+                },
+                "city": {
+                    "code": "std:080"
+                }
+            },
+            "action": "rating",
+            "version": "1.1.0",
+            "bap_id": "ps-bap-network.becknprotocol.io",
+            "bap_uri": "https://ps-bap-network.becknprotocol.io",
+            "bpp_id": "vbabu.lr.bpp.1",
+            "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
+            "message_id": "b8c1e69c-fbbc-439b-a5de-2adcc74f1115",
+            "transaction_id": "8100d125-76a7-4588-88be-81b976572115",
+            "timestamp": "2024-01-31T10:14:10.295Z",
+            "ttl": "PT10M"
+        },
+        "message": {
+            "rating": {
+                "id": "90",
+                "rating_category": "Item",
+                "value": "4"
+            }
+        }
+    }
+}

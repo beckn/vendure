@@ -4,7 +4,7 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
     test: {
-        include: '**/*.e2e-spec.ts',
+        include: ['**/*.e2e-spec.ts'],
         typecheck: {
             tsconfig: path.join(__dirname, 'tsconfig.e2e.json'),
         },
