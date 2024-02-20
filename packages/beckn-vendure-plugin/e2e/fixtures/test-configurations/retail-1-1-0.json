@@ -70,15 +70,15 @@
         "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
     },
     {
-        "queryName": "track",
-        "reqJSONFile": "track.json",
-        "resJSONFile": "on-track.json",
-        "exclude": ["body.context.timestamp"]
-    },
-    {
         "queryName": "rating",
         "reqJSONFile": "rating.json",
         "resJSONFile": "on-rating.json",
+        "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "track",
+        "reqJSONFile": "track.json",
+        "resJSONFile": "on-track.json",
         "exclude": ["body.context.timestamp"]
     }
 ]

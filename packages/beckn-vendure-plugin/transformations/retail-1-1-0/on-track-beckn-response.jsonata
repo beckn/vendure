@@ -3,23 +3,32 @@
     $env := env;
     $order := becknOrder;
     $fulfillment := $order.fulfillments[-1];
+    $fulfillmentExists := $exists($fulfillment);
+    $successMessage := {
+        "message": {
+            "tracking": $fulfillment.{
+                "url": $.trackingCode,
+                "status": $.state = "Cancelled" ? "inactive" : "active"
+            }
+        }
+    };
+    $failureMessage := {
+        "error":{
+            "code": "30008",
+            "message": "There is no fulfillment available at this time to track."
+        }
+    };
     {
         "headers":{
             "Content-Type": "application/json"
         },
-        "body":{    
+        "body":$merge([{    
             "context":$context ~> |$|{
                 "action": 'on_' & $context.action,
                 "bpp_id": $env.bpp_id,
                 "bpp_uri": $env.bpp_uri,
                 "timestamp": $now()
-                }|,
-            "message": {
-                "tracking": $fulfillment.{
-                    "url": $.trackingCode,
-                    "status": $.state = "Cancelled" ? "inactive" : "active"
-                }
-            }
-        }
+                }|
+        },($fulfillmentExists ? $successMessage : $failureMessage)])
     }
 )
