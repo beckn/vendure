@@ -56,6 +56,15 @@
             }
         },
         {
+            "name": "check-if-valid-search",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "check-if-search-valid.jsonata",
+                "outputKey": "validSearch",
+                "common": "true"
+            }
+        },
+        {
             "name": "send-search-graphql-request",
             "type": "send-graphql-request",
             "args": {
@@ -63,7 +72,8 @@
                 "variablesKey": "searchInput",
                 "outputKey": "searchResponse",
                 "headersKey": "providerHeader"
-            }
+            },
+            "condition": "context.validSearch"
         },
         {
             "name": "extract-product-variant-ids",
@@ -72,7 +82,8 @@
                 "jsonataFilename": "product-variant-ids-from-search-result.jsonata",
                 "outputKey": "productVariantIds",
                 "common": "true"
-            }
+            },
+            "condition": "context.validSearch"
         },
         {
             "name": "get-sellers-of-product-variants",
@@ -83,7 +94,7 @@
                 "outputKey": "productVariantSellers",
                 "outputDataPath": "body.data.getProductVariantDetails.items"
             },
-            "condition": "context.productVariantIds.productVariantIds.length > 0"
+            "condition": "context.validSearch && context.productVariantIds.productVariantIds.length > 0"
         },
         {
             "name": "get-product-variant-grouped-by-seller",
@@ -93,7 +104,7 @@
                 "outputKey": "providersWithItems",
                 "common": "true"
             },
-            "condition": "context.productVariantIds.productVariantIds.length > 0"
+            "condition": "context.validSearch && context.productVariantIds.productVariantIds.length > 0"
         },
         {
             "name": "generate-beckn-response",
@@ -102,7 +113,7 @@
                 "jsonataFilename": "on-search-beckn-response.jsonata",
                 "outputKey": "becknResponse"
             },
-            "condition": "context.productVariantIds.productVariantIds.length > 0"
+            "condition": "context.validSearch && context.productVariantIds.productVariantIds.length > 0"
         }
     ],
     "select": [

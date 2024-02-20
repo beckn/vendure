@@ -1,0 +1,15 @@
+(
+    $intent := becknRequest.body.message.intent;
+    $searchTermSpecified := $exists($intent.item.descriptor);
+    $searchCategorySpecified := $exists($intent.category.descriptor);
+    $searchTagsSpecified := $exists($intent.tags) and $boolean($intent.tags);
+    $emptySearchSpecified := $not($searchTermSpecified) and $not($searchCategorySpecified) and $not($searchTagsSpecified);
+
+    $termInGeneratedQuery := $exists(searchInput.input.term) and $boolean(searchInput.input.term);
+    $facetFilterInGeneratedQuery := $exists(searchInput.input.facetValueFilters) and $boolean(searchInput.input.facetValueFilters);
+
+    $generatedQueryEmpty := $not($termInGeneratedQuery) and $not($facetFilterInGeneratedQuery);
+
+    $validSearch := $emptySearchSpecified or $not($generatedQueryEmpty);
+    $validSearch
+)

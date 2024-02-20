@@ -12,14 +12,19 @@
         "exclude": ["body.context.timestamp"]
     },
     {
-        "queryName": "search-item-category-without-results",
-        "reqJSONFile": "search-item-category-non.json",
+        "queryName": "search-non-existing-category",
+        "reqJSONFile": "search-non-existing-category.json",
         "exclude": ["body.context.timestamp"]
     },
     {
         "queryName": "search-item-category-with-results",
         "reqJSONFile": "search-item-category-exists.json",
         "resJSONFile": "on-search-item-category-exists.json",
+        "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "search-item-category-without-results",
+        "reqJSONFile": "search-item-category-non.json",
         "exclude": ["body.context.timestamp"]
     },
     {
@@ -53,6 +58,12 @@
         "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {
+        "queryName": "cancel",
+        "reqJSONFile": "cancel.json",
+        "resJSONFile": "on-cancel.json",
+        "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
+    },
+    {
         "queryName": "status",
         "reqJSONFile": "status.json",
         "resJSONFile": "on-status.json",
@@ -69,11 +80,5 @@
         "reqJSONFile": "rating.json",
         "resJSONFile": "on-rating.json",
         "exclude": ["body.context.timestamp"]
-    },
-    {
-        "queryName": "cancel",
-        "reqJSONFile": "cancel.json",
-        "resJSONFile": "on-cancel.json",
-        "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
     }
 ]

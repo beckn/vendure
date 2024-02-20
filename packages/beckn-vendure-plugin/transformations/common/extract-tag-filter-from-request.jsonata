@@ -7,7 +7,7 @@
     $details := $intent.category ? $merge([{"category": [$intent.category.descriptor.code]},$facets]) : $facets;
     {
         "summary": {
-            "facets":$keys($details)
+            "facets":$keys($details)[]
         },
         "details" :$details
     }
