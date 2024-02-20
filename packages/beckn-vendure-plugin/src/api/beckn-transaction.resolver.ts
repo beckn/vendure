@@ -44,6 +44,16 @@ export class BecknTransactionResolver {
 
     @Query()
     @Allow(Permission.Public)
+    async getVendureToken(@Ctx() ctx: RequestContext, @Args() { becknOrderId }: { becknOrderId: string }) {
+        const becknTransaction = await this.becknTransactionService.getBecknTransactionFromVendureAuthToken(
+            ctx,
+            becknOrderId,
+        );
+        return becknTransaction?.vendureToken;
+    }
+
+    @Query()
+    @Allow(Permission.Public)
     async getBecknOrder(
         @Ctx() ctx: RequestContext,
         @Args() { becknOrderId }: { becknOrderId: string },
@@ -76,12 +86,17 @@ export class BecknTransactionResolver {
     async addVendureOrderIdToBecknTransaction(
         @Ctx() ctx: RequestContext,
         @Args()
-        { vendureAuthToken, vendureOrderId }: { vendureAuthToken: string; vendureOrderId: string },
+        {
+            vendureAuthToken,
+            vendureOrderId,
+            vendureToken,
+        }: { vendureAuthToken: string; vendureOrderId: string; vendureToken: string },
     ) {
         return this.becknTransactionService.addVendureOrderIdToBecknTransaction(
             ctx,
             vendureAuthToken,
             vendureOrderId,
+            vendureToken,
         );
     }
 

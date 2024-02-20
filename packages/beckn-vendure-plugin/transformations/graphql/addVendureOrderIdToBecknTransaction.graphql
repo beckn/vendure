@@ -1,7 +1,12 @@
-mutation addVendureOrderIdToBecknTransaction($vendureAuthToken: String!, $vendureOrderId: String!) {
+mutation addVendureOrderIdToBecknTransaction(
+    $vendureAuthToken: String!
+    $vendureOrderId: String!
+    $vendureToken: String!
+) {
     addVendureOrderIdToBecknTransaction(
         vendureAuthToken: $vendureAuthToken
         vendureOrderId: $vendureOrderId
+        vendureToken: $vendureToken
     ) {
         id
         createdAt
@@ -9,5 +14,6 @@ mutation addVendureOrderIdToBecknTransaction($vendureAuthToken: String!, $vendur
         becknTransactionId
         vendureAuthToken
         vendureOrderId
+        vendureToken
     }
 }

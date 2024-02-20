@@ -17,4 +17,7 @@ export class BecknTransaction extends VendureEntity {
 
     @Column({ nullable: true })
     vendureOrderId: string;
+
+    @Column({ nullable: true })
+    vendureToken: string;
 }

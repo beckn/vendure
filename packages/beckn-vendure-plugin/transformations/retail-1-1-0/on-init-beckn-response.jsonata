@@ -17,6 +17,8 @@
     $shippingMethods := eligibleShippingMethods;
     $customer := $order.customer;
     $billing := $order.billingAddress;
+    $currentChannel := currentSellerResponse.body.data.activeChannel;
+    $currentSeller := $currentChannel.seller;    
     {
         "headers":{
             "Content-Type": "application/json"
@@ -32,9 +34,9 @@
                 "order": {
                     "id": vendureAuthToken,
                     "provider":{
-                        "id": "Vendure_Default_Shop_Token",
+                        "id": $currentChannel.token,
                         "descriptor": {
-                            "name": "Default Vendure Shop"
+                            "name": $currentSeller.name
                         }
                     },
                     "items": $items[].{

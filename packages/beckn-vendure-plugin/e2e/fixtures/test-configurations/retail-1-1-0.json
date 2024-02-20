@@ -6,12 +6,6 @@
         "exclude": ["body.context.timestamp"]
     },
     {
-        "queryName": "search-by-tag",
-        "reqJSONFile": "search-by-tag.json",
-        "resJSONFile": "on-search-by-tag.json",
-        "exclude": ["body.context.timestamp"]
-    },
-    {
         "queryName": "search-category",
         "reqJSONFile": "search-category.json",
         "resJSONFile": "on-search-category.json",
@@ -26,6 +20,18 @@
         "queryName": "search-item-category-with-results",
         "reqJSONFile": "search-item-category-exists.json",
         "resJSONFile": "on-search-item-category-exists.json",
+        "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "search-provider",
+        "reqJSONFile": "search-provider.json",
+        "resJSONFile": "on-search-provider.json",
+        "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "search-by-tag",
+        "reqJSONFile": "search-by-tag.json",
+        "resJSONFile": "on-search-by-tag.json",
         "exclude": ["body.context.timestamp"]
     },
     {
@@ -47,9 +53,9 @@
         "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {
-        "queryName": "cancel",
-        "reqJSONFile": "cancel.json",
-        "resJSONFile": "on-cancel.json",
+        "queryName": "status",
+        "reqJSONFile": "status.json",
+        "resJSONFile": "on-status.json",
         "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
     },
     {
@@ -59,21 +65,15 @@
         "exclude": ["body.context.timestamp"]
     },
     {
-        "queryName": "status",
-        "reqJSONFile": "status.json",
-        "resJSONFile": "on-status.json",
-        "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
-    },
-    {
         "queryName": "rating",
         "reqJSONFile": "rating.json",
         "resJSONFile": "on-rating.json",
         "exclude": ["body.context.timestamp"]
     },
     {
-        "queryName": "search-provider",
-        "reqJSONFile": "search-provider.json",
-        "resJSONFile": "on-search-provider.json",
-        "exclude": ["body.context.timestamp"]
+        "queryName": "cancel",
+        "reqJSONFile": "cancel.json",
+        "resJSONFile": "on-cancel.json",
+        "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
     }
 ]

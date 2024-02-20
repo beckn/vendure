@@ -214,6 +214,15 @@
             }
         },
         {
+            "name": "get-current-seller",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "currentSeller.graphql",
+                "authTokenKey": "vendureAuthToken",
+                "outputKey": "currentSellerResponse"
+            }
+        },
+        {
             "name": "get-eligible-shipping-methods",
             "type": "send-graphql-request",
             "args": {
@@ -435,6 +444,15 @@
                 "authTokenKey": "vendureAuthToken",
                 "outputKey": "currentOrderResponse",
                 "outputDataPath": "body.data"
+            }
+        },
+        {
+            "name": "get-current-seller",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "currentSeller.graphql",
+                "authTokenKey": "vendureAuthToken",
+                "outputKey": "currentSellerResponse"
             }
         },
         {
@@ -707,6 +725,15 @@
             }
         },
         {
+            "name": "get-current-seller",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "currentSeller.graphql",
+                "authTokenKey": "vendureAuthToken",
+                "outputKey": "currentSellerResponse"
+            }
+        },
+        {
             "name": "form-add-vendure-order-id-input",
             "type": "transform-and-add",
             "args": {
@@ -744,13 +771,33 @@
             }
         },
         {
+            "name": "get-vendure-token",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getVendureToken.graphql",
+                "variablesKey": "getBecknOrderInput",
+                "outputKey": "vendureToken",
+                "outputDataPath": "body.data.getVendureToken"
+            }
+        },
+        {
             "name": "get-beckn-order",
             "type": "send-graphql-request",
             "args": {
                 "graphqlFilename": "getBecknOrder.graphql",
                 "variablesKey": "getBecknOrderInput",
+                "vendureTokenKey": "vendureToken",
                 "outputKey": "becknOrder",
                 "outputDataPath": "body.data.getBecknOrder"
+            }
+        },
+        {
+            "name": "get-current-seller",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "currentSeller.graphql",
+                "vendureTokenKey": "vendureToken",
+                "outputKey": "currentSellerResponse"
             }
         },
         {
@@ -772,11 +819,31 @@
             }
         },
         {
+            "name": "get-vendure-token",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getVendureToken.graphql",
+                "variablesKey": "getBecknOrderInput",
+                "outputKey": "vendureToken",
+                "outputDataPath": "body.data.getVendureToken"
+            }
+        },
+        {
+            "name": "get-current-seller",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "currentSeller.graphql",
+                "vendureTokenKey": "vendureToken",
+                "outputKey": "currentSellerResponse"
+            }
+        },
+        {
             "name": "get-beckn-order",
             "type": "send-graphql-request",
             "args": {
                 "graphqlFilename": "getBecknOrder.graphql",
                 "variablesKey": "getBecknOrderInput",
+                "vendureTokenKey": "vendureToken",
                 "outputKey": "becknOrder",
                 "outputDataPath": "body.data.getBecknOrder"
             }
@@ -796,6 +863,7 @@
                 "graphqlFilename": "cancelBecknOrder.graphql",
                 "variablesKey": "cancelBecknOrderInput",
                 "outputKey": "cancelBecknOrderResult",
+                "vendureTokenKey": "vendureToken",
                 "outputDataPath": "body.data.cancelBecknOrder"
             },
             "condition": "context.becknOrder.state !== 'Cancelled'"
@@ -819,12 +887,23 @@
             }
         },
         {
+            "name": "get-vendure-token",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getVendureToken.graphql",
+                "variablesKey": "getBecknOrderInput",
+                "outputKey": "vendureToken",
+                "outputDataPath": "body.data.getVendureToken"
+            }
+        },
+        {
             "name": "get-beckn-order",
             "type": "send-graphql-request",
             "args": {
                 "graphqlFilename": "getBecknOrder.graphql",
                 "variablesKey": "getBecknOrderInput",
                 "outputKey": "becknOrder",
+                "vendureTokenKey": "vendureToken",
                 "outputDataPath": "body.data.getBecknOrder"
             }
         },

@@ -8,6 +8,7 @@ export const shopApiExtensions = gql`
         becknTransactionId: String!
         vendureAuthToken: String!
         vendureOrderId: String
+        vendureToken: String
     }
 
     type ProductVariantWithChannelAndSeller implements Node {
@@ -26,6 +27,7 @@ export const shopApiExtensions = gql`
     extend type Query {
         getBecknTransaction(becknTransactionId: String!): BecknTransaction
         getBecknTransactionFromVendureAuthToken(vendureAuthToken: String!): BecknTransaction
+        getVendureToken(becknOrderId: String!): String
         getBecknOrder(becknOrderId: String!): Order
         getProductVariantDetails(
             options: ProductVariantListOptions
@@ -38,6 +40,7 @@ export const shopApiExtensions = gql`
         addVendureOrderIdToBecknTransaction(
             vendureAuthToken: String!
             vendureOrderId: String!
+            vendureToken: String!
         ): BecknTransaction!
         cancelBecknOrder(becknOrderId: String!, reason: String!, cancelShipping: Boolean): Order
     }

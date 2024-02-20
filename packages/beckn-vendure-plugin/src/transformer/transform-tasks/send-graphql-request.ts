@@ -18,6 +18,7 @@ export class SendGraphQLRequest implements TransformTask {
     private outputKey: string;
     private outputDataPath: string;
     private authTokenKey: string;
+    private vendureTokenKey: string;
 
     preCheck(context: TransformerContext): boolean {
         if (!this.taskDef.args || !context.env) throw Error('SendGraphQL requires configuration');
@@ -36,6 +37,7 @@ export class SendGraphQLRequest implements TransformTask {
         this.outputKey = this.taskDef.args.outputKey;
         this.outputDataPath = this.taskDef.args.outputDataPath;
         this.authTokenKey = this.taskDef.args.authTokenKey;
+        this.vendureTokenKey = this.taskDef.args.vendureTokenKey;
         return true;
     }
 
@@ -49,6 +51,10 @@ export class SendGraphQLRequest implements TransformTask {
         if (this.authTokenKey) {
             const vendureAuthToken = (getValue(context, this.authTokenKey) as string) || '';
             if (vendureAuthToken) headers = { ...headers, authorization: `Bearer ${vendureAuthToken}` };
+        }
+        if (this.vendureTokenKey) {
+            const vendureToken = (getValue(context, this.vendureTokenKey) as string) || '';
+            if (vendureToken) headers = { ...headers, 'vendure-token': vendureToken };
         }
         if (this.headersKey) headers = { ...headers, ...getValue(context, this.headersKey) };
 

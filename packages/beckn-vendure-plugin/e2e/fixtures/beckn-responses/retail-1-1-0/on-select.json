@@ -28,9 +28,9 @@
             "order": {
                 "id": "760e3f53b2c992e0e16c67cd3b1b0b8dca9f8ce8623774ce8ac34532bc4373d0",
                 "provider": {
-                    "id": "Vendure_Default_Shop_Token",
+                    "id": "2p0aliran34hu8i6cr7y",
                     "descriptor": {
-                        "name": "Default Vendure Shop"
+                        "name": "Default Seller"
                     }
                 },
                 "fulfillments": [
