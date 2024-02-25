@@ -10,7 +10,10 @@ query GetProductVariantDetails($productVariantIds: [String!]) {
                     createdAt
                     updatedAt
                     name
-                    customFields
+                    customFields {
+                        shortDescription
+                        longDescription
+                    }
                 }
             }
             id

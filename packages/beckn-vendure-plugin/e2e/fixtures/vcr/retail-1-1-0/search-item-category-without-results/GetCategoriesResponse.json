@@ -1,0 +1,102 @@
+{
+    "data": {
+        "facets": {
+            "totalItems": 3,
+            "items": [
+                {
+                    "id": "1",
+                    "values": [
+                        {
+                            "id": "1",
+                            "facetId": "1",
+                            "name": "Electronics",
+                            "code": "electronics"
+                        },
+                        {
+                            "id": "2",
+                            "facetId": "1",
+                            "name": "Computers",
+                            "code": "computers"
+                        },
+                        {
+                            "id": "9",
+                            "facetId": "1",
+                            "name": "Photo",
+                            "code": "photo"
+                        },
+                        {
+                            "id": "17",
+                            "facetId": "1",
+                            "name": "Sports & Outdoor",
+                            "code": "sports-outdoor"
+                        },
+                        {
+                            "id": "18",
+                            "facetId": "1",
+                            "name": "Equipment",
+                            "code": "equipment"
+                        },
+                        {
+                            "id": "23",
+                            "facetId": "1",
+                            "name": "Footwear",
+                            "code": "footwear"
+                        },
+                        {
+                            "id": "30",
+                            "facetId": "1",
+                            "name": "Home & Garden",
+                            "code": "home-garden"
+                        },
+                        {
+                            "id": "31",
+                            "facetId": "1",
+                            "name": "Plants",
+                            "code": "plants"
+                        },
+                        {
+                            "id": "34",
+                            "facetId": "1",
+                            "name": "Furniture",
+                            "code": "furniture"
+                        }
+                    ]
+                },
+                {
+                    "id": "8",
+                    "values": [
+                        {
+                            "id": "46",
+                            "facetId": "8",
+                            "name": "Grocery",
+                            "code": "grocery"
+                        },
+                        {
+                            "id": "47",
+                            "facetId": "8",
+                            "name": "Plants",
+                            "code": "plants"
+                        }
+                    ]
+                },
+                {
+                    "id": "12",
+                    "values": [
+                        {
+                            "id": "51",
+                            "facetId": "12",
+                            "name": "Grocery",
+                            "code": "grocery"
+                        },
+                        {
+                            "id": "52",
+                            "facetId": "12",
+                            "name": "Plants",
+                            "code": "plants"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

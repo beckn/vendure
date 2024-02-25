@@ -1,0 +1,14 @@
+{
+    "data": {
+        "eligibleShippingMethods": [
+            {
+                "id": "1",
+                "code": "standard-shipping"
+            },
+            {
+                "id": "2",
+                "code": "express-shipping"
+            }
+        ]
+    }
+}

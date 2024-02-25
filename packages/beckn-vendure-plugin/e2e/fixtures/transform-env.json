@@ -3,7 +3,5 @@
     "bpp_id": "vbabu.lr.bpp.1",
     "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
     "bpp_country": "IND",
-    "bpp_city": "std:080",
-    "transformationsFolder": "src/plugins/beckn-vendure-plugin/transformations",
-    "domainTransformationsConfigFile": "src/plugins/beckn-vendure-plugin/transformations/domain-map.json"
+    "bpp_city": "std:080"
 }

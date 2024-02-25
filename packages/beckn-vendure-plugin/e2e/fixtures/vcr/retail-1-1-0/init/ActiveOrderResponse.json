@@ -1,0 +1,91 @@
+{
+    "data": {
+        "activeOrder": {
+            "id": "91",
+            "state": "AddingItems",
+            "active": true,
+            "subTotal": 4689,
+            "currencyCode": "USD",
+            "shipping": 500,
+            "shippingWithTax": 500,
+            "total": 5189,
+            "totalWithTax": 6127,
+            "customer": {
+                "id": "1",
+                "title": null,
+                "firstName": "Motiur",
+                "lastName": "Rehman",
+                "phoneNumber": "9191223433",
+                "emailAddress": "nc.rehman@gmail.com"
+            },
+            "shippingAddress": {
+                "fullName": null,
+                "company": null,
+                "streetLine1": "123, Terminal 1, Kempegowda Int'l Airport Rd, A - Block, Gangamuthanahalli, Karnataka 560300, India",
+                "streetLine2": null,
+                "city": "Gangamuthanahalli",
+                "province": "Karnataka",
+                "postalCode": "560300",
+                "country": "India",
+                "countryCode": "IN",
+                "phoneNumber": "919122343355"
+            },
+            "billingAddress": {
+                "fullName": "Motiur Rehman",
+                "company": null,
+                "streetLine1": "123, Terminal 1, Kempegowda Int'l Airport Rd, A - Block, Gangamuthanahalli, Karnataka 560300, India",
+                "streetLine2": null,
+                "city": "Gangamuthanahalli",
+                "province": "Karnataka",
+                "postalCode": null,
+                "country": "India",
+                "countryCode": "IN",
+                "phoneNumber": "9191223433"
+            },
+            "lines": [
+                {
+                    "id": "734",
+                    "unitPrice": 1995,
+                    "unitPriceWithTax": 2394,
+                    "quantity": 2,
+                    "linePrice": 3990,
+                    "linePriceWithTax": 4788,
+                    "productVariant": {
+                        "id": "69",
+                        "name": "Hanging Plant",
+                        "product": {
+                            "description": "Can be found in tropical and sub-tropical America where it grows on the branches of trees, but also on telephone wires and electricity cables and poles that sometimes topple with the weight of these plants. This plant loves a moist and warm air.",
+                            "assets": [
+                                {
+                                    "source": "http://localhost:3000/assets/source/ff/alex-rodriguez-santibanez-200278-unsplash.jpg"
+                                }
+                            ]
+                        },
+                        "assets": []
+                    }
+                },
+                {
+                    "id": "735",
+                    "unitPrice": 699,
+                    "unitPriceWithTax": 839,
+                    "quantity": 1,
+                    "linePrice": 699,
+                    "linePriceWithTax": 839,
+                    "productVariant": {
+                        "id": "70",
+                        "name": "Aloe Vera",
+                        "product": {
+                            "description": "Decorative Aloe vera makes a lovely house plant. A really trendy plant, Aloe vera is just so easy to care for. Aloe vera sap has been renowned for its remarkable medicinal and cosmetic properties for many centuries and has been used to treat grazes, insect bites and sunburn - it really works.",
+                            "assets": [
+                                {
+                                    "source": "http://localhost:3000/assets/source/d5/silvia-agrasar-227575-unsplash.jpg"
+                                }
+                            ]
+                        },
+                        "assets": []
+                    }
+                }
+            ]
+        }
+    }
+}

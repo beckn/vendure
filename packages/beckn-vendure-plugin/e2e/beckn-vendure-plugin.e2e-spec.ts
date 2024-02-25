@@ -2,7 +2,7 @@
 import { SqljsInitializer, createTestEnvironment, registerInitializer, testConfig } from '@vendure/testing';
 import { gql } from 'graphql-tag';
 import path from 'path';
-import { afterAll, beforeAll, describe, it, expect } from 'vitest';
+import { afterAll, beforeAll, describe, it, expect, beforeEach, afterEach } from 'vitest';
 
 import { BecknVendurePlugin } from '../src/beckn-vendure-plugin';
 import { TransformerService } from '../src/transformer/transformer.service';
@@ -15,8 +15,11 @@ import {
     readBecknResponseJSON,
     readFixtureJSON,
     readTestConfiguration,
+    setupVCR,
     strictEqualWithExclude,
 } from './test-utils';
+import { SetupServerApi, setupServer } from 'msw/node';
+import { HttpResponse, graphql, http } from 'msw';
 
 const sqliteDataDir = path.join(__dirname, '__data__');
 
@@ -49,6 +52,13 @@ describe('beckn-vendure-plugin', () => {
             let env: Environment;
             beforeAll(async () => {
                 env = await readFixtureJSON('transform-env.json');
+                (env['transformationsFolder'] = path.join(__dirname, '..', 'transformations')),
+                    (env['domainTransformationsConfigFile'] = path.join(
+                        __dirname,
+                        '..',
+                        'transformations',
+                        'domain-map.json',
+                    ));
             });
 
             describe('for retail:1.1.0', async () => {
@@ -60,13 +70,19 @@ describe('beckn-vendure-plugin', () => {
                     index += 1;
                     // if (index !== testConfigs.length) continue; // Comment this to run all tests. Else runs only last
                     it(`works for ${tc.queryName} query`, async () => {
-                        const beckn_request = await readBecknRequestJSON(domain, tc.reqJSONFile);
-                        const response = await transformerService.transform(env, beckn_request);
-                        if (!tc.resJSONFile) {
-                            expect(response).toBe(undefined);
-                        } else {
-                            const expectedResponse = await readBecknResponseJSON(domain, tc.resJSONFile);
-                            strictEqualWithExclude(response, expectedResponse, tc.exclude);
+                        let server = null;
+                        try {
+                            server = await setupVCR(domain, tc.queryName);
+                            const beckn_request = await readBecknRequestJSON(domain, tc.reqJSONFile);
+                            const response = await transformerService.transform(env, beckn_request);
+                            if (!tc.resJSONFile) {
+                                expect(response).toBe(undefined);
+                            } else {
+                                const expectedResponse = await readBecknResponseJSON(domain, tc.resJSONFile);
+                                strictEqualWithExclude(response, expectedResponse, tc.exclude);
+                            }
+                        } finally {
+                            if (server) server.close();
                         }
                     });
                 }

@@ -1,0 +1,19 @@
+{
+    "data": {
+        "submitProductReview": {
+            "id": "53",
+            "createdAt": "2024-02-25T08:11:52.000Z",
+            "updatedAt": "2024-02-25T08:11:52.000Z",
+            "summary": "Customer Review",
+            "body": "Customer Review",
+            "rating": 4,
+            "authorName": "Customer",
+            "authorLocation": null,
+            "upvotes": 0,
+            "downvotes": 0,
+            "state": "new",
+            "response": null,
+            "responseCreatedAt": null
+        }
+    }
+}

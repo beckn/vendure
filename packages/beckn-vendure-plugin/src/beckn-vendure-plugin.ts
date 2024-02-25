@@ -35,25 +35,35 @@ import { WebhookService } from './webhook.service';
         },
     ],
     configuration: config => {
-        config.customFields.Order.push({
-            type: 'string',
-            name: 'paymentCode',
+        config.customFields.Order.push(
+            {
+                type: 'string',
+                name: 'paymentCode',
+            },
+            {
+                type: 'string',
+                name: 'paymentTransactionId',
+            },
+            {
+                type: 'string',
+                name: 'paymentAmount',
+            },
+            {
+                type: 'string',
+                name: 'paymentCurrencyCode',
+            },
+            {
+                type: 'datetime',
+                name: 'paymentTime',
+            },
+        );
+        config.customFields.Seller.push({
+            type: 'text',
+            name: 'shortDescription',
         });
-        config.customFields.Order.push({
-            type: 'string',
-            name: 'paymentTransactionId',
-        });
-        config.customFields.Order.push({
-            type: 'string',
-            name: 'paymentAmount',
-        });
-        config.customFields.Order.push({
-            type: 'string',
-            name: 'paymentCurrencyCode',
-        });
-        config.customFields.Order.push({
-            type: 'datetime',
-            name: 'paymentTime',
+        config.customFields.Seller.push({
+            type: 'text',
+            name: 'longDescription',
         });
         return config;
     },

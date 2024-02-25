@@ -1,0 +1,15 @@
+{
+    "data": {
+        "eligiblePaymentMethods": [
+            {
+                "id": "1",
+                "code": "standard-payment",
+                "name": "Standard Payment",
+                "description": "",
+                "isEligible": true,
+                "eligibilityMessage": null,
+                "customFields": null
+            }
+        ]
+    }
+}

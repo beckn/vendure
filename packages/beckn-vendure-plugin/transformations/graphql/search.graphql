@@ -1,4 +1,4 @@
-query ($input: SearchInput!) {
+query Search($input: SearchInput!) {
     search(input: $input) {
         totalItems
         items {

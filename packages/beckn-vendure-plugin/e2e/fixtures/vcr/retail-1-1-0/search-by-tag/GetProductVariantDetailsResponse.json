@@ -1,0 +1,66 @@
+{
+    "data": {
+        "getProductVariantDetails": {
+            "items": [
+                {
+                    "channels": [
+                        {
+                            "code": "__default_channel__",
+                            "token": "2p0aliran34hu8i6cr7y",
+                            "id": "1",
+                            "seller": {
+                                "id": "1",
+                                "createdAt": "2024-01-30T03:11:55.000Z",
+                                "updatedAt": "2024-01-30T03:11:55.000Z",
+                                "name": "Default Seller",
+                                "customFields": {
+                                    "shortDescription": null,
+                                    "longDescription": null
+                                }
+                            }
+                        },
+                        {
+                            "code": "nandi-coffee",
+                            "token": "nandi-coffee",
+                            "id": "3",
+                            "seller": {
+                                "id": "3",
+                                "createdAt": "2024-02-08T03:09:29.000Z",
+                                "updatedAt": "2024-02-21T02:38:48.000Z",
+                                "name": "Nandi Coffee",
+                                "customFields": {
+                                    "shortDescription": "Premium coffee growers from the county of Nandi near Lake Victoria",
+                                    "longDescription": "Nandi county in western Kenya is known for scenic Tea plantations. Little known are the tasty coffee beans grown in the same hills. We specialize in delicious tasting Arabica and Robusta coffee."
+                                }
+                            }
+                        }
+                    ],
+                    "id": "89",
+                    "name": "Kabunyeria",
+                    "options": [
+                        {
+                            "translations": [
+                                {
+                                    "name": "1"
+                                }
+                            ],
+                            "group": {
+                                "name": "lbs",
+                                "code": "lbs"
+                            },
+                            "name": "1",
+                            "code": "1"
+                        }
+                    ],
+                    "product": {
+                        "id": "55",
+                        "customFields": {
+                            "reviewRating": null,
+                            "reviewCount": null
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,4 +1,4 @@
-query ActiveOrder {
+query ActiveOrderOnConfirm {
     activeOrder {
         id
         state

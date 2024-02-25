@@ -1,0 +1,16 @@
+{
+    "data": {
+        "setOrderCustomFields": {
+            "id": "92",
+            "state": "ArrangingPayment",
+            "active": true,
+            "customFields": {
+                "paymentCode": "standard-payment",
+                "paymentTransactionId": "198237465",
+                "paymentAmount": "61.27",
+                "paymentCurrencyCode": "USD",
+                "paymentTime": "2024-01-26T10:14:10.280Z"
+            }
+        }
+    }
+}

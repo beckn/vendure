@@ -20,16 +20,17 @@
         "access": "public"
     },
     "dependencies": {
-        "jsonata": "2.0.3",
+        "@nestjs/axios": "^3.0.0",
         "json-diff": "1.0.6",
-        "@nestjs/axios": "^3.0.0"
+        "jsonata": "2.0.3"
     },
     "devDependencies": {
+        "@types/json-diff": "1.0.3",
         "@vendure/common": "^2.1.5",
         "@vendure/core": "^2.1.5",
-        "@types/json-diff": "1.0.3",
+        "@vendure/testing": "^2.1.5",
+        "msw": "^2.2.1",
         "rimraf": "^3.0.2",
-        "typescript": "4.9.5",
-        "@vendure/testing": "^2.1.5"
+        "typescript": "4.9.5"
     }
 }

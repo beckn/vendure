@@ -1,9 +1,21 @@
 [
     {
-        "queryName": "search-item",
-        "reqJSONFile": "search-item.json",
-        "resJSONFile": "on-search-item.json",
+        "queryName": "track",
+        "reqJSONFile": "track.json",
+        "resJSONFile": "on-track.json",
         "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "rating",
+        "reqJSONFile": "rating.json",
+        "resJSONFile": "on-rating.json",
+        "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "cancel",
+        "reqJSONFile": "cancel.json",
+        "resJSONFile": "on-cancel.json",
+        "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
     },
     {
         "queryName": "search-category",
@@ -14,12 +26,6 @@
     {
         "queryName": "search-non-existing-category",
         "reqJSONFile": "search-non-existing-category.json",
-        "exclude": ["body.context.timestamp"]
-    },
-    {
-        "queryName": "search-item-category-with-results",
-        "reqJSONFile": "search-item-category-exists.json",
-        "resJSONFile": "on-search-item-category-exists.json",
         "exclude": ["body.context.timestamp"]
     },
     {
@@ -34,34 +40,10 @@
         "exclude": ["body.context.timestamp"]
     },
     {
-        "queryName": "search-by-tag",
-        "reqJSONFile": "search-by-tag.json",
-        "resJSONFile": "on-search-by-tag.json",
-        "exclude": ["body.context.timestamp"]
-    },
-    {
         "queryName": "select",
         "reqJSONFile": "select.json",
         "resJSONFile": "on-select.json",
         "exclude": ["body.context.timestamp", "body.message.order.id"]
-    },
-    {
-        "queryName": "init",
-        "reqJSONFile": "init.json",
-        "resJSONFile": "on-init.json",
-        "exclude": ["body.context.timestamp", "body.message.order.id"]
-    },
-    {
-        "queryName": "confirm",
-        "reqJSONFile": "confirm.json",
-        "resJSONFile": "on-confirm.json",
-        "exclude": ["body.context.timestamp", "body.message.order.id"]
-    },
-    {
-        "queryName": "cancel",
-        "reqJSONFile": "cancel.json",
-        "resJSONFile": "on-cancel.json",
-        "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
     },
     {
         "queryName": "status",
@@ -70,15 +52,33 @@
         "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
     },
     {
-        "queryName": "rating",
-        "reqJSONFile": "rating.json",
-        "resJSONFile": "on-rating.json",
+        "queryName": "confirm",
+        "reqJSONFile": "confirm.json",
+        "resJSONFile": "on-confirm.json",
+        "exclude": ["body.context.timestamp", "body.message.order.id"]
+    },
+    {
+        "queryName": "search-item",
+        "reqJSONFile": "search-item.json",
+        "resJSONFile": "on-search-item.json",
         "exclude": ["body.context.timestamp"]
     },
     {
-        "queryName": "track",
-        "reqJSONFile": "track.json",
-        "resJSONFile": "on-track.json",
+        "queryName": "search-by-tag",
+        "reqJSONFile": "search-by-tag.json",
+        "resJSONFile": "on-search-by-tag.json",
         "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "search-item-category-with-results",
+        "reqJSONFile": "search-item-category-exists.json",
+        "resJSONFile": "on-search-item-category-exists.json",
+        "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "init",
+        "reqJSONFile": "init.json",
+        "resJSONFile": "on-init.json",
+        "exclude": ["body.context.timestamp", "body.message.order.id"]
     }
 ]

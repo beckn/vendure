@@ -1,4 +1,4 @@
-mutation addVendureOrderIdToBecknTransaction(
+mutation AddVendureOrderIdToBecknTransaction(
     $vendureAuthToken: String!
     $vendureOrderId: String!
     $vendureToken: String!

@@ -1,0 +1,163 @@
+{
+    "data": {
+        "search": {
+            "totalItems": 11,
+            "items": [
+                {
+                    "productVariantId": "67",
+                    "productVariantName": "Spiky Cactus",
+                    "productAsset": {
+                        "preview": "http://localhost:3000/assets/preview/78/charles-deluvio-695736-unsplash__preview.jpg"
+                    },
+                    "productVariantAsset": null,
+                    "price": {
+                        "value": 1550
+                    },
+                    "description": "A spiky yet elegant house cactus - perfect for the home or office. Origin and habitat: Probably native only to the Andes of Peru",
+                    "currencyCode": "USD",
+                    "facetValueIds": ["30", "31", "32"]
+                },
+                {
+                    "productVariantId": "68",
+                    "productVariantName": "Tulip Pot",
+                    "productAsset": {
+                        "preview": "http://localhost:3000/assets/preview/14/natalia-y-345738-unsplash__preview.jpg"
+                    },
+                    "productVariantAsset": null,
+                    "price": {
+                        "value": 675
+                    },
+                    "description": "Bright crimson red species tulip with black centers, the poppy-like flowers will open up in full sun. Ideal for rock gardens, pots and border edging.",
+                    "currencyCode": "USD",
+                    "facetValueIds": ["30", "31", "32", "33"]
+                },
+                {
+                    "productVariantId": "69",
+                    "productVariantName": "Hanging Plant",
+                    "productAsset": {
+                        "preview": "http://localhost:3000/assets/preview/5b/alex-rodriguez-santibanez-200278-unsplash__preview.jpg"
+                    },
+                    "productVariantAsset": null,
+                    "price": {
+                        "value": 1995
+                    },
+                    "description": "Can be found in tropical and sub-tropical America where it grows on the branches of trees, but also on telephone wires and electricity cables and poles that sometimes topple with the weight of these plants. This plant loves a moist and warm air.",
+                    "currencyCode": "USD",
+                    "facetValueIds": ["30", "31", "33"]
+                },
+                {
+                    "productVariantId": "70",
+                    "productVariantName": "Aloe Vera",
+                    "productAsset": {
+                        "preview": "http://localhost:3000/assets/preview/29/silvia-agrasar-227575-unsplash__preview.jpg"
+                    },
+                    "productVariantAsset": null,
+                    "price": {
+                        "value": 699
+                    },
+                    "description": "Decorative Aloe vera makes a lovely house plant. A really trendy plant, Aloe vera is just so easy to care for. Aloe vera sap has been renowned for its remarkable medicinal and cosmetic properties for many centuries and has been used to treat grazes, insect bites and sunburn - it really works.",
+                    "currencyCode": "USD",
+                    "facetValueIds": ["30", "31", "32"]
+                },
+                {
+                    "productVariantId": "71",
+                    "productVariantName": "Fern Blechnum Gibbum",
+                    "productAsset": {
+                        "preview": "http://localhost:3000/assets/preview/6d/caleb-george-536388-unsplash__preview.jpg"
+                    },
+                    "productVariantAsset": null,
+                    "price": {
+                        "value": 895
+                    },
+                    "description": "Create a tropical feel in your home with this lush green tree fern, it has decorative leaves and will develop a short slender trunk in time.",
+                    "currencyCode": "USD",
+                    "facetValueIds": ["30", "31", "33"]
+                },
+                {
+                    "productVariantId": "72",
+                    "productVariantName": "Assorted Indoor Succulents",
+                    "productAsset": {
+                        "preview": "http://localhost:3000/assets/preview/81/annie-spratt-78044-unsplash__preview.jpg"
+                    },
+                    "productVariantAsset": null,
+                    "price": {
+                        "value": 3250
+                    },
+                    "description": "These assorted succulents come in a variety of different shapes and colours - each with their own unique personality. Succulents grow best in plenty of light: a sunny windowsill would be the ideal spot for them to thrive!",
+                    "currencyCode": "USD",
+                    "facetValueIds": ["30", "31", "32"]
+                },
+                {
+                    "productVariantId": "73",
+                    "productVariantName": "Orchid",
+                    "productAsset": {
+                        "preview": "http://localhost:3000/assets/preview/88/zoltan-kovacs-642412-unsplash__preview.jpg"
+                    },
+                    "productVariantAsset": null,
+                    "price": {
+                        "value": 6500
+                    },
+                    "description": "Gloriously elegant. It can go along with any interior as it is a neutral color and the most popular Phalaenopsis overall. 2 to 3 foot stems host large white flowers that can last for over 2 months.",
+                    "currencyCode": "USD",
+                    "facetValueIds": ["30", "31"]
+                },
+                {
+                    "productVariantId": "74",
+                    "productVariantName": "Bonsai Tree",
+                    "productAsset": {
+                        "preview": "http://localhost:3000/assets/preview/f3/mark-tegethoff-667351-unsplash__preview.jpg"
+                    },
+                    "productVariantAsset": null,
+                    "price": {
+                        "value": 1999
+                    },
+                    "description": "Excellent semi-evergreen bonsai. Indoors or out but needs some winter protection. All trees sent will leave the nursery in excellent condition and will be of equal quality or better than the photograph shown.",
+                    "currencyCode": "USD",
+                    "facetValueIds": ["30", "31"]
+                },
+                {
+                    "productVariantId": "76",
+                    "productVariantName": "Hand Trowel",
+                    "productAsset": {
+                        "preview": "http://localhost:3000/assets/preview/7d/neslihan-gunaydin-3493-unsplash__preview.jpg"
+                    },
+                    "productVariantAsset": null,
+                    "price": {
+                        "value": 499
+                    },
+                    "description": "Hand trowel for garden cultivating hammer finish epoxy-coated head for improved resistance to rust, scratches, humidity and alkalines in the soil.",
+                    "currencyCode": "USD",
+                    "facetValueIds": ["30", "31"]
+                },
+                {
+                    "productVariantId": "90",
+                    "productVariantName": "Chepsangor Coffee Saplings",
+                    "productAsset": {
+                        "preview": "http://localhost:3000/assets/preview/e5/coffee-sapling__preview.jpeg"
+                    },
+                    "productVariantAsset": null,
+                    "price": {
+                        "value": 500
+                    },
+                    "description": "<p>Native Coffee Saplings from the hills of Cepsangor in Nandi country</p>",
+                    "currencyCode": "USD",
+                    "facetValueIds": ["43", "52"]
+                },
+                {
+                    "productVariantId": "92",
+                    "productVariantName": "Arabica Seedlings",
+                    "productAsset": {
+                        "preview": "http://localhost:3000/assets/preview/d2/meru_seedlings__preview.jpeg"
+                    },
+                    "productVariantAsset": null,
+                    "price": {
+                        "value": 500
+                    },
+                    "description": "<p>Arabica seedlings from the Meru county</p>",
+                    "currencyCode": "USD",
+                    "facetValueIds": ["47", "48", "50"]
+                }
+            ]
+        }
+    }
+}

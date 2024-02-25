@@ -1,0 +1,37 @@
+{
+    "data": {
+        "search": {
+            "totalItems": 2,
+            "items": [
+                {
+                    "productVariantId": "69",
+                    "productVariantName": "Hanging Plant",
+                    "productAsset": {
+                        "preview": "http://localhost:3000/assets/preview/5b/alex-rodriguez-santibanez-200278-unsplash__preview.jpg"
+                    },
+                    "productVariantAsset": null,
+                    "price": {
+                        "value": 1995
+                    },
+                    "description": "Can be found in tropical and sub-tropical America where it grows on the branches of trees, but also on telephone wires and electricity cables and poles that sometimes topple with the weight of these plants. This plant loves a moist and warm air.",
+                    "currencyCode": "USD",
+                    "facetValueIds": ["30", "31", "33"]
+                },
+                {
+                    "productVariantId": "70",
+                    "productVariantName": "Aloe Vera",
+                    "productAsset": {
+                        "preview": "http://localhost:3000/assets/preview/29/silvia-agrasar-227575-unsplash__preview.jpg"
+                    },
+                    "productVariantAsset": null,
+                    "price": {
+                        "value": 699
+                    },
+                    "description": "Decorative Aloe vera makes a lovely house plant. A really trendy plant, Aloe vera is just so easy to care for. Aloe vera sap has been renowned for its remarkable medicinal and cosmetic properties for many centuries and has been used to treat grazes, insect bites and sunburn - it really works.",
+                    "currencyCode": "USD",
+                    "facetValueIds": ["30", "31", "32"]
+                }
+            ]
+        }
+    }
+}

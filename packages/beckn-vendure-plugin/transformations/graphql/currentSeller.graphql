@@ -9,7 +9,10 @@ query ActiveChannel {
             createdAt
             updatedAt
             name
-            customFields
+            customFields {
+                shortDescription
+                longDescription
+            }
         }
     }
 }

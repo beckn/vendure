@@ -1,0 +1,8 @@
+{
+    "data": {
+        "setOrderShippingMethod": {
+            "errorCode": "ORDER_MODIFICATION_ERROR",
+            "message": "Order contents may only be modified when in the \"AddingItems\" state"
+        }
+    }
+}

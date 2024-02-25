@@ -1,0 +1,66 @@
+{
+    "data": {
+        "getProductVariantDetails": {
+            "items": [
+                {
+                    "channels": [
+                        {
+                            "code": "__default_channel__",
+                            "token": "2p0aliran34hu8i6cr7y",
+                            "id": "1",
+                            "seller": {
+                                "id": "1",
+                                "createdAt": "2024-01-30T03:11:55.000Z",
+                                "updatedAt": "2024-01-30T03:11:55.000Z",
+                                "name": "Default Seller",
+                                "customFields": {
+                                    "shortDescription": null,
+                                    "longDescription": null
+                                }
+                            }
+                        }
+                    ],
+                    "id": "69",
+                    "name": "Hanging Plant",
+                    "options": [],
+                    "product": {
+                        "id": "37",
+                        "customFields": {
+                            "reviewRating": null,
+                            "reviewCount": 0
+                        }
+                    }
+                },
+                {
+                    "channels": [
+                        {
+                            "code": "__default_channel__",
+                            "token": "2p0aliran34hu8i6cr7y",
+                            "id": "1",
+                            "seller": {
+                                "id": "1",
+                                "createdAt": "2024-01-30T03:11:55.000Z",
+                                "updatedAt": "2024-01-30T03:11:55.000Z",
+                                "name": "Default Seller",
+                                "customFields": {
+                                    "shortDescription": null,
+                                    "longDescription": null
+                                }
+                            }
+                        }
+                    ],
+                    "id": "70",
+                    "name": "Aloe Vera",
+                    "options": [],
+                    "product": {
+                        "id": "38",
+                        "customFields": {
+                            "reviewRating": null,
+                            "reviewCount": 0
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

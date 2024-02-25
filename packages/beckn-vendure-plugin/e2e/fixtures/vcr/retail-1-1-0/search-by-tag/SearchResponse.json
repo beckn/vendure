@@ -1,0 +1,23 @@
+{
+    "data": {
+        "search": {
+            "totalItems": 1,
+            "items": [
+                {
+                    "productVariantId": "89",
+                    "productVariantName": "Kabunyeria",
+                    "productAsset": {
+                        "preview": "http://localhost:3000/assets/preview/9d/coffee__preview.jpeg"
+                    },
+                    "productVariantAsset": null,
+                    "price": {
+                        "value": 1000
+                    },
+                    "description": "<p>Green unroasted fruity flavoured coffee from the Nandi county of Kenya</p>",
+                    "currencyCode": "USD",
+                    "facetValueIds": ["40", "43", "51"]
+                }
+            ]
+        }
+    }
+}

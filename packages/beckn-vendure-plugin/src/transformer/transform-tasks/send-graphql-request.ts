@@ -60,6 +60,10 @@ export class SendGraphQLRequest implements TransformTask {
 
         const env = context.env;
         const shop_url = `${env.host_url}/shop-api`;
+        // console.log('SENDING GRAPHQL QUERY');
+        // console.log(query);
+        // console.log(variables);
+        // console.log(headers);
         try {
             const httpService = new HttpService();
             const response = await lastValueFrom(
@@ -80,6 +84,8 @@ export class SendGraphQLRequest implements TransformTask {
                         }),
                     ),
             );
+            // console.log('GRAPHQL Response');
+            // console.log(JSON.stringify(response, null, 2));
             if (response.body.errors) {
                 throw Error(JSON.stringify(response.body.errors));
             }

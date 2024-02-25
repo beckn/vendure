@@ -1,0 +1,20 @@
+{
+    "data": {
+        "activeChannel": {
+            "id": "1",
+            "code": "__default_channel__",
+            "token": "2p0aliran34hu8i6cr7y",
+            "customFields": null,
+            "seller": {
+                "id": "1",
+                "createdAt": "2024-01-30T03:11:55.000Z",
+                "updatedAt": "2024-01-30T03:11:55.000Z",
+                "name": "Default Seller",
+                "customFields": {
+                    "shortDescription": null,
+                    "longDescription": null
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "data": {
+        "search": {
+            "totalItems": 2,
+            "items": [
+                {
+                    "productVariantId": "89",
+                    "productVariantName": "Kabunyeria",
+                    "productAsset": {
+                        "preview": "http://localhost:3000/assets/preview/9d/coffee__preview.jpeg"
+                    },
+                    "productVariantAsset": null,
+                    "price": {
+                        "value": 1000
+                    },
+                    "description": "<p>Green unroasted fruity flavoured coffee from the Nandi county of Kenya</p>",
+                    "currencyCode": "USD",
+                    "facetValueIds": ["40", "43", "51"]
+                },
+                {
+                    "productVariantId": "90",
+                    "productVariantName": "Chepsangor Coffee Saplings",
+                    "productAsset": {
+                        "preview": "http://localhost:3000/assets/preview/e5/coffee-sapling__preview.jpeg"
+                    },
+                    "productVariantAsset": null,
+                    "price": {
+                        "value": 500
+                    },
+                    "description": "<p>Native Coffee Saplings from the hills of Cepsangor in Nandi country</p>",
+                    "currencyCode": "USD",
+                    "facetValueIds": ["43", "52"]
+                }
+            ]
+        }
+    }
+}

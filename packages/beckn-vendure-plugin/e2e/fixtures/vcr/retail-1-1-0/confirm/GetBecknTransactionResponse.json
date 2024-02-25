@@ -1,0 +1,11 @@
+{
+    "data": {
+        "getBecknTransaction": {
+            "id": "22",
+            "createdAt": "2024-02-06T10:29:44.000Z",
+            "updatedAt": "2024-02-19T15:59:01.000Z",
+            "becknTransactionId": "8100d125-76a7-4588-88be-81b976572104|ps-bap-network.becknprotocol.io",
+            "vendureAuthToken": "5c338c9f695b97b1b5aa352858f9bc74116dd508c494419d67a91cc81b5216e7"
+        }
+    }
+}

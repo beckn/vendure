@@ -1,4 +1,4 @@
-query Facets {
+query GetCategories {
     facets(options: { filter: { name: { eq: "category" } } }) {
         totalItems
         items {

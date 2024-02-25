@@ -1,12 +1,14 @@
-import { readJSON } from 'fs-extra';
+import { readJSON, readdir } from 'fs-extra';
 import path from 'path';
 import { expect } from 'vitest';
+import { SetupServerApi, setupServer } from 'msw/node';
+import { GraphQLHandler, HttpResponse, graphql, http } from 'msw';
 
 export type ReqResTestConfig = {
     queryName: string;
     reqJSONFile: string;
     resJSONFile: string;
-    exclude: [string];
+    exclude: string[];
 };
 
 export async function readTestConfiguration(domain: string) {
@@ -23,6 +25,10 @@ export async function readBecknRequestJSON(domain: string, filename: string) {
 
 export async function readBecknResponseJSON(domain: string, filename: string) {
     return await readJSON(path.join(__dirname, 'fixtures', 'beckn-responses', domain, filename));
+}
+
+export async function readVCRResponseJSON(domain: string, request: string, graphQLResponseFilename: string) {
+    return await readJSON(path.join(__dirname, 'fixtures', 'vcr', domain, request, graphQLResponseFilename));
 }
 
 export function strictEqualWithExclude(obj: any, expectedObj: any, exclude: string[] = []) {
@@ -43,4 +49,34 @@ export function deleteKey(obj: any, key: string) {
         tObj = tObj[keys[i]];
     }
     delete tObj[keys[length - 1]];
+}
+
+export async function setupVCR(domain: string, request: string) {
+    const graphqlRequests = new Map<string, string>();
+    let graphqlResponseFilenames: string[] = [];
+    try {
+        graphqlResponseFilenames = await readdir(path.join(__dirname, 'fixtures', 'vcr', domain, request));
+    } catch {
+        graphqlResponseFilenames = [];
+    }
+
+    graphqlResponseFilenames.forEach(fn => {
+        graphqlRequests.set(fn.split('Response.json')[0], fn);
+    });
+
+    const graphqlHandlers: GraphQLHandler[] = [];
+    for (const [graphqlRequest, graphqlResponseFilename] of graphqlRequests) {
+        const response = await readVCRResponseJSON(domain, request, graphqlResponseFilename);
+        graphqlHandlers.push(
+            graphql.query(graphqlRequest, () => {
+                return HttpResponse.json(response);
+            }),
+            graphql.mutation(graphqlRequest, () => {
+                return HttpResponse.json(response);
+            }),
+        );
+    }
+    const server = setupServer(...graphqlHandlers);
+    server.listen({ onUnhandledRequest: 'error' });
+    return server;
 }
