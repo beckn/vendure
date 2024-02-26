@@ -12,6 +12,9 @@ query ActiveChannel {
             customFields {
                 shortDescription
                 longDescription
+                phoneNumber
+                email
+                url
             }
         }
     }

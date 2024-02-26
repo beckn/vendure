@@ -65,6 +65,18 @@ import { WebhookService } from './webhook.service';
             type: 'text',
             name: 'longDescription',
         });
+        config.customFields.Seller.push({
+            type: 'string',
+            name: 'phoneNumber',
+        });
+        config.customFields.Seller.push({
+            type: 'string',
+            name: 'email',
+        });
+        config.customFields.Seller.push({
+            type: 'string',
+            name: 'url',
+        });
         return config;
     },
     compatibility: '^2.0.0',

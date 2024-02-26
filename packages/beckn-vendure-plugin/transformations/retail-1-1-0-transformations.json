@@ -976,5 +976,23 @@
                 "outputKey": "becknResponse"
             }
         }
+    ],
+    "support": [
+        {
+            "name": "get-current-seller",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "currentSeller.graphql",
+                "outputKey": "currentSellerResponse"
+            }
+        },
+        {
+            "name": "generate-beckn-response",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "on-support-beckn-response.jsonata",
+                "outputKey": "becknResponse"
+            }
+        }
     ]
 }

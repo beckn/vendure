@@ -11,8 +11,11 @@
                 "updatedAt": "2024-01-30T03:11:55.000Z",
                 "name": "Default Seller",
                 "customFields": {
-                    "shortDescription": null,
-                    "longDescription": null
+                    "shortDescription": "Marketplace for agricultural products in Kenya",
+                    "longDescription": "Marketplace to Buy and Sell Agricultural Products and Services in Kenya",
+                    "phoneNumber": "+254786570610",
+                    "email": "default.seller@email.com",
+                    "url": "https://default-seller.example.com"
                 }
             }
         }

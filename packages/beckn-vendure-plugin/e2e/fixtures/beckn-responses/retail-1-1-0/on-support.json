@@ -1,0 +1,36 @@
+{
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "body": {
+        "context": {
+            "domain": "retail:1.1.0",
+            "location": {
+                "country": {
+                    "code": "KEN"
+                },
+                "city": {
+                    "code": "std:020"
+                }
+            },
+            "action": "on_support",
+            "version": "1.1.0",
+            "bap_id": "ps-bap-network.becknprotocol.io",
+            "bap_uri": "https://ps-bap-network.becknprotocol.io",
+            "bpp_id": "vbabu.lr.bpp.1",
+            "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
+            "message_id": "b8c1e69c-fbbc-439b-a5de-2adcc74f1116",
+            "transaction_id": "8100d125-76a7-4588-88be-81b976572114",
+            "timestamp": "2023-11-06T10:14:10.295Z",
+            "ttl": "PT10M"
+        },
+        "message": {
+            "support": {
+                "ref_id": "12345-67890",
+                "phone": "+254786570610",
+                "email": "default.seller@email.com",
+                "url": "https://default-seller.example.com"
+            }
+        }
+    }
+}
