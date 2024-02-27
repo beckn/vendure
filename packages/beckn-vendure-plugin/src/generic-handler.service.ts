@@ -68,7 +68,7 @@ export class GenericHandlerService {
             bpp_country: this.options.bpp_country,
             bpp_city: this.options.bpp_city,
             transformationsFolder: this.options.transformationsFolder as string,
-            domainTransformationsConfigFile: this.options.domainTransformationsConfigFile as string,
+            versionTransformationsConfigFile: this.options.versionTransformationsConfigFile as string,
         };
     }
 

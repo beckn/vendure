@@ -4,7 +4,7 @@
     },
     "body": {
         "context": {
-            "domain": "retail:1.1.0",
+            "domain": "other-domain",
             "location": {
                 "country": {
                     "code": "IND"
@@ -13,7 +13,7 @@
                     "code": "std:080"
                 }
             },
-            "action": "track",
+            "action": "on_track",
             "version": "1.1.0",
             "bap_id": "ps-bap-network.becknprotocol.io",
             "bap_uri": "https://ps-bap-network.becknprotocol.io",
@@ -25,7 +25,10 @@
             "ttl": "PT10M"
         },
         "message": {
-            "order_id": "a2b032071baf9e83f2a4ca7813dd3cfceeddde5226fe65a4152f6e56e169d598"
+            "tracking": {
+                "url": "https://dtdc.in/tracking/201f6fa2-a2f7-42e7-a2e5-8947398747",
+                "status": "active"
+            }
         }
     }
 }

@@ -25,8 +25,8 @@ export class SendGraphQLRequest implements TransformTask {
 
         checkArgsForKeys('SendGraphQLRequest', this.taskDef.args, ['graphqlFilename', 'outputKey']);
 
-        if (!context.requestEnv?.domainSupportFilesFolder)
-            throw Error('Domain support files folder needs to be configured');
+        if (!context.requestEnv?.versionSupportFilesFolder)
+            throw Error('Version support files folder needs to be configured');
         this.graphqlFilename = getFullGraphqlFilename(
             context.env.transformationsFolder,
             this.taskDef.args.graphqlFilename,

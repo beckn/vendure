@@ -41,10 +41,10 @@ export function getFullGraphqlFilename(transformationsFolder: string, graphqlFil
 
 export function getFullJSONataFilename(
     transformationsFolder: string,
-    domainSupportFolder: string,
+    versionSupportFolder: string,
     jsonataFilename: string,
     common: string = FALSE,
 ) {
     if (common === TRUE) return path.join(transformationsFolder, 'common', jsonataFilename);
-    return path.join(domainSupportFolder, jsonataFilename);
+    return path.join(versionSupportFolder, jsonataFilename);
 }

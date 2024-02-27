@@ -13,13 +13,13 @@ export class TransformAndAdd implements TransformTask {
     preCheck(context: TransformerContext): boolean {
         if (!this.taskDef.args || !context.requestEnv) throw Error('TransformAndAdd needs to be configured');
 
-        if (!context.requestEnv.domainSupportFilesFolder)
-            throw Error('Domain support files folder needs to be configured');
+        if (!context.requestEnv.versionSupportFilesFolder)
+            throw Error('Version support files folder needs to be configured');
         checkArgsForKeys('TransformAndAdd', this.taskDef.args, ['jsonataFilename', 'outputKey']);
 
         this.jsonataFilename = getFullJSONataFilename(
             context.env.transformationsFolder,
-            context.requestEnv.domainSupportFilesFolder,
+            context.requestEnv.versionSupportFilesFolder,
             this.taskDef.args.jsonataFilename,
             this.taskDef.args.common,
         );

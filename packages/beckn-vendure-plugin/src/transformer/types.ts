@@ -5,7 +5,6 @@ export interface BecknRequest {
     body: {
         message: any;
         context: {
-            domain: string;
             action: string;
             [key: string]: any;
         };
@@ -23,10 +22,10 @@ export interface GraphQLRequest {
 }
 
 export interface RequestEnvironment {
-    domain: string;
+    version: string;
     action: string;
-    domainConfigFile: string;
-    domainSupportFilesFolder: string;
+    versionConfigFile: string;
+    versionSupportFilesFolder: string;
 }
 
 export interface TransformerContext {
@@ -50,7 +49,7 @@ export interface TransformTask {
     run(context: TransformerContext): Promise<void>;
 }
 
-export interface DomainMap {
+export interface VersionMap {
     [key: string]: {
         mapFile: string;
         supportFilesFolder: string;

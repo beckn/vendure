@@ -11,24 +11,24 @@ export type ReqResTestConfig = {
     exclude: string[];
 };
 
-export async function readTestConfiguration(domain: string) {
-    return await readJSON(path.join(__dirname, 'fixtures', 'test-configurations', `${domain}.json`));
+export async function readTestConfiguration(version: string) {
+    return await readJSON(path.join(__dirname, 'fixtures', 'test-configurations', `${version}.json`));
 }
 
 export async function readFixtureJSON(filename: string) {
     return await readJSON(path.join(__dirname, 'fixtures', filename));
 }
 
-export async function readBecknRequestJSON(domain: string, filename: string) {
-    return await readJSON(path.join(__dirname, 'fixtures', 'beckn-requests', domain, filename));
+export async function readBecknRequestJSON(version: string, filename: string) {
+    return await readJSON(path.join(__dirname, 'fixtures', 'beckn-requests', version, filename));
 }
 
-export async function readBecknResponseJSON(domain: string, filename: string) {
-    return await readJSON(path.join(__dirname, 'fixtures', 'beckn-responses', domain, filename));
+export async function readBecknResponseJSON(version: string, filename: string) {
+    return await readJSON(path.join(__dirname, 'fixtures', 'beckn-responses', version, filename));
 }
 
-export async function readVCRResponseJSON(domain: string, request: string, graphQLResponseFilename: string) {
-    return await readJSON(path.join(__dirname, 'fixtures', 'vcr', domain, request, graphQLResponseFilename));
+export async function readVCRResponseJSON(version: string, request: string, graphQLResponseFilename: string) {
+    return await readJSON(path.join(__dirname, 'fixtures', 'vcr', version, request, graphQLResponseFilename));
 }
 
 export function strictEqualWithExclude(obj: any, expectedObj: any, exclude: string[] = []) {
@@ -51,11 +51,11 @@ export function deleteKey(obj: any, key: string) {
     delete tObj[keys[length - 1]];
 }
 
-export async function setupVCR(domain: string, request: string) {
+export async function setupVCR(version: string, request: string) {
     const graphqlRequests = new Map<string, string>();
     let graphqlResponseFilenames: string[] = [];
     try {
-        graphqlResponseFilenames = await readdir(path.join(__dirname, 'fixtures', 'vcr', domain, request));
+        graphqlResponseFilenames = await readdir(path.join(__dirname, 'fixtures', 'vcr', version, request));
     } catch {
         graphqlResponseFilenames = [];
     }
@@ -66,7 +66,7 @@ export async function setupVCR(domain: string, request: string) {
 
     const graphqlHandlers: GraphQLHandler[] = [];
     for (const [graphqlRequest, graphqlResponseFilename] of graphqlRequests) {
-        const response = await readVCRResponseJSON(domain, request, graphqlResponseFilename);
+        const response = await readVCRResponseJSON(version, request, graphqlResponseFilename);
         graphqlHandlers.push(
             graphql.query(graphqlRequest, () => {
                 return HttpResponse.json(response);

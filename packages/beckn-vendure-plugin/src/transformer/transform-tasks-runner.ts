@@ -11,7 +11,7 @@ import { SendMultipleGraphQLRequests } from './transform-tasks/send-multiple-gra
 import { TransformAndAdd } from './transform-tasks/transform-and-add';
 import {
     BecknRequest,
-    DomainMap,
+    VersionMap,
     RequestEnvironment,
     TransformTask,
     TransformTaskDef,
@@ -66,28 +66,36 @@ export class TransformTasksRunner {
     async _get_request_env(context: TransformerContext): Promise<RequestEnvironment> {
         const transformationsFolder = context.env.transformationsFolder;
 
-        const domain: string = context.becknRequest.body.context.domain;
+        // const version: string = context.becknRequest.body.context.version;
+        const version: string = '1.1.0'; // Right now we support only 1.1.0
         const action: string = context.becknRequest.body.context.action;
 
-        const domainMap: DomainMap = await readJSON(context.env.domainTransformationsConfigFile);
-        const domainConfigFile: string = path.join(transformationsFolder, domainMap[domain].mapFile);
-        const domainSupportFilesFolder: string = path.join(
+        const versionMap: VersionMap = await readJSON(context.env.versionTransformationsConfigFile);
+        const versionDetails = this._get_version_details(versionMap, version);
+        const versionConfigFile: string = path.join(transformationsFolder, versionDetails.mapFile);
+        const versionSupportFilesFolder: string = path.join(
             transformationsFolder,
-            domainMap[domain].supportFilesFolder,
+            versionDetails.supportFilesFolder,
         );
 
         return {
-            domain,
+            version,
             action,
-            domainConfigFile,
-            domainSupportFilesFolder,
+            versionConfigFile: versionConfigFile,
+            versionSupportFilesFolder: versionSupportFilesFolder,
         };
+    }
+
+    _get_version_details(versionMap: VersionMap, version: string) {
+        if (version in Object.keys(versionMap)) {
+            return versionMap[version];
+        } else return versionMap['1.1.0'];
     }
 
     async get_task_def_list(context: TransformerContext): Promise<TransformTaskDef[]> {
         if (!context.requestEnv) return [];
-        const domainConfiguration = await readJSON(context.requestEnv.domainConfigFile);
-        const taskDefList = domainConfiguration[context.requestEnv.action];
+        const versionConfiguration = await readJSON(context.requestEnv.versionConfigFile);
+        const taskDefList = versionConfiguration[context.requestEnv.action];
         return taskDefList;
     }
 }

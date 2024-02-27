@@ -6,7 +6,7 @@ export interface BecknVendurePluginOptions {
     bpp_city: string;
 
     transformationsFolder?: string;
-    domainTransformationsConfigFile?: string;
+    versionTransformationsConfigFile?: string;
 }
 
 export type Environment = {
@@ -16,5 +16,5 @@ export type Environment = {
     bpp_country: string;
     bpp_city: string;
     transformationsFolder: string;
-    domainTransformationsConfigFile: string;
+    versionTransformationsConfigFile: string;
 };

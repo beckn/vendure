@@ -53,17 +53,17 @@ describe('beckn-vendure-plugin', () => {
             beforeAll(async () => {
                 env = await readFixtureJSON('transform-env.json');
                 (env['transformationsFolder'] = path.join(__dirname, '..', 'transformations')),
-                    (env['domainTransformationsConfigFile'] = path.join(
+                    (env['versionTransformationsConfigFile'] = path.join(
                         __dirname,
                         '..',
                         'transformations',
-                        'domain-map.json',
+                        'version-map.json',
                     ));
             });
 
-            describe('for retail:1.1.0', async () => {
-                const domain = 'retail-1-1-0';
-                const testConfigs: ReqResTestConfig[] = await readTestConfiguration(domain);
+            describe('for version 1.1.0', async () => {
+                const version = '1-1-0';
+                const testConfigs: ReqResTestConfig[] = await readTestConfiguration(version);
 
                 let index = 0;
                 for (const tc of testConfigs) {
@@ -72,13 +72,13 @@ describe('beckn-vendure-plugin', () => {
                     it(`works for ${tc.queryName} query`, async () => {
                         let server = null;
                         try {
-                            server = await setupVCR(domain, tc.queryName);
-                            const beckn_request = await readBecknRequestJSON(domain, tc.reqJSONFile);
+                            server = await setupVCR(version, tc.queryName);
+                            const beckn_request = await readBecknRequestJSON(version, tc.reqJSONFile);
                             const response = await transformerService.transform(env, beckn_request);
                             if (!tc.resJSONFile) {
                                 expect(response).toBe(undefined);
                             } else {
-                                const expectedResponse = await readBecknResponseJSON(domain, tc.resJSONFile);
+                                const expectedResponse = await readBecknResponseJSON(version, tc.resJSONFile);
                                 strictEqualWithExclude(response, expectedResponse, tc.exclude);
                             }
                         } finally {
