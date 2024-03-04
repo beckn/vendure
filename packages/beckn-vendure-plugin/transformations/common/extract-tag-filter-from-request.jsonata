@@ -4,7 +4,7 @@
     $facets := $taggroups{
         descriptor.code : list[].value
     };
-    $details := $intent.category ? $merge([{"category": [$intent.category.descriptor.code]},$facets]) : $facets;
+    $details := $intent.category ? $merge([{"category": [$intent.category.descriptor.code,$intent.category.descriptor.name]},$facets]) : $facets;
     {
         "summary": {
             "facets":$keys($details)[]

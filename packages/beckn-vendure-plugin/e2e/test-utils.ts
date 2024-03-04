@@ -77,6 +77,6 @@ export async function setupVCR(version: string, request: string) {
         );
     }
     const server = setupServer(...graphqlHandlers);
-    // server.listen({ onUnhandledRequest: 'warn' });
+    server.listen({ onUnhandledRequest: 'error' });
     return server;
 }

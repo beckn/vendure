@@ -4,7 +4,7 @@ $facet_values := categories.items.values[].{
     "code":code
 };
 
-$becknCategoryValue := becknRequest.body.message.intent.category.descriptor.code;
+$becknCategoryValue := becknRequest.body.message.intent.category.descriptor.code ? becknRequest.body.message.intent.category.descriptor.code : becknRequest.body.message.intent.category.descriptor.name;
 
 $facet_values[code=$becknCategoryValue][].id
 )

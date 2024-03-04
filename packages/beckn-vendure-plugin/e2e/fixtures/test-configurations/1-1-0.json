@@ -98,5 +98,11 @@
         "reqJSONFile": "cancel.json",
         "resJSONFile": "on-cancel.json",
         "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
+    },
+    {
+        "queryName": "search-category",
+        "reqJSONFile": "search-category.json",
+        "resJSONFile": "on-search-category.json",
+        "exclude": ["body.context.timestamp"]
     }
 ]
