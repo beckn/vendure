@@ -54,7 +54,6 @@
                     },
                     "fulfillments": $order.shippingLines[].{
                         "type": $.shippingMethod.code,
-                        "name": $.shippingMethod.name,
                         "stops":[
                             {
                                 "location":{
@@ -131,6 +130,21 @@
                             "time":{
                                 "label": "Transaction timestamp",
                                 "timestamp": $paymentDetails.paymentTime
+                            }
+                        }
+                    ],
+                    "tags":[
+                        {
+                            "descriptor":{
+                                "name":"Shipping method details",
+                                "code":"ShippingMethodDetails"
+                            },
+                            "list":$order.shippingLines[].{
+                                "descriptor":{
+                                    "name":$.shippingMethod.name,
+                                    "code": $.shippingMethod.code
+                                },
+                                "value": $.shippingMethod.code
                             }
                         }
                     ]

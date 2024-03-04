@@ -169,6 +169,21 @@
                             "timestamp": "2024-01-26T10:14:10.280Z"
                         }
                     }
+                ],
+                "tags": [
+                    {
+                        "descriptor": { "name": "Shipping method details", "code": "ShippingMethodDetails" },
+                        "list": [
+                            {
+                                "descriptor": { "name": "Standard Shipping", "code": "standard-shipping" },
+                                "value": "standard-shipping"
+                            },
+                            {
+                                "descriptor": { "name": "Express Shipping", "code": "express-shipping" },
+                                "value": "express-shipping"
+                            }
+                        ]
+                    }
                 ]
             }
         }

@@ -3,11 +3,13 @@
         "eligibleShippingMethods": [
             {
                 "id": "1",
-                "code": "standard-shipping"
+                "code": "standard-shipping",
+                "name": "Standard Shipping"
             },
             {
                 "id": "2",
-                "code": "express-shipping"
+                "code": "express-shipping",
+                "name": "Express Shipping"
             }
         ]
     }

@@ -95,7 +95,22 @@
                             "amount": $formatMoney($order.totalWithTax),
                             "currency": $order.currencyCode
                         }
-                    }
+                    },
+                    "tags":[
+                        {
+                            "descriptor":{
+                                "name":"Shipping method details",
+                                "code":"ShippingMethodDetails"
+                            },
+                            "list":$shippingMethods[].{
+                                "descriptor":{
+                                    "name":$.name,
+                                    "code": $.code
+                                },
+                                "value": $.code
+                            }
+                        }
+                    ]
                 }
             }
         }

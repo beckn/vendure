@@ -105,7 +105,22 @@
                         }
                     ]
                 },
-                "type": "DEFAULT"
+                "type": "DEFAULT",
+                "tags": [
+                    {
+                        "descriptor": { "name": "Shipping method details", "code": "ShippingMethodDetails" },
+                        "list": [
+                            {
+                                "descriptor": { "name": "Standard Shipping", "code": "standard-shipping" },
+                                "value": "standard-shipping"
+                            },
+                            {
+                                "descriptor": { "name": "Express Shipping", "code": "express-shipping" },
+                                "value": "express-shipping"
+                            }
+                        ]
+                    }
+                ]
             }
         }
     }
