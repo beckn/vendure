@@ -1,0 +1,12 @@
+(
+    $context := becknRequest.body.context;
+    $message := becknRequest.body.message;
+    $env := env;
+    $context ~> |$|{
+                "action": 'on_' & $context.action,
+                "bpp_id": $env.bpp_id,
+                "bpp_uri": $env.bpp_uri,
+                "timestamp": $now()
+                }|
+
+)

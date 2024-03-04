@@ -1,6 +1,15 @@
 {
     "search": [
         {
+            "name": "construct-beckn-response-context",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "construct-beckn-response-context.jsonata",
+                "outputKey": "becknResponseContext",
+                "common": "true"
+            }
+        },
+        {
             "name": "get-provider-id",
             "type": "transform-and-add",
             "args": {
@@ -117,6 +126,15 @@
         }
     ],
     "select": [
+        {
+            "name": "construct-beckn-response-context",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "construct-beckn-response-context.jsonata",
+                "outputKey": "becknResponseContext",
+                "common": "true"
+            }
+        },
         {
             "name": "extract-transaction-id",
             "type": "transform-and-add",
@@ -253,6 +271,15 @@
         }
     ],
     "init": [
+        {
+            "name": "construct-beckn-response-context",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "construct-beckn-response-context.jsonata",
+                "outputKey": "becknResponseContext",
+                "common": "true"
+            }
+        },
         {
             "name": "extract-order-id",
             "type": "transform-and-add",
@@ -476,6 +503,15 @@
         }
     ],
     "confirm": [
+        {
+            "name": "construct-beckn-response-context",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "construct-beckn-response-context.jsonata",
+                "outputKey": "becknResponseContext",
+                "common": "true"
+            }
+        },
         {
             "name": "extract-order-id",
             "type": "transform-and-add",
@@ -774,6 +810,15 @@
     ],
     "status": [
         {
+            "name": "construct-beckn-response-context",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "construct-beckn-response-context.jsonata",
+                "outputKey": "becknResponseContext",
+                "common": "true"
+            }
+        },
+        {
             "name": "extract-status-params",
             "type": "transform-and-add",
             "args": {
@@ -821,6 +866,15 @@
         }
     ],
     "cancel": [
+        {
+            "name": "construct-beckn-response-context",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "construct-beckn-response-context.jsonata",
+                "outputKey": "becknResponseContext",
+                "common": "true"
+            }
+        },
         {
             "name": "extract-cancel-params-to-get-initial-order",
             "type": "transform-and-add",
@@ -890,6 +944,15 @@
     ],
     "track": [
         {
+            "name": "construct-beckn-response-context",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "construct-beckn-response-context.jsonata",
+                "outputKey": "becknResponseContext",
+                "common": "true"
+            }
+        },
+        {
             "name": "extract-track-params-to-get-initial-order",
             "type": "transform-and-add",
             "args": {
@@ -928,6 +991,15 @@
         }
     ],
     "rating": [
+        {
+            "name": "construct-beckn-response-context",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "construct-beckn-response-context.jsonata",
+                "outputKey": "becknResponseContext",
+                "common": "true"
+            }
+        },
         {
             "name": "extract-rating-request-info",
             "type": "transform-and-add",
@@ -978,6 +1050,15 @@
         }
     ],
     "support": [
+        {
+            "name": "construct-beckn-response-context",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "construct-beckn-response-context.jsonata",
+                "outputKey": "becknResponseContext",
+                "common": "true"
+            }
+        },
         {
             "name": "get-current-seller",
             "type": "send-graphql-request",

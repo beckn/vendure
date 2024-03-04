@@ -7,14 +7,7 @@
             "Content-Type": "application/json"
         },
         "body":{
-            "context":$context ~> |$|{
-                "action": 'on_' & $context.action,
-                "bpp_id": $env.bpp_id,
-                "bpp_uri": $env.bpp_uri,
-                "bpp_country": $env.bpp_country,
-                "bpp_city": $env.bpp_city,
-                "timestamp": $now()
-                }|,
+            "context":becknResponseContext,
             "message": {
                 "catalog": {
                     "descriptor": {

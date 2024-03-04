@@ -8,12 +8,7 @@
             "Content-Type": "application/json"
         },
         "body":{    
-            "context":$context ~> |$|{
-                "action": 'on_' & $context.action,
-                "bpp_id": $env.bpp_id,
-                "bpp_uri": $env.bpp_uri,
-                "timestamp": $now()
-                }|,
+            "context":becknResponseContext,
             "message": {
                 "support":{
                     "ref_id": $message.support.ref_id,

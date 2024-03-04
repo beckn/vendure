@@ -21,9 +21,7 @@
             "message_id": "6104c0a3-d1d1-4ded-aaa4-76e4caf72101",
             "timestamp": "2023-11-06T09:41:09.673Z",
             "bpp_id": "vbabu.lr.bpp.1",
-            "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
-            "bpp_country": "IND",
-            "bpp_city": "std:080"
+            "bpp_uri": "https://vbabu-lr-bpp.loca.lt"
         },
         "message": {
             "catalog": {

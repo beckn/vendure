@@ -1,0 +1,18 @@
+{
+    "errors": [
+        {
+            "message": "No Channel with the token \"nonexisting\" could be found",
+            "locations": [
+                {
+                    "line": 2,
+                    "column": 5
+                }
+            ],
+            "path": ["search"],
+            "extensions": {
+                "code": "CHANNEL_NOT_FOUND"
+            }
+        }
+    ],
+    "data": null
+}
