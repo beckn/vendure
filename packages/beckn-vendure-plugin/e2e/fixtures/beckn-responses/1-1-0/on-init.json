@@ -164,6 +164,16 @@
                             "amount": "61.27",
                             "currency": "USD"
                         }
+                    },
+                    {
+                        "id": "2",
+                        "name": "Standard Payment",
+                        "status": "NOT-PAID",
+                        "type": "PRE-FULFILLMENT",
+                        "params": {
+                            "amount": "61.27",
+                            "currency": "USD"
+                        }
                     }
                 ],
                 "tags": [

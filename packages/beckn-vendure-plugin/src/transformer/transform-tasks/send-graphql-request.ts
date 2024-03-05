@@ -17,7 +17,7 @@ export class SendGraphQLRequest implements TransformTask {
     private headersKey: string;
     private outputKey: string;
     private outputDataPath: string;
-    private authTokenKey: string;
+    private vendureAuthTokenKey: string;
     private vendureTokenKey: string;
 
     preCheck(context: TransformerContext): boolean {
@@ -36,8 +36,8 @@ export class SendGraphQLRequest implements TransformTask {
         this.headersKey = this.taskDef.args.headersKey;
         this.outputKey = this.taskDef.args.outputKey;
         this.outputDataPath = this.taskDef.args.outputDataPath;
-        this.authTokenKey = this.taskDef.args.authTokenKey;
-        this.vendureTokenKey = this.taskDef.args.vendureTokenKey;
+        this.vendureAuthTokenKey = this.taskDef.args.vendureAuthTokenKey || 'vendureAuthToken';
+        this.vendureTokenKey = this.taskDef.args.vendureTokenKey || 'vendureToken';
         return true;
     }
 
@@ -48,14 +48,13 @@ export class SendGraphQLRequest implements TransformTask {
         if (this.variablesKey) variables = getValue(context, this.variablesKey);
         // console.log(variables);
         let headers: { [key: string]: string } = { 'content-type': 'application/json' };
-        if (this.authTokenKey) {
-            const vendureAuthToken = (getValue(context, this.authTokenKey) as string) || '';
-            if (vendureAuthToken) headers = { ...headers, authorization: `Bearer ${vendureAuthToken}` };
-        }
-        if (this.vendureTokenKey) {
-            const vendureToken = (getValue(context, this.vendureTokenKey) as string) || '';
-            if (vendureToken) headers = { ...headers, 'vendure-token': vendureToken };
-        }
+
+        const vendureAuthToken = (getValue(context, this.vendureAuthTokenKey) as string) || '';
+        if (vendureAuthToken) headers = { ...headers, authorization: `Bearer ${vendureAuthToken}` };
+
+        const vendureToken = (getValue(context, this.vendureTokenKey) as string) || '';
+        if (vendureToken) headers = { ...headers, 'vendure-token': vendureToken };
+
         if (this.headersKey) headers = { ...headers, ...getValue(context, this.headersKey) };
 
         const env = context.env;

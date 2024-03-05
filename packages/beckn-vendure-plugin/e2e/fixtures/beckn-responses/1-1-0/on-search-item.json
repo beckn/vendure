@@ -78,6 +78,32 @@
                                 "matched": true
                             }
                         ]
+                    },
+                    {
+                        "id": "meru-coffee",
+                        "descriptor": {
+                            "name": "Meru Coffee"
+                        },
+                        "items": [
+                            {
+                                "price": {
+                                    "listed_value": "0.00",
+                                    "currency": "USD",
+                                    "value": "0.00"
+                                },
+                                "id": "93",
+                                "descriptor": {
+                                    "name": "Coffee plant care",
+                                    "long_desc": "<p>Course on taking care of coffee plants</p>",
+                                    "images": [
+                                        {
+                                            "url": "http://localhost:3000/assets/preview/8a/coffee_plant_care__preview.jpg"
+                                        }
+                                    ]
+                                },
+                                "matched": true
+                            }
+                        ]
                     }
                 ]
             }

@@ -24,8 +24,8 @@
             "bpp_uri": "https://vbabu-lr-bpp.loca.lt"
         },
         "error": {
-            "code": 30000,
-            "message": "[{\"message\":\"No Channel with the token \\\"nonexisting\\\" could be found\",\"locations\":[{\"line\":2,\"column\":5}],\"path\":[\"search\"],\"extensions\":{\"code\":\"CHANNEL_NOT_FOUND\"}}]"
+            "code": "30000",
+            "message": "[{\"message\":\"No Channel with the token \\\"nonexisting\\\" could be found\",\"locations\":[{\"line\":2,\"column\":5}],\"path\":[\"facets\"],\"extensions\":{\"code\":\"CHANNEL_NOT_FOUND\"}}]"
         }
     }
 }

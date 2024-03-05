@@ -29,6 +29,7 @@ export class TransformTasksRunner {
             for (const transformTaskDef of context.tasksDefList) {
                 // const startTS = new Date().getTime();
                 // console.log(`Task - ${transformTaskDef.name || ''}`);
+                // console.log(JSON.stringify(context, null, 2));
                 if (transformTaskDef.condition) {
                     // eslint-disable-next-line no-eval
                     if (!!eval(transformTaskDef.condition) === false) {
@@ -39,7 +40,7 @@ export class TransformTasksRunner {
                 await this._run_transform_task(transformTaskDef, context);
                 // console.log(`Task - ${transformTaskDef.name || ''}. Took - ${new Date().getTime() - startTS} ms`);
             }
-            // console.log(JSON.stringify(context, null, 2));
+            console.log(JSON.stringify(context, null, 2));
             // console.log(`Task took a total of ${new Date().getTime() - overallTaskStartTS} ms`);
         } catch (error: any) {
             console.log(error);
@@ -116,7 +117,7 @@ export class TransformTasksRunner {
             body: {
                 context: context.becknResponseContext,
                 error: {
-                    code: 30000,
+                    code: '30000',
                     message: errorMessage,
                 },
             },

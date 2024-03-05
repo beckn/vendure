@@ -52,15 +52,33 @@
         "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {
+        "queryName": "select-with-non-default-provider",
+        "reqJSONFile": "select-with-non-default-provider.json",
+        "resJSONFile": "on-select-with-non-default-provider.json",
+        "exclude": ["body.context.timestamp", "body.message.order.id"]
+    },
+    {
         "queryName": "init",
         "reqJSONFile": "init.json",
         "resJSONFile": "on-init.json",
         "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {
+        "queryName": "init-with-non-default-provider",
+        "reqJSONFile": "init-with-non-default-provider.json",
+        "resJSONFile": "on-init-with-non-default-provider.json",
+        "exclude": ["body.context.timestamp", "body.message.order.id"]
+    },
+    {
         "queryName": "confirm",
         "reqJSONFile": "confirm.json",
         "resJSONFile": "on-confirm.json",
+        "exclude": ["body.context.timestamp", "body.message.order.id"]
+    },
+    {
+        "queryName": "confirm-digital-product",
+        "reqJSONFile": "confirm-digital-product.json",
+        "resJSONFile": "on-confirm-digital-product.json",
         "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {
@@ -91,18 +109,6 @@
         "queryName": "support",
         "reqJSONFile": "support.json",
         "resJSONFile": "on-support.json",
-        "exclude": ["body.context.timestamp"]
-    },
-    {
-        "queryName": "cancel",
-        "reqJSONFile": "cancel.json",
-        "resJSONFile": "on-cancel.json",
-        "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
-    },
-    {
-        "queryName": "search-category",
-        "reqJSONFile": "search-category.json",
-        "resJSONFile": "on-search-category.json",
         "exclude": ["body.context.timestamp"]
     }
 ]

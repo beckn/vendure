@@ -35,7 +35,7 @@
                                 $currProdVarId := productVariantId;
                                 $retItem := {
                                     "price":(
-                                        $price := $.price.value ? $.price.value : ($.price.min+$.price.max)/2;
+                                        $price := $exists($.price.value) ? $.price.value : ($.price.min+$.price.max)/2;
                                         $price := $string($formatNumber($price/100,"#0.00"));
                                         {
                                         "listed_value": $price,

@@ -1,3 +1,1 @@
-{
-    "vendure-token":becknRequest.body.message.intent.provider.id
-}
+becknRequest.body.message.intent.provider.id
