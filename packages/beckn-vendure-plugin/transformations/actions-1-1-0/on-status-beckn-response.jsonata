@@ -19,6 +19,7 @@
     $shippingAddress := $order.shippingAddress;
     $currentChannel:= currentSellerResponse.body.data.activeChannel;
     $currentSeller:= $currentChannel.seller;
+    $digitalFulfillmentUrls:=$order.fulfillments.customFields.downloadUrls;    
     {
         "headers":{
             "Content-Type": "application/json"
@@ -76,6 +77,11 @@
                                 "contact":{
                                     "phone": $shippingAddress.phoneNumber,
                                     "email": $customer.emailAddress
+                                },
+                                "instructions":{
+                                    "media":{
+                                        "url": $digitalFulfillmentUrls[0]
+                                    }
                                 }
                             }
                         ],

@@ -21,56 +21,34 @@
             "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
             "message_id": "b8c1e69c-fbbc-439b-a5de-2adcc74f1110",
             "transaction_id": "8100d125-76a7-4588-88be-81b976572110",
-            "timestamp": "2024-01-31T10:14:10.295Z",
+            "timestamp": "2024-03-06T03:28:22.836Z",
             "ttl": "PT10M"
         },
         "message": {
             "order": {
-                "id": "5c338c9f695b97b1b5aa352858f9bc74116dd508c494419d67a91cc81b5216e7",
+                "id": "b38471e979367db0beb722dd127fb067c03e6ad96811e447db834e95f381beb6",
                 "provider": {
-                    "id": "2p0aliran34hu8i6cr7y",
+                    "id": "meru-coffee",
                     "descriptor": {
-                        "name": "Default Seller"
+                        "name": "Meru Coffee"
                     }
                 },
                 "items": [
                     {
-                        "id": "69",
+                        "id": "93",
                         "descriptor": {
-                            "name": "Hanging Plant",
-                            "long_desc": "Can be found in tropical and sub-tropical America where it grows on the branches of trees, but also on telephone wires and electricity cables and poles that sometimes topple with the weight of these plants. This plant loves a moist and warm air.",
+                            "name": "Coffee plant care",
+                            "long_desc": "<p>Course on taking care of coffee plants</p>",
                             "images": [
                                 {
-                                    "url": "http://localhost:3000/assets/source/ff/alex-rodriguez-santibanez-200278-unsplash.jpg"
+                                    "url": "http://localhost:3000/assets/source/85/coffee_plant_care.jpg"
                                 }
                             ]
                         },
                         "price": {
-                            "listed_value": "19.95",
+                            "listed_value": "0.00",
                             "currency": "USD",
-                            "value": "19.95"
-                        },
-                        "quantity": {
-                            "selected": {
-                                "count": 2
-                            }
-                        }
-                    },
-                    {
-                        "id": "70",
-                        "descriptor": {
-                            "name": "Aloe Vera",
-                            "long_desc": "Decorative Aloe vera makes a lovely house plant. A really trendy plant, Aloe vera is just so easy to care for. Aloe vera sap has been renowned for its remarkable medicinal and cosmetic properties for many centuries and has been used to treat grazes, insect bites and sunburn - it really works.",
-                            "images": [
-                                {
-                                    "url": "http://localhost:3000/assets/source/d5/silvia-agrasar-227575-unsplash.jpg"
-                                }
-                            ]
-                        },
-                        "price": {
-                            "listed_value": "6.99",
-                            "currency": "USD",
-                            "value": "6.99"
+                            "value": "0.00"
                         },
                         "quantity": {
                             "selected": {
@@ -81,7 +59,7 @@
                 ],
                 "fulfillments": [
                     {
-                        "type": "standard-shipping",
+                        "type": "digital-fulfillment",
                         "stops": [
                             {
                                 "location": {
@@ -102,7 +80,9 @@
                                     "email": "nc.rehman@gmail.com"
                                 },
                                 "instructions": {
-                                    "media": {}
+                                    "media": {
+                                        "url": "https://www.youtube.com/watch?v=SFXpz6hhlAI"
+                                    }
                                 }
                             }
                         ],
@@ -116,37 +96,37 @@
                         },
                         "state": {
                             "descriptor": {
-                                "code": "ArrangingPayment"
+                                "code": "Shipped"
                             },
-                            "updated_at": "2023-05-26T05:23:04.443Z"
+                            "updated_at": "2024-03-06T03:28:22.865Z"
                         }
                     }
                 ],
                 "quote": {
                     "price": {
                         "currency": "USD",
-                        "value": "61.27"
+                        "value": "0.00"
                     },
                     "breakup": [
                         {
                             "title": "base-price",
                             "price": {
                                 "currency": "USD",
-                                "value": "46.89"
+                                "value": "0.00"
                             }
                         },
                         {
                             "title": "shipping",
                             "price": {
                                 "currency": "USD",
-                                "value": "5.00"
+                                "value": "0.00"
                             }
                         },
                         {
                             "title": "taxes",
                             "price": {
                                 "currency": "USD",
-                                "value": "9.38"
+                                "value": "0.00"
                             }
                         }
                     ]
@@ -167,9 +147,9 @@
                     {
                         "type": "PRE-FULFILLMENT",
                         "params": {
-                            "amount": "61.27",
+                            "amount": "0.00",
                             "currency": "USD",
-                            "transaction_id": "198237465"
+                            "transaction_id": "198237469"
                         },
                         "time": {
                             "label": "Transaction timestamp",
@@ -179,11 +159,17 @@
                 ],
                 "tags": [
                     {
-                        "descriptor": { "name": "Shipping method details", "code": "ShippingMethodDetails" },
+                        "descriptor": {
+                            "name": "Shipping method details",
+                            "code": "ShippingMethodDetails"
+                        },
                         "list": [
                             {
-                                "descriptor": { "name": "Standard Shipping", "code": "standard-shipping" },
-                                "value": "standard-shipping"
+                                "descriptor": {
+                                    "name": "Digital Fulfillment",
+                                    "code": "digital-fulfillment"
+                                },
+                                "value": "digital-fulfillment"
                             }
                         ]
                     }

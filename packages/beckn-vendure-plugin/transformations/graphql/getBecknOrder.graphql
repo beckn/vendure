@@ -84,6 +84,9 @@ query GetBecknOrder($becknOrderId: String!) {
             state
             method
             trackingCode
+            customFields {
+                downloadUrls
+            }
         }
     }
 }
