@@ -52,9 +52,9 @@
         "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {
-        "queryName": "select-with-non-default-provider",
-        "reqJSONFile": "select-with-non-default-provider.json",
-        "resJSONFile": "on-select-with-non-default-provider.json",
+        "queryName": "select-digital-product",
+        "reqJSONFile": "select-digital-product.json",
+        "resJSONFile": "on-select-digital-product.json",
         "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {

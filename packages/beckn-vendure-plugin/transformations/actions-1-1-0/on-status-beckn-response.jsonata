@@ -79,8 +79,8 @@
                                     "email": $customer.emailAddress
                                 },
                                 "instructions":{
-                                    "media":{
-                                        "url": $digitalFulfillmentUrls[0]
+                                    "media":$digitalFulfillmentUrls[].{
+                                        "url": $
                                     }
                                 }
                             }

@@ -80,9 +80,11 @@
                                     "email": "nc.rehman@gmail.com"
                                 },
                                 "instructions": {
-                                    "media": {
-                                        "url": "https://www.youtube.com/watch?v=SFXpz6hhlAI"
-                                    }
+                                    "media": [
+                                        {
+                                            "url": "https://www.youtube.com/watch?v=SFXpz6hhlAI"
+                                        }
+                                    ]
                                 }
                             }
                         ],
