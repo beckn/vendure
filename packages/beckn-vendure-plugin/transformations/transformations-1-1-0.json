@@ -465,7 +465,8 @@
                 "variablesKey": "cartDetails.setOrderShippingAddressInput",
                 "outputKey": "setOrderShippingAddressResult",
                 "outputDataPath": "body.data"
-            }
+            },
+            "condition": "Object.keys(context.cartDetails.setOrderShippingAddressInput).length !== 0"
         },
         {
             "name": "set-order-billing-address",
@@ -729,7 +730,7 @@
                 "outputKey": "setOrderShippingAddressResult",
                 "outputDataPath": "body.data"
             },
-            "condition": "context.orderCanBeModified"
+            "condition": "context.orderCanBeModified && Object.keys(context.cartDetails.setOrderShippingAddressInput).length !== 0"
         },
         {
             "name": "set-order-billing-address",

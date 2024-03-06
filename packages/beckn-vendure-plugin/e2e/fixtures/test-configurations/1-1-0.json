@@ -64,9 +64,9 @@
         "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {
-        "queryName": "init-with-non-default-provider",
-        "reqJSONFile": "init-with-non-default-provider.json",
-        "resJSONFile": "on-init-with-non-default-provider.json",
+        "queryName": "init-digital-product",
+        "reqJSONFile": "init-digital-product.json",
+        "resJSONFile": "on-init-digital-product.json",
         "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {

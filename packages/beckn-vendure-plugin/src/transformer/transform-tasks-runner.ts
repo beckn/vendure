@@ -40,7 +40,7 @@ export class TransformTasksRunner {
                 await this._run_transform_task(transformTaskDef, context);
                 // console.log(`Task - ${transformTaskDef.name || ''}. Took - ${new Date().getTime() - startTS} ms`);
             }
-            console.log(JSON.stringify(context, null, 2));
+            // console.log(JSON.stringify(context, null, 2));
             // console.log(`Task took a total of ${new Date().getTime() - overallTaskStartTS} ms`);
         } catch (error: any) {
             console.log(error);

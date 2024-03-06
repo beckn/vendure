@@ -26,7 +26,7 @@
         },
         "message": {
             "order": {
-                "id": "b38471e979367db0beb722dd127fb067c03e6ad96811e447db834e95f381beb6",
+                "id": "34d5c34971e5df9fc751cc73213ec9ada4ac75a25e93721fbdd2356d6d31c477",
                 "provider": {
                     "id": "meru-coffee",
                     "descriptor": {
@@ -62,23 +62,6 @@
                         "type": "digital-fulfillment",
                         "stops": [
                             {
-                                "location": {
-                                    "address": "123, Terminal 1, Kempegowda Int'l Airport Rd, A - Block, Gangamuthanahalli, Karnataka 560300, India ",
-                                    "city": {
-                                        "name": "Gangamuthanahalli"
-                                    },
-                                    "state": {
-                                        "name": "Karnataka"
-                                    },
-                                    "country": {
-                                        "code": "IN"
-                                    },
-                                    "area_code": "560300"
-                                },
-                                "contact": {
-                                    "phone": "919122343355",
-                                    "email": "nc.rehman@gmail.com"
-                                },
                                 "instructions": {
                                     "media": [
                                         {
@@ -151,7 +134,7 @@
                         "params": {
                             "amount": "0.00",
                             "currency": "USD",
-                            "transaction_id": "198237469"
+                            "transaction_id": "198237475"
                         },
                         "time": {
                             "label": "Transaction timestamp",

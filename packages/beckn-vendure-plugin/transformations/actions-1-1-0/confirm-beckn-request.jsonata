@@ -48,7 +48,7 @@
                 "city": city.name,
                 "province": state.name,
                 "postalCode": area_code,
-                "countryCode": $substring($shippingAddress.country.code,0,2),
+                "countryCode": $shippingAddress.country.code ? $substring($shippingAddress.country.code,0,2) : 'IN',
                 "phoneNumber": phone
             }
         },

@@ -8,6 +8,38 @@
             "value":$formatMoney($price)
         }
     };
+    $shippingStops:= function($tShippingAddress,$tCustomer){
+        [
+            {
+                "location": $tShippingAddress.city or $tShippingAddress.province or $tShippingAddress.postalCode ? {
+                    "address": $tShippingAddress.streetLine1 & ' ' & ($tShippingAddress.streetLine2 ? $tShippingAddress.streetLine2 : ''),
+                    "city":{
+                        "name": $tShippingAddress.city
+                    },
+                    "state":{
+                        "name": $tShippingAddress.province
+                    },
+                    "country":{
+                        "code": $tShippingAddress.countryCode
+                    },
+                    "area_code": $tShippingAddress.postalCode
+                } : {},
+                "contact":{
+                    "phone": $tShippingAddress.phoneNumber ? $tShippingAddress.phoneNumber : $tCustomer.phoneNumber,
+                    "email": $tCustomer.emailAddress
+                }
+            }
+        ]
+    };
+    $digitalStops := function($urls){
+        $urls[].{
+            "instructions":{
+                "media":[{
+                    "url": $
+                }]
+            }            
+        }
+    };
     $context := becknRequest.body.context;
     $message := becknRequest.body.message;
     $env := env;
@@ -19,7 +51,9 @@
     $shippingAddress := $order.shippingAddress;
     $currentChannel:= currentSellerResponse.body.data.activeChannel;
     $currentSeller:= $currentChannel.seller;
-    $digitalFulfillmentUrls:=$order.fulfillments.customFields.downloadUrls;    
+    $digitalFulfillmentUrls:=$order.fulfillments.customFields.downloadUrls;   
+    $isDigitalFulfillment:= $exists($digitalFulfillmentUrls) and $boolean($digitalFulfillmentUrls); 
+    
     {
         "headers":{
             "Content-Type": "application/json"
@@ -59,32 +93,7 @@
                     },
                     "fulfillments": $order.shippingLines[].{
                         "type": $.shippingMethod.code,
-                        "stops":[
-                            {
-                                "location":{
-                                    "address": $shippingAddress.streetLine1 & ' ' & ($shippingAddress.streetLine2 ? $shippingAddress.streetLine2 : ''),
-                                    "city":{
-                                        "name": $shippingAddress.city
-                                    },
-                                    "state":{
-                                        "name": $shippingAddress.province
-                                    },
-                                    "country":{
-                                        "code": $shippingAddress.countryCode
-                                    },
-                                    "area_code": $shippingAddress.postalCode
-                                },
-                                "contact":{
-                                    "phone": $shippingAddress.phoneNumber,
-                                    "email": $customer.emailAddress
-                                },
-                                "instructions":{
-                                    "media":$digitalFulfillmentUrls[].{
-                                        "url": $
-                                    }
-                                }
-                            }
-                        ],
+                        "stops":$isDigitalFulfillment ? $digitalStops($digitalFulfillmentUrls) : $shippingStops($shippingAddress,$customer),
                         "customer": {
                             "person": {
                                 "name": $customer.firstName & ' ' & $customer.lastName
@@ -157,7 +166,8 @@
                                 "value": $.shippingMethod.code
                             }
                         }
-                    ]
+                    ],
+                    "digital": $digitalFulfillment
                 }
             }
         }

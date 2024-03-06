@@ -20,7 +20,7 @@
             "bpp_id": "vbabu.lr.bpp.1",
             "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
             "message_id": "6d098f3a-4873-4b2e-935e-e4d6be921304",
-            "transaction_id": "8100d125-76a7-4588-88be-81b976572304",
+            "transaction_id": "8100d125-76a7-4588-88be-81b976572305",
             "timestamp": "2024-01-26T10:14:10.280Z"
         },
         "message": {
@@ -41,28 +41,6 @@
                 "fulfillments": [
                     {
                         "type": "digital-fulfillment",
-                        "stops": [
-                            {
-                                "location": {
-                                    "gps": "13.2008459,77.708736",
-                                    "address": "123, Terminal 1, Kempegowda Int'l Airport Rd, A - Block, Gangamuthanahalli, Karnataka 560300, India",
-                                    "city": {
-                                        "name": "Gangamuthanahalli"
-                                    },
-                                    "state": {
-                                        "name": "Karnataka"
-                                    },
-                                    "country": {
-                                        "code": "IND"
-                                    },
-                                    "area_code": "560300"
-                                },
-                                "contact": {
-                                    "phone": "919122343355",
-                                    "email": "nc.rehman@gmail.com"
-                                }
-                            }
-                        ],
                         "customer": {
                             "person": {
                                 "name": "Motiur Rehman"
