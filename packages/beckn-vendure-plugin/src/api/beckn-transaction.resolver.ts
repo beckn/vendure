@@ -124,7 +124,6 @@ export class BecknTransactionResolver {
             cancelShipping: cancelShipping,
         };
         const retVal = await this.orderService.cancelOrder(ctx, cancelOrderInput);
-        console.log(retVal);
         return retVal;
     }
 }

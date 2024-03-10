@@ -116,5 +116,11 @@
         "reqJSONFile": "support.json",
         "resJSONFile": "on-support.json",
         "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "update-digital-individual-fulfillment",
+        "reqJSONFile": "update-digital-individual-fulfillment.json",
+        "resJSONFile": "on-update-digital-individual-fulfillment.json",
+        "exclude": ["body.context.timestamp"]
     }
 ]

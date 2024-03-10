@@ -1,0 +1,5 @@
+mutation UpdateDigitalFulfillmentLine($fulfillmentId: String!, $index: Int!, $state: String!) {
+    updateDigitalFulfillmentLine(fulfillmentId: $fulfillmentId, index: $index, state: $state) {
+        id
+    }
+}

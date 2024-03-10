@@ -19,27 +19,27 @@
             "bap_uri": "https://ps-bap-network.becknprotocol.io",
             "bpp_id": "vbabu.lr.bpp.1",
             "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
-            "message_id": "b8c1e69c-fbbc-439b-a5de-2adcc74f1112",
-            "transaction_id": "8100d125-76a7-4588-88be-81b976572112",
+            "message_id": "b8c1e69c-fbbc-439b-a5de-2adcc74f1212",
+            "transaction_id": "8100d125-76a7-4588-88be-81b976572212",
             "timestamp": "2024-01-31T10:14:10.295Z",
             "ttl": "PT10M"
         },
         "message": {
             "order": {
-                "id": "a2b032071baf9e83f2a4ca7813dd3cfceeddde5226fe65a4152f6e56e169d598",
+                "id": "7f966ea0c76b93a585b7ab1503125d727782ef2c1d6b16ef46819ed2e8bf291a",
                 "fulfillments": [
                     {
                         "state": {
                             "descriptor": {
-                                "code": "COMPLETED",
-                                "name": "COMPLETED"
+                                "code": "delivered",
+                                "name": "Delivered"
                             },
-                            "updated_at": "2023-02-06T09:55:41.161Z"
+                            "updated_at": "2024-01-31T10:14:10.295Z"
                         }
                     }
                 ]
             },
-            "update_target": "order.fulfillments[0].state"
+            "update_target": "order.fulfillments[1].state"
         }
     }
 }

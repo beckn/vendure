@@ -1,0 +1,23 @@
+(
+    $order := becknRequest.body.message.order;
+    $update_target := becknRequest.body.message.update_target;
+    $orderId := $order.id;
+    $fulfillmentMatcher := /order\.fulfillments\[(\d+)\].state/;
+    $orderMatcher := /order\.state/;
+    $fulfillmentMatcherResult := $fulfillmentMatcher($update_target);
+    $isFulfillmentUpdate:= $exists($fulfillmentMatcherResult);
+    $isOrderUpdate:= $exists($orderMatcher($update_target));
+    {
+        "order_id": $orderId,
+        "update_target": $update_target,
+        "isFulfillmentUpdate": $isFulfillmentUpdate,
+        "isOrderUpdate": $isOrderUpdate,
+        "fulfillmentUpdateDetails":$isFulfillmentUpdate ? ({
+            "fulfillmentIndex": $number($fulfillmentMatcherResult.groups[0]),
+            "targetFulfillmentState": $order.fulfillments[0].state.descriptor.code
+        }):{},
+        "orderUpdateDetails":$isOrderUpdate ? ({
+            "targetOrderState": $order.state.descriptor.code
+        }):{}
+    }
+)

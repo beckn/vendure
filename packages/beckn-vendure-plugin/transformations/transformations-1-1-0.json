@@ -1090,5 +1090,98 @@
                 "outputKey": "becknResponse"
             }
         }
+    ],
+    "update": [
+        {
+            "name": "construct-beckn-response-context",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "construct-beckn-response-context.jsonata",
+                "outputKey": "becknResponseContext",
+                "common": "true"
+            }
+        },
+        {
+            "name": "extract-update-params",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "update-beckn-request.jsonata",
+                "outputKey": "updateRequest"
+            }
+        },
+        {
+            "name": "construct-beckn-order-input-from-order",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "construct-beckn-order-input-from-beckn-order.jsonata",
+                "outputKey": "getBecknOrderInput",
+                "common": "true"
+            }
+        },
+        {
+            "name": "get-vendure-token",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getVendureToken.graphql",
+                "variablesKey": "getBecknOrderInput",
+                "outputKey": "vendureToken",
+                "outputDataPath": "body.data.getVendureToken"
+            }
+        },
+        {
+            "name": "get-beckn-order",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getBecknOrder.graphql",
+                "variablesKey": "getBecknOrderInput",
+                "outputKey": "becknOrderInitial",
+                "outputDataPath": "body.data.getBecknOrder"
+            }
+        },
+        {
+            "name": "construct-update-digital-fulfillment-line-input",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "construct-update-digital-fulfillment-line-input.jsonata",
+                "outputKey": "updateDigitalFulfillmentLineInput",
+                "common": "true"
+            }
+        },
+        {
+            "name": "update-digital-fulfillment-line",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "updateDigitalFulfillmentLine.graphql",
+                "variablesKey": "updateDigitalFulfillmentLineInput",
+                "outputKey": "updateDigitalFulfillmentLineReesponse.graphql",
+                "outputDataPath": "body.data.updateDigitalFulfillmentLine"
+            }
+        },
+        {
+            "name": "get-beckn-order",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getBecknOrder.graphql",
+                "variablesKey": "getBecknOrderInput",
+                "outputKey": "becknOrder",
+                "outputDataPath": "body.data.getBecknOrder"
+            }
+        },
+        {
+            "name": "get-current-seller",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "currentSeller.graphql",
+                "outputKey": "currentSellerResponse"
+            }
+        },
+        {
+            "name": "generate-beckn-response",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "on-status-beckn-response.jsonata",
+                "outputKey": "becknResponse"
+            }
+        }
     ]
 }

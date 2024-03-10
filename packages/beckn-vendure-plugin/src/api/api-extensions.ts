@@ -43,5 +43,6 @@ export const shopApiExtensions = gql`
             vendureToken: String!
         ): BecknTransaction!
         cancelBecknOrder(becknOrderId: String!, reason: String!, cancelShipping: Boolean): Order
+        updateDigitalFulfillmentLine(fulfillmentId: String!, index: Int!, state: String!): Fulfillment
     }
 `;

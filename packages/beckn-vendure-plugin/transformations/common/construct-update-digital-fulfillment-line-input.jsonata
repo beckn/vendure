@@ -1,0 +1,5 @@
+{
+    "fulfillmentId":becknOrderInitial.fulfillments[-1].id,
+    "index":updateRequest.fulfillmentUpdateDetails.fulfillmentIndex,
+    "state":updateRequest.fulfillmentUpdateDetails.targetFulfillmentState
+}
