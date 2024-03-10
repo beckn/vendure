@@ -30,6 +30,7 @@
             "message": {
                 "order": {
                     "id": vendureAuthToken,
+                    "status": $order.state="Cancelled" ? "CANCELLED" : ($order.state="Delivered" ? "COMPLETE" : "ACTIVE"),
                     "provider":{
                         "id": $currentChannel.token,
                         "descriptor": {
@@ -116,6 +117,21 @@
                                 },
                                 "value": $.code
                             }
+                        },
+                        {
+                            "descriptor":{
+                                "name":"Additional status",
+                                "code":"AdditionalStatus"
+                            },
+                            "list":[
+                                {
+                                    "descriptor":{
+                                        "name":"Detailed Order Status",
+                                        "code":"detailedOrderStatus"
+                                    },
+                                    "value": $order.state
+                                }
+                            ]
                         }
                     ]
                 }

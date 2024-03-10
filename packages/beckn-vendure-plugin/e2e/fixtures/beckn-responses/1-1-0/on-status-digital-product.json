@@ -21,12 +21,13 @@
             "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
             "message_id": "b8c1e69c-fbbc-439b-a5de-2adcc74f1110",
             "transaction_id": "8100d125-76a7-4588-88be-81b976572110",
-            "timestamp": "2024-03-06T03:28:22.836Z",
+            "timestamp": "2024-03-09T14:44:22.280Z",
             "ttl": "PT10M"
         },
         "message": {
             "order": {
-                "id": "34d5c34971e5df9fc751cc73213ec9ada4ac75a25e93721fbdd2356d6d31c477",
+                "id": "7f966ea0c76b93a585b7ab1503125d727782ef2c1d6b16ef46819ed2e8bf291a",
+                "status": "ACTIVE",
                 "provider": {
                     "id": "meru-coffee",
                     "descriptor": {
@@ -59,10 +60,22 @@
                 ],
                 "fulfillments": [
                     {
+                        "id": "https://www.youtube.com/watch?v=SFXpz6hhlAI",
                         "type": "digital-fulfillment",
+                        "state": {
+                            "descriptor": {
+                                "code": ""
+                            }
+                        },
                         "stops": [
                             {
+                                "time": {
+                                    "label": "duration",
+                                    "duration": "1m46s"
+                                },
                                 "instructions": {
+                                    "name": "Coffee Plant Care Guide",
+                                    "short_desc": "In this video we cover the basic care instructions for the Coffee Arabica Houseplant, including light, watering recommendations, fertilizer, soil recipe, and when to repot! ",
                                     "media": [
                                         {
                                             "url": "https://www.youtube.com/watch?v=SFXpz6hhlAI"
@@ -70,21 +83,33 @@
                                     ]
                                 }
                             }
-                        ],
-                        "customer": {
-                            "person": {
-                                "name": "Motiur Rehman"
-                            },
-                            "contact": {
-                                "phone": "9191223433"
-                            }
-                        },
+                        ]
+                    },
+                    {
+                        "id": "https://www.youtube.com/watch?v=LelXXtImQUc",
+                        "type": "digital-fulfillment",
                         "state": {
                             "descriptor": {
-                                "code": "Shipped"
-                            },
-                            "updated_at": "2024-03-06T03:28:22.865Z"
-                        }
+                                "code": ""
+                            }
+                        },
+                        "stops": [
+                            {
+                                "time": {
+                                    "label": "duration",
+                                    "duration": "3m18s"
+                                },
+                                "instructions": {
+                                    "name": "Coffee Plant Care & Growing Guide",
+                                    "short_desc": "Spurce's Coffee Plant Video",
+                                    "media": [
+                                        {
+                                            "url": "https://www.youtube.com/watch?v=LelXXtImQUc"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
                     }
                 ],
                 "quote": {
@@ -134,7 +159,7 @@
                         "params": {
                             "amount": "0.00",
                             "currency": "USD",
-                            "transaction_id": "198237475"
+                            "transaction_id": "198237469"
                         },
                         "time": {
                             "label": "Transaction timestamp",
@@ -155,6 +180,21 @@
                                     "code": "digital-fulfillment"
                                 },
                                 "value": "digital-fulfillment"
+                            }
+                        ]
+                    },
+                    {
+                        "descriptor": {
+                            "name": "Additional status",
+                            "code": "AdditionalStatus"
+                        },
+                        "list": [
+                            {
+                                "descriptor": {
+                                    "name": "Detailed Order Status",
+                                    "code": "detailedOrderStatus"
+                                },
+                                "value": "PaymentSettled"
                             }
                         ]
                     }

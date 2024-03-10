@@ -26,7 +26,8 @@
         },
         "message": {
             "order": {
-                "id": "5c338c9f695b97b1b5aa352858f9bc74116dd508c494419d67a91cc81b5216e7",
+                "id": "fbb794972d5ae928475408a69b39ce3250bb04a53ef548df73d5858228df2b14",
+                "status": "ACTIVE",
                 "provider": {
                     "id": "2p0aliran34hu8i6cr7y",
                     "descriptor": {
@@ -113,7 +114,7 @@
                         },
                         "state": {
                             "descriptor": {
-                                "code": "ArrangingPayment"
+                                "code": "Pending"
                             },
                             "updated_at": "2023-05-26T05:23:04.443Z"
                         }
@@ -181,6 +182,21 @@
                             {
                                 "descriptor": { "name": "Standard Shipping", "code": "standard-shipping" },
                                 "value": "standard-shipping"
+                            }
+                        ]
+                    },
+                    {
+                        "descriptor": {
+                            "name": "Additional status",
+                            "code": "AdditionalStatus"
+                        },
+                        "list": [
+                            {
+                                "descriptor": {
+                                    "name": "Detailed Order Status",
+                                    "code": "detailedOrderStatus"
+                                },
+                                "value": "PaymentSettled"
                             }
                         ]
                     }

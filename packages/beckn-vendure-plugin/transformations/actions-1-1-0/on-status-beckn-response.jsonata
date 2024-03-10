@@ -8,38 +8,84 @@
             "value":$formatMoney($price)
         }
     };
-    $shippingStops:= function($tShippingAddress,$tCustomer){
-        [
-            {
-                "location": $tShippingAddress.city or $tShippingAddress.province or $tShippingAddress.postalCode ? {
-                    "address": $tShippingAddress.streetLine1 & ' ' & ($tShippingAddress.streetLine2 ? $tShippingAddress.streetLine2 : ''),
-                    "city":{
-                        "name": $tShippingAddress.city
-                    },
-                    "state":{
-                        "name": $tShippingAddress.province
-                    },
-                    "country":{
-                        "code": $tShippingAddress.countryCode
-                    },
-                    "area_code": $tShippingAddress.postalCode
-                } : {},
-                "contact":{
-                    "phone": $tShippingAddress.phoneNumber ? $tShippingAddress.phoneNumber : $tCustomer.phoneNumber,
-                    "email": $tCustomer.emailAddress
+    $shippingFulfillments:= function (){
+        $fulfillments[].{
+            "type": $shippingMethodCode,
+            "stops":[
+                {
+                    "location": $shippingAddress.city or $shippingAddress.province or $shippingAddress.postalCode ? {
+                        "address": $shippingAddress.streetLine1 & ' ' & ($shippingAddress.streetLine2 ? $shippingAddress.streetLine2 : ''),
+                        "city":{
+                            "name": $shippingAddress.city
+                        },
+                        "state":{
+                            "name": $shippingAddress.province
+                        },
+                        "country":{
+                            "code": $shippingAddress.countryCode
+                        },
+                        "area_code": $shippingAddress.postalCode
+                    } : {},
+                    "contact":{
+                        "phone": $shippingAddress.phoneNumber ? $shippingAddress.phoneNumber : $customer.phoneNumber,
+                        "email": $customer.emailAddress
+                    }
                 }
+            ],
+            "customer": {
+                "person": {
+                    "name": $customer.firstName & ' ' & $customer.lastName
+                },
+                "contact": {
+                    "phone": $customer.phoneNumber
+                }
+            },
+            "state": {
+                "descriptor": {
+                    "code": $.state
+                },
+                "updated_at": $.updatedAt
             }
-        ]
-    };
-    $digitalStops := function($urls){
-        $urls[].{
-            "instructions":{
-                "media":[{
-                    "url": $
-                }]
-            }            
         }
     };
+    $digitalFulfillments := function(){(
+        /* assumes only one relevant fulfillment. Picks latest*/
+        $fulfillment := $fulfillments[-1];
+        $customFields := $fulfillment.customFields;
+        $urls := $customFields.downloadUrls;
+        $titles := $customFields.titles;
+        $descriptions := $customFields.descriptions;
+        $durations := $customFields.durations;
+        $statuses := $customFields.statuses;
+
+        $map($urls,function($v,$i){
+            {
+                "id": $urls[$i],
+                "type": $shippingMethodCode,
+                "state":{
+                    "descriptor":{
+                        "code": $statuses[$i]
+                    }
+                },
+                "stops":[
+                    {
+                        "time": {
+                            "label": "duration",
+                            "duration": $durations[$i]
+                        },
+                        "instructions":{
+                            "name": $titles[$i],
+                            "short_desc": $descriptions[$i],
+                            "media":[{
+                                "url": $urls[$i]
+                            }]
+                        }
+                    }
+                ]
+            }
+        })
+    )};
+
     $context := becknRequest.body.context;
     $message := becknRequest.body.message;
     $env := env;
@@ -51,8 +97,11 @@
     $shippingAddress := $order.shippingAddress;
     $currentChannel:= currentSellerResponse.body.data.activeChannel;
     $currentSeller:= $currentChannel.seller;
+    $fulfillments := $order.fulfillments;
     $digitalFulfillmentUrls:=$order.fulfillments.customFields.downloadUrls;   
     $isDigitalFulfillment:= $exists($digitalFulfillmentUrls) and $boolean($digitalFulfillmentUrls); 
+    $shippingMethodCode := $order.shippingLines.shippingMethod.code;
+
     
     {
         "headers":{
@@ -63,6 +112,7 @@
             "message": {
                 "order": {
                     "id": getBecknOrderInput.becknOrderId,
+                    "status": $order.state="Cancelled" ? "CANCELLED" : ($order.state="Delivered" ? "COMPLETE" : "ACTIVE"),
                     "provider":{
                         "id": $currentChannel.token,
                         "descriptor": {
@@ -91,24 +141,7 @@
                             }
                         }
                     },
-                    "fulfillments": $order.shippingLines[].{
-                        "type": $.shippingMethod.code,
-                        "stops":$isDigitalFulfillment ? $digitalStops($digitalFulfillmentUrls) : $shippingStops($shippingAddress,$customer),
-                        "customer": {
-                            "person": {
-                                "name": $customer.firstName & ' ' & $customer.lastName
-                            },
-                            "contact": {
-                                "phone": $customer.phoneNumber
-                            }
-                        },
-                        "state": {
-                            "descriptor": {
-                                "code": $order.state
-                            },
-                            "updated_at": $now()
-                        }
-                    },
+                    "fulfillments": $isDigitalFulfillment ? $digitalFulfillments() : $shippingFulfillments(),
                     "quote":{
                         "price":$formatPrice($order.totalWithTax,$order.currencyCode),
                         "breakup":[
@@ -165,9 +198,23 @@
                                 },
                                 "value": $.shippingMethod.code
                             }
+                        },
+                        {
+                            "descriptor":{
+                                "name":"Additional status",
+                                "code":"AdditionalStatus"
+                            },
+                            "list":[
+                                {
+                                    "descriptor":{
+                                        "name":"Detailed Order Status",
+                                        "code":"detailedOrderStatus"
+                                    },
+                                    "value": $order.state
+                                }
+                            ]
                         }
-                    ],
-                    "digital": $digitalFulfillment
+                    ]
                 }
             }
         }

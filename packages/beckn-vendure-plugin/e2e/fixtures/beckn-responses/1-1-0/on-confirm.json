@@ -25,6 +25,7 @@
         },
         "message": {
             "order": {
+                "status": "ACTIVE",
                 "provider": {
                     "id": "2p0aliran34hu8i6cr7y",
                     "descriptor": {
@@ -196,6 +197,21 @@
                             {
                                 "descriptor": { "name": "Express Shipping", "code": "express-shipping" },
                                 "value": "express-shipping"
+                            }
+                        ]
+                    },
+                    {
+                        "descriptor": {
+                            "name": "Additional status",
+                            "code": "AdditionalStatus"
+                        },
+                        "list": [
+                            {
+                                "descriptor": {
+                                    "name": "Detailed Order Status",
+                                    "code": "detailedOrderStatus"
+                                },
+                                "value": "ArrangingPayment"
                             }
                         ]
                     }

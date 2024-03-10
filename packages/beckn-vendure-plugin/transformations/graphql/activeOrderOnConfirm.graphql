@@ -62,6 +62,21 @@ query ActiveOrderOnConfirm {
                 }
             }
         }
+        fulfillments {
+            id
+            createdAt
+            updatedAt
+            state
+            method
+            trackingCode
+            customFields {
+                downloadUrls
+                titles
+                descriptions
+                durations
+                statuses
+            }
+        }
         customFields {
             paymentCode
             paymentTransactionId

@@ -86,6 +86,10 @@ query GetBecknOrder($becknOrderId: String!) {
             trackingCode
             customFields {
                 downloadUrls
+                titles
+                descriptions
+                durations
+                statuses
             }
         }
     }
