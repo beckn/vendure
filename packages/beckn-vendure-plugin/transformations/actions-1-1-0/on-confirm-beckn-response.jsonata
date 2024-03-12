@@ -89,7 +89,7 @@
                             "name":$billing.province
                         }
                     },
-                    "payments": eligiblePaymentMethods[].{
+                    "payments": eligiblePaymentMethods[isEligible = true][].{
                         "id":id,
                         "name":name,
                         "status": $inputPayment.status,

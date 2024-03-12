@@ -84,6 +84,10 @@ export class SendGraphQLRequest implements TransformTask {
                     ),
             );
             // console.log('GRAPHQL Response');
+            console.log(this.graphqlFilename);
+            if(this.graphqlFilename === " /var/apps/kuza-one-beckn/bpp-app/src/plugins/beckn-vendure-plugin/transformations/graphql/transitionOrderToArrangingPayment.graphql"){
+                console.log(JSON.stringify(response, null, 2));
+            }
             // console.log(JSON.stringify(response, null, 2));
             if (response.body.errors) {
                 throw Error(JSON.stringify(response.body.errors));
