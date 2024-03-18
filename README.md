@@ -1,24 +1,48 @@
 ## Project Introduction
 
-This repository will have the software needed to build reference seller apps based on the Vendure framework. Initially, it will contain plugins that will allow multi-seller setup to be onboarded onto the Beckn network.
+The Vendure plugin serves as a powerful tool designed to seamlessly integrate the Vendure e-commerce application with the Beckn ecosystem. It enables businesses to enhance their e-commerce operations by leveraging Beckn standards across all phases of the cycle.
+The Vendure plugin offers comprehensive support throughout the e-commerce cycle, including discovery, fulfillment, and post-fulfillment stages. By incorporating Beckn standards, businesses can streamline their processes and provide a seamless shopping experience for customers.
+With the Vendure plugin, businesses can optimize product discovery by utilizing Beckn's standardized protocols. This enables them to effectively showcase their products to potential customers, increasing visibility and driving sales.
+The plugin integrates Beckn standards into Vendure's order fulfillment workflows, ensuring efficient order processing and delivery. From order placement to shipment tracking, businesses can meet customer expectations and improve satisfaction.
+In addition to order fulfillment, the plugin supports post-fulfillment activities such as returns and exchanges. By adhering to Beckn standards, businesses can effectively manage customer inquiries and resolve issues, fostering trust and loyalty.
 
+## Features
+**Single Shop and Multi-Seller, Multi-Tenant Mode**
+
+The platform offers versatility by accommodating both single-shop and multi-seller, multi-tenant modes of operation. Whether operating as an independent storefront or a comprehensive marketplace with multiple sellers and tenants, the platform provides robust features to meet diverse business needs.
+
+**Full Support for Beckn Endpoints**
+
+With comprehensive integration of all Beckn endpoints, the platform ensures seamless communication and interoperability within the Beckn ecosystem. By adhering to Beckn standards, businesses can effortlessly connect and engage with partners and services across the network, enhancing efficiency and collaboration.
+
+**Digital Product Compatibility**
+
+In addition to physical goods, the platform supports the sale and distribution of digital products. Businesses can offer a diverse range of digital content, including e-books, software, and media files, providing customers with access to a wider array of products and services.
+
+**Bridge between Stateless Beckn and Session-Based Vendure**
+
+The platform serves as a bridge between the stateless architecture of Beckn and the session-based framework of Vendure. By harmonizing the functionalities of both systems, the platform leverages Beckn's decentralized approach and Vendure's session management capabilities to deliver a seamless and scalable e-commerce solution.
+
+## Technical stack
+Node
 
 ## Release Notes
 
-| Version | Release Date |
+| Name | Version |
 |---------|--------------|
-| 1.0     | 2024-02-02   |
+| vendure Plugin    | 1.0.0   |
 
 
 ## Installation/Setup Guide 
 
 
 ## User Guide
+NA
 
 
 ## Link to Experience Center
 
-Since this is a headless application there is no Experience Center UI application. 
+NA
 
 
 ## Contributing guidelines
