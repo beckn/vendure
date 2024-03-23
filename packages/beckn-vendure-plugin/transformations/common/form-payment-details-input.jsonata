@@ -3,7 +3,7 @@
         $eligiblePaymentMethods[id=$requestedPaymentId].code
     };
     $payment := becknRequest.body.message.order.payments[0];
-    $eligiblePaymentMethods := eligiblePaymentMethods;
+    $eligiblePaymentMethods := eligiblePaymentMethods[isEligible = true];
     $paymentCode := $getPaymentCode($eligiblePaymentMethods,$payment.id);
     $paymentCode ? ({
             "updateOrderInput":{

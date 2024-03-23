@@ -134,5 +134,11 @@
         "reqJSONFile": "update-digital-individual-fulfillment.json",
         "resJSONFile": "on-update-digital-individual-fulfillment.json",
         "exclude": ["body.context.timestamp"]
+    },
+    {
+        "queryName": "confirm-digital-product-one-video",
+        "reqJSONFile": "confirm-digital-product-one-video.json",
+        "resJSONFile": "on-confirm-digital-product-one-video.json",
+        "exclude": ["body.context.timestamp", "body.message.order.id"]
     }
 ]
