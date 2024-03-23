@@ -20,6 +20,7 @@ import {
 } from './test-utils';
 import { SetupServerApi, setupServer } from 'msw/node';
 import { HttpResponse, graphql, http } from 'msw';
+import { TROUBLESHOOTING_MODE } from '../src/constants';
 
 const sqliteDataDir = path.join(__dirname, '__data__');
 
@@ -68,7 +69,7 @@ describe('beckn-vendure-plugin', () => {
                 let index = 0;
                 for (const tc of testConfigs) {
                     index += 1;
-                    // if (index !== testConfigs.length) continue; // Comment this to run all tests. Else runs only last
+                    if (TROUBLESHOOTING_MODE) if (index !== testConfigs.length) continue; // Comment this to run all tests. Else runs only last
                     it(`works for ${tc.queryName} query`, async () => {
                         let server = null;
                         try {

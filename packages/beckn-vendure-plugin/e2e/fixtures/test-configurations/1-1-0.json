@@ -82,6 +82,12 @@
         "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {
+        "queryName": "confirm-digital-product-one-video",
+        "reqJSONFile": "confirm-digital-product-one-video.json",
+        "resJSONFile": "on-confirm-digital-product-one-video.json",
+        "exclude": ["body.context.timestamp", "body.message.order.id"]
+    },
+    {
         "queryName": "cancel",
         "reqJSONFile": "cancel.json",
         "resJSONFile": "on-cancel.json",
@@ -98,6 +104,12 @@
         "reqJSONFile": "status-digital-product.json",
         "resJSONFile": "on-status-digital-product.json",
         "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
+    },
+    {
+        "queryName": "status-digital-product-one-video",
+        "reqJSONFile": "status-digital-product-one-video.json",
+        "resJSONFile": "on-status-digital-product-one-video.json",
+        "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {
         "queryName": "track",

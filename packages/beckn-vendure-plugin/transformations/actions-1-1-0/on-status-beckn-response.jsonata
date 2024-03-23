@@ -141,7 +141,7 @@
                             }
                         }
                     },
-                    "fulfillments": $isDigitalFulfillment ? $digitalFulfillments() : $shippingFulfillments(),
+                    "fulfillments": $isDigitalFulfillment ? $digitalFulfillments()[] : $shippingFulfillments(),
                     "quote":{
                         "price":$formatPrice($order.totalWithTax,$order.currencyCode),
                         "breakup":[

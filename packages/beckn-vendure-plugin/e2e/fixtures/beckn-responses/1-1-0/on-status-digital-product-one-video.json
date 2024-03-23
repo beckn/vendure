@@ -1,0 +1,179 @@
+{
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "body": {
+        "context": {
+            "domain": "retail:1.1.0",
+            "location": {
+                "country": {
+                    "code": "IND"
+                },
+                "city": {
+                    "code": "std:080"
+                }
+            },
+            "action": "on_status",
+            "version": "1.1.0",
+            "bap_id": "ps-bap-network.becknprotocol.io",
+            "bap_uri": "https://ps-bap-network.becknprotocol.io",
+            "bpp_id": "vbabu.lr.bpp.1",
+            "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
+            "message_id": "b8c1e69c-fbbc-439b-a5de-2adcc74f15675",
+            "transaction_id": "8100d125-76a7-4588-88be-81b976572345",
+            "timestamp": "2024-03-09T14:44:22.280Z",
+            "ttl": "PT10M"
+        },
+        "message": {
+            "order": {
+                "id": "3f155e9b473e016bc1750bae2f2b51607cfb2010d5a1d72718091b0bcc64bb17",
+                "status": "ACTIVE",
+                "provider": {
+                    "id": "meru-coffee",
+                    "descriptor": {
+                        "name": "Meru Coffee"
+                    }
+                },
+                "items": [
+                    {
+                        "id": "94",
+                        "descriptor": {
+                            "name": "The basics about coffee",
+                            "long_desc": "<p>Short video introduction with the basics about coffee</p>",
+                            "images": [
+                                {
+                                    "url": "http://localhost:3000/assets/source/e9/basics_coffee.jpg"
+                                }
+                            ]
+                        },
+                        "price": {
+                            "listed_value": "0.00",
+                            "currency": "USD",
+                            "value": "0.00"
+                        },
+                        "quantity": {
+                            "selected": {
+                                "count": 1
+                            }
+                        }
+                    }
+                ],
+                "fulfillments": [
+                    {
+                        "id": "https://www.youtube.com/watch?v=vFcS080VYQ0",
+                        "type": "digital-fulfillment",
+                        "state": {
+                            "descriptor": {
+                                "code": "Pending"
+                            }
+                        },
+                        "stops": [
+                            {
+                                "time": {
+                                    "label": "duration",
+                                    "duration": "5:52"
+                                },
+                                "instructions": {
+                                    "name": "Basics About Coffee",
+                                    "short_desc": "Short video on coffee basics",
+                                    "media": [
+                                        {
+                                            "url": "https://www.youtube.com/watch?v=vFcS080VYQ0"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "quote": {
+                    "price": {
+                        "currency": "USD",
+                        "value": "0.00"
+                    },
+                    "breakup": [
+                        {
+                            "title": "base-price",
+                            "price": {
+                                "currency": "USD",
+                                "value": "0.00"
+                            }
+                        },
+                        {
+                            "title": "shipping",
+                            "price": {
+                                "currency": "USD",
+                                "value": "0.00"
+                            }
+                        },
+                        {
+                            "title": "taxes",
+                            "price": {
+                                "currency": "USD",
+                                "value": "0.00"
+                            }
+                        }
+                    ]
+                },
+                "billing": {
+                    "name": "Motiur Rehman",
+                    "phone": "9191223433",
+                    "email": "nc.rehman@gmail.com",
+                    "address": "123, Terminal 1, Kempegowda Int'l Airport Rd, A - Block, Gangamuthanahalli, Karnataka 560300, India",
+                    "city": {
+                        "name": "Gangamuthanahalli"
+                    },
+                    "state": {
+                        "name": "Karnataka"
+                    }
+                },
+                "payments": [
+                    {
+                        "type": "PRE-FULFILLMENT",
+                        "params": {
+                            "amount": "0.00",
+                            "currency": "USD",
+                            "transaction_id": "198237475"
+                        },
+                        "time": {
+                            "label": "Transaction timestamp",
+                            "timestamp": "2024-01-26T10:14:10.280Z"
+                        }
+                    }
+                ],
+                "tags": [
+                    {
+                        "descriptor": {
+                            "name": "Shipping method details",
+                            "code": "ShippingMethodDetails"
+                        },
+                        "list": [
+                            {
+                                "descriptor": {
+                                    "name": "Digital Fulfillment",
+                                    "code": "digital-fulfillment"
+                                },
+                                "value": "digital-fulfillment"
+                            }
+                        ]
+                    },
+                    {
+                        "descriptor": {
+                            "name": "Additional status",
+                            "code": "AdditionalStatus"
+                        },
+                        "list": [
+                            {
+                                "descriptor": {
+                                    "name": "Detailed Order Status",
+                                    "code": "detailedOrderStatus"
+                                },
+                                "value": "Shipped"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
