@@ -13,19 +13,20 @@
                     "code": "std:080"
                 }
             },
-            "action": "on_confirm",
+            "action": "on_status",
             "version": "1.1.0",
             "bap_id": "ps-bap-network.becknprotocol.io",
             "bap_uri": "https://ps-bap-network.becknprotocol.io",
             "bpp_id": "vbabu.lr.bpp.1",
             "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
-            "message_id": "6d098f3a-4873-4b2e-935e-e4d6be921389",
-            "transaction_id": "8100d125-76a7-4588-88be-81b976572389",
-            "timestamp": "2024-01-26T10:14:10.280Z"
+            "message_id": "b8c1e69c-fbbc-439b-a5de-2adcc7434110",
+            "transaction_id": "8100d125-76a7-4588-88be-81b976597110",
+            "timestamp": "2024-03-24T15:11:54.681Z",
+            "ttl": "PT10M"
         },
         "message": {
             "order": {
-                "id": "3ea416d3510fbcfdcf4dd56f699a8a51bfde9366042a11b58212c22b4f046c95",
+                "id": "a4a8ca0c7374a0c8cd59a8fc5fa4d0db83003f992173960b779c73198c10563a",
                 "status": "ACTIVE",
                 "provider": {
                     "id": "meru-coffee",
@@ -35,20 +36,20 @@
                 },
                 "items": [
                     {
-                        "id": "94",
+                        "id": "95",
                         "descriptor": {
-                            "name": "The basics about coffee",
-                            "long_desc": "<p>Short video introduction with the basics about coffee</p>",
+                            "name": "Tractor Tilling",
+                            "long_desc": "<p>Tilling service using tractor. 3 acre per hour</p>",
                             "images": [
                                 {
-                                    "url": "http://localhost:3000/assets/source/e9/basics_coffee.jpg"
+                                    "url": "http://localhost:3000/assets/source/8d/tractor_tilling.jpg"
                                 }
                             ]
                         },
                         "price": {
-                            "listed_value": "0.00",
+                            "listed_value": "100.00",
                             "currency": "USD",
-                            "value": "0.00"
+                            "value": "100.00"
                         },
                         "quantity": {
                             "selected": {
@@ -59,28 +60,55 @@
                 ],
                 "fulfillments": [
                     {
-                        "type": "digital-fulfillment",
+                        "type": "standard",
+                        "stops": [
+                            {
+                                "location": {
+                                    "address": "123, Terminal 1, Kempegowda Int'l Airport Rd, A - Block, Gangamuthanahalli, Karnataka 560300, India ",
+                                    "city": {
+                                        "name": "Gangamuthanahalli"
+                                    },
+                                    "state": {
+                                        "name": "Karnataka"
+                                    },
+                                    "country": {
+                                        "code": "IN"
+                                    },
+                                    "area_code": "560300"
+                                },
+                                "contact": {
+                                    "phone": "919122343355",
+                                    "email": "nc.rehman@gmail.com"
+                                }
+                            }
+                        ],
                         "customer": {
                             "person": {
                                 "name": "Motiur Rehman"
                             },
                             "contact": {
-                                "phone": "919122343344"
+                                "phone": "9191223433"
                             }
+                        },
+                        "state": {
+                            "descriptor": {
+                                "code": "Pending"
+                            },
+                            "updated_at": "2024-03-24T15:54:01.000Z"
                         }
                     }
                 ],
                 "quote": {
                     "price": {
                         "currency": "USD",
-                        "value": "0.00"
+                        "value": "120.00"
                     },
                     "breakup": [
                         {
                             "title": "base-price",
                             "price": {
                                 "currency": "USD",
-                                "value": "0.00"
+                                "value": "100.00"
                             }
                         },
                         {
@@ -94,7 +122,7 @@
                             "title": "taxes",
                             "price": {
                                 "currency": "USD",
-                                "value": "0.00"
+                                "value": "20.00"
                             }
                         }
                     ]
@@ -113,14 +141,11 @@
                 },
                 "payments": [
                     {
-                        "id": "2",
-                        "name": "Standard Payment",
-                        "status": "PAID",
                         "type": "PRE-FULFILLMENT",
                         "params": {
-                            "amount": "0.00",
+                            "amount": "120.00",
                             "currency": "USD",
-                            "transaction_id": "198237475"
+                            "transaction_id": "198237469"
                         },
                         "time": {
                             "label": "Transaction timestamp",
@@ -135,13 +160,6 @@
                             "code": "ShippingMethodDetails"
                         },
                         "list": [
-                            {
-                                "descriptor": {
-                                    "name": "Digital Fulfillment",
-                                    "code": "digital-fulfillment"
-                                },
-                                "value": "digital-fulfillment"
-                            },
                             {
                                 "descriptor": {
                                     "name": "Standard",
@@ -162,7 +180,7 @@
                                     "name": "Detailed Order Status",
                                     "code": "detailedOrderStatus"
                                 },
-                                "value": "ArrangingPayment"
+                                "value": "PaymentSettled"
                             }
                         ]
                     }

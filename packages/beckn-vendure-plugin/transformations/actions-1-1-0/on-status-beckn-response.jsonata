@@ -8,8 +8,8 @@
             "value":$formatMoney($price)
         }
     };
-    $shippingFulfillments:= function (){
-        $fulfillments[].{
+    $shippingFulfillments:= function (){(
+        $default_fulfillment := {
             "type": $shippingMethodCode,
             "stops":[
                 {
@@ -39,15 +39,21 @@
                 "contact": {
                     "phone": $customer.phoneNumber
                 }
-            },
-            "state": {
-                "descriptor": {
-                    "code": $.state
-                },
-                "updated_at": $.updatedAt
             }
-        }
-    };
+        };
+        $exists($fulfillments) and $boolean($fulfillments) ? 
+            $fulfillments[].(
+                $merge([$default_fulfillment,
+                {
+                    "state": {
+                        "descriptor": {
+                            "code": $.state
+                        },
+                        "updated_at": $.updatedAt
+                    }
+                }]))
+            : [$default_fulfillment]
+    )};
     $digitalFulfillments := function(){(
         /* assumes only one relevant fulfillment. Picks latest*/
         $fulfillment := $fulfillments[-1];

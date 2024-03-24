@@ -1,4 +1,25 @@
 (
+    $message := becknRequest.body.message;
+    $order := $message.order;
+    $items := $message.order.items;
+    $fulfillments := $message.order.fulfillments;
+    $billing := $order.billing;
+    $stop := $order.fulfillments[0].stops[0];
+    $shippingAddress := $stop.location;
+    $payment := $order.payments[0];
+
+    $itemToOrderLine := function($tItem){(
+        $fulfillment := $fulfillments[$.id = $tItem.fulfillment_ids[0]];
+        $startTime := $fulfillment.stops[0].time.range.start;
+        $endTime := $fulfillment.stops[0].time.range.end;
+        $startEndTimePresent := $exists($startTime) and $exists($endTime);
+        $retVal := {
+            "productVariantId": $tItem.id,
+            "quantity": $tItem.quantity.selected.count
+        };
+        $startEndTimePresent ? $merge([$retVal,{"startTime": $startTime, "endTime": $endTime }]) : $retVal
+    )};    
+
     $firstName := function($fullName){
         $split($fullName," ")[0]
     };
@@ -10,25 +31,12 @@
         $lastName := $join($remainingParts," ");
         $lastName ? $lastName : "N/A";
     )};
-    $message := becknRequest.body.message;
-    $order := $message.order;
-    $items := $message.order.items;
-    $billing := $order.billing;
-    $stop := $order.fulfillments[0].stops[0];
-    $shippingAddress := $stop.location;
-    $payment := $order.payments[0];
     {
         "totalItems":$count($items),
-        "firstItem": $items[0] {
-            "productVariantId": $.id,
-            "quantity": $.quantity.selected.count            
-        },
+        "firstItem": $itemToOrderLine($items[0]),
         "restItems": [$filter($items, function ($v, $i) {
             $i != 0
-            }).{
-            "productVariantId": $.id,
-            "quantity": $.quantity.selected.count
-        }],
+            }).$itemToOrderLine($)],
         "shippingMethodType": $order.fulfillments[].type,
         "setOrderShippingAddressInput":{
             "shippingAddress": $shippingAddress.{

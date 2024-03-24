@@ -58,6 +58,12 @@
         "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {
+        "queryName": "select-service",
+        "reqJSONFile": "select-service.json",
+        "resJSONFile": "on-select-service.json",
+        "exclude": ["body.context.timestamp", "body.message.order.id"]
+    },
+    {
         "queryName": "init",
         "reqJSONFile": "init.json",
         "resJSONFile": "on-init.json",
@@ -67,6 +73,12 @@
         "queryName": "init-digital-product",
         "reqJSONFile": "init-digital-product.json",
         "resJSONFile": "on-init-digital-product.json",
+        "exclude": ["body.context.timestamp", "body.message.order.id"]
+    },
+    {
+        "queryName": "init-service",
+        "reqJSONFile": "init-service.json",
+        "resJSONFile": "on-init-service.json",
         "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {
@@ -85,6 +97,12 @@
         "queryName": "confirm-digital-product-one-video",
         "reqJSONFile": "confirm-digital-product-one-video.json",
         "resJSONFile": "on-confirm-digital-product-one-video.json",
+        "exclude": ["body.context.timestamp", "body.message.order.id"]
+    },
+    {
+        "queryName": "confirm-service",
+        "reqJSONFile": "confirm-service.json",
+        "resJSONFile": "on-confirm-service.json",
         "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {
@@ -136,9 +154,9 @@
         "exclude": ["body.context.timestamp"]
     },
     {
-        "queryName": "confirm-digital-product-one-video",
-        "reqJSONFile": "confirm-digital-product-one-video.json",
-        "resJSONFile": "on-confirm-digital-product-one-video.json",
-        "exclude": ["body.context.timestamp", "body.message.order.id"]
+        "queryName": "status-service",
+        "reqJSONFile": "status-service.json",
+        "resJSONFile": "on-status-service.json",
+        "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
     }
 ]

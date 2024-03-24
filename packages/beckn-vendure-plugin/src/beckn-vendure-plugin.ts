@@ -60,26 +60,38 @@ import { DigitalFulfillmentService } from './services/digital-fulfillment-servic
                 name: 'paymentTime',
             },
         );
-        config.customFields.Seller.push({
-            type: 'text',
-            name: 'shortDescription',
-        });
-        config.customFields.Seller.push({
-            type: 'text',
-            name: 'longDescription',
-        });
-        config.customFields.Seller.push({
-            type: 'string',
-            name: 'phoneNumber',
-        });
-        config.customFields.Seller.push({
-            type: 'string',
-            name: 'email',
-        });
-        config.customFields.Seller.push({
-            type: 'string',
-            name: 'url',
-        });
+        config.customFields.Seller.push(
+            {
+                type: 'text',
+                name: 'shortDescription',
+            },
+            {
+                type: 'text',
+                name: 'longDescription',
+            },
+            {
+                type: 'string',
+                name: 'phoneNumber',
+            },
+            {
+                type: 'string',
+                name: 'email',
+            },
+            {
+                type: 'string',
+                name: 'url',
+            },
+        );
+        config.customFields.OrderLine.push(
+            {
+                type: 'datetime',
+                name: 'startTime',
+            },
+            {
+                type: 'datetime',
+                name: 'endTime',
+            },
+        );
         return config;
     },
     compatibility: '^2.0.0',

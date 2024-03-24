@@ -61,6 +61,10 @@ query GetBecknOrder($becknOrderId: String!) {
                     source
                 }
             }
+            customFields {
+                startTime
+                endTime
+            }
         }
         customFields {
             paymentCode

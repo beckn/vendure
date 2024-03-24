@@ -1,0 +1,99 @@
+{
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "body": {
+        "context": {
+            "domain": "retail:1.1.0",
+            "location": {
+                "country": {
+                    "code": "IND"
+                },
+                "city": {
+                    "code": "std:080"
+                }
+            },
+            "action": "init",
+            "version": "1.1.0",
+            "bap_id": "ps-bap-network.becknprotocol.io",
+            "bap_uri": "https://ps-bap-network.becknprotocol.io/",
+            "bpp_id": "vbabu.lr.bpp.1",
+            "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
+            "transaction_id": "df5dc215-a91d-4e8b-94ef-e0cf9a2b3af1",
+            "message_id": "04551dd9-30b6-4270-9608-61c315730ad2",
+            "timestamp": "2024-01-26T09:45:40.407Z"
+        },
+        "message": {
+            "order": {
+                "provider": {
+                    "id": "meru-coffee"
+                },
+                "items": [
+                    {
+                        "id": "95",
+                        "quantity": {
+                            "selected": {
+                                "count": 1
+                            }
+                        },
+                        "fulfillment_ids": ["4"]
+                    }
+                ],
+                "fulfillments": [
+                    {
+                        "id": "4",
+                        "type": "standard",
+                        "stops": [
+                            {
+                                "location": {
+                                    "gps": "13.2008459,77.708736",
+                                    "address": "123, Terminal 1, Kempegowda Int'l Airport Rd, A - Block, Gangamuthanahalli, Karnataka 560300, India",
+                                    "city": {
+                                        "name": "Gangamuthanahalli"
+                                    },
+                                    "state": {
+                                        "name": "Karnataka"
+                                    },
+                                    "country": {
+                                        "code": "IND"
+                                    },
+                                    "area_code": "560300"
+                                },
+                                "contact": {
+                                    "phone": "919122343355",
+                                    "email": "nc.rehman@gmail.com"
+                                },
+                                "time": {
+                                    "range": {
+                                        "start": "2025-07-21T10:00:00Z",
+                                        "end": "2025-07-21T14:00:00Z"
+                                    }
+                                }
+                            }
+                        ],
+                        "customer": {
+                            "person": {
+                                "name": "Motiur Rehman"
+                            },
+                            "contact": {
+                                "phone": "919122343344"
+                            }
+                        }
+                    }
+                ],
+                "billing": {
+                    "name": "Motiur Rehman",
+                    "phone": "9191223433",
+                    "email": "nc.rehman@gmail.com",
+                    "address": "123, Terminal 1, Kempegowda Int'l Airport Rd, A - Block, Gangamuthanahalli, Karnataka 560300, India",
+                    "city": {
+                        "name": "Gangamuthanahalli"
+                    },
+                    "state": {
+                        "name": "Karnataka"
+                    }
+                }
+            }
+        }
+    }
+}

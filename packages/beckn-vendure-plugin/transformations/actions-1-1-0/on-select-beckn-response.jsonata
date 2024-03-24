@@ -8,6 +8,15 @@
             "value":$formatMoney($price)
         }
     };
+    $formFullfillment := function($tShippingMethods){(
+        $tShippingMethods[].(
+            $tSM := $;
+            {
+                "id":$tSM.id,
+                "type":$tSM.code
+            }
+        )
+    )};
     $context := becknRequest.body.context;
     $env := env;
     $order := currentOrderResponse.body.data.activeOrder;
@@ -30,10 +39,7 @@
                             "name": $currentSeller.name
                         }
                     },
-                    "fulfillments": $shippingMethods[].{
-                        "id":$.id,
-                        "type":$.code
-                    },
+                    "fulfillments": $formFullfillment($shippingMethods),
                     "items": $items[].{
                         "id":$.productVariant.id,
                         "descriptor":{

@@ -140,6 +140,13 @@
                                     "code": "digital-fulfillment"
                                 },
                                 "value": "digital-fulfillment"
+                            },
+                            {
+                                "descriptor": {
+                                    "name": "Standard",
+                                    "code": "standard"
+                                },
+                                "value": "standard"
                             }
                         ]
                     },

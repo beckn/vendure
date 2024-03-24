@@ -1,5 +1,9 @@
-mutation AddItemToOrder($productVariantId: ID!, $quantity: Int!) {
-    addItemToOrder(productVariantId: $productVariantId, quantity: $quantity) {
+mutation AddItemToOrder($productVariantId: ID!, $quantity: Int!, $startTime: DateTime, $endTime: DateTime) {
+    addItemToOrder(
+        productVariantId: $productVariantId
+        quantity: $quantity
+        customFields: { startTime: $startTime, endTime: $endTime }
+    ) {
         ... on Order {
             id
         }

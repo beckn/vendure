@@ -61,6 +61,10 @@ query ActiveOrderOnConfirm {
                     source
                 }
             }
+            customFields {
+                startTime
+                endTime
+            }
         }
         fulfillments {
             id

@@ -23,6 +23,10 @@ query ActiveOrder {
                     source
                 }
             }
+            customFields {
+                startTime
+                endTime
+            }
         }
     }
 }

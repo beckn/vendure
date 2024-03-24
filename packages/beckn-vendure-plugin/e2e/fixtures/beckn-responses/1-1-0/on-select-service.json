@@ -19,41 +19,37 @@
             "bap_uri": "https://ps-bap-network.becknprotocol.io/",
             "bpp_id": "vbabu.lr.bpp.1",
             "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
-            "message_id": "6d098f3a-4873-4b2e-935e-e4d6be921302",
-            "transaction_id": "8100d125-76a7-4588-88be-81b976572303",
+            "message_id": "04551dd9-30b6-4270-9608-61c315730ad1",
+            "transaction_id": "df5dc215-a91d-4e8b-94ef-e0cf9a2a3af1",
             "timestamp": "2024-01-21T05:37:30.966Z",
             "ttl": "PT10M"
         },
         "message": {
             "order": {
-                "id": "11bb8b206d934c55ca857140bed37adc61c96d8260a88b1b425bea4853206953",
-                "provider": { "id": "meru-coffee", "descriptor": { "name": "Meru Coffee" } },
-                "fulfillments": [
-                    {
-                        "id": "3",
-                        "type": "digital-fulfillment"
-                    },
-                    {
-                        "id": "4",
-                        "type": "standard"
+                "id": "760e3f53b2c992e0e16c67cd3b1b0b8dca9f8ce8623774ce8ac34532bc4373d0",
+                "provider": {
+                    "id": "meru-coffee",
+                    "descriptor": {
+                        "name": "Meru Coffee"
                     }
-                ],
+                },
+                "fulfillments": [{ "id": "4", "type": "standard" }],
                 "items": [
                     {
-                        "id": "93",
+                        "id": "95",
                         "descriptor": {
-                            "name": "Coffee plant care",
-                            "long_desc": "<p>Course on taking care of coffee plants</p>",
+                            "name": "Tractor Tilling",
+                            "long_desc": "<p>Tilling service using tractor. 3 acre per hour</p>",
                             "images": [
                                 {
-                                    "url": "http://localhost:3000/assets/source/85/coffee_plant_care.jpg"
+                                    "url": "http://localhost:3000/assets/source/8d/tractor_tilling.jpg"
                                 }
                             ]
                         },
                         "price": {
-                            "listed_value": "0.00",
+                            "listed_value": "100.00",
                             "currency": "USD",
-                            "value": "0.00"
+                            "value": "100.00"
                         },
                         "quantity": {
                             "selected": {
@@ -65,21 +61,21 @@
                 "quote": {
                     "price": {
                         "currency": "USD",
-                        "value": "0.00"
+                        "value": "120.00"
                     },
                     "breakup": [
                         {
                             "title": "base-price",
                             "price": {
                                 "currency": "USD",
-                                "value": "0.00"
+                                "value": "100.00"
                             }
                         },
                         {
                             "title": "taxes",
                             "price": {
                                 "currency": "USD",
-                                "value": "0.00"
+                                "value": "20.00"
                             }
                         }
                     ]
@@ -87,23 +83,10 @@
                 "type": "DEFAULT",
                 "tags": [
                     {
-                        "descriptor": {
-                            "name": "Shipping method details",
-                            "code": "ShippingMethodDetails"
-                        },
+                        "descriptor": { "name": "Shipping method details", "code": "ShippingMethodDetails" },
                         "list": [
                             {
-                                "descriptor": {
-                                    "name": "Digital Fulfillment",
-                                    "code": "digital-fulfillment"
-                                },
-                                "value": "digital-fulfillment"
-                            },
-                            {
-                                "descriptor": {
-                                    "name": "Standard",
-                                    "code": "standard"
-                                },
+                                "descriptor": { "name": "Standard", "code": "standard" },
                                 "value": "standard"
                             }
                         ]

@@ -1,17 +1,26 @@
 (
     $message := becknRequest.body.message;
     $items := $message.order.items;
+    $fulfillments := $message.order.fulfillments;
+
+    $itemToOrderLine := function($tItem){(
+        $fulfillment := $fulfillments[$.id = $tItem.fulfillment_ids[0]];
+        $startTime := $fulfillment.stops[0].time.range.start;
+        $endTime := $fulfillment.stops[0].time.range.end;
+        $startEndTimePresent := $exists($startTime) and $exists($endTime);
+        $retVal := {
+            "productVariantId": $tItem.id,
+            "quantity": $tItem.quantity.selected.count
+        };
+        $startEndTimePresent ? $merge([$retVal,{"startTime": $startTime, "endTime": $endTime }]) : $retVal
+    )};
+
     {
         "totalItems":$count($items),
-        "firstItem": $items[0] {
-            "productVariantId": $.id,
-            "quantity": $.quantity.selected.count            
-        },
+        "firstItem": $itemToOrderLine($items[0]),
         "restItems": [$filter($items, function ($v, $i) {
             $i != 0
-            }).{
-            "productVariantId": $.id,
-            "quantity": $.quantity.selected.count
-        }]
+            }).$itemToOrderLine($)
+            ]
     }
 )

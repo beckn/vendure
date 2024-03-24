@@ -34,6 +34,7 @@
                     }
                 },
                 "fulfillments": [
+                    { "id": "4", "type": "standard" },
                     { "id": "1", "type": "standard-shipping" },
                     { "id": "2", "type": "express-shipping" }
                 ],
@@ -110,6 +111,13 @@
                     {
                         "descriptor": { "name": "Shipping method details", "code": "ShippingMethodDetails" },
                         "list": [
+                            {
+                                "descriptor": {
+                                    "name": "Standard",
+                                    "code": "standard"
+                                },
+                                "value": "standard"
+                            },
                             {
                                 "descriptor": { "name": "Standard Shipping", "code": "standard-shipping" },
                                 "value": "standard-shipping"
