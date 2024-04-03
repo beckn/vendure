@@ -24,6 +24,7 @@
     $shippingMethods := eligibleShippingMethods;
     $currentChannel := currentSellerResponse.body.data.activeChannel;
     $currentSeller := $currentChannel.seller;
+    $fulfillments := $formFullfillment($shippingMethods);
     {
         "headers":{
             "Content-Type": "application/json"
@@ -39,7 +40,7 @@
                             "name": $currentSeller.name
                         }
                     },
-                    "fulfillments": $formFullfillment($shippingMethods),
+                    "fulfillments": $fulfillments,
                     "items": $items[].{
                         "id":$.productVariant.id,
                         "descriptor":{
@@ -60,7 +61,8 @@
                             "selected":{
                                 "count": $.quantity
                             }
-                        }
+                        },
+                        "fulfillment_ids": $sort($fulfillments[].id)
                     },
                     "quote":{
                         "price":$formatPrice($order.totalWithTax,$order.currencyCode),

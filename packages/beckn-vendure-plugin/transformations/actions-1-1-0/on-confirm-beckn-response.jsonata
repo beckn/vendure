@@ -57,7 +57,8 @@
                             "selected":{
                                 "count": $.quantity
                             }
-                        }
+                        },
+                        "fulfillment_ids": $sort($inputOrder.fulfillments[].id)
                     },
                     "fulfillments": $inputOrder.fulfillments,
                     "quote":{

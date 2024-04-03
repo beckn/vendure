@@ -59,7 +59,8 @@
                             "selected": {
                                 "count": 2
                             }
-                        }
+                        },
+                        "fulfillment_ids": ["1", "2", "4"]
                     },
                     {
                         "id": "70",
@@ -81,7 +82,8 @@
                             "selected": {
                                 "count": 1
                             }
-                        }
+                        },
+                        "fulfillment_ids": ["1", "2", "4"]
                     }
                 ],
                 "quote": {

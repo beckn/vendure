@@ -53,11 +53,13 @@
                             "selected": {
                                 "count": 1
                             }
-                        }
+                        },
+                        "fulfillment_ids": ["3"]
                     }
                 ],
                 "fulfillments": [
                     {
+                        "id": "3",
                         "type": "digital-fulfillment",
                         "customer": {
                             "person": {

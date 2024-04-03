@@ -55,7 +55,8 @@
                             "selected": {
                                 "count": 2
                             }
-                        }
+                        },
+                        "fulfillment_ids": ["1"]
                     },
                     {
                         "id": "70",
@@ -77,11 +78,13 @@
                             "selected": {
                                 "count": 1
                             }
-                        }
+                        },
+                        "fulfillment_ids": ["1"]
                     }
                 ],
                 "fulfillments": [
                     {
+                        "id": "1",
                         "type": "standard-shipping",
                         "stops": [
                             {

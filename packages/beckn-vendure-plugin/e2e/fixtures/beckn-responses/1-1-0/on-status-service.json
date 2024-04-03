@@ -55,11 +55,13 @@
                             "selected": {
                                 "count": 1
                             }
-                        }
+                        },
+                        "fulfillment_ids": ["4"]
                     }
                 ],
                 "fulfillments": [
                     {
+                        "id": "4",
                         "type": "standard",
                         "stops": [
                             {

@@ -10,6 +10,7 @@ export class WebhookController {
     @Post()
     @HttpCode(HttpStatus.OK)
     webhook(@Ctx() ctx: RequestContext) {
+        console.log("Received webhook")
         this.webhookService.handleRequest(ctx);
     }
 }

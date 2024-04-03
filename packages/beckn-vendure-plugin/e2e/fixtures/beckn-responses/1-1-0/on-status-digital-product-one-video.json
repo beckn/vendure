@@ -55,7 +55,8 @@
                             "selected": {
                                 "count": 1
                             }
-                        }
+                        },
+                        "fulfillment_ids": ["https://www.youtube.com/watch?v=vFcS080VYQ0"]
                     }
                 ],
                 "fulfillments": [

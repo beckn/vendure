@@ -49,6 +49,7 @@
                 ],
                 "fulfillments": [
                     {
+                        "id": "1",
                         "type": "standard-shipping",
                         "stops": [
                             {

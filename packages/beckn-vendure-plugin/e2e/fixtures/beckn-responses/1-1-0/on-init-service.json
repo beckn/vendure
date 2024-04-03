@@ -53,7 +53,8 @@
                             "selected": {
                                 "count": 1
                             }
-                        }
+                        },
+                        "fulfillment_ids": ["4"]
                     }
                 ],
                 "fulfillments": [

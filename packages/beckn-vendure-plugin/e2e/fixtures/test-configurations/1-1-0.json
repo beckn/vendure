@@ -130,6 +130,12 @@
         "exclude": ["body.context.timestamp", "body.message.order.id"]
     },
     {
+        "queryName": "status-service",
+        "reqJSONFile": "status-service.json",
+        "resJSONFile": "on-status-service.json",
+        "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
+    },
+    {
         "queryName": "track",
         "reqJSONFile": "track.json",
         "resJSONFile": "on-track.json",

@@ -76,6 +76,7 @@ query GetBecknOrder($becknOrderId: String!) {
         shippingLines {
             id
             shippingMethod {
+                id
                 code
                 name
                 description

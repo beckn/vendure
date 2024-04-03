@@ -10,6 +10,7 @@
     };
     $shippingFulfillments:= function (){(
         $default_fulfillment := {
+            "id": $shippingMethodId,
             "type": $shippingMethodCode,
             "stops":[
                 {
@@ -107,7 +108,8 @@
     $digitalFulfillmentUrls:=$order.fulfillments.customFields.downloadUrls;   
     $isDigitalFulfillment:= $exists($digitalFulfillmentUrls) and $boolean($digitalFulfillmentUrls); 
     $shippingMethodCode := $order.shippingLines.shippingMethod.code;
-
+    $shippingMethodId := $order.shippingLines.shippingMethod.id;
+    $finalFulfillments := $isDigitalFulfillment ? $digitalFulfillments()[] : $shippingFulfillments();
     
     {
         "headers":{
@@ -145,9 +147,10 @@
                             "selected":{
                                 "count": $.quantity
                             }
-                        }
+                        },
+                        "fulfillment_ids": $sort($finalFulfillments[].id)
                     },
-                    "fulfillments": $isDigitalFulfillment ? $digitalFulfillments()[] : $shippingFulfillments(),
+                    "fulfillments": $finalFulfillments,
                     "quote":{
                         "price":$formatPrice($order.totalWithTax,$order.currencyCode),
                         "breakup":[
