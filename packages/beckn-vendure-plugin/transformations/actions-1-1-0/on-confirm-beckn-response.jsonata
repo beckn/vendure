@@ -98,11 +98,11 @@
                         "params": {
                             "amount": $paymentDetails.paymentAmount,
                             "currency": $paymentDetails.paymentCurrencyCode,
-                            "transaction_id": $paymentDetails.paymentTransactionId
+                            "transaction_id": $paymentDetails.paymentTransactionId ?  $paymentDetails.paymentTransactionId : ""
                         },
                         "time":{
                             "label": "Transaction timestamp",
-                            "timestamp": $paymentDetails.paymentTime
+                            "timestamp": $paymentDetails.paymentTime ? $paymentDetails.paymentTime : $now()
                         }
                     },
                     "tags":[
