@@ -23,5 +23,19 @@ query Search($input: SearchInput!) {
             currencyCode
             facetValueIds
         }
+        facetValues {
+            count
+            facetValue {
+                id
+                facetId
+                name
+                code
+                facet {
+                    name
+                    code
+                    id
+                }
+            }
+        }
     }
 }

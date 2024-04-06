@@ -158,11 +158,5 @@
         "reqJSONFile": "update-digital-individual-fulfillment.json",
         "resJSONFile": "on-update-digital-individual-fulfillment.json",
         "exclude": ["body.context.timestamp"]
-    },
-    {
-        "queryName": "status-service",
-        "reqJSONFile": "status-service.json",
-        "resJSONFile": "on-status-service.json",
-        "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
     }
 ]

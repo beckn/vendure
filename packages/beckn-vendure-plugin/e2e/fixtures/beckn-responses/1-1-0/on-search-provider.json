@@ -57,6 +57,42 @@
                                     ]
                                 },
                                 "matched": true,
+                                "tags": [
+                                    {
+                                        "display": true,
+                                        "descriptor": {
+                                            "name": "Facets",
+                                            "code": "facets",
+                                            "short_desc": "Tags in common language, facets within Vendure"
+                                        },
+                                        "list": [
+                                            {
+                                                "display": true,
+                                                "descriptor": {
+                                                    "name": "species",
+                                                    "code": "species"
+                                                },
+                                                "value": "Arabica"
+                                            },
+                                            {
+                                                "display": true,
+                                                "descriptor": {
+                                                    "name": "county",
+                                                    "code": "county"
+                                                },
+                                                "value": "Nandi"
+                                            },
+                                            {
+                                                "display": true,
+                                                "descriptor": {
+                                                    "name": "category",
+                                                    "code": "category-2"
+                                                },
+                                                "value": "Grocery"
+                                            }
+                                        ]
+                                    }
+                                ],
                                 "quantity": {
                                     "unitized": {
                                         "measure": {
@@ -84,6 +120,34 @@
                                     ]
                                 },
                                 "matched": true,
+                                "tags": [
+                                    {
+                                        "display": true,
+                                        "descriptor": {
+                                            "name": "Facets",
+                                            "code": "facets",
+                                            "short_desc": "Tags in common language, facets within Vendure"
+                                        },
+                                        "list": [
+                                            {
+                                                "display": true,
+                                                "descriptor": {
+                                                    "name": "county",
+                                                    "code": "county"
+                                                },
+                                                "value": "Nandi"
+                                            },
+                                            {
+                                                "display": true,
+                                                "descriptor": {
+                                                    "name": "category",
+                                                    "code": "category-2"
+                                                },
+                                                "value": "Plants"
+                                            }
+                                        ]
+                                    }
+                                ],
                                 "rating": "3.8",
                                 "quantity": {
                                     "unitized": {

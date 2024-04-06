@@ -2,6 +2,44 @@
     $context := becknRequest.body.context;
     $env := env;
     $data := searchResponse.body.data.search;
+    $facets := $data.facetValues;
+    $getFacetsForItem := function($tItem){
+        (
+            $enabledFacets := $facets[][$.facetValue.id in $tItem.facetValueIds];
+            $facetIds := $distinct($enabledFacets.facetValue.facetId);
+            $facetIds := $facetIds.(
+                $facetId:=$;
+                {
+                "display":true,
+                "descriptor": (
+                    $facetDetails := $enabledFacets[facetValue.facetId= $facetId][0].facetValue.facet;
+                    {
+                        "name":$facetDetails.name,
+                        "code":$facetDetails.code
+                    }
+                ),
+                "value":$enabledFacets[facetValue.facetId= $facetId][0].facetValue.name
+                
+            })
+        )
+    };
+    $getTags := function($tItem){(
+        $list := $getFacetsForItem($tItem);
+        $count($list) > 0 ?
+        {
+            "tags": [
+                {
+                    "display": true,
+                    "descriptor":{
+                        "name": "Facets",
+                        "code": "facets",
+                        "short_desc": "Tags in common language, facets within Vendure"
+                    },
+                    "list": $getFacetsForItem($tItem)
+                }
+            ]
+        }: {}
+    )};
     {
         "headers":{
             "Content-Type": "application/json"
@@ -56,6 +94,7 @@
                                     "matched": true
                                     
                                 };
+                                $retTags := $getTags($);
                                 $retRating := {"rating": $string($$.productVariantSellers[id=$currProdVarId].product.customFields.reviewRating)};
                                 $retQuantity := {
                                     "quantity":{
@@ -67,9 +106,8 @@
                                             }
                                         }
                                 };
-                                $retTotal := $retRating.rating != "null" ? $merge([$retItem,$retRating]) : $retItem;
+                                $retTotal := $retRating.rating != "null" ? $merge([$retItem,$retTags,$retRating]) : $merge([$retItem,$retTags]);
                                 $$.productVariantSellers[id=$currProdVarId].options ? $merge([$retTotal,$retQuantity]) : $retTotal   
-
                             )
                         }
                     )
