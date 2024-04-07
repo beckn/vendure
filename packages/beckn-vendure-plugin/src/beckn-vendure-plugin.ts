@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { OnModuleInit } from '@nestjs/common';
-import { LanguageCode, PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { Asset, LanguageCode, PluginCommonModule, VendurePlugin } from '@vendure/core';
 import { EventBus } from '@vendure/core';
 import path from 'path';
 
@@ -80,6 +80,20 @@ import { DigitalFulfillmentService } from './services/digital-fulfillment-servic
             {
                 type: 'string',
                 name: 'url',
+            },
+            {
+                type: 'text',
+                name: 'address',
+            },
+            {
+                type: 'string',
+                name: 'taxId',
+            },
+            {
+                type: 'relation',
+                name: 'images',
+                entity: Asset,
+                list: true,
             },
         );
         config.customFields.OrderLine.push(

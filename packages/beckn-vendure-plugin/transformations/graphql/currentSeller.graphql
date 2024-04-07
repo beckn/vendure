@@ -15,6 +15,14 @@ query ActiveChannel {
                 phoneNumber
                 email
                 url
+                address
+                taxId
+                images {
+                    source
+                    name
+                    type
+                    id
+                }
             }
         }
     }

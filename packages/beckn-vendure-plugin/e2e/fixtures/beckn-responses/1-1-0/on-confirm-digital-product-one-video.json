@@ -30,8 +30,45 @@
                 "provider": {
                     "id": "meru-coffee",
                     "descriptor": {
-                        "name": "Meru Coffee"
-                    }
+                        "name": "Meru Coffee",
+                        "short_desc": "Premium coffee growers from the county of Meru",
+                        "long_desc": "From Meru county in Central Kenya comes a premium coffee plantation called Meru Coffee. We grow premium varieties of Robusta and Arabica seeds.",
+                        "images": [
+                            {
+                                "url": "http://localhost:3000/assets/source/8f/meru.png"
+                            }
+                        ]
+                    },
+                    "tags": [
+                        {
+                            "display": true,
+                            "descriptor": {
+                                "name": "Additional Details",
+                                "code": "additional_details",
+                                "short_desc": "Additional details about seller"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "name": "Address",
+                                        "code": "address",
+                                        "short_desc": "Address of Seller"
+                                    },
+                                    "display": true,
+                                    "value": "P.O. Box 100-60200, Meru, Keny"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Tax ID",
+                                        "code": "tax_id",
+                                        "short_desc": "Tax identifier of Seller"
+                                    },
+                                    "display": true,
+                                    "value": "KEN-TAX-002"
+                                }
+                            ]
+                        }
+                    ]
                 },
                 "items": [
                     {

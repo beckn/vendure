@@ -31,8 +31,21 @@
                 "provider": {
                     "id": "2p0aliran34hu8i6cr7y",
                     "descriptor": {
-                        "name": "Default Seller"
-                    }
+                        "name": "Default Seller",
+                        "short_desc": "Marketplace for agricultural products in Kenya",
+                        "long_desc": "Marketplace to Buy and Sell Agricultural Products and Services in Kenya"
+                    },
+                    "tags": [
+                        {
+                            "display": true,
+                            "descriptor": {
+                                "name": "Additional Details",
+                                "code": "additional_details",
+                                "short_desc": "Additional details about seller"
+                            },
+                            "list": []
+                        }
+                    ]
                 },
                 "items": [
                     {

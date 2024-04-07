@@ -31,9 +31,45 @@
                     "provider":{
                         "id": $currentChannel.token,
                         "descriptor": {
-                            "name": $currentSeller.name
-                        }
-                    },
+                            "name": $currentSeller.name,
+                            "short_desc": $currentSeller.customFields.shortDescription ? $currentSeller.customFields.shortDescription : "",
+                            "long_desc": $currentSeller.customFields.longDescription ? $currentSeller.customFields.longDescription : "",
+                            "images":$currentSeller.customFields.images[].{
+                                "url":$.source
+                            }
+                        },
+                        "tags":[
+                            {
+                                "display":true,
+                                "descriptor":{
+                                    "name":"Additional Details",
+                                    "code":"additional_details",
+                                    "short_desc": "Additional details about seller"
+                                },
+                                "list":[
+                                    $currentSeller.customFields.address ? {
+                                        "descriptor":{
+                                            "name": "Address",
+                                            "code": "address",
+                                            "short_desc": "Address of Seller"
+                                        },
+                                        "display":true,
+                                        "value": $currentSeller.customFields.address
+                                    }
+                                    ,
+                                    $currentSeller.customFields.taxId ? {
+                                        "descriptor":{
+                                            "name": "Tax ID",
+                                            "code": "tax_id",
+                                            "short_desc": "Tax identifier of Seller"
+                                        },
+                                        "display":true,
+                                        "value": $currentSeller.customFields.taxId
+                                    }
+                                ]
+                            }
+                        ]
+                    },                    
                     "items": $items[].{
                         "id":$.productVariant.id,
                         "descriptor":{
