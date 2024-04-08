@@ -7,7 +7,7 @@
         (
             $enabledFacets := $facets[][$.facetValue.id in $tItem.facetValueIds];
             $facetIds := $distinct($enabledFacets.facetValue.facetId);
-            $facetIds := $facetIds.(
+            $facetIds := $facetIds[].(
                 $facetId:=$;
                 {
                 "display":true,
