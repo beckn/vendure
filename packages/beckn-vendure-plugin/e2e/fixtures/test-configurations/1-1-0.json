@@ -136,6 +136,12 @@
         "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
     },
     {
+        "queryName": "status-digital-product-with-course-completion",
+        "reqJSONFile": "status-digital-product-with-course-completion.json",
+        "resJSONFile": "on-status-digital-product-with-course-completion.json",
+        "exclude": ["body.context.timestamp"]
+    },
+    {
         "queryName": "track",
         "reqJSONFile": "track.json",
         "resJSONFile": "on-track.json",

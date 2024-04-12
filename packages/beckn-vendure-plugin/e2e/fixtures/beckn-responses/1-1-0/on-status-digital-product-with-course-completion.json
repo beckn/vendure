@@ -1,0 +1,261 @@
+{
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "body": {
+        "context": {
+            "domain": "retail:1.1.0",
+            "location": {
+                "country": {
+                    "code": "IND"
+                },
+                "city": {
+                    "code": "std:080"
+                }
+            },
+            "action": "on_status",
+            "version": "1.1.0",
+            "bap_id": "ps-bap-network.becknprotocol.io",
+            "bap_uri": "https://ps-bap-network.becknprotocol.io",
+            "bpp_id": "vbabu.lr.bpp.1",
+            "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
+            "message_id": "b8c1e69c-fbbc-439b-a5de-2adcc74f6710",
+            "transaction_id": "8100d125-76a7-4588-88be-81b976572670",
+            "timestamp": "2024-03-09T14:44:22.280Z",
+            "ttl": "PT10M"
+        },
+        "message": {
+            "order": {
+                "id": "baa2dc03dc4c44419ee378f1731fa209b98f29a65ebd107250387b701e46f9e1",
+                "status": "ACTIVE",
+                "provider": {
+                    "id": "meru-coffee",
+                    "descriptor": {
+                        "name": "Meru Coffee",
+                        "short_desc": "Premium coffee growers from the county of Meru",
+                        "long_desc": "From Meru county in Central Kenya comes a premium coffee plantation called Meru Coffee. We grow premium varieties of Robusta and Arabica seeds.",
+                        "images": [
+                            {
+                                "url": "http://localhost:3000/assets/source/8f/meru.png"
+                            }
+                        ]
+                    },
+                    "tags": [
+                        {
+                            "display": true,
+                            "descriptor": {
+                                "name": "Additional Details",
+                                "code": "additional_details",
+                                "short_desc": "Additional details about seller"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "name": "Address",
+                                        "code": "address",
+                                        "short_desc": "Address of Seller"
+                                    },
+                                    "display": true,
+                                    "value": "P.O. Box 100-60200, Meru, Keny"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Tax ID",
+                                        "code": "tax_id",
+                                        "short_desc": "Tax identifier of Seller"
+                                    },
+                                    "display": true,
+                                    "value": "KEN-TAX-002"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "items": [
+                    {
+                        "id": "93",
+                        "descriptor": {
+                            "name": "Coffee plant care",
+                            "long_desc": "<p>Course on taking care of coffee plants</p>",
+                            "images": [
+                                {
+                                    "url": "http://localhost:3000/assets/source/85/coffee_plant_care.jpg"
+                                }
+                            ]
+                        },
+                        "price": {
+                            "listed_value": "0.00",
+                            "currency": "USD",
+                            "value": "0.00"
+                        },
+                        "quantity": {
+                            "selected": {
+                                "count": 1
+                            }
+                        },
+                        "fulfillment_ids": [
+                            "https://www.youtube.com/watch?v=LelXXtImQUc",
+                            "https://www.youtube.com/watch?v=SFXpz6hhlAI"
+                        ]
+                    }
+                ],
+                "fulfillments": [
+                    {
+                        "id": "https://www.youtube.com/watch?v=SFXpz6hhlAI",
+                        "type": "digital-fulfillment",
+                        "state": {
+                            "descriptor": {
+                                "code": "delivered"
+                            }
+                        },
+                        "stops": [
+                            {
+                                "time": {
+                                    "label": "duration",
+                                    "duration": "1m46s"
+                                },
+                                "instructions": {
+                                    "name": "Coffee Plant Care Guide",
+                                    "short_desc": "In this video we cover the basic care instructions for the Coffee Arabica Houseplant, including light, watering recommendations, fertilizer, soil recipe, and when to repot! ",
+                                    "media": [
+                                        {
+                                            "url": "https://www.youtube.com/watch?v=SFXpz6hhlAI"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "https://www.youtube.com/watch?v=LelXXtImQUc",
+                        "type": "digital-fulfillment",
+                        "state": {
+                            "descriptor": {
+                                "code": "delivered"
+                            }
+                        },
+                        "stops": [
+                            {
+                                "time": {
+                                    "label": "duration",
+                                    "duration": "3m18s"
+                                },
+                                "instructions": {
+                                    "name": "Coffee Plant Care & Growing Guide",
+                                    "short_desc": "Spurce's Coffee Plant Video",
+                                    "media": [
+                                        {
+                                            "url": "https://www.youtube.com/watch?v=LelXXtImQUc"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "quote": {
+                    "price": {
+                        "currency": "USD",
+                        "value": "0.00"
+                    },
+                    "breakup": [
+                        {
+                            "title": "base-price",
+                            "price": {
+                                "currency": "USD",
+                                "value": "0.00"
+                            }
+                        },
+                        {
+                            "title": "shipping",
+                            "price": {
+                                "currency": "USD",
+                                "value": "0.00"
+                            }
+                        },
+                        {
+                            "title": "taxes",
+                            "price": {
+                                "currency": "USD",
+                                "value": "0.00"
+                            }
+                        }
+                    ]
+                },
+                "billing": {
+                    "name": "Motiur Rehman",
+                    "phone": "9191223433",
+                    "email": "nc.rehman@gmail.com",
+                    "address": "123, Terminal 1, Kempegowda Int'l Airport Rd, A - Block, Gangamuthanahalli, Karnataka 560300, India",
+                    "city": {
+                        "name": "Gangamuthanahalli"
+                    },
+                    "state": {
+                        "name": "Karnataka"
+                    }
+                },
+                "payments": [
+                    {
+                        "type": "PRE-FULFILLMENT",
+                        "params": {
+                            "amount": "0.00",
+                            "currency": "USD",
+                            "transaction_id": "198237475"
+                        },
+                        "time": {
+                            "label": "Transaction timestamp",
+                            "timestamp": "2024-01-26T10:14:10.280Z"
+                        }
+                    }
+                ],
+                "tags": [
+                    {
+                        "descriptor": {
+                            "name": "Shipping method details",
+                            "code": "ShippingMethodDetails"
+                        },
+                        "list": [
+                            {
+                                "descriptor": {
+                                    "name": "Digital Fulfillment",
+                                    "code": "digital-fulfillment"
+                                },
+                                "value": "digital-fulfillment"
+                            }
+                        ]
+                    },
+                    {
+                        "descriptor": {
+                            "name": "Additional status",
+                            "code": "AdditionalStatus"
+                        },
+                        "list": [
+                            {
+                                "descriptor": {
+                                    "name": "Detailed Order Status",
+                                    "code": "detailedOrderStatus"
+                                },
+                                "value": "Shipped"
+                            }
+                        ]
+                    },
+                    {
+                        "descriptor": {
+                            "name": "Course Completion Details",
+                            "code": "course-completion-details"
+                        },
+                        "list": [
+                            {
+                                "descriptor": {
+                                    "name": "Course certificate",
+                                    "code": "course-certificate"
+                                },
+                                "value": null
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

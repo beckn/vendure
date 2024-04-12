@@ -92,6 +92,11 @@
             }
         })
     )};
+    $courseCompleted := function(){
+        $exists(becknOrder.fulfillments.customFields.statuses) and (
+            $count(becknOrder.fulfillments.customFields.statuses) = $count(becknOrder.fulfillments.customFields.statuses[$="delivered"])
+        )
+    };
 
     $context := becknRequest.body.context;
     $message := becknRequest.body.message;
@@ -258,7 +263,22 @@
                                     "value": $order.state
                                 }
                             ]
-                        }
+                        },
+                        $courseCompleted() ? {
+                            "descriptor":{
+                                "name":"Course Completion Details",
+                                "code":"course-completion-details"
+                            },
+                            "list":[
+                                {
+                                    "descriptor":{
+                                        "name":"Course certificate",
+                                        "code":"course-certificate"
+                                    },
+                                    "value": becknOrder.customFields.certificate
+                                }
+                            ]
+                        } 
                     ]
                 }
             }

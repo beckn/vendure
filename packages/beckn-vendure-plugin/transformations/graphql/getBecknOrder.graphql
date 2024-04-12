@@ -72,6 +72,7 @@ query GetBecknOrder($becknOrderId: String!) {
             paymentAmount
             paymentCurrencyCode
             paymentTime
+            certificate
         }
         shippingLines {
             id

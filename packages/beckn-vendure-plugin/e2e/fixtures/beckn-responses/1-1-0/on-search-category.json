@@ -347,14 +347,16 @@
                                             "code": "facets",
                                             "short_desc": "Tags in common language, facets within Vendure"
                                         },
-                                        "list": {
-                                            "display": true,
-                                            "descriptor": {
-                                                "name": "category",
-                                                "code": "category"
-                                            },
-                                            "value": "Home & Garden"
-                                        }
+                                        "list": [
+                                            {
+                                                "display": true,
+                                                "descriptor": {
+                                                    "name": "category",
+                                                    "code": "category"
+                                                },
+                                                "value": "Home & Garden"
+                                            }
+                                        ]
                                     }
                                 ]
                             },
@@ -384,14 +386,16 @@
                                             "code": "facets",
                                             "short_desc": "Tags in common language, facets within Vendure"
                                         },
-                                        "list": {
-                                            "display": true,
-                                            "descriptor": {
-                                                "name": "category",
-                                                "code": "category"
-                                            },
-                                            "value": "Home & Garden"
-                                        }
+                                        "list": [
+                                            {
+                                                "display": true,
+                                                "descriptor": {
+                                                    "name": "category",
+                                                    "code": "category"
+                                                },
+                                                "value": "Home & Garden"
+                                            }
+                                        ]
                                     }
                                 ]
                             },
@@ -421,14 +425,16 @@
                                             "code": "facets",
                                             "short_desc": "Tags in common language, facets within Vendure"
                                         },
-                                        "list": {
-                                            "display": true,
-                                            "descriptor": {
-                                                "name": "category",
-                                                "code": "category"
-                                            },
-                                            "value": "Home & Garden"
-                                        }
+                                        "list": [
+                                            {
+                                                "display": true,
+                                                "descriptor": {
+                                                    "name": "category",
+                                                    "code": "category"
+                                                },
+                                                "value": "Home & Garden"
+                                            }
+                                        ]
                                     }
                                 ]
                             }
