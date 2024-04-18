@@ -160,6 +160,12 @@
         "exclude": ["body.context.timestamp"]
     },
     {
+        "queryName": "update-address",
+        "reqJSONFile": "update-address.json",
+        "resJSONFile": "on-update-address.json",
+        "exclude": ["body.context.timestamp"]
+    },
+    {
         "queryName": "update-digital-individual-fulfillment",
         "reqJSONFile": "update-digital-individual-fulfillment.json",
         "resJSONFile": "on-update-digital-individual-fulfillment.json",

@@ -1145,7 +1145,8 @@
                 "jsonataFilename": "construct-update-digital-fulfillment-line-input.jsonata",
                 "outputKey": "updateDigitalFulfillmentLineInput",
                 "common": "true"
-            }
+            },
+            "condition": "context.updateRequest.isFulfillmentStateUpdate"
         },
         {
             "name": "update-digital-fulfillment-line",
@@ -1153,9 +1154,23 @@
             "args": {
                 "graphqlFilename": "updateDigitalFulfillmentLine.graphql",
                 "variablesKey": "updateDigitalFulfillmentLineInput",
-                "outputKey": "updateDigitalFulfillmentLineReesponse.graphql",
+                "outputKey": "updateDigitalFulfillmentLineResponse",
                 "outputDataPath": "body.data.updateDigitalFulfillmentLine"
-            }
+            },
+            "condition": "context.updateRequest.isFulfillmentStateUpdate"
+        },
+        {
+            "name": "set-order-shipping-address",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "setOrderShippingAddress.graphql",
+
+                "variablesKey": "updateRequest.shippingAddressUpdateDetails",
+                "outputKey": "setOrderShippingAddressResult",
+                "outputDataPath": "body.data",
+                "vendureAuthTokenKey": "updateRequest.order_id"
+            },
+            "condition": "context.updateRequest.isShippingAddressUpdate"
         },
         {
             "name": "get-beckn-order",

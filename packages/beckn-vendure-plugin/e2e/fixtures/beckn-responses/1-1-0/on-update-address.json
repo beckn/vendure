@@ -1,0 +1,217 @@
+{
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "body": {
+        "context": {
+            "domain": "retail:1.1.0",
+            "location": {
+                "country": {
+                    "code": "IND"
+                },
+                "city": {
+                    "code": "std:080"
+                }
+            },
+            "action": "on_update",
+            "version": "1.1.0",
+            "bap_id": "ps-bap-network.becknprotocol.io",
+            "bap_uri": "https://ps-bap-network.becknprotocol.io",
+            "bpp_id": "vbabu.lr.bpp.1",
+            "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
+            "message_id": "b8c1e69c-fbbc-439b-a5de-2adcc74f1354",
+            "transaction_id": "8100d125-76a7-4588-88be-81b976572354",
+            "timestamp": "2024-01-31T10:14:10.295Z",
+            "ttl": "PT10M"
+        },
+        "message": {
+            "order": {
+                "id": "a197410bfae2b17add929feac309517148c8401df17134533a60b6bee5c8a54f",
+                "status": "ACTIVE",
+                "provider": {
+                    "id": "2p0aliran34hu8i6cr7y",
+                    "descriptor": {
+                        "name": "Default Seller",
+                        "short_desc": "Marketplace for agricultural products in Kenya",
+                        "long_desc": "Marketplace to Buy and Sell Agricultural Products and Services in Kenya"
+                    },
+                    "tags": [
+                        {
+                            "display": true,
+                            "descriptor": {
+                                "name": "Additional Details",
+                                "code": "additional_details",
+                                "short_desc": "Additional details about seller"
+                            },
+                            "list": []
+                        }
+                    ]
+                },
+                "items": [
+                    {
+                        "id": "69",
+                        "descriptor": {
+                            "name": "Hanging Plant",
+                            "long_desc": "Can be found in tropical and sub-tropical America where it grows on the branches of trees, but also on telephone wires and electricity cables and poles that sometimes topple with the weight of these plants. This plant loves a moist and warm air.",
+                            "images": [
+                                {
+                                    "url": "http://localhost:3000/assets/source/ff/alex-rodriguez-santibanez-200278-unsplash.jpg"
+                                }
+                            ]
+                        },
+                        "price": {
+                            "listed_value": "19.95",
+                            "currency": "USD",
+                            "value": "19.95"
+                        },
+                        "quantity": {
+                            "selected": {
+                                "count": 2
+                            }
+                        },
+                        "fulfillment_ids": ["1"]
+                    },
+                    {
+                        "id": "70",
+                        "descriptor": {
+                            "name": "Aloe Vera",
+                            "long_desc": "Decorative Aloe vera makes a lovely house plant. A really trendy plant, Aloe vera is just so easy to care for. Aloe vera sap has been renowned for its remarkable medicinal and cosmetic properties for many centuries and has been used to treat grazes, insect bites and sunburn - it really works.",
+                            "images": [
+                                {
+                                    "url": "http://localhost:3000/assets/source/d5/silvia-agrasar-227575-unsplash.jpg"
+                                }
+                            ]
+                        },
+                        "price": {
+                            "listed_value": "6.99",
+                            "currency": "USD",
+                            "value": "6.99"
+                        },
+                        "quantity": {
+                            "selected": {
+                                "count": 1
+                            }
+                        },
+                        "fulfillment_ids": ["1"]
+                    }
+                ],
+                "fulfillments": [
+                    {
+                        "id": "1",
+                        "type": "standard-shipping",
+                        "stops": [
+                            {
+                                "location": {
+                                    "address": "43, Residency Road, Bengaluru - 560025 ",
+                                    "city": {
+                                        "name": "Bengaluru"
+                                    },
+                                    "state": {
+                                        "name": "Karnataka"
+                                    },
+                                    "country": {
+                                        "code": "IN"
+                                    },
+                                    "area_code": "560025"
+                                },
+                                "contact": {
+                                    "phone": "919845998459",
+                                    "email": "nc.rehman@gmail.com"
+                                }
+                            }
+                        ],
+                        "customer": {
+                            "person": {
+                                "name": "Motiur Rehman"
+                            },
+                            "contact": {
+                                "phone": "9191223433"
+                            }
+                        }
+                    }
+                ],
+                "quote": {
+                    "price": {
+                        "currency": "USD",
+                        "value": "61.27"
+                    },
+                    "breakup": [
+                        {
+                            "title": "base-price",
+                            "price": {
+                                "currency": "USD",
+                                "value": "46.89"
+                            }
+                        },
+                        {
+                            "title": "shipping",
+                            "price": {
+                                "currency": "USD",
+                                "value": "5.00"
+                            }
+                        },
+                        {
+                            "title": "taxes",
+                            "price": {
+                                "currency": "USD",
+                                "value": "9.38"
+                            }
+                        }
+                    ]
+                },
+                "billing": {
+                    "name": "Motiur Rehman",
+                    "phone": "9191223433",
+                    "email": "nc.rehman@gmail.com",
+                    "address": "123, Terminal 1, Kempegowda Int'l Airport Rd, A - Block, Gangamuthanahalli, Karnataka 560300, India",
+                    "city": {
+                        "name": "Gangamuthanahalli"
+                    },
+                    "state": {
+                        "name": "Karnataka"
+                    }
+                },
+                "payments": [
+                    {
+                        "type": "PRE-FULFILLMENT",
+                        "params": {
+                            "amount": "61.27",
+                            "currency": "USD",
+                            "transaction_id": "198237465"
+                        },
+                        "time": {
+                            "label": "Transaction timestamp",
+                            "timestamp": "2024-01-26T10:14:10.280Z"
+                        }
+                    }
+                ],
+                "tags": [
+                    {
+                        "descriptor": { "name": "Shipping method details", "code": "ShippingMethodDetails" },
+                        "list": [
+                            {
+                                "descriptor": { "name": "Standard Shipping", "code": "standard-shipping" },
+                                "value": "standard-shipping"
+                            }
+                        ]
+                    },
+                    {
+                        "descriptor": {
+                            "name": "Additional status",
+                            "code": "AdditionalStatus"
+                        },
+                        "list": [
+                            {
+                                "descriptor": {
+                                    "name": "Detailed Order Status",
+                                    "code": "detailedOrderStatus"
+                                },
+                                "value": "ArrangingPayment"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

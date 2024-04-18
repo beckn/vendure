@@ -4,20 +4,50 @@
     $orderId := $order.id;
     $fulfillmentMatcher := /order\.fulfillments\[(\d+)\].state/;
     $orderMatcher := /order\.state/;
+    $shippingAddressMatcher := /order.fulfillments\[(\d+)\].stops\[(\d+)\]/;
     $fulfillmentMatcherResult := $fulfillmentMatcher($update_target);
-    $isFulfillmentUpdate:= $exists($fulfillmentMatcherResult);
-    $isOrderUpdate:= $exists($orderMatcher($update_target));
+    $isFulfillmentStateUpdate:= $exists($fulfillmentMatcherResult);
+    $isOrderStateUpdate := $exists($orderMatcher($update_target));
+    $isShippingAddressUpdate := $exists($shippingAddressMatcher($update_target));
     {
         "order_id": $orderId,
         "update_target": $update_target,
-        "isFulfillmentUpdate": $isFulfillmentUpdate,
-        "isOrderUpdate": $isOrderUpdate,
-        "fulfillmentUpdateDetails":$isFulfillmentUpdate ? ({
+        "isFulfillmentStateUpdate": $isFulfillmentStateUpdate,
+        "isOrderStateUpdate": $isOrderStateUpdate,
+        "isShippingAddressUpdate": $isShippingAddressUpdate,
+        "fulfillmentUpdateDetails":$isFulfillmentStateUpdate ? ({
             "fulfillmentIndex": $number($fulfillmentMatcherResult.groups[0]),
             "targetFulfillmentState": $order.fulfillments[0].state.descriptor.code
         }):{},
-        "orderUpdateDetails":$isOrderUpdate ? ({
+        "orderStateUpdateDetails":$isOrderStateUpdate ? ({
             "targetOrderState": $order.state.descriptor.code
-        }):{}
+        }):{},
+        "shippingAddressUpdateDetails": $isShippingAddressUpdate ? (
+            $stop := $order.fulfillments[0].stops[0];
+            $shippingAddress := $stop.location;
+
+            $firstName := function($fullName){
+                $split($fullName," ")[0]
+            };
+            $lastName := function($fullName){(
+                $parts := $split($fullName," ");
+                $remainingParts := $filter($parts, function ($v, $i) {
+                    $i != 0
+                    });
+                $lastName := $join($remainingParts," ");
+                $lastName ? $lastName : "N/A";
+            )};
+            {
+                "shippingAddress": $shippingAddress.{
+                    "fullName": $stop.contact.name,
+                    "streetLine1":address,
+                    "city":city.name,
+                    "province":state.name,
+                    "countryCode":$substring(country.code,0,2),
+                    "postalCode":area_code,
+                    "phoneNumber":$stop.contact.phone
+                }
+            }           
+        ):{}
     }
 )
