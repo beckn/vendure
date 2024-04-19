@@ -28,6 +28,7 @@
                         "area_code": $shippingAddress.postalCode
                     } : {},
                     "contact":{
+                        "name": $shippingAddress.fullName ? $shippingAddress.fullName : $customer.firstName & ' ' & $customer.lastName,
                         "phone": $shippingAddress.phoneNumber ? $shippingAddress.phoneNumber : $customer.phoneNumber,
                         "email": $customer.emailAddress
                     }
