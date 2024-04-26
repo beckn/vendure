@@ -20,7 +20,38 @@
     $inputPayment:= $inputOrder.payments[0];
     $paymentDetails:= $order.customFields;
     $currentChannel := currentSellerResponse.body.data.activeChannel;
-    $currentSeller := $currentChannel.seller;    
+    $currentSeller := $currentChannel.seller;  
+    $getFacetsForItem := function($productVariantId){(
+        $tFacetValues := productDetails[id=$productVariantId].product.facetValues;
+        $tUniqueFacetIds := $distinct($tFacetValues[].facet.id);
+        $tUniqueFacetIds[].(
+            $tFacetId := $;
+            $tFacet := ($tFacetValues.facet[id=$tFacetId])[0];
+            {
+                "display":true,
+                "descriptor": ({
+                    "name":$tFacet.name,
+                    "code":$tFacet.code
+                }),
+                "value": ($tFacetValues[facetId=$tFacetId].name)[0]
+            }
+        )
+    )};    
+    $getTagForProductVariant := function($productVariantId){(
+        $list := $getFacetsForItem($productVariantId);
+        $count($list) > 0 ?
+        [
+                {
+                    "display": true,
+                    "descriptor":{
+                        "name": "Facets",
+                        "code": "facets",
+                        "short_desc": "Tags in common language, facets within Vendure"
+                    },
+                    "list": $list
+                }
+        ]
+    )};      
     {
         "headers":{
             "Content-Type": "application/json"
@@ -94,7 +125,8 @@
                                 "count": $.quantity
                             }
                         },
-                        "fulfillment_ids": $sort($inputOrder.fulfillments[].id)
+                        "fulfillment_ids": $sort($inputOrder.fulfillments[].id),
+                        "tags": $getTagForProductVariant($.productVariant.id)
                     },
                     "fulfillments": $inputOrder.fulfillments,
                     "quote":{

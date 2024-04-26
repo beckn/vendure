@@ -67,7 +67,35 @@
                                 "count": 2
                             }
                         },
-                        "fulfillment_ids": ["1"]
+                        "fulfillment_ids": ["1"],
+                        "tags": [
+                            {
+                                "display": true,
+                                "descriptor": {
+                                    "name": "Facets",
+                                    "code": "facets",
+                                    "short_desc": "Tags in common language, facets within Vendure"
+                                },
+                                "list": [
+                                    {
+                                        "display": true,
+                                        "descriptor": {
+                                            "name": "category",
+                                            "code": "category"
+                                        },
+                                        "value": "Home & Garden"
+                                    },
+                                    {
+                                        "display": true,
+                                        "descriptor": {
+                                            "name": "plant type",
+                                            "code": "plant-type"
+                                        },
+                                        "value": "Outdoor"
+                                    }
+                                ]
+                            }
+                        ]
                     },
                     {
                         "id": "70",
@@ -90,7 +118,35 @@
                                 "count": 1
                             }
                         },
-                        "fulfillment_ids": ["1"]
+                        "fulfillment_ids": ["1"],
+                        "tags": [
+                            {
+                                "display": true,
+                                "descriptor": {
+                                    "name": "Facets",
+                                    "code": "facets",
+                                    "short_desc": "Tags in common language, facets within Vendure"
+                                },
+                                "list": [
+                                    {
+                                        "display": true,
+                                        "descriptor": {
+                                            "name": "category",
+                                            "code": "category"
+                                        },
+                                        "value": "Home & Garden"
+                                    },
+                                    {
+                                        "display": true,
+                                        "descriptor": {
+                                            "name": "plant type",
+                                            "code": "plant-type"
+                                        },
+                                        "value": "Indoor"
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ],
                 "fulfillments": [

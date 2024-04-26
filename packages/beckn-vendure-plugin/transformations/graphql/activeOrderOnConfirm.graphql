@@ -60,6 +60,16 @@ query ActiveOrderOnConfirm {
                 assets {
                     source
                 }
+                facetValues {
+                    id
+                    name
+                    code
+                    facet {
+                        id
+                        name
+                        code
+                    }
+                }
             }
             customFields {
                 startTime

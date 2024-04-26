@@ -91,7 +91,27 @@
                                 "count": 1
                             }
                         },
-                        "fulfillment_ids": ["4"]
+                        "fulfillment_ids": ["4"],
+                        "tags": [
+                            {
+                                "display": true,
+                                "descriptor": {
+                                    "name": "Facets",
+                                    "code": "facets",
+                                    "short_desc": "Tags in common language, facets within Vendure"
+                                },
+                                "list": [
+                                    {
+                                        "display": true,
+                                        "descriptor": {
+                                            "name": "Product  Type",
+                                            "code": "product-type"
+                                        },
+                                        "value": "Service"
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ],
                 "fulfillments": [

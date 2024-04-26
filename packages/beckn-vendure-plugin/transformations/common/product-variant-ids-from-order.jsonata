@@ -1,0 +1,3 @@
+{
+  "productVariantIds":currentOrderResponse.activeOrder.lines[].productVariant.id
+}

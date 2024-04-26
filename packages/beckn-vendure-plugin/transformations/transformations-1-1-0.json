@@ -793,6 +793,25 @@
             }
         },
         {
+            "name": "extract-product-variant-ids-from-order",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "product-variant-ids-from-order.jsonata",
+                "outputKey": "productVariantIds",
+                "common": "true"
+            }
+        },
+        {
+            "name": "get-facets-of-product-variants",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getProductVariantDetails.graphql",
+                "variablesKey": "productVariantIds",
+                "outputKey": "productDetails",
+                "outputDataPath": "body.data.getProductVariantDetails.items"
+            }
+        },
+        {
             "name": "get-current-seller",
             "type": "send-graphql-request",
             "args": {

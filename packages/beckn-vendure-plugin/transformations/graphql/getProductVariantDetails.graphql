@@ -31,6 +31,17 @@ query GetProductVariantDetails($productVariantIds: [String!]) {
             }
             product {
                 id
+                facetValues {
+                    id
+                    facetId
+                    name
+                    code
+                    facet {
+                        id
+                        name
+                        code
+                    }
+                }
                 customFields {
                     reviewRating
                     reviewCount
