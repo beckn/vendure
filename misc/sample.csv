@@ -1,0 +1,2 @@
+name,slug,description,assets,facets,optionGroups,optionValues,sku,price,taxCategory,stockOnHand,trackInventory,variantAssets,variantFacets
+"My Item", ,"My item description",["https://www.example.com/image.png"],"category:Tourism|Trekking:Y|E:Y|Himalayas:Y|Country:Nepal|Treks:Y|Package:Trek",,,SKU-001,1200,,10000,false,,

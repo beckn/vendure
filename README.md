@@ -6,7 +6,12 @@ With the Vendure plugin, businesses can optimize product discovery by utilizing 
 The plugin integrates Beckn standards into Vendure's order fulfillment workflows, ensuring efficient order processing and delivery. From order placement to shipment tracking, businesses can meet customer expectations and improve satisfaction.
 In addition to order fulfillment, the plugin supports post-fulfillment activities such as returns and exchanges. By adhering to Beckn standards, businesses can effectively manage customer inquiries and resolve issues, fostering trust and loyalty.
 
+## Importing catalogs into Vendure
+
+Refer to [Catalog.md](./Catalog.md) for details on importing catalog into Vendure shops.
+
 ## Features
+
 **Single Shop and Multi-Seller, Multi-Tenant Mode**
 
 The platform offers versatility by accommodating both single-shop and multi-seller, multi-tenant modes of operation. Whether operating as an independent storefront or a comprehensive marketplace with multiple sellers and tenants, the platform provides robust features to meet diverse business needs.
@@ -24,26 +29,24 @@ In addition to physical goods, the platform supports the sale and distribution o
 The platform serves as a bridge between the stateless architecture of Beckn and the session-based framework of Vendure. By harmonizing the functionalities of both systems, the platform leverages Beckn's decentralized approach and Vendure's session management capabilities to deliver a seamless and scalable e-commerce solution.
 
 ## Technical stack
+
 Node
 
 ## Release Notes
 
-| Name | Version |
-|---------|--------------|
-| vendure Plugin    | 1.0.0   |
+| Name           | Version |
+| -------------- | ------- |
+| vendure Plugin | 1.0.0   |
 
-
-## Installation/Setup Guide 
-
+## Installation/Setup Guide
 
 ## User Guide
-NA
 
+NA
 
 ## Link to Experience Center
 
 NA
-
 
 ## Contributing guidelines
 
@@ -81,6 +84,3 @@ If you have an idea for a new feature or improvement, feel free to open an issue
 - Include a detailed description of the changes you've made.
 - Reference any related issues in your pull request.
 - Ensure your code is properly tested.
-  
-
-

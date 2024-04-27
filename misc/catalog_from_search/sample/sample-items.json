@@ -1,0 +1,117 @@
+{
+  "context": {
+    "ttl": "PT10M",
+    "action": "search",
+    "timestamp": "2024-04-27T08:15:22.892Z",
+    "message_id": "70d93b2b-c7db-4db0-bf66-8d7f18ca3204",
+    "transaction_id": "5a842239-fb1c-49fd-b6fa-06db5d6984f3",
+    "domain": "nic2004:52110",
+    "core_version": "0.9.4",
+    "bap_id": "ps-bap-network.becknprotocol.io",
+    "bap_uri": "https://ps-bap-network.becknprotocol.io/",
+    "country": "IND",
+    "city": "std:080",
+    "max_callbacks": 1
+  },
+  "responses": [
+    {
+      "context": {
+        "transaction_id": "5a842239-fb1c-49fd-b6fa-06db5d6984f3",
+        "country": "IND",
+        "bpp_id": "retail-bpp-infra1.becknprotocol.io",
+        "city": "std:080",
+        "max_callbacks": 1,
+        "message_id": "70d93b2b-c7db-4db0-bf66-8d7f18ca3204",
+        "ttl": "PT10M",
+        "core_version": "0.9.4",
+        "bap_id": "ps-bap-network.becknprotocol.io",
+        "domain": "nic2004:52110",
+        "bpp_uri": "https://retail-bpp-infra1.becknprotocol.io//boc/bpp",
+        "action": "on_search",
+        "bap_uri": "https://ps-bap-network.becknprotocol.io/",
+        "timestamp": "2024-04-27T08:15:22.892Z"
+      },
+      "message": {
+        "catalog": {
+          "bpp/providers": [],
+          "bpp/descriptor": {
+            "name": "HBO"
+          },
+          "id": "./retail.kirana/ind.blr/0@retail-bpp-infra1.becknprotocol.io"
+        }
+      }
+    },
+    {
+      "context": {
+        "transaction_id": "5a842239-fb1c-49fd-b6fa-06db5d6984f3",
+        "country": "IND",
+        "bpp_id": "retail-bpp-infra2.becknprotocol.io",
+        "city": "std:080",
+        "max_callbacks": 1,
+        "message_id": "70d93b2b-c7db-4db0-bf66-8d7f18ca3204",
+        "ttl": "PT10M",
+        "core_version": "0.9.4",
+        "bap_id": "ps-bap-network.becknprotocol.io",
+        "domain": "nic2004:52110",
+        "bpp_uri": "https://retail-bpp-infra2.becknprotocol.io//boc/bpp",
+        "action": "on_search",
+        "bap_uri": "https://ps-bap-network.becknprotocol.io/",
+        "timestamp": "2024-04-27T08:15:22.892Z"
+      },
+      "message": {
+        "catalog": {
+          "bpp/providers": [
+            {
+              "extended_attributes": {},
+              "locations": [
+                {
+                  "id": "./retail.kirana/ind.blr/34@retail-bpp-infra2.becknprotocol.io.provider_location",
+                  "gps": "12.811140,77.663402"
+                }
+              ],
+              "matched": true,
+              "id": "./retail.kirana/ind.blr/167@retail-bpp-infra2.becknprotocol.io.provider",
+              "descriptor": {
+                "name": "InstaKart"
+              },
+              "items": [
+                {
+                  "extended_attributes": {},
+                  "price": {
+                    "listed_value": "3999.0",
+                    "currency": "INR",
+                    "value": "3999.0"
+                  },
+                  "matched": true,
+                  "id": "./retail.kirana/ind.blr/300@retail-bpp-infra2.becknprotocol.io.item",
+                  "descriptor": {
+                    "images": ["https://retail-bpp-infra2.becknprotocol.io/attachments/view/269.jpg"],
+                    "name": "Rucksack Bag",
+                    "short_desc": "Rucksack + Detachable Day Pack & Rain Cover Army Green",
+                    "long_desc": "<div> <ul> <li></li> <li>Hard fibre support in the back along with aluminium rod provides a strong internal frame</li> <li>Extra soft breathable cushioning on the back provides easy air flow while walking for long hours.</li> <li>8 Utility straps to wrap additional items (sleeping bag, mat, camping equipment) on the sides, bottom and top</li> <li>Elastic cords and hooks on the day pack to hold mountaineering gear and additional emergency items</li> <li>Double layered strong fabric at the bottom provides durability for rough usage and carrying excess load</li> <li>Base Pads on the bottom protects from rough terrain</li> </ul> <div> <p><b>Product Details</b></p> <ul> <li>CAPACITY 80 Litres (Including Detachable Day Pack)</li> <li>FRAME Internal frame with hard fibre support and aluminum rod</li> <li>USAGE Ideal for long duration hikes lasting more than 15 days and for carrying luggage on motorcycles and cars; Army Grade</li> <li>RAIN COVER Included inside the Velcro pocket at the base of the rucksack</li> <li>FABRIC MATERIAL 250 GSM Water-Repellant PU Coated Polyester</li> <li>BUCKLE MATERIAL Delrin</li> <li>WEBBING MATERIAL Polypropylene</li> <li>DIMENSIONS 31 inch X 14 inch X 11 inch (When fully filled)</li> <li>WEIGHT 2.3 kg</li> </ul> </div>"
+                  },
+                  "location_id": "./retail.kirana/ind.blr/34@retail-bpp-infra2.becknprotocol.io.provider_location",
+                  "recommended": true,
+                  "tags": {
+                    "Bagpack": "Y",
+                    "Category": "Retail",
+                    "Rucksack": "Y",
+                    "Trekking": "Y",
+                    "Bag-pack": "Y",
+                    "Bag": "Y",
+                    "Pack": "Y",
+                    "Hiking": "Y"
+                  }
+                }
+              ]
+            }
+          ],
+          "bpp/descriptor": {
+            "name": "HBO"
+          },
+          "id": "./retail.kirana/ind.blr/0@retail-bpp-infra2.becknprotocol.io"
+        }
+      }
+    }
+  ]
+}
