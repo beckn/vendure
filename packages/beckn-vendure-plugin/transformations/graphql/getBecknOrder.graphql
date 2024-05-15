@@ -9,6 +9,8 @@ query GetBecknOrder($becknOrderId: String!) {
         shippingWithTax
         total
         totalWithTax
+        createdAt
+        updatedAt
         customer {
             id
             title

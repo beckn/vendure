@@ -105,7 +105,7 @@
                         "type": "digital-fulfillment",
                         "state": {
                             "descriptor": {
-                                "code": "pending"
+                                "code": "delivered"
                             }
                         },
                         "stops": [
@@ -236,6 +236,18 @@
                                     "code": "detailedOrderStatus"
                                 },
                                 "value": "PaymentSettled"
+                            }
+                        ]
+                    },
+                    {
+                        "descriptor": {
+                            "name": "Course Completion Details",
+                            "code": "course-completion-details"
+                        },
+                        "list": [
+                            {
+                                "descriptor": { "name": "Course certificate", "code": "course-certificate" },
+                                "value": null
                             }
                         ]
                     }
