@@ -127,6 +127,8 @@
                 "order": {
                     "id": getBecknOrderInput.becknOrderId,
                     "status": $order.state="Cancelled" ? "CANCELLED" : ($order.state="Delivered" ? "COMPLETE" : "ACTIVE"),
+                    "created_at": $order.createdAt,
+                    "updated_at": $order.updatedAt,
                     "provider":{
                         "id": $currentChannel.token,
                         "descriptor": {

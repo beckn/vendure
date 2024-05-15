@@ -115,31 +115,55 @@
         "queryName": "status",
         "reqJSONFile": "status.json",
         "resJSONFile": "on-status.json",
-        "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
+        "exclude": [
+            "body.context.timestamp",
+            "body.message.order.fulfillments.0.state.updated_at",
+            "body.message.order.created_at",
+            "body.message.order.updated_at"
+        ]
     },
     {
         "queryName": "status-digital-product",
         "reqJSONFile": "status-digital-product.json",
         "resJSONFile": "on-status-digital-product.json",
-        "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
+        "exclude": [
+            "body.context.timestamp",
+            "body.message.order.fulfillments.0.state.updated_at",
+            "body.message.order.created_at",
+            "body.message.order.updated_at"
+        ]
     },
     {
         "queryName": "status-digital-product-one-video",
         "reqJSONFile": "status-digital-product-one-video.json",
         "resJSONFile": "on-status-digital-product-one-video.json",
-        "exclude": ["body.context.timestamp", "body.message.order.id"]
+        "exclude": [
+            "body.context.timestamp",
+            "body.message.order.id",
+            "body.message.order.created_at",
+            "body.message.order.updated_at"
+        ]
     },
     {
         "queryName": "status-service",
         "reqJSONFile": "status-service.json",
         "resJSONFile": "on-status-service.json",
-        "exclude": ["body.context.timestamp", "body.message.order.fulfillments.0.state.updated_at"]
+        "exclude": [
+            "body.context.timestamp",
+            "body.message.order.fulfillments.0.state.updated_at",
+            "body.message.order.created_at",
+            "body.message.order.updated_at"
+        ]
     },
     {
         "queryName": "status-digital-product-with-course-completion",
         "reqJSONFile": "status-digital-product-with-course-completion.json",
         "resJSONFile": "on-status-digital-product-with-course-completion.json",
-        "exclude": ["body.context.timestamp"]
+        "exclude": [
+            "body.context.timestamp",
+            "body.message.order.created_at",
+            "body.message.order.updated_at"
+        ]
     },
     {
         "queryName": "track",
@@ -163,18 +187,20 @@
         "queryName": "update-address",
         "reqJSONFile": "update-address.json",
         "resJSONFile": "on-update-address.json",
-        "exclude": ["body.context.timestamp"]
+        "exclude": [
+            "body.context.timestamp",
+            "body.message.order.created_at",
+            "body.message.order.updated_at"
+        ]
     },
     {
         "queryName": "update-digital-individual-fulfillment",
         "reqJSONFile": "update-digital-individual-fulfillment.json",
         "resJSONFile": "on-update-digital-individual-fulfillment.json",
-        "exclude": ["body.context.timestamp"]
-    },
-    {
-        "queryName": "update-address",
-        "reqJSONFile": "update-address.json",
-        "resJSONFile": "on-update-address.json",
-        "exclude": ["body.context.timestamp"]
+        "exclude": [
+            "body.context.timestamp",
+            "body.message.order.created_at",
+            "body.message.order.updated_at"
+        ]
     }
 ]
