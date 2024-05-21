@@ -26,6 +26,7 @@
     },
     "devDependencies": {
         "@types/json-diff": "1.0.3",
+        "@types/uuid": "9.0.1",
         "@vendure/common": "^2.1.5",
         "@vendure/core": "^2.1.5",
         "@vendure/testing": "^2.1.5",

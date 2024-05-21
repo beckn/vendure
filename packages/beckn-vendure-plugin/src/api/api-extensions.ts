@@ -29,6 +29,7 @@ export const shopApiExtensions = gql`
         getBecknTransactionFromVendureAuthToken(vendureAuthToken: String!): BecknTransaction
         getVendureToken(becknOrderId: String!): String
         getBecknOrder(becknOrderId: String!): Order
+        getCustomer(email: String!): Customer
         getProductVariantDetails(
             options: ProductVariantListOptions
             productId: ID

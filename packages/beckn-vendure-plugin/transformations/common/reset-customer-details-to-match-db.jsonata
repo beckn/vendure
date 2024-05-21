@@ -1,0 +1,33 @@
+
+(
+    $message := becknRequest.body.message;
+    $order := $message.order;
+    $billing := $order.billing;
+    $firstName := function($fullName){
+        $split($fullName," ")[0]
+    };
+    $lastName := function($fullName){(
+        $parts := $split($fullName," ");
+        $remainingParts := $filter($parts, function ($v, $i) {
+            $i != 0
+            });
+        $lastName := $join($remainingParts," ");
+        $lastName ? $lastName : "";
+    )};    
+    existingCustomer.id ? {
+      "customerDetails": {
+        "firstName": existingCustomer.firstName,
+        "lastName": existingCustomer.lastName,
+        "phoneNumber": existingCustomer.phoneNumber,
+        "emailAddress": existingCustomer.emailAddress
+      }
+    }:
+    {
+      "customerDetails": $billing.{
+          "firstName": $firstName(name),
+          "lastName": $lastName(name),
+          "phoneNumber": phone,
+          "emailAddress": email
+      }
+    }
+)

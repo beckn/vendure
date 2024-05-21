@@ -3,6 +3,7 @@
     $order := $message.order;
     $items := $message.order.items;
     $fulfillments := $message.order.fulfillments;
+    $fulfillmentCustomer := $fulfillments[0].customer;
     $billing := $order.billing;
     $stop := $order.fulfillments[0].stops[0];
     $shippingAddress := $stop.location;
@@ -29,7 +30,7 @@
             $i != 0
             });
         $lastName := $join($remainingParts," ");
-        $lastName ? $lastName : "N/A";
+        $lastName ? $lastName : "";
     )};
     {
         "totalItems":$count($items),
@@ -40,13 +41,13 @@
         "shippingMethodType": $order.fulfillments[].type,
         "setOrderShippingAddressInput":{
             "shippingAddress": $shippingAddress.{
-                "fullName": $stop.contact.name,
+                "fullName": $stop.contact.name ? $stop.contact.name : $fulfillmentCustomer.person.name,
                 "streetLine1":address,
                 "city":city.name,
                 "province":state.name,
                 "countryCode":$substring(country.code,0,2),
                 "postalCode":area_code,
-                "phoneNumber":$stop.contact.phone
+                "phoneNumber":$stop.contact.phone ? $stop.contact.phone : $fulfillmentCustomer.contact.phone
             }
         },
         "setOrderBillingAddressInput":{
@@ -60,13 +61,8 @@
                 "phoneNumber": phone
             }
         },
-        "setCustomerForOrderInput": {
-            "customerDetails": $billing.{
-                "firstName": $firstName(name),
-                "lastName": $lastName(name),
-                "phoneNumber": phone,
-                "emailAddress": email
-            }
+        "getCustomerInput":{
+            "email": $billing.email
         }           
     }
 )

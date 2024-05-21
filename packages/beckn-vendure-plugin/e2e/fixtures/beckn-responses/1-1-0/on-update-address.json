@@ -114,8 +114,10 @@
                                     },
                                     "area_code": "560025"
                                 },
+                                "person": {
+                                    "name": "Waheeda Rehman"
+                                },
                                 "contact": {
-                                    "name": "Waheeda Rehman",
                                     "phone": "919845998459",
                                     "email": "nc.rehman@gmail.com"
                                 }
@@ -123,10 +125,11 @@
                         ],
                         "customer": {
                             "person": {
-                                "name": "Motiur Rehman"
+                                "name": "Waheeda Rehman"
                             },
                             "contact": {
-                                "phone": "9191223433"
+                                "phone": "919845998459",
+                                "email": "nc.rehman@gmail.com"
                             }
                         }
                     }
