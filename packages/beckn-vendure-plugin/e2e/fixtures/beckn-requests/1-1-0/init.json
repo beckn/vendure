@@ -21,7 +21,7 @@
             "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
             "transaction_id": "{{$randomUUID}}",
             "message_id": "{{$randomUUID}}",
-            "timestamp": "{{$timestamp}}"
+            "timestamp": "2024-01-26T09:45:40.407Z"
         },
         "message": {
             "order": {

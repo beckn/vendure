@@ -115,8 +115,10 @@
                                     },
                                     "area_code": "560300"
                                 },
+                                "person": {
+                                    "name": "Motiur Rehman"
+                                },
                                 "contact": {
-                                    "name": "Motiur Rehman",
                                     "phone": "919122343355",
                                     "email": "nc.rehman@gmail.com"
                                 }
@@ -127,7 +129,8 @@
                                 "name": "Motiur Rehman"
                             },
                             "contact": {
-                                "phone": "9191223433"
+                                "phone": "919122343355",
+                                "email": "nc.rehman@gmail.com"
                             }
                         },
                         "state": {

@@ -173,9 +173,9 @@
         "exclude": ["body.message.order.created_at", "body.message.order.updated_at"]
     },
     {
-        "queryName": "init",
-        "reqJSONFile": "init.json",
-        "resJSONFile": "on-init.json",
-        "exclude": ["body.message.order.id"]
+        "queryName": "update-address",
+        "reqJSONFile": "update-address.json",
+        "resJSONFile": "on-update-address.json",
+        "exclude": ["body.message.order.created_at", "body.message.order.updated_at"]
     }
 ]

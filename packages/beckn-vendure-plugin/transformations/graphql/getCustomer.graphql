@@ -1,0 +1,12 @@
+query GetCustomer($email: String!) {
+    getCustomer(email: $email) {
+        id
+        createdAt
+        updatedAt
+        title
+        firstName
+        lastName
+        phoneNumber
+        emailAddress
+    }
+}

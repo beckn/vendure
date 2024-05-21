@@ -17,7 +17,9 @@ import { BecknVendurePluginOptions } from './types';
 import { WebhookController } from './webhook.controller';
 import { WebhookService } from './webhook.service';
 import { DigitalFulfillmentResolver } from './api/digital-fulfillment-resolver';
+import { CustomerResolver } from './api/customer-resolver';
 import { DigitalFulfillmentService } from './services/digital-fulfillment-service';
+import { CustomCustomerService } from './services/customer-service';
 
 @VendurePlugin({
     imports: [PluginCommonModule, TransformerModule],
@@ -25,10 +27,16 @@ import { DigitalFulfillmentService } from './services/digital-fulfillment-servic
     controllers: [WebhookController],
     shopApiExtensions: {
         schema: shopApiExtensions,
-        resolvers: [BecknTransactionResolver, ProductVariantResolver, DigitalFulfillmentResolver],
+        resolvers: [
+            BecknTransactionResolver,
+            ProductVariantResolver,
+            DigitalFulfillmentResolver,
+            CustomerResolver,
+        ],
     },
     providers: [
         BecknTransactionService,
+        CustomCustomerService,
         WebhookService,
         GenericHandlerService,
         DigitalFulfillmentService,

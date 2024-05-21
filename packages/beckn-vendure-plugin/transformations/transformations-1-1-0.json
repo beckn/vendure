@@ -446,12 +446,30 @@
             }
         },
         {
+            "name": "get-current-customer-if-available",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getCustomer.graphql",
+                "variablesKey": "cartDetails.getCustomerInput",
+                "outputKey": "existingCustomer",
+                "outputDataPath": "body.data.getCustomer"
+            }
+        },
+        {
+            "name": "setup-customer-details",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "reset-customer-details-to-match-db.jsonata",
+                "common": "true",
+                "outputKey": "setCustomerForOrderInput"
+            }
+        },
+        {
             "name": "set-customer-for-order",
             "type": "send-graphql-request",
             "args": {
                 "graphqlFilename": "setCustomerForOrder.graphql",
-
-                "variablesKey": "cartDetails.setCustomerForOrderInput",
+                "variablesKey": "setCustomerForOrderInput",
                 "outputKey": "setCustomerForOrderResult",
                 "outputDataPath": "body.data"
             }
@@ -709,16 +727,33 @@
             "condition": "context.orderCanBeModified"
         },
         {
+            "name": "get-current-customer-if-available",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "getCustomer.graphql",
+                "variablesKey": "cartDetails.getCustomerInput",
+                "outputKey": "existingCustomer",
+                "outputDataPath": "body.data.getCustomer"
+            }
+        },
+        {
+            "name": "setup-customer-details",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "reset-customer-details-to-match-db.jsonata",
+                "common": "true",
+                "outputKey": "setCustomerForOrderInput"
+            }
+        },
+        {
             "name": "set-customer-for-order",
             "type": "send-graphql-request",
             "args": {
                 "graphqlFilename": "setCustomerForOrder.graphql",
-
-                "variablesKey": "cartDetails.setCustomerForOrderInput",
+                "variablesKey": "setCustomerForOrderInput",
                 "outputKey": "setCustomerForOrderResult",
                 "outputDataPath": "body.data"
-            },
-            "condition": "context.orderCanBeModified"
+            }
         },
         {
             "name": "set-order-shipping-address",
