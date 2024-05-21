@@ -1,8 +1,10 @@
 import { readJSON, readdir } from 'fs-extra';
+import { readFile } from 'fs/promises';
 import path from 'path';
 import { expect } from 'vitest';
 import { SetupServerApi, setupServer } from 'msw/node';
 import { GraphQLHandler, HttpResponse, graphql, http } from 'msw';
+import { v4 } from 'uuid';
 
 export type ReqResTestConfig = {
     queryName: string;
@@ -20,7 +22,12 @@ export async function readFixtureJSON(filename: string) {
 }
 
 export async function readBecknRequestJSON(version: string, filename: string) {
-    return await readJSON(path.join(__dirname, 'fixtures', 'beckn-requests', version, filename));
+    let request = (
+        await readFile(path.join(__dirname, 'fixtures', 'beckn-requests', version, filename))
+    ).toString();
+    request = request.replace(/\{\{\$randomUUID}}/g, () => v4());
+    request = request.replace(/\{\{\$timestamp}}/g, () => new Date().toISOString());
+    return JSON.parse(request);
 }
 
 export async function readBecknResponseJSON(version: string, filename: string) {
@@ -32,7 +39,13 @@ export async function readVCRResponseJSON(version: string, request: string, grap
 }
 
 export function strictEqualWithExclude(obj: any, expectedObj: any, exclude: string[] = []) {
-    for (const key of exclude) {
+    const tExclude = [
+        ...exclude,
+        'body.context.timestamp',
+        'body.context.transaction_id',
+        'body.context.message_id',
+    ];
+    for (const key of tExclude) {
         deleteKey(obj, key);
         deleteKey(expectedObj, key);
     }

@@ -29,7 +29,7 @@
             $i != 0
             });
         $lastName := $join($remainingParts," ");
-        $lastName ? $lastName : "N/A";
+        $lastName ? $lastName : "";
     )};
     {
         "totalItems":$count($items),

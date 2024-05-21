@@ -19,9 +19,9 @@
             "bap_uri": "https://ps-bap-network.becknprotocol.io/",
             "bpp_id": "vbabu.lr.bpp.1",
             "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
-            "transaction_id": "8100d125-76a7-4588-88be-81b976571103",
-            "message_id": "06f49c01-65b7-4754-8b37-ab4e33682103",
-            "timestamp": "2024-01-26T09:45:40.407Z"
+            "transaction_id": "{{$randomUUID}}",
+            "message_id": "{{$randomUUID}}",
+            "timestamp": "{{$timestamp}}"
         },
         "message": {
             "order": {

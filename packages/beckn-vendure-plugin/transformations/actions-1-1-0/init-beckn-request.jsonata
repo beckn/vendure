@@ -15,7 +15,7 @@
             $i != 0
             });
         $lastName := $join($remainingParts," ");
-        $lastName ? $lastName : "N/A";
+        $lastName ? $lastName : "";
     )};
     $itemToOrderLine := function($tItem){(
         $fulfillment := $fulfillments[$.id = $tItem.fulfillment_ids[0]];
