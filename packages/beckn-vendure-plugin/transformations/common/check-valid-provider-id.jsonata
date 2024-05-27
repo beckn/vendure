@@ -1,0 +1,4 @@
+(
+    $currentCondition := becknRequest.body.message.intent.provider.id ? (activeChannel ? true : false) : true;
+    $exists(validSearch) ? (validSearch and $currentCondition) : $currentCondition;
+)

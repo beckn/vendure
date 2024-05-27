@@ -19,6 +19,7 @@ export class SendGraphQLRequest implements TransformTask {
     private outputDataPath: string;
     private vendureAuthTokenKey: string;
     private vendureTokenKey: string;
+    private nullOnException: boolean;
 
     preCheck(context: TransformerContext): boolean {
         if (!this.taskDef.args || !context.env) throw Error('SendGraphQL requires configuration');
@@ -38,15 +39,14 @@ export class SendGraphQLRequest implements TransformTask {
         this.outputDataPath = this.taskDef.args.outputDataPath;
         this.vendureAuthTokenKey = this.taskDef.args.vendureAuthTokenKey || 'vendureAuthToken';
         this.vendureTokenKey = this.taskDef.args.vendureTokenKey || 'vendureToken';
+        this.nullOnException = !!this.taskDef.args.nullOnException || false;
         return true;
     }
 
     async run(context: TransformerContext): Promise<void> {
         const query = await readFile(this.graphqlFilename, 'utf-8');
-        // console.log(query);
         let variables;
         if (this.variablesKey) variables = getValue(context, this.variablesKey);
-        // console.log(variables);
         let headers: { [key: string]: string } = { 'content-type': 'application/json' };
 
         const vendureAuthToken = (getValue(context, this.vendureAuthTokenKey) as string) || '';
@@ -95,7 +95,11 @@ export class SendGraphQLRequest implements TransformTask {
                 assignValue(context, this.outputKey, response);
             }
         } catch (err: any) {
-            throw Error(axiosErrorHandler(err).message);
+            if (this.nullOnException) {
+                assignValue(context, this.outputKey, null);
+            } else {
+                throw Error(axiosErrorHandler(err).message);
+            }
         }
     }
 }

@@ -19,13 +19,33 @@
             }
         },
         {
+            "name": "check-provider",
+            "type": "send-graphql-request",
+            "args": {
+                "graphqlFilename": "activeChannel.graphql",
+                "outputDataPath": "body.data.activeChannel",
+                "outputKey": "activeChannel",
+                "nullOnException": true
+            }
+        },
+        {
+            "name": "check-if-provider-is-valid",
+            "type": "transform-and-add",
+            "args": {
+                "jsonataFilename": "check-valid-provider-id.jsonata",
+                "outputKey": "validSearch",
+                "common": "true"
+            }
+        },
+        {
             "name": "get-all-categories",
             "type": "send-graphql-request",
             "args": {
                 "graphqlFilename": "getCategories.graphql",
                 "outputDataPath": "body.data.facets.items",
                 "outputKey": "allCategories"
-            }
+            },
+            "condition": "context.validSearch"
         },
         {
             "name": "get-tag-and-category-filter",
@@ -34,7 +54,8 @@
                 "jsonataFilename": "extract-tag-filter-from-request.jsonata",
                 "outputKey": "tagsAndCatFilter",
                 "common": "true"
-            }
+            },
+            "condition": "context.validSearch"
         },
         {
             "name": "get-facets",
@@ -45,7 +66,7 @@
                 "outputDataPath": "body.data.facets",
                 "outputKey": "facetsAndValues"
             },
-            "condition": "!! context.tagsAndCatFilter?.summary?.facets?.length > 0"
+            "condition": "context.validSearch && !! context.tagsAndCatFilter?.summary?.facets?.length > 0"
         },
         {
             "name": "construct-facet-values-filter",
@@ -54,7 +75,8 @@
                 "jsonataFilename": "construct-facet-values-filter.jsonata",
                 "outputKey": "facetValuesFilter",
                 "common": "true"
-            }
+            },
+            "condition": "context.validSearch"
         },
         {
             "name": "construct-search-request",
@@ -62,7 +84,8 @@
             "args": {
                 "jsonataFilename": "search-beckn-request.jsonata",
                 "outputKey": "searchInput"
-            }
+            },
+            "condition": "context.validSearch"
         },
         {
             "name": "check-if-valid-search",
@@ -71,7 +94,8 @@
                 "jsonataFilename": "check-if-search-valid.jsonata",
                 "outputKey": "validSearch",
                 "common": "true"
-            }
+            },
+            "condition": "context.validSearch"
         },
         {
             "name": "send-search-graphql-request",
