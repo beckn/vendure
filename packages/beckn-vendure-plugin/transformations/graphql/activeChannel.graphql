@@ -1,0 +1,9 @@
+query ActiveChannel {
+    activeChannel {
+        id
+        code
+        token
+        defaultLanguageCode
+        defaultCurrencyCode
+    }
+}
