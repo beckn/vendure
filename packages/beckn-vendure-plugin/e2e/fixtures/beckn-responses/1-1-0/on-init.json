@@ -190,6 +190,16 @@
                             "amount": "61.27",
                             "currency": "USD"
                         }
+                    },
+                    {
+                        "id": "5",
+                        "name": "Standard",
+                        "status": "NOT-PAID",
+                        "type": "PRE-FULFILLMENT",
+                        "params": {
+                            "amount": "61.27",
+                            "currency": "USD"
+                        }
                     }
                 ],
                 "tags": [
@@ -204,11 +214,24 @@
                                 "value": "standard"
                             },
                             {
-                                "descriptor": { "name": "Standard Shipping", "code": "standard-shipping" },
+                                "descriptor": {
+                                    "name": "Standard",
+                                    "code": "standard"
+                                },
+                                "value": "standard"
+                            },
+                            {
+                                "descriptor": {
+                                    "name": "Standard Shipping",
+                                    "code": "standard-shipping"
+                                },
                                 "value": "standard-shipping"
                             },
                             {
-                                "descriptor": { "name": "Express Shipping", "code": "express-shipping" },
+                                "descriptor": {
+                                    "name": "Express Shipping",
+                                    "code": "express-shipping"
+                                },
                                 "value": "express-shipping"
                             }
                         ]

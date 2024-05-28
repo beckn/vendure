@@ -17,9 +17,9 @@
             "version": "1.1.0",
             "bap_id": "ps-bap-network.becknprotocol.io",
             "bap_uri": "https://ps-bap-network.becknprotocol.io/",
-            "transaction_id": "8100d125-76a7-4588-88be-81b976571106",
-            "message_id": "6104c0a3-d1d1-4ded-aaa4-76e4caf72101",
-            "timestamp": "2023-11-06T09:41:09.673Z",
+            "transaction_id": "931e16e4-b16a-4768-93b9-bc7cc35793af",
+            "message_id": "4f2397d9-c31f-40f8-93e1-c4fc56aa3824",
+            "timestamp": "2024-05-28T02:16:56.818Z",
             "bpp_id": "vbabu.lr.bpp.1",
             "bpp_uri": "https://vbabu-lr-bpp.loca.lt"
         },
@@ -35,73 +35,15 @@
                             "name": "Nandi Coffee"
                         },
                         "categories": [
-                            { "id": "51", "descriptor": { "code": "grocery", "name": "Grocery" } },
-                            { "id": "52", "descriptor": { "code": "plants", "name": "Plants" } }
+                            {
+                                "id": "52",
+                                "descriptor": {
+                                    "code": "plants",
+                                    "name": "Plants"
+                                }
+                            }
                         ],
                         "items": [
-                            {
-                                "price": {
-                                    "listed_value": "10.00",
-                                    "currency": "INR",
-                                    "value": "10.00"
-                                },
-                                "id": "89",
-                                "category_ids": ["51"],
-                                "descriptor": {
-                                    "name": "Kabunyeria",
-                                    "long_desc": "<p>Green unroasted fruity flavoured coffee from the Nandi county of Kenya</p>",
-                                    "images": [
-                                        {
-                                            "url": "http://localhost:3000/assets/preview/9d/coffee__preview.jpeg"
-                                        }
-                                    ]
-                                },
-                                "matched": true,
-                                "tags": [
-                                    {
-                                        "display": true,
-                                        "descriptor": {
-                                            "name": "Facets",
-                                            "code": "facets",
-                                            "short_desc": "Tags in common language, facets within Vendure"
-                                        },
-                                        "list": [
-                                            {
-                                                "display": true,
-                                                "descriptor": {
-                                                    "name": "species",
-                                                    "code": "species"
-                                                },
-                                                "value": "Arabica"
-                                            },
-                                            {
-                                                "display": true,
-                                                "descriptor": {
-                                                    "name": "county",
-                                                    "code": "county"
-                                                },
-                                                "value": "Nandi"
-                                            },
-                                            {
-                                                "display": true,
-                                                "descriptor": {
-                                                    "name": "category",
-                                                    "code": "category-2"
-                                                },
-                                                "value": "Grocery"
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "quantity": {
-                                    "unitized": {
-                                        "measure": {
-                                            "value": "1",
-                                            "unit": "lbs"
-                                        }
-                                    }
-                                }
-                            },
                             {
                                 "price": {
                                     "listed_value": "5.00",

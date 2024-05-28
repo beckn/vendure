@@ -77,7 +77,7 @@
                                         $price := $string($formatNumber($price/100,"#0.00"));
                                         {
                                         "listed_value": $price,
-                                        "currency": currencyCode,
+                                        "currency": $provider.currencyCode,
                                         "value": $price
                                     }),
                                     "id" : productVariantId,

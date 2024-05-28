@@ -8,6 +8,7 @@
         {
             "id" :id,
             "name": name,
+            "currencyCode": $uniqueChannel.defaultCurrencyCode,
             "seller": {
                 "id": $uniqueChannel.token,
                 "name": $seller.name
@@ -20,6 +21,7 @@
         {
             "id": $sellerId,
             "name": $productVariantsWithSeller[seller.id=$sellerId][0].seller.name,
+            "currencyCode":$productVariantsWithSeller[seller.id=$sellerId][0].currencyCode,
             "productVariantIds": $productVariantsWithSeller[seller.id=$sellerId][].id
         }
     )

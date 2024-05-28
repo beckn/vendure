@@ -256,6 +256,21 @@
                             "label": "Transaction timestamp",
                             "timestamp": "2024-01-26T10:14:10.280Z"
                         }
+                    },
+                    {
+                        "id": "5",
+                        "name": "Standard",
+                        "status": "PAID",
+                        "type": "PRE-FULFILLMENT",
+                        "params": {
+                            "amount": "61.27",
+                            "currency": "USD",
+                            "transaction_id": "198237465"
+                        },
+                        "time": {
+                            "label": "Transaction timestamp",
+                            "timestamp": "2024-01-26T10:14:10.280Z"
+                        }
                     }
                 ],
                 "tags": [
@@ -270,11 +285,24 @@
                                 "value": "standard"
                             },
                             {
-                                "descriptor": { "name": "Standard Shipping", "code": "standard-shipping" },
+                                "descriptor": {
+                                    "name": "Standard",
+                                    "code": "standard"
+                                },
+                                "value": "standard"
+                            },
+                            {
+                                "descriptor": {
+                                    "name": "Standard Shipping",
+                                    "code": "standard-shipping"
+                                },
                                 "value": "standard-shipping"
                             },
                             {
-                                "descriptor": { "name": "Express Shipping", "code": "express-shipping" },
+                                "descriptor": {
+                                    "name": "Express Shipping",
+                                    "code": "express-shipping"
+                                },
                                 "value": "express-shipping"
                             }
                         ]

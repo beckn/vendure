@@ -37,6 +37,11 @@
         "reqJSONFile": "search-item-category-non.json"
     },
     {
+        "queryName": "search-item-diff-currency",
+        "reqJSONFile": "search-item-diff-currency.json",
+        "resJSONFile": "on-search-item-diff-currency.json"
+    },
+    {
         "queryName": "select",
         "reqJSONFile": "select.json",
         "resJSONFile": "on-select.json",
@@ -55,6 +60,12 @@
         "exclude": ["body.message.order.id"]
     },
     {
+        "queryName": "select-diff-currency",
+        "reqJSONFile": "select-diff-currency.json",
+        "resJSONFile": "on-select-diff-currency.json",
+        "exclude": ["body.message.order.id"]
+    },
+    {
         "queryName": "init",
         "reqJSONFile": "init.json",
         "resJSONFile": "on-init.json",
@@ -70,6 +81,12 @@
         "queryName": "init-service",
         "reqJSONFile": "init-service.json",
         "resJSONFile": "on-init-service.json",
+        "exclude": ["body.message.order.id"]
+    },
+    {
+        "queryName": "init-diff-currency",
+        "reqJSONFile": "init-diff-currency.json",
+        "resJSONFile": "on-init-diff-currency.json",
         "exclude": ["body.message.order.id"]
     },
     {
@@ -94,6 +111,12 @@
         "queryName": "confirm-service",
         "reqJSONFile": "confirm-service.json",
         "resJSONFile": "on-confirm-service.json",
+        "exclude": ["body.message.order.id"]
+    },
+    {
+        "queryName": "confirm-diff-currency",
+        "reqJSONFile": "confirm-diff-currency.json",
+        "resJSONFile": "on-confirm-diff-currency.json",
         "exclude": ["body.message.order.id"]
     },
     {
@@ -145,6 +168,12 @@
         "exclude": ["body.message.order.created_at", "body.message.order.updated_at"]
     },
     {
+        "queryName": "status-diff-currency",
+        "reqJSONFile": "status-diff-currency.json",
+        "resJSONFile": "on-status-diff-currency.json",
+        "exclude": ["body.message.order.created_at", "body.message.order.updated_at"]
+    },
+    {
         "queryName": "track",
         "reqJSONFile": "track.json",
         "resJSONFile": "on-track.json"
@@ -169,12 +198,6 @@
         "queryName": "update-digital-individual-fulfillment",
         "reqJSONFile": "update-digital-individual-fulfillment.json",
         "resJSONFile": "on-update-digital-individual-fulfillment.json",
-        "exclude": ["body.message.order.created_at", "body.message.order.updated_at"]
-    },
-    {
-        "queryName": "update-address",
-        "reqJSONFile": "update-address.json",
-        "resJSONFile": "on-update-address.json",
         "exclude": ["body.message.order.created_at", "body.message.order.updated_at"]
     }
 ]
