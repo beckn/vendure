@@ -1,0 +1,150 @@
+{
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "body": {
+        "context": {
+            "domain": "retail:1.1.0",
+            "location": {
+                "country": {
+                    "code": "IND"
+                },
+                "city": {
+                    "code": "std:080"
+                }
+            },
+            "action": "on_select",
+            "version": "1.1.0",
+            "bap_id": "ps-bap-network.becknprotocol.io",
+            "bap_uri": "https://ps-bap-network.becknprotocol.io/",
+            "bpp_id": "vbabu.lr.bpp.1",
+            "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
+            "message_id": "cae95ffd-3f46-46a4-a73c-54c6eb23739e",
+            "transaction_id": "931e16e4-b16a-4768-93b9-bc7cc35793af",
+            "timestamp": "2024-05-28T02:24:10.865Z",
+            "ttl": "PT10M"
+        },
+        "message": {
+            "order": {
+                "id": "7ed71da15e2f32b40ba442af5f8216fe85b01431ccce60f94fe322478e599fe8",
+                "provider": {
+                    "id": "nandi-coffee",
+                    "descriptor": {
+                        "name": "Nandi Coffee",
+                        "short_desc": "Premium coffee growers from the county of Nandi near Lake Victoria",
+                        "long_desc": "Nandi county in western Kenya is known for scenic Tea plantations. Little known are the tasty coffee beans grown in the same hills. We specialize in delicious tasting Arabica and Robusta coffee.",
+                        "images": [
+                            {
+                                "url": "http://localhost:3000/assets/source/d5/nandi.jpeg"
+                            },
+                            {
+                                "url": "http://localhost:3000/assets/source/72/nandi-2.jpeg"
+                            }
+                        ]
+                    },
+                    "tags": [
+                        {
+                            "display": true,
+                            "descriptor": {
+                                "name": "Additional Details",
+                                "code": "additional_details",
+                                "short_desc": "Additional details about seller"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "name": "Address",
+                                        "code": "address",
+                                        "short_desc": "Address of Seller"
+                                    },
+                                    "display": true,
+                                    "value": "P.O. Box 98765, Kapsabet, Kenya "
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Tax ID",
+                                        "code": "tax_id",
+                                        "short_desc": "Tax identifier of Seller"
+                                    },
+                                    "display": true,
+                                    "value": "KEN-TAX-001"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "fulfillments": [
+                    {
+                        "id": "6",
+                        "type": "standard"
+                    }
+                ],
+                "items": [
+                    {
+                        "id": "90",
+                        "descriptor": {
+                            "name": "Chepsangor Coffee Saplings",
+                            "long_desc": "<p>Native Coffee Saplings from the hills of Cepsangor in Nandi country</p>",
+                            "images": [
+                                {
+                                    "url": "http://localhost:3000/assets/source/ad/coffee-sapling.jpeg"
+                                }
+                            ]
+                        },
+                        "price": {
+                            "listed_value": "5.00",
+                            "currency": "INR",
+                            "value": "5.00"
+                        },
+                        "quantity": {
+                            "selected": {
+                                "count": 2
+                            }
+                        },
+                        "fulfillment_ids": ["6"]
+                    }
+                ],
+                "quote": {
+                    "price": {
+                        "currency": "INR",
+                        "value": "12.00"
+                    },
+                    "breakup": [
+                        {
+                            "title": "base-price",
+                            "price": {
+                                "currency": "INR",
+                                "value": "10.00"
+                            }
+                        },
+                        {
+                            "title": "taxes",
+                            "price": {
+                                "currency": "INR",
+                                "value": "2.00"
+                            }
+                        }
+                    ]
+                },
+                "type": "DEFAULT",
+                "tags": [
+                    {
+                        "descriptor": {
+                            "name": "Shipping method details",
+                            "code": "ShippingMethodDetails"
+                        },
+                        "list": [
+                            {
+                                "descriptor": {
+                                    "name": "Standard",
+                                    "code": "standard"
+                                },
+                                "value": "standard"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

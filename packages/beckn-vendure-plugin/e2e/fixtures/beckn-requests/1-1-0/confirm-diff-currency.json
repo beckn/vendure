@@ -1,0 +1,108 @@
+{
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "body": {
+        "context": {
+            "domain": "retail:1.1.0",
+            "location": {
+                "country": {
+                    "code": "IND"
+                },
+                "city": {
+                    "code": "std:080"
+                }
+            },
+            "action": "confirm",
+            "version": "1.1.0",
+            "bap_id": "ps-bap-network.becknprotocol.io",
+            "bap_uri": "https://ps-bap-network.becknprotocol.io",
+            "bpp_id": "vbabu.lr.bpp.1",
+            "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
+            "message_id": "{{$randomUUID}}",
+            "transaction_id": "cdc1fe86-d5cb-47ce-9dbf-f9122d315987",
+            "timestamp": "{{$timestamp}}"
+        },
+        "message": {
+            "order": {
+                "provider": {
+                    "id": "nandi-coffee"
+                },
+                "items": [
+                    {
+                        "id": "90",
+                        "quantity": {
+                            "selected": {
+                                "count": 2
+                            }
+                        }
+                    }
+                ],
+                "fulfillments": [
+                    {
+                        "id": "6",
+                        "type": "standard",
+                        "stops": [
+                            {
+                                "location": {
+                                    "gps": "13.2008459,77.708736",
+                                    "address": "43, Residency Road",
+                                    "city": {
+                                        "name": "Bengaluru"
+                                    },
+                                    "state": {
+                                        "name": "Karnataka"
+                                    },
+                                    "country": {
+                                        "code": "IND"
+                                    },
+                                    "area_code": "560025"
+                                },
+                                "contact": {
+                                    "phone": "919845998459",
+                                    "email": "rahul.raj@example.com"
+                                }
+                            }
+                        ],
+                        "customer": {
+                            "person": {
+                                "name": "Rahul Raj"
+                            },
+                            "contact": {
+                                "phone": "919845998459"
+                            }
+                        }
+                    }
+                ],
+                "billing": {
+                    "name": "Rahul Raj",
+                    "phone": "+919845898458",
+                    "email": "rahul.raj@example.com",
+                    "address": "43, Residency Road, Bengaluru - 560025",
+                    "city": {
+                        "name": "Bengaluru"
+                    },
+                    "state": {
+                        "name": "Karnataka"
+                    }
+                },
+                "payments": [
+                    {
+                        "id": "5",
+                        "status": "PAID",
+                        "type": "PRE-FULFILLMENT",
+                        "params": {
+                            "amount": "12.00",
+                            "currency": "INR",
+                            "transaction_id": "98798765"
+                        },
+                        "time": {
+                            "label": "Transaction timestamp",
+                            "timestamp": "2024-01-26T10:14:10.280Z"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "body": {
+        "context": {
+            "domain": "retail:1.1.0",
+            "location": {
+                "country": {
+                    "code": "IND"
+                },
+                "city": {
+                    "code": "std:080"
+                }
+            },
+            "action": "select",
+            "version": "1.1.0",
+            "bap_id": "ps-bap-network.becknprotocol.io",
+            "bap_uri": "https://ps-bap-network.becknprotocol.io/",
+            "bpp_id": "vbabu.lr.bpp.1",
+            "bpp_uri": "https://vbabu-lr-bpp.loca.lt",
+            "message_id": "{{$randomUUID}}",
+            "transaction_id": "cdc1fe86-d5cb-47ce-9dbf-f9122d315987",
+            "timestamp": "{{$timestamp}}",
+            "ttl": "PT10M"
+        },
+        "message": {
+            "order": {
+                "provider": {
+                    "id": "nandi-coffee"
+                },
+                "items": [
+                    {
+                        "id": "90",
+                        "quantity": {
+                            "selected": {
+                                "count": 2
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -48,6 +48,7 @@
                 },
                 "fulfillments": [
                     { "id": "4", "type": "standard" },
+                    { "id": "6", "type": "standard" },
                     { "id": "1", "type": "standard-shipping" },
                     { "id": "2", "type": "express-shipping" }
                 ],
@@ -73,7 +74,7 @@
                                 "count": 2
                             }
                         },
-                        "fulfillment_ids": ["1", "2", "4"]
+                        "fulfillment_ids": ["1", "2", "4", "6"]
                     },
                     {
                         "id": "70",
@@ -96,7 +97,7 @@
                                 "count": 1
                             }
                         },
-                        "fulfillment_ids": ["1", "2", "4"]
+                        "fulfillment_ids": ["1", "2", "4", "6"]
                     }
                 ],
                 "quote": {
@@ -134,11 +135,24 @@
                                 "value": "standard"
                             },
                             {
-                                "descriptor": { "name": "Standard Shipping", "code": "standard-shipping" },
+                                "descriptor": {
+                                    "name": "Standard",
+                                    "code": "standard"
+                                },
+                                "value": "standard"
+                            },
+                            {
+                                "descriptor": {
+                                    "name": "Standard Shipping",
+                                    "code": "standard-shipping"
+                                },
                                 "value": "standard-shipping"
                             },
                             {
-                                "descriptor": { "name": "Express Shipping", "code": "express-shipping" },
+                                "descriptor": {
+                                    "name": "Express Shipping",
+                                    "code": "express-shipping"
+                                },
                                 "value": "express-shipping"
                             }
                         ]

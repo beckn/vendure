@@ -4,6 +4,7 @@ query GetProductVariantDetails($productVariantIds: [String!]) {
             channels {
                 code
                 token
+                defaultCurrencyCode
                 id
                 seller {
                     id
