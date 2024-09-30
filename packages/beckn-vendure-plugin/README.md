@@ -42,3 +42,7 @@ The Beckn Vendure Plugin uses the ReviewsPlugin for ratings functionality.
 2. Run `npm run build`. If you get errors on ui-devkit, run `npm install -D @vendure/ui-devkit`
 3. Run `npm run build` and `npm run dev`. It should start without errors.
 4. Add `ReviewsPlugin,` to the plugins arrary in vendure-config.ts file.
+
+## Developers
+
+Refer to the [developer notes](./docs/developer_notes.md) section for more details.
