@@ -1,10 +1,18 @@
 ## Project Introduction
 
 The Vendure plugin serves as a powerful tool designed to seamlessly integrate the Vendure e-commerce application with the Beckn ecosystem. It enables businesses to enhance their e-commerce operations by leveraging Beckn standards across all phases of the cycle.
+
 The Vendure plugin offers comprehensive support throughout the e-commerce cycle, including discovery, fulfillment, and post-fulfillment stages. By incorporating Beckn standards, businesses can streamline their processes and provide a seamless shopping experience for customers.
+
 With the Vendure plugin, businesses can optimize product discovery by utilizing Beckn's standardized protocols. This enables them to effectively showcase their products to potential customers, increasing visibility and driving sales.
+
 The plugin integrates Beckn standards into Vendure's order fulfillment workflows, ensuring efficient order processing and delivery. From order placement to shipment tracking, businesses can meet customer expectations and improve satisfaction.
+
 In addition to order fulfillment, the plugin supports post-fulfillment activities such as returns and exchanges. By adhering to Beckn standards, businesses can effectively manage customer inquiries and resolve issues, fostering trust and loyalty.
+
+## Detailed readme for the plugin
+
+Refer [Beckn Vendure Plugin README](./packages/beckn-vendure-plugin/README.md) for details on setting up the Beckn Vendure Plugin and related documents.
 
 ## Importing catalogs into Vendure
 
