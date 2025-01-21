@@ -7,5 +7,6 @@ export async function transformWithJSONata(data: any, jsonataFilename: string) {
     const expression = jsonata(await readFile(jsonataFilename, 'utf-8'));
     console.log(`Transforming with ${jsonataFilename}===>`, JSON.stringify(data),'\n\n');
     const evaluatedData = await expression.evaluate(data);
+    console.log('Transformed Data===>', JSON.stringify(evaluatedData),'\n\n')
     return evaluatedData
 }
